@@ -1,21 +1,12 @@
-<<<<<<< HEAD
 @import url("fonts.css");
 
 body {
-  margin: 0;
   font-family: "Figtree";
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-
-#menu {
-  width: 232px;
-  background-color: #2a3647;
-  color: white;
-}
-
-.container {
-  display: flex;
-=======
 html {
 	/*Main colors*/
 	--main-color: #2a3647;
@@ -32,11 +23,6 @@ html {
 	--purple-blue: #6e52ff;
 }
 
-body {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-}
 
 #menu {
 	width: 232px;
@@ -46,5 +32,4 @@ body {
 
 .container {
 	display: flex;
->>>>>>> a97e1be209a5f8827f9db3dad9d42e4f40d8b042
 }

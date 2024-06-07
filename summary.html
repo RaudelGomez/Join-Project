@@ -12,7 +12,10 @@
 		<div class="container">
 			<div id="menu" w3-include-html="./assets/templates/menu.html"></div>
 			<div id="main">
-				<header id="header" w3-include-html="./assets/templates/header.html"></header>
+				<header
+					id="header"
+					w3-include-html="./assets/templates/header.html"
+				></header>
 				<section id="summary" class="sub-container">
 					<div class="headline">
 						<h2>Join 360</h2>
@@ -25,30 +28,30 @@
 								<figure>
 									<img src="./assets/img/pencil_fill_icon.svg" alt="edit" />
 									<figcaption class="img-text-align">
-										<span class="quantity-task">1</span>
+										<span id="quantity-task" class="quantity-task">1</span>
 										<span class="name-task">To-do</span>
 									</figcaption>
 								</figure>
 								<figure>
 									<img src="./assets/img/check_fill_icon.svg" alt="checked" />
 									<figcaption class="img-text-align">
-										<span class="quantity-task">1</span>
+										<span id="quantity-done" class="quantity-task">1</span>
 										<span class="name-task">done</span>
 									</figcaption>
 								</figure>
 							</div>
 							<div class="container-urgent">
 								<figure>
-									<img src="./assets/img/check_fill_icon.svg" alt="checked" />
+									<img src="./assets/img/urgent_fill_icon.svg" alt="checked" />
 									<figcaption class="img-text-align">
-										<span class="quantity-task">1</span>
-										<span class="name-task">done</span>
+										<span id="quantity-urgent" class="quantity-task">1</span>
+										<span class="name-task">Urgent</span>
 									</figcaption>
 								</figure>
 								<div class="vertical-line-urgent"></div>
 								<div class="date-urgent">
-									October 16, 2024 <br />
-									Upcoming deadline
+									<span id="date-urgent">October 16, 2024</span>
+									<span class="deadline-info">Upcoming deadline</span>
 								</div>
 							</div>
 						</div>

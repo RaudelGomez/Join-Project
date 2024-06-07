@@ -49,12 +49,12 @@ body {
 }
 
 #header {
-  background-color: var(--white);
-  padding: 16px 64px;
-  -webkit-box-shadow: 0px 1px 6px 0px rgba(0, 0, 0, 0.3);
-  box-shadow: 0px 1px 6px 0px rgba(0, 0, 0, 0.3);
-  position: sticky;
-  top: 0;
+	background-color: var(--white);
+	padding: 16px 64px;
+	-webkit-box-shadow: 0px 1px 6px 0px rgba(0, 0, 0, 0.3);
+	box-shadow: 0px 1px 6px 0px rgba(0, 0, 0, 0.3);
+	position: sticky;
+	top: 0;
 }
 
 h1 {
@@ -111,10 +111,10 @@ h2 {
 }
 
 #footerNav {
-  flex-direction: column;
-  gap: 16px;
-  display: flex;
-  flex-direction: column-reverse;
+	flex-direction: column;
+	gap: 16px;
+	display: flex;
+	flex-direction: column-reverse;
 }
 
 .container {
@@ -176,8 +176,9 @@ h2 {
 	width: 100%;
 }
 
-.container-todo-done figure {
-	width: 100%;
+.container-todo-done figure,
+.container-urgent figure {
+	flex: 1;
 	aspect-ratio: 1/1;
 	background-color: var(--white);
 	display: flex;
@@ -200,13 +201,15 @@ h2 {
 	align-items: center;
 }
 
-.container-todo-done figure figcaption .quantity-task {
+.container-todo-done figure figcaption .quantity-task,
+.container-urgent figure figcaption .quantity-task {
 	font-size: 32px;
 	font-weight: 700;
 	color: var(--main-color);
 }
 
-.container-todo-done figure figcaption .name-task {
+.container-todo-done figure figcaption .name-task,
+.container-urgent figure figcaption .name-task {
 	color: var(--main-color);
 }
 
@@ -216,12 +219,32 @@ h2 {
 	align-items: center;
 	background-color: var(--white);
 	width: 100%;
+	border-radius: 16px;
+}
+
+.container-urgent .date-urgent {
+	flex: 1;
+	padding: 24px;
 }
 
 .vertical-line-urgent {
 	width: 2px;
 	height: 72%;
 	background-color: var(--gray);
+}
+
+#date-urgent {
+	font-weight: 800;
+}
+
+.date-urgent {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+
+.deadline-info {
+	font-size: 12px;
 }
 
 /*End Summary*/

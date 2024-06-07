@@ -1,35 +1,5 @@
 @import url("fonts.css");
 
-body {
-	font-family: "Figtree";
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-	background-color: var(--main-bg-color);
-}
-
-#main {
-	flex: 1;
-	margin-left: 232px;
-	/* padding: 64px; */
-}
-
-#main header {
-	background-color: var(--white);
-	padding: 16px;
-}
-
-h1 {
-	font-size: 18px;
-	padding: 0 64px;
-	font-weight: normal;
-}
-h2 {
-	font-size: 61px;
-	font-weight: 700px;
-	padding: 0 64px;
-}
-
 html {
 	/*Main colors*/
 	--main-color: #2a3647;
@@ -61,6 +31,37 @@ html {
 	--sunflower: #ffe62b;
 	--tomato-frog: #ff4646;
 	--brimstone: #ffbb2b;
+}
+
+body {
+	font-family: "Figtree";
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	background-color: var(--main-bg-color);
+}
+
+/*General class and id*/
+#main {
+	flex: 1;
+	margin-left: 232px;
+	/* padding: 64px; */
+}
+
+#main header {
+	background-color: var(--white);
+	padding: 16px;
+}
+
+h1 {
+	font-size: 18px;
+	padding: 0 64px;
+	font-weight: normal;
+}
+h2 {
+	font-size: 61px;
+	font-weight: 700px;
+	padding: 0 64px;
 }
 
 #main h1 {
@@ -118,6 +119,7 @@ html {
 .container {
 	display: flex;
 }
+/*End*/
 
 /* Summary*/
 #summary {

@@ -8,6 +8,10 @@ html {
 	--black: black;
 	--white: white;
 	--gray: #d1d1d1;
+	--orange-light: #ffa800;
+	--orange-dark: #ff7a00;
+	--purple: #9327ff;
+	--purple-blue: #6e52ff;
 }
 
 body {

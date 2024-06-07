@@ -104,6 +104,7 @@ background-color:var(--menu-hover);
 	margin: 64px;
 }
 
+/* Summary*/
 .sub-container .headline {
 	display: flex;
 	align-items: center;
@@ -121,3 +122,8 @@ background-color:var(--menu-hover);
 	height: 100%;
 	background-color: var(--blue-bikini);
 }
+
+#summary {
+	background-color: var(--main-bg-color);
+}
+/*End Summary*/

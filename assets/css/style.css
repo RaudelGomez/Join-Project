@@ -1,0 +1,11 @@
+body {margin: 0;}
+
+#menu {
+    width:232px;
+    background-color: #2A3647;
+    color:white;
+}
+
+.container {display: flex;
+
+}

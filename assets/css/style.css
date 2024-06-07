@@ -1,11 +1,25 @@
-body {margin: 0;}
+html {
+	/*Main colors*/
+	--main-color: #2a3647;
+	--main-bg-color: white;
 
-#menu {
-    width:232px;
-    background-color: #2A3647;
-    color:white;
+	/*Elemental colors*/
+	--black: black;
+	--white: white;
 }
 
-.container {display: flex;
+body {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
 
+#menu {
+	width: 232px;
+	background-color: var(--main-bg-color);
+	color: var(--main-bg-color);
+}
+
+.container {
+	display: flex;
 }

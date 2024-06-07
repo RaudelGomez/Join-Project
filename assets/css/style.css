@@ -16,7 +16,7 @@ body {
 html {
 	/*Main colors*/
 	--main-color: #2a3647;
-	--main-bg-color: white;
+	--main-bg-color: #f0f0f0;
 	--primary-color: #29abe2;
 	--success-color: #7ae229;
 	--danger-color: #ff3d00;

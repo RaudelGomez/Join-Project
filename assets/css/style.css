@@ -76,10 +76,10 @@ html {
 }
 
 #mainNav a {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding:8px 48px;
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	padding: 8px 48px;
 }
 
 #mainNav a:hover {
@@ -98,4 +98,26 @@ background-color:var(--menu-hover);
 
 .container {
 	display: flex;
+}
+
+.sub-container {
+	margin: 64px;
+}
+
+.sub-container .headline {
+	display: flex;
+	align-items: center;
+	gap: 16px;
+	height: 32px;
+}
+
+.sub-container .headline h2 {
+	font-weight: 800;
+	font-size: 40px;
+}
+
+.sub-container .vertical-line {
+	width: 2px;
+	height: 100%;
+	background-color: var(--blue-bikini);
 }

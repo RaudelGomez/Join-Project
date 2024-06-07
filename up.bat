@@ -1,4 +1,4 @@
-gut pull
+git pull
 git add .
-gut commit -m "%*"
-gut push
+git commit -m "%*"
+git push

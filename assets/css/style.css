@@ -5,6 +5,7 @@ body {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+	background-color: var(--main-bg-color);
 }
 
 #main {
@@ -21,6 +22,7 @@ html {
 	--success-color: #7ae229;
 	--danger-color: #ff3d00;
 	--warning-color: #ffa800;
+	--menu-hover: #091931;
 
 	/*Elemental colors*/
 	--black: black;
@@ -53,21 +55,11 @@ html {
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* justify-content: space-between; */
-  /* gap: 24px; */
+  justify-content: space-around;
+  gap: 24px;
   height: 100vh;
-  padding:  64px 0px 64px 0px;
-	position: fixed;
-	width: 232px;
-	background-color: var(--main-color);
-	color: var(--main-bg-color);
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: space-between;
-	gap: 24px;
-	height: 100vh;
-	padding: 64px, 0px, 64px, 0px;
+  /* padding:  64px 0px 64px 0px; */
+
 }
 
 #menu a {
@@ -76,7 +68,7 @@ html {
 }
 
 #mainNav {
-  flex: 1;
+  /* flex: 1; */
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -91,15 +83,15 @@ html {
 }
 
 #mainNav a:hover {
-background-color:black;
-	flex: 1;
-	display: flex;
-	flex-direction: column;
-	gap: 24px;
+background-color:var(--menu-hover);
+	/* flex: 1; */
+	/* display: flex;
+	flex-direction: column; */
+	/* gap: 24px; */
 }
 
 #footerNav {
-	flex: 1;
+	/* flex: 1; */
 	display: flex;
 	flex-direction: column-reverse;
 }

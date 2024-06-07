@@ -58,10 +58,10 @@ h1 {
 	padding: 0 64px;
 	font-weight: normal;
 }
+
 h2 {
-	font-size: 61px;
-	font-weight: 700px;
-	padding: 0 64px;
+	font-weight: 700;
+	font-size: 40px;
 }
 
 #main h1 {
@@ -131,16 +131,16 @@ h2 {
 	padding: 64px;
 }
 
+.sub-container .headline h2 {
+	font-size: 61px;
+	font-weight: 700px;
+}
+
 .sub-container .headline {
 	display: flex;
 	align-items: center;
 	gap: 16px;
 	height: 32px;
-}
-
-h2 {
-	font-weight: 800;
-	font-size: 40px;
 }
 
 .sub-container .vertical-line {

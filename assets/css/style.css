@@ -129,6 +129,9 @@ h2 {
 
 .sub-container {
 	padding: 64px;
+	display: flex;
+	flex-direction: column;
+	gap: 64px;
 }
 
 .sub-container .headline h2 {
@@ -149,7 +152,75 @@ h2 {
 	background-color: var(--blue-bikini);
 }
 
-#summary {
-	background-color: var(--main-bg-color);
+.summary-container {
+	display: flex;
 }
+
+.summary-container > div {
+	flex: 1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.summary-info {
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+}
+
+.container-todo-done {
+	display: flex;
+	gap: 16px;
+	width: 100%;
+}
+
+.container-todo-done figure {
+	width: 100%;
+	aspect-ratio: 1/1;
+	background-color: var(--white);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 0;
+	border-radius: 16px;
+	gap: 16px;
+	padding: 0 32px;
+}
+
+.container-todo-done figure img {
+	width: 60%;
+}
+
+.container-todo-done figure figcaption,
+.container-urgent figure figcaption {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.container-todo-done figure figcaption .quantity-task {
+	font-size: 32px;
+	font-weight: 700;
+	color: var(--main-color);
+}
+
+.container-todo-done figure figcaption .name-task {
+	color: var(--main-color);
+}
+
+.container-urgent {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background-color: var(--white);
+	width: 100%;
+}
+
+.vertical-line-urgent {
+	width: 2px;
+	height: 72%;
+	background-color: var(--gray);
+}
+
 /*End Summary*/

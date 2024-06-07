@@ -48,24 +48,22 @@ body {
 	/* padding: 64px; */
 }
 
-#main header {
+#header {
 	background-color: var(--white);
-	padding: 16px;
+	padding: 16px 64px;
+	-webkit-box-shadow: 0px 1px 6px 0px rgba(0, 0, 0, 0.3);
+	box-shadow: 0px 1px 6px 0px rgba(0, 0, 0, 0.3);
 }
 
 h1 {
 	font-size: 18px;
-	padding: 0 64px;
 	font-weight: normal;
 }
 
 h2 {
 	font-weight: 700;
-	font-size: 32px;
-}
-
-#main h1 {
-	padding-left: 64px;
+	font-size: 61px;
+	margin: 0;
 }
 
 #menu {
@@ -135,8 +133,8 @@ h2 {
 }
 
 .sub-container .headline h2 {
-	font-size: 54px;
-	font-weight: 700px;
+	font-size: 61px;
+	font-weight: 700;
 }
 
 .sub-container .headline {

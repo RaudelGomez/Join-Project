@@ -2,10 +2,12 @@ html {
 	/*Main colors*/
 	--main-color: #2a3647;
 	--main-bg-color: white;
+	--primary-color: #29abe2;
 
 	/*Elemental colors*/
 	--black: black;
 	--white: white;
+	--gray: #d1d1d1;
 }
 
 body {

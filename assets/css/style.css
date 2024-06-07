@@ -1,66 +1,82 @@
 @import url("fonts.css");
 
 body {
-  font-family: "Figtree";
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+	font-family: "Figtree";
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 
 #main {
-  flex: 1;
-  margin-left: 232px;
-  padding:16px;
+	flex: 1;
+	margin-left: 232px;
+	padding: 16px;
 }
 
 html {
-  /*Main colors*/
-  --main-color: #2a3647;
-  --main-bg-color: white;
-  --primary-color: #29abe2;
+	/*Main colors*/
+	--main-color: #2a3647;
+	--main-bg-color: white;
+	--primary-color: #29abe2;
+	--success-color: #7ae229;
+	--danger-color: #ff3d00;
+	--warning-color: #ffa800;
 
-  /*Elemental colors*/
-  --black: black;
-  --white: white;
-  --gray: #d1d1d1;
-  --orange-light: #ffa800;
-  --orange-dark: #ff7a00;
-  --purple: #9327ff;
-  --purple-blue: #6e52ff;
+	/*Elemental colors*/
+	--black: black;
+	--white: white;
+	--gray: #d1d1d1;
+
+	/*Others colors*/
+	--heat-wave: #ff7a00;
+	--girls-night-out: #ff5eb3;
+	--venetian-night: #6e52ff;
+	--sugar-grape: #9327ff;
+	--blue-bikini: #00bee8;
+	--blue-martina: #1fd7c1;
+	--peachy-pinky: #ff745e;
+	--peahes-creme: #ffa35e;
+	--blush-pink: #fc71ff;
+	--forsythia: #ffc701;
+	--c64Blue: #0038ff;
+	--lemon-lime: #c3ff2b;
+	--sunflower: #ffe62b;
+	--tomato-frog: #ff4646;
+	--brimstone: #ffbb2b;
 }
 
 #menu {
-  position: fixed;
-  width: 232px;
-  background-color: var(--main-color);
-  color: var(--main-bg-color);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-  height: 100vh;
-  padding:  64px, 0px, 64px, 0px;
+	position: fixed;
+	width: 232px;
+	background-color: var(--main-color);
+	color: var(--main-bg-color);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+	gap: 24px;
+	height: 100vh;
+	padding: 64px, 0px, 64px, 0px;
 }
 
 #menu a {
-  color: var(--white);
-  text-decoration: none;
+	color: var(--white);
+	text-decoration: none;
 }
 
 #mainNav {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	gap: 24px;
 }
 
 #footerNav {
-  flex: 1;
-  display: flex;
-  flex-direction: column-reverse;
+	flex: 1;
+	display: flex;
+	flex-direction: column-reverse;
 }
 
 .container {
-  display: flex;
+	display: flex;
 }

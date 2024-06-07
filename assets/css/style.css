@@ -1,50 +1,66 @@
 @import url("fonts.css");
 
 body {
-	font-family: "Figtree";
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-	background-color: var(--main-bg-color);
+  font-family: "Figtree";
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: var(--main-bg-color);
 }
 
 #main {
-	flex: 1;
-	margin-left: 232px;
-	padding: 64px;
+  flex: 1;
+  margin-left: 232px;
+  /* padding: 64px; */
+}
+
+#main header {
+  background-color: var(--white);
+  padding: 16px;
+}
+
+h1 {
+  font-size: 18px;
+  padding: 0 64px;
+  font-weight: normal;
+}
+h2 {
+  font-size: 61px;
+  font-weight: 700px;
+  padding: 0 64px;
 }
 
 html {
-	/*Main colors*/
-	--main-color: #2a3647;
-	--main-bg-color: #f0f0f0;
-	--primary-color: #29abe2;
-	--success-color: #7ae229;
-	--danger-color: #ff3d00;
-	--warning-color: #ffa800;
-	--menu-hover: #091931;
+  /*Main colors*/
+  --main-color: #2a3647;
+  --main-bg-color: #f0f0f0;
+  --primary-color: #29abe2;
+  --success-color: #7ae229;
+  --danger-color: #ff3d00;
+  --warning-color: #ffa800;
+  --menu-hover: #091931;
 
-	/*Elemental colors*/
-	--black: black;
-	--white: white;
-	--gray: #d1d1d1;
+  /*Elemental colors*/
+  --black: black;
+  --white: white;
+  --gray: #d1d1d1;
 
-	/*Others colors*/
-	--heat-wave: #ff7a00;
-	--girls-night-out: #ff5eb3;
-	--venetian-night: #6e52ff;
-	--sugar-grape: #9327ff;
-	--blue-bikini: #00bee8;
-	--blue-martina: #1fd7c1;
-	--peachy-pinky: #ff745e;
-	--peahes-creme: #ffa35e;
-	--blush-pink: #fc71ff;
-	--forsythia: #ffc701;
-	--c64Blue: #0038ff;
-	--lemon-lime: #c3ff2b;
-	--sunflower: #ffe62b;
-	--tomato-frog: #ff4646;
-	--brimstone: #ffbb2b;
+  /*Others colors*/
+  --heat-wave: #ff7a00;
+  --girls-night-out: #ff5eb3;
+  --venetian-night: #6e52ff;
+  --sugar-grape: #9327ff;
+  --blue-bikini: #00bee8;
+  --blue-martina: #1fd7c1;
+  --peachy-pinky: #ff745e;
+  --peahes-creme: #ffa35e;
+  --blush-pink: #fc71ff;
+  --forsythia: #ffc701;
+  --c64Blue: #0038ff;
+  --lemon-lime: #c3ff2b;
+  --sunflower: #ffe62b;
+  --tomato-frog: #ff4646;
+  --brimstone: #ffbb2b;
 }
 
 #menu {
@@ -59,12 +75,11 @@ html {
   gap: 24px;
   height: 100vh;
   /* padding:  64px 0px 64px 0px; */
-
 }
 
 #menu a {
-	color: var(--white);
-	text-decoration: none;
+  color: var(--white);
+  text-decoration: none;
 }
 
 #mainNav {
@@ -72,58 +87,58 @@ html {
   display: flex;
   flex-direction: column;
   gap: 8px;
-  width:100%;
+  width: 100%;
 }
 
 #mainNav a {
-	display: flex;
-	align-items: center;
-	gap: 8px;
-	padding: 8px 48px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 48px;
 }
 
 #mainNav a:hover {
-background-color:var(--menu-hover);
-	/* flex: 1; */
-	/* display: flex;
+  background-color: var(--menu-hover);
+  /* flex: 1; */
+  /* display: flex;
 	flex-direction: column; */
-	/* gap: 24px; */
+  /* gap: 24px; */
 }
 
 #footerNav {
-	/* flex: 1; */
-	display: flex;
-	flex-direction: column-reverse;
+  /* flex: 1; */
+  display: flex;
+  flex-direction: column-reverse;
 }
 
 .container {
-	display: flex;
+  display: flex;
 }
 
 .sub-container {
-	margin: 64px;
+  margin: 64px;
 }
 
 /* Summary*/
 .sub-container .headline {
-	display: flex;
-	align-items: center;
-	gap: 16px;
-	height: 32px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  height: 32px;
 }
 
 .sub-container .headline h2 {
-	font-weight: 800;
-	font-size: 40px;
+  font-weight: 800;
+  font-size: 40px;
 }
 
 .sub-container .vertical-line {
-	width: 2px;
-	height: 100%;
-	background-color: var(--blue-bikini);
+  width: 2px;
+  height: 100%;
+  background-color: var(--blue-bikini);
 }
 
 #summary {
-	background-color: var(--main-bg-color);
+  background-color: var(--main-bg-color);
 }
 /*End Summary*/

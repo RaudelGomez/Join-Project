@@ -1,33 +1,39 @@
 @import url("fonts.css");
 
+html {
+    /*Main colors*/
+    --main-color: #2a3647;
+    --main-bg-color: white;
+    --primary-color: #29abe2;
+  
+    /*Elemental colors*/
+    --black: black;
+    --white: white;
+    --gray: #d1d1d1;
+    --orange-light: #ffa800;
+    --orange-dark: #ff7a00;
+    --purple: #9327ff;
+    --purple-blue: #6e52ff;
+  }
+
 body {
   font-family: "Figtree";
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  background-color: var(--gray);
 }
 
 #main {
   flex: 1;
   margin-left: 232px;
   padding:16px;
+  /* background-color:var(--gray); */
 }
 
-html {
-  /*Main colors*/
-  --main-color: #2a3647;
-  --main-bg-color: white;
-  --primary-color: #29abe2;
 
-  /*Elemental colors*/
-  --black: black;
-  --white: white;
-  --gray: #d1d1d1;
-  --orange-light: #ffa800;
-  --orange-dark: #ff7a00;
-  --purple: #9327ff;
-  --purple-blue: #6e52ff;
-}
+
+.logo {margin:24px;}
 
 #menu {
   position: fixed;
@@ -37,10 +43,10 @@ html {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  gap: 24px;
+  /* justify-content: space-between; */
+  /* gap: 24px; */
   height: 100vh;
-  padding:  64px, 0px, 64px, 0px;
+  padding:  64px 0px 64px 0px;
 }
 
 #menu a {
@@ -52,7 +58,19 @@ html {
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 8px;
+  width:100%;
+}
+
+#mainNav a {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding:8px 48px;
+}
+
+#mainNav a:hover {
+background-color:black;
 }
 
 #footerNav {

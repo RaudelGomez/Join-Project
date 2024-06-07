@@ -1,11 +1,17 @@
-body {margin: 0;}
+@import url("fonts.css");
 
-#menu {
-    width:232px;
-    background-color: #2A3647;
-    color:white;
+body {
+  margin: 0;
+  font-family: "Figtree";
 }
 
-.container {display: flex;
 
+#menu {
+  width: 232px;
+  background-color: #2a3647;
+  color: white;
+}
+
+.container {
+  display: flex;
 }

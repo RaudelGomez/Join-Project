@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @import url("fonts.css");
 
 body {
@@ -14,4 +15,36 @@ body {
 
 .container {
   display: flex;
+=======
+html {
+	/*Main colors*/
+	--main-color: #2a3647;
+	--main-bg-color: white;
+	--primary-color: #29abe2;
+
+	/*Elemental colors*/
+	--black: black;
+	--white: white;
+	--gray: #d1d1d1;
+	--orange-light: #ffa800;
+	--orange-dark: #ff7a00;
+	--purple: #9327ff;
+	--purple-blue: #6e52ff;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+#menu {
+	width: 232px;
+	background-color: var(--main-bg-color);
+	color: var(--main-bg-color);
+}
+
+.container {
+	display: flex;
+>>>>>>> a97e1be209a5f8827f9db3dad9d42e4f40d8b042
 }

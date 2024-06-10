@@ -1,10 +1,32 @@
 .bodyLogin {
-	height: 100vh;
+	height: 55vh;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 }
-
+.signUpTop{
+    height: 49px;
+    padding-top: 67px;
+   padding-right: 8%;
+   gap: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.logoIndex img{
+    width: 100.03px;
+    height: 121.97px;
+    padding-left: 77px;
+}
+.signUpButton{
+    padding: 15px,16px,15px,16px;
+    gap: 10px;
+    border-radius: 8px;
+    background-color: #2a3647;
+    color: white;
+    height: 49px;
+    width: 91px;
+}
 .HeadlinerLogin {
 	width: 315px;
 	height: 89px;
@@ -67,6 +89,14 @@
 	padding-left: 22px;
 	align-items: baseline;
 }
+
+
+.checkboxContainer{
+    width: 652px; 
+    padding-left: 300px;
+    
+}
+
 .loginButton {
 	width: 110px;
 	height: 48px;
@@ -95,27 +125,16 @@
 	background-color: white;
 }
 
-[type="checkbox"] + label {
-	position: absolute;
-}
-[type="checkbox"] {
-	position: relative;
-	left: 15px;
-	top: -4px;
-	z-index: 0;
-	-webkit-appearance: none;
-}
-[type="checkbox"] + label::before {
-	width: 22px;
-	height: 18px;
-	background-image: url("unchecked.png");
-	display: block;
-	content: "";
-	float: left;
-	margin-right: 5px;
-	z-index: 5;
-	position: relative;
-}
-[type="checkbox"]:checked + label::before {
-	background-image: url("checked.png");
-}
+
+
+
+.footerIndex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 100px;
+    gap:35px;
+    height: 35px;
+    
+}   
+

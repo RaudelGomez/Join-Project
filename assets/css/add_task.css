@@ -163,4 +163,12 @@ select {
 	border: 1px solid var(--blue-bikini);
 }
 
+.clear-button-add-task:hover .cancel-icon-dark {
+	display: none;
+}
+
+.clear-button-add-task:hover .cancel-icon-blue {
+	display: block;
+}
+
 /* End Add Task templates*/

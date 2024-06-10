@@ -1,6 +1,18 @@
 /*Add Task templates */
+#add_task_template article {
+	margin-top: 40px;
+	flex: 1;
+}
+
 #add_task_form div {
 	display: flex;
+}
+
+#add_task_form {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	height: 100%;
 }
 
 #add_task_form div section {
@@ -27,8 +39,19 @@
 	font-family: "Inter";
 }
 
-#add_task_form select::placeholder {
-	padding-right: 40px;
+#add_task_form .add_task_data {
+	display: flex;
+	gap: 32px;
+}
+
+.d-flex {
+	display: flex;
+	flex-direction: column;
+}
+
+.add_task_separator {
+	width: 1px;
+	background-color: var(--gray);
 }
 
 /* End Add Task templates*/

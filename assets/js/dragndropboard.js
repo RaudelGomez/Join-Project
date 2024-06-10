@@ -5,7 +5,7 @@ let tasks = [{
 }, {
     'id': 1,
     'title': 'Kochen',
-    'category': 'done'
+    'category': 'inProgress'
 }, {
     'id': 2,
     'title': 'Einkaufen',
@@ -38,17 +38,18 @@ function startDragging(id) {
     currentDraggedElement = id;
 }
 
-function generateTodoHTML(element) {
-    return `<div draggable="true" ondragstart="startDragging(${element['id']})" class="todo">${element['title']}</div>`;
-}
+// function generateTodoHTML(element) {
+//     return `<div draggable="true" ondragstart="startDragging(${element['id']})" class="todo">${element['title']}</div>`;
+// }
 
 function allowDrop(ev) {
     ev.preventDefault();
 }
 
-function moveTo(category) {
+function moveTo(category) {    
+    // console.log(category);
     tasks[currentDraggedElement]['category'] = category;
-    updateHTML();
+    // updateHTML();
 }
 
 function highlight(id) {

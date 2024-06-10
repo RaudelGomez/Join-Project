@@ -88,6 +88,8 @@ h3 {
 
 .button:hover {
   background-color: var(--primary-color);
+  box-shadow: 0px 4px 4px 0px #00000040;
+
 }
 
 /* Main Menu */

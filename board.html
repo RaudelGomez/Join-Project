@@ -23,21 +23,30 @@
               
               <input id="searchTask" type="search" placeholder="Find Task" /><img src="./assets/img/search_icon.svg" alt="">
             </div>
-              <button>Add task +</button>
+              <button>Add task <img src="./assets/img/add.svg" alt=""></button>
             </div>
           </header>
           <main class="boardSections">
             <section>
               <header>
                 <h3>To do</h3>
-                <img src="./assets/img/plus_button_icon.svg" alt="" />
+                <img class="plusButton" src="./assets/img/plus_button_icon.svg" alt="" />
               </header>
               <div
                 class="drag-area"
                 id="toDo"
                 ondrop="moveTo('toDo')"
                 ondragleave="removeHighlight('toDo')"
-                ondragover="allowDrop(event); highlight('toDo')"></div>
+                ondragover="allowDrop(event); highlight('toDo')">
+              
+
+
+                <article class="emptyTaskCard">
+                 No tasks To do
+                </article>
+
+              
+              </div>
             </section>
             <section>
               <header>
@@ -93,7 +102,7 @@
             <section>
               <header>
                 <h3>Done</h3>
-                <img src="./assets/img/plus_button_icon.svg" alt="" />
+                
               </header>
               <div
                 class="drag-area"

@@ -54,4 +54,19 @@
 	background-color: var(--gray);
 }
 
+.prio-container {
+	gap: 8px;
+}
+
+.prio-container button {
+	flex: 1;
+	background-color: var(--white);
+	border: 0.1px solid var(--gray);
+	border-radius: 8px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+}
+
 /* End Add Task templates*/

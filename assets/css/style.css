@@ -11,28 +11,29 @@ html {
   --warning-color: #ffa800;
   --menu-active: #091931;
   --menu-hover: #2a3d59;
+  --progress-bar: #4589FF;
 
-	/*Elemental colors*/
-	--black: black;
-	--white: white;
-	--gray: #d1d1d1;
+  /*Elemental colors*/
+  --black: black;
+  --white: white;
+  --gray: #d1d1d1;
 
-	/*Others colors*/
-	--heat-wave: #ff7a00;
-	--girls-night-out: #ff5eb3;
-	--venetian-night: #6e52ff;
-	--sugar-grape: #9327ff;
-	--blue-bikini: #00bee8;
-	--blue-martina: #1fd7c1;
-	--peachy-pinky: #ff745e;
-	--peahes-creme: #ffa35e;
-	--blush-pink: #fc71ff;
-	--forsythia: #ffc701;
-	--c64Blue: #0038ff;
-	--lemon-lime: #c3ff2b;
-	--sunflower: #ffe62b;
-	--tomato-frog: #ff4646;
-	--brimstone: #ffbb2b;
+  /*Others colors*/
+  --heat-wave: #ff7a00;
+  --girls-night-out: #ff5eb3;
+  --venetian-night: #6e52ff;
+  --sugar-grape: #9327ff;
+  --blue-bikini: #00bee8;
+  --blue-martina: #1fd7c1;
+  --peachy-pinky: #ff745e;
+  --peahes-creme: #ffa35e;
+  --blush-pink: #fc71ff;
+  --forsythia: #ffc701;
+  --c64Blue: #0038ff;
+  --lemon-lime: #c3ff2b;
+  --sunflower: #ffe62b;
+  --tomato-frog: #ff4646;
+  --brimstone: #ffbb2b;
 }
 
 body {
@@ -321,6 +322,32 @@ h1 {
 /* End Help Page */
 
 /* Board Page */
+
+.boardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.boardHeader button {
+  color: white;
+  background-color: var(--main-color);
+  border-radius: 10px;
+  padding: 8px 16px;
+  border: unset;
+  font-size:21px;
+  cursor: pointer;
+}
+
+.boardHeader input {
+  color: black;
+  background-color: white;
+  border-radius: 10px;
+  padding: 8px 16px;
+  border: 1px solid #ddd;
+  font-size:21px;
+}
+
 .boardSections {
   display: flex;
   gap: 26px;
@@ -335,6 +362,13 @@ h1 {
   display: flex;
   justify-content: space-between;
 }
+
+.boardSections section header img{
+cursor: pointer;
+}
+
+
+
 .boardHeader {
   display: flex;
 }
@@ -342,25 +376,100 @@ h1 {
 .taskCard {
   background-color: white;
   border-radius: 24px;
-  -webkit-box-shadow: 0px 1px 6px 0px rgba(0, 0, 0, 0.3);
-  box-shadow: 0px 1px 6px 0px rgba(0, 0, 0, 0.3);
-  padding:16px;
-  margin:8px 0;
+  -webkit-box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  margin: 8px 0;
   cursor: pointer;
 }
 
-.drag-area {
+/* .drag-area {
   height: 200px;
   background-color: rgba(0, 0, 0, 0.1);
   border: 1px dashed black;
   margin-bottom: 50px;
   display: flex;
   align-items: flex-start;
-}
+} */
 
 .drag-area-highlight {
   background-color: rgba(0, 0, 0, 0.2);
 }
 
+.category {
+  color: white;
+  border-radius: 8px;
+  padding: 4px 16px;
+}
 
+.userstory {
+  background-color: var(--c64Blue);
+}
+
+.taskTitle {
+  font-weight: 700;
+  font-size: 16px;
+  margin: 16px 0;
+}
+
+.taskDesription {
+  color: #a8a8a8;
+}
+
+.taskCard .user {
+display: flex;
+
+}
+
+.profileSmall {
+  border: 1px solid white;
+  border-radius: 100%;
+  width: 32px;
+  height: 32px;
+  color: white;
+  font-family: "Inter";
+  font-weight: 400;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  margin-right: -8px;
+}
+
+.am {
+  background-color: var( --girls-night-out);
+}
+
+.em {
+  background-color: var(--venetian-night);
+}
+
+.mb {
+  background-color: var( --sugar-grape);
+}
+
+
+.taskCard footer {
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin-top:16px;
+}
+
+.progress {
+  background-color: var(--progress-bar);
+  width: 128px;
+  height:8px;
+  border-radius: 8px; 
+}
+
+.progressContainer {
+  border-radius: 8px;
+  width: 128px;
+  height:8px;
+  background-color: var(--main-bg-color);
+}
+
+.subtasks {display: flex;align-items: center;gap:10px;font-size:12px;}
 /* End Board Page */

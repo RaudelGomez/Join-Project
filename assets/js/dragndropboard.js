@@ -1,7 +1,15 @@
 let tasks = [{
     'id': 0,
     'title': 'Putzen',
-    'category': 'inProgress'
+    'description':'Beschreibung',
+    'priority': 'urgent',
+    'status':'inProgress',
+    'category': 'User Story',
+    'dueDate': 'date',
+    'assignedTo' : 'user',
+    'subtasks': {
+'subtask': 'unteraufgabe'
+    }
 }, {
     'id': 1,
     'title': 'Kochen',
@@ -15,7 +23,7 @@ let tasks = [{
 let currentDraggedElement;
 
 // function updateHTML() {
-//     let open = tasks.filter(t => t['category'] == 'open');
+//     let open = tasks.filter(t => t['status'] == 'open');
 
 //     document.getElementById('open').innerHTML = '';
 
@@ -24,7 +32,7 @@ let currentDraggedElement;
 //         document.getElementById('open').innerHTML += generateTodoHTML(element);
 //     }
 
-//     let closed = tasks.filter(t => t['category'] == 'closed');
+//     let closed = tasks.filter(t => t['status'] == 'closed');
 
 //     document.getElementById('closed').innerHTML = '';
 
@@ -46,9 +54,9 @@ function allowDrop(ev) {
     ev.preventDefault();
 }
 
-function moveTo(category) {    
-    // console.log(category);
-    tasks[currentDraggedElement]['category'] = category;
+function moveTo(status) {    
+    // console.log(status);
+    tasks[currentDraggedElement]['status'] = status;
     // updateHTML();
 }
 

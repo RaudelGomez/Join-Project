@@ -161,6 +161,7 @@ select {
 	background-color: var(--white);
 	color: var(--blue-bikini);
 	border: 1px solid var(--blue-bikini);
+	box-shadow: 0px 4px 4px 0px #00000040;
 }
 
 .clear-button-add-task:hover .cancel-icon-dark {

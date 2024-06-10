@@ -11,17 +11,24 @@
 </head>
 
 <body>
+    <div class="signUpTop">Not a Join user? 
+        <button class="signUpButton">SignUp</button>
+    </div>
+    <div class="logo">
+        <img src="./assets/img/join_logo_dark.svg" alt="join Logo">
+    </div>
     <div class="bodyLogin">
         <div class="loginBox">
             <div>
                 <div class="HeadlinerLogin">Log in</div>
+                <hr class="HeadlinerLine">
             </div>
             <div class="loginInputFields">
                 <input type="email" class="emailClass" placeholder="Email">
                 <input type="password" class="passwordClass" placeholder="Password">
             </div>
             <div class="checkboxContainer">
-            <input type="checkbox" checked="checked" class="checkboxClass">Remember me
+                <input id="confirm" type="checkbox" /><label for="confirm">Remember me</label>
             </div>
             <div class="enterButtons">
                 <button class="loginButton">Log in</button> <button class="guestLogin"> Guest Log in</button>

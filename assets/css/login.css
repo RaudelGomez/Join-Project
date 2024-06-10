@@ -5,6 +5,7 @@
     justify-content: center;
     align-items: center;
 }
+
 .HeadlinerLogin{
     width: 315px;
     height: 89px;
@@ -15,8 +16,14 @@
     font-size: 61px;
     line-height: 73.2px;
     font-weight: 700;
-    border-bottom: 3px solid #29ABE2;
     
+}
+.HeadlinerLine{
+    width: 150px;
+    height: 3px;
+    background-color:  #29ABE2;
+    border-radius: 12px;
+ 
 }
 
 .loginBox{
@@ -49,6 +56,7 @@
     border: 2px solid rgba(0,0,0,0.1);
     padding: 12px, 21px, 12px, 21px;
     gap: 10px;
+    font-size: 24px;
 }
 .passwordClass{
     width: 422px;
@@ -57,7 +65,16 @@
     border:  2px solid rgba(0,0,0,0.1);
     padding: 12px, 21px, 12px, 21px;
     gap: 10px;
+    font-size: 24px;
     
+}
+.emailClass::placeholder,
+.passwordClass::placeholder{
+    font-size: 24px;
+    padding-left: 22px;
+    align-items: baseline;
+   
+
 }
 .loginButton{
     width: 110px;
@@ -87,3 +104,29 @@
     line-height: 25.2px;
     background-color: white;
 }
+
+
+
+[type="checkbox"] + label {
+    position: absolute;
+  }
+  [type="checkbox"] {
+    position: relative;
+    left: 15px;
+    top: -4px;
+    z-index: 0;
+    -webkit-appearance: none;
+  }
+  [type="checkbox"] + label::before {
+    width: 22px;
+    height: 18px;
+    background-image: url("unchecked.png");
+    display: block;
+    content: "";
+    float: left;
+    margin-right: 5px;
+    z-index: 5;
+    position: relative;
+  }
+  [type="checkbox"]:checked+label::before {
+    background-image: url("checked.png");

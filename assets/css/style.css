@@ -1,5 +1,5 @@
 @import url("fonts.css");
-
+@import url("login.css");
 html {
   /*Main colors*/
   --main-color: #2a3647;
@@ -12,27 +12,27 @@ html {
   --menu-active: #091931;
   --menu-hover: #2a3d59;
 
-  /*Elemental colors*/
-  --black: black;
-  --white: white;
-  --gray: #d1d1d1;
+	/*Elemental colors*/
+	--black: black;
+	--white: white;
+	--gray: #d1d1d1;
 
-  /*Others colors*/
-  --heat-wave: #ff7a00;
-  --girls-night-out: #ff5eb3;
-  --venetian-night: #6e52ff;
-  --sugar-grape: #9327ff;
-  --blue-bikini: #00bee8;
-  --blue-martina: #1fd7c1;
-  --peachy-pinky: #ff745e;
-  --peahes-creme: #ffa35e;
-  --blush-pink: #fc71ff;
-  --forsythia: #ffc701;
-  --c64Blue: #0038ff;
-  --lemon-lime: #c3ff2b;
-  --sunflower: #ffe62b;
-  --tomato-frog: #ff4646;
-  --brimstone: #ffbb2b;
+	/*Others colors*/
+	--heat-wave: #ff7a00;
+	--girls-night-out: #ff5eb3;
+	--venetian-night: #6e52ff;
+	--sugar-grape: #9327ff;
+	--blue-bikini: #00bee8;
+	--blue-martina: #1fd7c1;
+	--peachy-pinky: #ff745e;
+	--peahes-creme: #ffa35e;
+	--blush-pink: #fc71ff;
+	--forsythia: #ffc701;
+	--c64Blue: #0038ff;
+	--lemon-lime: #c3ff2b;
+	--sunflower: #ffe62b;
+	--tomato-frog: #ff4646;
+	--brimstone: #ffbb2b;
 }
 
 body {

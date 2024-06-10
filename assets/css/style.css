@@ -159,6 +159,10 @@ h3 {
 	background-color: var(--blue-bikini);
 }
 
+.sub-container .headline p {
+	font-size: 24px;
+}
+
 .summary-container {
 	display: flex;
 }
@@ -280,6 +284,24 @@ h3 {
 
 .container-progress-task figure figcaption {
 	text-align: center;
+}
+
+.greeting-container {
+	display: flex;
+	flex-direction: column;
+}
+
+.welcome-text {
+	font-size: 40px;
+	margin: 0;
+	font-weight: 500;
+}
+
+.user-name {
+	font-size: 48px;
+	font-weight: 700;
+	margin: 0;
+	color: var(--primary-color);
 }
 
 /*End Summary*/

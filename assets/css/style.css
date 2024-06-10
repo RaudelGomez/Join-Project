@@ -215,14 +215,43 @@ h1 {
   cursor: pointer;
 }
 
-.boardHeader input {
+.boardHeader .searchContainer {
   color: black;
   background-color: white;
   border-radius: 10px;
   padding: 8px 16px;
   border: 1px solid #ddd;
   font-size:21px;
+  display: flex;  
 }
+
+.searchContainer img {
+
+  cursor: pointer;
+  margin-left:16px;
+}
+
+.searchContainer img:hover {
+background-color: whitesmoke;
+border-radius: 50%;
+}
+
+.boardHeader input {
+  color: black;
+  
+  /* border-right:1px solid #ddd; */
+  /* padding: 8px 16px; */
+  border:unset;
+  border-right: 1px solid #ddd;
+  font-size:21px;
+}
+
+.searchBox {
+display: flex;
+gap:32px;
+}
+
+
 
 .boardSections {
 	display: flex;

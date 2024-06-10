@@ -19,11 +19,11 @@
             <h2>Board</h2>
             <div class="searchBox">
               <div class="searchContainer">
-
-              
-              <input id="searchTask" type="search" placeholder="Find Task" /><img src="./assets/img/search_icon.svg" alt="">
-            </div>
-              <button>Add task +</button>
+                <input id="searchTask" type="search" placeholder="Find Task" /><img
+                  src="./assets/img/search_icon.svg"
+                  alt="" />
+              </div>
+              <button>Add task <img src="./assets/img/add.svg" alt="" /></button>
             </div>
           </header>
           <main class="boardSections">
@@ -37,7 +37,9 @@
                 id="toDo"
                 ondrop="moveTo('toDo')"
                 ondragleave="removeHighlight('toDo')"
-                ondragover="allowDrop(event); highlight('toDo')"></div>
+                ondragover="allowDrop(event); highlight('toDo')">
+                <article class="emptyTaskCard">No tasks To do</article>
+              </div>
             </section>
             <section>
               <header>
@@ -51,20 +53,14 @@
                 ondragleave="removeHighlight('inProgress')"
                 ondragover="allowDrop(event); highlight('inProgress')">
                 <article class="taskCard" draggable="true" ondragstart="startDragging(1)">
-                  <span class="category userstory">User Story</span>
-                  <h3 class="taskTitle">Kochwelt Page</h3>
-                  <p class="taskDesription">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Et fugiat iusto culpa ratione impedit
-                    provident, officiis aliquam voluptatum omnis. Eos recusandae nam adipisci ducimus reiciendis
-                    cupiditate possimus placeat officiis consequuntur?
-                  </p>
+                  <span class="category userStory">User Story</span>
+                  <h3 class="taskTitle">Kochwelt Pag & Recipe Recommender</h3>
+                  <p class="taskDesription">Lorem ipsum dolor sit amet consectetur adipisicing elit...</p>
                   <div class="subtasks">
                     <div class="progressContainer">
-                      <div class="progress" style="width:50%"></div>
+                      <div class="progress" style="width: 50%"></div>
                     </div>
-                    <div>
-                    <span>1</span>/<span>2</span> Subtasks
-                  </div>
+                    <div><span>1</span>/<span>2</span> Subtasks</div>
                   </div>
                   <footer>
                     <div class="user">
@@ -72,9 +68,27 @@
                       <span class="profileSmall em">EM</span>
                       <span class="profileSmall mb">MB</span>
                     </div>
-                    <div class="priority"><img src="./assets/img/priority_symbols_icon.svg" alt=""></div>
+                    <div class="priority"><img src="./assets/img/priority_symbols_icon.svg" alt="" /></div>
                   </footer>
-                  
+                </article>
+                <article class="taskCard" draggable="true" ondragstart="startDragging(1)">
+                  <span class="category technicalTask">Technical Task</span>
+                  <h3 class="taskTitle">Kochwelt Page</h3>
+                  <p class="taskDesription">Lorem ipsum dolor sit amet consectetur adipisicing ...</p>
+                  <div class="subtasks">
+                    <!-- <div class="progressContainer">
+                      <div class="progress" style="width: 100%"></div>
+                    </div>
+                    <div><span>2</span>/<span>2</span> Subtasks</div> -->
+                  </div>
+                  <footer>
+                    <div class="user">
+                      <span class="profileSmall am">AM</span>
+                      <span class="profileSmall em">EM</span>
+                      <span class="profileSmall mb">MB</span>
+                    </div>
+                    <div class="priority"><img src="./assets/img/urgent_low_priority_icon.svg" alt="" /></div>
+                  </footer>
                 </article>
               </div>
             </section>
@@ -88,19 +102,58 @@
                 id="awaitFeedback"
                 ondrop="moveTo('awaitFeedback')"
                 ondragleave="removeHighlight('awaitFeedback')"
-                ondragover="allowDrop(event); highlight('awaitFeedback')"></div>
+                ondragover="allowDrop(event); highlight('awaitFeedback')">
+                <article class="taskCard" draggable="true" ondragstart="startDragging(1)">
+                  <span class="category technicalTask">Technical Task</span>
+                  <h3 class="taskTitle">Kochwelt Page</h3>
+                  <p class="taskDesription">Lorem ipsum dolor sit amet consectetur ...</p>
+                  <div class="subtasks">
+                    <div class="progressContainer">
+                      <div class="progress" style="width: 100%"></div>
+                    </div>
+                    <div><span>2</span>/<span>2</span> Subtasks</div>
+                  </div>
+                  <footer>
+                    <div class="user">
+                      <span class="profileSmall am">AM</span>
+                      <span class="profileSmall em">EM</span>
+                      <span class="profileSmall mb">MB</span>
+                    </div>
+                    <div class="priority"><img src="./assets/img/urgent_high_priority_icon.svg" alt="" /></div>
+                  </footer>
+                </article>
+              </div>
             </section>
             <section>
               <header>
                 <h3>Done</h3>
-                <img src="./assets/img/plus_button_icon.svg" alt="" />
               </header>
               <div
                 class="drag-area"
                 id="done"
                 ondrop="moveTo('done')"
                 ondragleave="removeHighlight('done')"
-                ondragover="allowDrop(event); highlight('done')"></div>
+                ondragover="allowDrop(event); highlight('done')">
+                <article class="taskCard" draggable="true" ondragstart="startDragging(1)">
+                  <span class="category technicalTask">Technical Task</span>
+                  <h3 class="taskTitle">Kochwelt Page</h3>
+                  <p class="taskDesription">Lorem ipsum dolor sit amet consectetur adipisicing ...</p>
+                  <div class="subtasks">
+                    <!-- <div class="progressContainer">
+                      <div class="progress" style="width: 100%"></div>
+                    </div>
+                    <div><span>2</span>/<span>2</span> Subtasks</div> -->
+                  </div>
+                  <footer>
+                    <div class="user">
+                      <span class="profileSmall am">AM</span>
+                      <span class="profileSmall em">EM</span>
+                      <span class="profileSmall mb">MB</span>
+                    </div>
+                    <div class="priority"><img src="./assets/img/urgent_low_priority_icon.svg" alt="" /></div>
+                  </footer>
+                </article>
+              </div>
             </section>
           </main>
         </div>

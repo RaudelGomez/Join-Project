@@ -127,7 +127,7 @@ h3 {
 
 #footerNav a:hover {
 	color: var(--primary-color);
-	font-weight: bold;
+	/* font-weight: bold; */
 }
 
 /*End*/
@@ -199,6 +199,11 @@ h1 {
 
 /* Board Page */
 
+.boardSections h3 {
+	font-size: 20px;
+	color: #42526e;
+}
+
 .boardHeader {
 	display: flex;
 	justify-content: space-between;
@@ -213,6 +218,11 @@ h1 {
 	border: unset;
 	font-size: 21px;
 	cursor: pointer;
+	transition: background-color 100ms ease-in-out;
+}
+
+.boardHeader button:hover {
+	background-color: var(--primary-color);
 }
 
 .boardHeader .searchContainer {
@@ -231,15 +241,13 @@ h1 {
 }
 
 .searchContainer img:hover {
-	background-color: whitesmoke;
+	background-color: var(--main-bg-color);
 	border-radius: 50%;
 }
 
 .boardHeader input {
 	color: black;
-
-	/* border-right:1px solid #ddd; */
-	/* padding: 8px 16px; */
+	outline: none;
 	border: unset;
 	border-right: 1px solid #ddd;
 	font-size: 21px;
@@ -276,21 +284,22 @@ h1 {
 .taskCard {
 	background-color: white;
 	border-radius: 24px;
-	-webkit-box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.2);
-	box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.2);
+	-webkit-box-shadow: px 0px 10px 3px #00000014;
+	box-shadow: 0px 0px 10px 3px #00000014;
 	padding: 16px;
-	margin: 8px 0;
+	margin: 16px 0;
 	cursor: pointer;
 }
 
-/* .drag-area {
-  height: 200px;
-  background-color: rgba(0, 0, 0, 0.1);
-  border: 1px dashed black;
-  margin-bottom: 50px;
-  display: flex;
-  align-items: flex-start;
-} */
+.emptyTaskCard {
+	background-color: #e7e7e7;
+	color: #a8a8a8;
+	border-radius: 8px;
+	border: 1px dashed #a8a8a8;
+	padding: 16px;
+	margin: 8px 0;
+	text-align: center;
+}
 
 .drag-area-highlight {
 	background-color: rgba(0, 0, 0, 0.2);
@@ -302,8 +311,12 @@ h1 {
 	padding: 4px 16px;
 }
 
-.userstory {
+.userStory {
 	background-color: var(--c64Blue);
+}
+
+.technicalTask {
+	background-color: var(--blue-martina);
 }
 
 .taskTitle {

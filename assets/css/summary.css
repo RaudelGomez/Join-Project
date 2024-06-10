@@ -8,15 +8,10 @@
 	padding: 64px;
 	display: flex;
 	flex-direction: column;
-	gap: 64px;
 }
 
 .height-100 {
 	height: 100%;
-}
-
-.height-90 {
-	height: 90%;
 }
 
 .sub-container .headline h2 {

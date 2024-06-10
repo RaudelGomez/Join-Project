@@ -4,39 +4,39 @@
 @import url("add_task.css");
 
 html {
-  /*Main colors*/
-  --main-color: #2a3647;
-  /* --main-bg-color: #f0f0f0; */
-  --main-bg-color: #f6f7f8;
-  --primary-color: #29abe2;
-  --success-color: #7ae229;
-  --danger-color: #ff3d00;
-  --warning-color: #ffa800;
-  --menu-active: #091931;
-  --menu-hover: #2a3d59;
-  --progress-bar: #4589FF;
+	/*Main colors*/
+	--main-color: #2a3647;
+	/* --main-bg-color: #f0f0f0; */
+	--main-bg-color: #f6f7f8;
+	--primary-color: #29abe2;
+	--success-color: #7ae229;
+	--danger-color: #ff3d00;
+	--warning-color: #ffa800;
+	--menu-active: #091931;
+	--menu-hover: #2a3d59;
+	--progress-bar: #4589ff;
 
-  /*Elemental colors*/
-  --black: black;
-  --white: white;
-  --gray: #d1d1d1;
+	/*Elemental colors*/
+	--black: black;
+	--white: white;
+	--gray: #d1d1d1;
 
-  /*Others colors*/
-  --heat-wave: #ff7a00;
-  --girls-night-out: #ff5eb3;
-  --venetian-night: #6e52ff;
-  --sugar-grape: #9327ff;
-  --blue-bikini: #00bee8;
-  --blue-martina: #1fd7c1;
-  --peachy-pinky: #ff745e;
-  --peahes-creme: #ffa35e;
-  --blush-pink: #fc71ff;
-  --forsythia: #ffc701;
-  --c64Blue: #0038ff;
-  --lemon-lime: #c3ff2b;
-  --sunflower: #ffe62b;
-  --tomato-frog: #ff4646;
-  --brimstone: #ffbb2b;
+	/*Others colors*/
+	--heat-wave: #ff7a00;
+	--girls-night-out: #ff5eb3;
+	--venetian-night: #6e52ff;
+	--sugar-grape: #9327ff;
+	--blue-bikini: #00bee8;
+	--blue-martina: #1fd7c1;
+	--peachy-pinky: #ff745e;
+	--peahes-creme: #ffa35e;
+	--blush-pink: #fc71ff;
+	--forsythia: #ffc701;
+	--c64Blue: #0038ff;
+	--lemon-lime: #c3ff2b;
+	--sunflower: #ffe62b;
+	--tomato-frog: #ff4646;
+	--brimstone: #ffbb2b;
 }
 
 body {
@@ -200,58 +200,55 @@ h1 {
 /* Board Page */
 
 .boardHeader {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 }
 
 .boardHeader button {
-  color: white;
-  background-color: var(--main-color);
-  border-radius: 10px;
-  padding: 8px 16px;
-  border: unset;
-  font-size:21px;
-  cursor: pointer;
+	color: white;
+	background-color: var(--main-color);
+	border-radius: 10px;
+	padding: 8px 16px;
+	border: unset;
+	font-size: 21px;
+	cursor: pointer;
 }
 
 .boardHeader .searchContainer {
-  color: black;
-  background-color: white;
-  border-radius: 10px;
-  padding: 8px 16px;
-  border: 1px solid #ddd;
-  font-size:21px;
-  display: flex;  
+	color: black;
+	background-color: white;
+	border-radius: 10px;
+	padding: 8px 16px;
+	border: 1px solid #ddd;
+	font-size: 21px;
+	display: flex;
 }
 
 .searchContainer img {
-
-  cursor: pointer;
-  margin-left:16px;
+	cursor: pointer;
+	margin-left: 16px;
 }
 
 .searchContainer img:hover {
-background-color: whitesmoke;
-border-radius: 50%;
+	background-color: whitesmoke;
+	border-radius: 50%;
 }
 
 .boardHeader input {
-  color: black;
-  
-  /* border-right:1px solid #ddd; */
-  /* padding: 8px 16px; */
-  border:unset;
-  border-right: 1px solid #ddd;
-  font-size:21px;
+	color: black;
+
+	/* border-right:1px solid #ddd; */
+	/* padding: 8px 16px; */
+	border: unset;
+	border-right: 1px solid #ddd;
+	font-size: 21px;
 }
 
 .searchBox {
-display: flex;
-gap:32px;
+	display: flex;
+	gap: 32px;
 }
-
-
 
 .boardSections {
 	display: flex;
@@ -268,24 +265,22 @@ gap:32px;
 	justify-content: space-between;
 }
 
-.boardSections section header img{
-cursor: pointer;
+.boardSections section header img {
+	cursor: pointer;
 }
-
-
 
 .boardHeader {
 	display: flex;
 }
 
 .taskCard {
-  background-color: white;
-  border-radius: 24px;
-  -webkit-box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.2);
-  box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.2);
-  padding: 16px;
-  margin: 8px 0;
-  cursor: pointer;
+	background-color: white;
+	border-radius: 24px;
+	-webkit-box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.2);
+	box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.2);
+	padding: 16px;
+	margin: 8px 0;
+	cursor: pointer;
 }
 
 /* .drag-area {
@@ -302,79 +297,82 @@ cursor: pointer;
 }
 
 .category {
-  color: white;
-  border-radius: 8px;
-  padding: 4px 16px;
+	color: white;
+	border-radius: 8px;
+	padding: 4px 16px;
 }
 
 .userstory {
-  background-color: var(--c64Blue);
+	background-color: var(--c64Blue);
 }
 
 .taskTitle {
-  font-weight: 700;
-  font-size: 16px;
-  margin: 16px 0;
+	font-weight: 700;
+	font-size: 16px;
+	margin: 16px 0;
 }
 
 .taskDesription {
-  color: #a8a8a8;
+	color: #a8a8a8;
 }
 
 .taskCard .user {
-display: flex;
-
+	display: flex;
 }
 
 .profileSmall {
-  border: 1px solid white;
-  border-radius: 100%;
-  width: 32px;
-  height: 32px;
-  color: white;
-  font-family: "Inter";
-  font-weight: 400;
-  font-size: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-transform: uppercase;
-  margin-right: -8px;
+	border: 1px solid white;
+	border-radius: 100%;
+	width: 32px;
+	height: 32px;
+	color: white;
+	font-family: "Inter";
+	font-weight: 400;
+	font-size: 12px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-transform: uppercase;
+	margin-right: -8px;
 }
 
 .am {
-  background-color: var( --girls-night-out);
+	background-color: var(--girls-night-out);
 }
 
 .em {
-  background-color: var(--venetian-night);
+	background-color: var(--venetian-night);
 }
 
 .mb {
-  background-color: var( --sugar-grape);
+	background-color: var(--sugar-grape);
 }
 
-
 .taskCard footer {
-display: flex;
-justify-content: space-between;
-align-items: center;
-margin-top:16px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-top: 16px;
 }
 
 .progress {
-  background-color: var(--progress-bar);
-  width: 128px;
-  height:8px;
-  border-radius: 8px; 
+	background-color: var(--progress-bar);
+	width: 128px;
+	height: 8px;
+	border-radius: 8px;
 }
 
 .progressContainer {
-  border-radius: 8px;
-  width: 128px;
-  height:8px;
-  background-color: var(--main-bg-color);
+	border-radius: 8px;
+	width: 128px;
+	height: 8px;
+	background-color: var(--main-bg-color);
 }
 
-.subtasks {display: flex;align-items: center;gap:10px;font-size:12px;}
+.subtasks {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	font-size: 12px;
+}
 /* End Board Page */

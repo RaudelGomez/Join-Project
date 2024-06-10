@@ -1,0 +1,57 @@
+/*Add Task templates */
+#add_task_template article {
+	margin-top: 40px;
+	flex: 1;
+}
+
+#add_task_form div {
+	display: flex;
+}
+
+#add_task_form {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	height: 100%;
+}
+
+#add_task_form div section {
+	flex: 1;
+}
+
+.form-control {
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 24px;
+}
+
+#add_task_form label span {
+	color: var(--danger-color);
+}
+
+#add_task_form input,
+#add_task_form textarea,
+#add_task_form select {
+	border: 1px solid var(--gray);
+	border-radius: 8px;
+	padding: 8px;
+	margin-top: 4px;
+	font-family: "Inter";
+}
+
+#add_task_form .add_task_data {
+	display: flex;
+	gap: 32px;
+}
+
+.d-flex {
+	display: flex;
+	flex-direction: column;
+}
+
+.add_task_separator {
+	width: 1px;
+	background-color: var(--gray);
+}
+
+/* End Add Task templates*/

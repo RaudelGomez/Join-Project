@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="./assets/css/style.css">
     <script src="./assets/js/include.js"></script>
     <script src="./assets/js/script.js"></script>
+    <script src="./assets/js/dragndropboard.js"></script>
 </head>
 <body onload="includeHTML()">
     <div class="container">
@@ -14,7 +15,52 @@
         <div id="main">
           <header id="header" w3-include-html="./assets/templates/header.html"></header>
           <div class="sub-container">
+            <header class="boardHeader">
           <h2>Board</h2>
+          <input type="search" placeholder="Find Task">
+          <button>Add task</button>
+
+        </header>
+        <main class="boardSections">
+          <section>
+            <header>
+            <h3>To do</h3>
+            <img src="./assets/img/plus_button_icon.svg" alt="">
+          </header>
+          <div class="drag-area" id="toDo" ondrop="moveTo('toDo')" ondragleave="removeHighlight('toDo')" ondragover="allowDrop(event); highlight('toDo')"></div>
+          </section>
+          <section>
+            <header>
+              <h3>In progress</h3>
+              <img src="./assets/img/plus_button_icon.svg" alt="">
+            </header>
+            <div class="drag-area" id="inProgress" ondrop="moveTo('inProgress')" ondragleave="removeHighlight('inProgress')" ondragover="allowDrop(event); highlight('inProgress')">
+
+<article class="taskCard" draggable="true">
+  <span class="category">User Story</span>
+  <h3 class="taskTitle">Kochwelt Page</h3>
+  <p class="taskDesription">Lorem ipsum dolor sit amet consectetur adipisicing elit. Et fugiat iusto culpa ratione impedit provident, officiis aliquam voluptatum omnis. Eos recusandae nam adipisci ducimus reiciendis cupiditate possimus placeat officiis consequuntur?</p>
+  <span>Progressbar</span>
+  <span>User</span>
+</article>
+
+            </div>
+          </section>
+          <section>
+            <header>
+              <h3>Await feedback</h3>
+              <img src="./assets/img/plus_button_icon.svg" alt="">
+            </header>
+            <div class="drag-area" id="awaitFeedback" ondrop="moveTo('awaitFeedback')" ondragleave="removeHighlight('awaitFeedback')" ondragover="allowDrop(event); highlight('awaitFeedback')"></div>
+          </section>
+          <section>
+            <header>
+              <h3>Done</h3>
+              <img src="./assets/img/plus_button_icon.svg" alt="">
+            </header>
+            <div class="drag-area" id="done" ondrop="moveTo('done')" ondragleave="removeHighlight('done')" ondragover="allowDrop(event); highlight('done')"></div>
+          </section>
+        </main>
         </div>
         </div>
       </div>

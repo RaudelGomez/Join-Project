@@ -4,13 +4,13 @@ html {
   /*Main colors*/
   --main-color: #2a3647;
   /* --main-bg-color: #f0f0f0; */
-  --main-bg-color: #F6F7F8;
+  --main-bg-color: #f6f7f8;
   --primary-color: #29abe2;
   --success-color: #7ae229;
   --danger-color: #ff3d00;
   --warning-color: #ffa800;
   --menu-active: #091931;
-  --menu-hover: #2A3D59;
+  --menu-hover: #2a3d59;
 
   /*Elemental colors*/
   --black: black;
@@ -58,11 +58,11 @@ h2 {
 }
 
 h3 {
-	font-family: "Inter";
-	font-weight: 700;
-	font-size: 27px;
-	margin: 0;
-  }
+  font-family: "Inter";
+  font-weight: 700;
+  font-size: 27px;
+  margin: 0;
+}
 
 .container {
   display: flex;
@@ -305,15 +305,62 @@ h1 {
 
 /* End Header */
 
+/* Help Page */
 .help {
-	padding: 64px;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
+  padding: 64px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
 .help h4 {
-margin:0;
-font-size:20px;
-
+  margin: 0;
+  font-size: 20px;
 }
+
+/* End Help Page */
+
+/* Board Page */
+.boardSections {
+  display: flex;
+  gap: 26px;
+}
+
+.boardSections section {
+  width: 25%;
+  height: 200px;
+}
+
+.boardSections section header {
+  display: flex;
+  justify-content: space-between;
+}
+.boardHeader {
+  display: flex;
+}
+
+.taskCard {
+  background-color: white;
+  border-radius: 24px;
+  -webkit-box-shadow: 0px 1px 6px 0px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 1px 6px 0px rgba(0, 0, 0, 0.3);
+  padding:16px;
+  margin:8px 0;
+  cursor: pointer;
+}
+
+.drag-area {
+  height: 200px;
+  background-color: rgba(0, 0, 0, 0.1);
+  border: 1px dashed black;
+  margin-bottom: 50px;
+  display: flex;
+  align-items: flex-start;
+}
+
+.drag-area-highlight {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+
+/* End Board Page */

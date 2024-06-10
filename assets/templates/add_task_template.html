@@ -1,1 +1,39 @@
-<h1>Hola</h1>
+<h2>Add Task</h2>
+<article>
+	<form id="add_task_form">
+		<div>
+			<section>
+				<div class="form-control">
+					<label for="title_task">Title<span>*</span></label>
+					<input
+						required
+						id="title_task"
+						type="text"
+						placeholder="Enter a title"
+					/>
+				</div>
+				<div class="form-control">
+					<label for="description_task">Description</label>
+					<textarea
+						name="description_task"
+						id="description_task"
+						placeholder="Enter a Description"
+						rows="5"
+					></textarea>
+				</div>
+				<div class="form-control">
+					<label for="assigned_task">Assigned to</label>
+					<select name="assigned_task" id="assigned_task">
+						<option value="Özkan(You)">Özkan</option>
+						<option value="Alain">Alain</option>
+						<option value="Raudel">Raudel</option>
+					</select>
+				</div>
+			</section>
+			<section></section>
+		</div>
+		<div>
+			<button type="submit">Create Task</button>
+		</div>
+	</form>
+</article>

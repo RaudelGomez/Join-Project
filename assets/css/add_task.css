@@ -1,0 +1,34 @@
+/*Add Task templates */
+#add_task_form div {
+	display: flex;
+}
+
+#add_task_form div section {
+	flex: 1;
+}
+
+.form-control {
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 24px;
+}
+
+#add_task_form label span {
+	color: var(--danger-color);
+}
+
+#add_task_form input,
+#add_task_form textarea,
+#add_task_form select {
+	border: 1px solid var(--gray);
+	border-radius: 8px;
+	padding: 8px;
+	margin-top: 4px;
+	font-family: "Inter";
+}
+
+#add_task_form select::placeholder {
+	padding-right: 40px;
+}
+
+/* End Add Task templates*/

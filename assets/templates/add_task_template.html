@@ -2,7 +2,7 @@
 <article>
 	<form id="add_task_form">
 		<div class="add_task_data">
-			<section class="sub-container-addTask">
+			<section>
 				<div class="form-control">
 					<label for="title_task">Title<span>*</span></label>
 					<input
@@ -30,8 +30,27 @@
 					</select>
 				</div>
 			</section>
-			<div class="add_task_separator sub-container-addTask"></div>
-			<section class="sub-container-addTask"></section>
+			<div class="add_task_separator"></div>
+			<section>
+				<div class="form-control">
+					<label for="due_date_task">Due date<span>*</span></label>
+					<input required id="due_date_task" type="date" />
+				</div>
+				<div class="form-control">
+					<span>Prio</span>
+					<div>
+						<button>
+							<span>Urgent</span
+							><img
+								src="./assets/img/urgent_high_priority_icon.svg"
+								alt="Urgent"
+							/>
+						</button>
+						<button>Medium</button>
+						<button>Low</button>
+					</div>
+				</div>
+			</section>
 		</div>
 		<div>
 			<button type="submit">Create Task</button>

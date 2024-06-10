@@ -1,20 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Join - Summary</title> 
-    <link rel="stylesheet" href="./assets/css/style.css" />
-    <script src="./assets/js/include.js"></script>
-    <script src="./assets/js/script.js"></script>
-  </head>
-  <body onload="includeHTML()">
-    <div class="container">
-      <div id="menu" w3-include-html="./assets/templates/menu.html"></div>
-      <div id="main">
-        <header w3-include-html="./assets/templates/header.html"></header>
-        <h1>Summary</h1>
-      </div>
-    </div>
-  </body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Join - Summary</title>
+		<link rel="stylesheet" href="./assets/css/style.css" />
+		<script src="./assets/js/include.js"></script>
+		<script src="./assets/js/script.js"></script>
+	</head>
+	<body onload="includeHTML()">
+		<div class="container">
+			<div id="menu" w3-include-html="./assets/templates/menu.html"></div>
+			<div id="main">
+				<header
+					id="header"
+					w3-include-html="./assets/templates/header.html"
+				></header>
+				<section id="summary" class="sub-container">
+					<div class="headline">
+						<h2>Join 360</h2>
+						<div class="vertical-line"></div>
+						<p>Key Metrics at a Glance</p>
+					</div>
+					<article class="summary-container">
+						<div class="summary-info">
+							<div class="container-todo-done">
+								<figure>
+									<img src="./assets/img/pencil_fill_icon.svg" alt="edit" />
+									<figcaption class="img-text-align">
+										<span id="quantity-task" class="quantity-task">1</span>
+										<span class="name-task">To-do</span>
+									</figcaption>
+								</figure>
+								<figure>
+									<img src="./assets/img/check_fill_icon.svg" alt="checked" />
+									<figcaption class="img-text-align">
+										<span id="quantity-done" class="quantity-task">1</span>
+										<span class="name-task">done</span>
+									</figcaption>
+								</figure>
+							</div>
+							<div class="container-urgent">
+								<figure>
+									<img src="./assets/img/urgent_fill_icon.svg" alt="checked" />
+									<figcaption class="img-text-align">
+										<span id="quantity-urgent" class="quantity-task">1</span>
+										<span class="name-task">Urgent</span>
+									</figcaption>
+								</figure>
+								<div class="vertical-line-urgent"></div>
+								<div class="date-urgent">
+									<span id="date-urgent">October 16, 2024</span>
+									<span class="deadline-info">Upcoming deadline</span>
+								</div>
+							</div>
+						</div>
+						<div class="greeting-container">
+							<p>Good Morning</p>
+							<p>Guest</p>
+						</div>
+					</article>
+				</section>
+			</div>
+		</div>
+	</body>
 </html>

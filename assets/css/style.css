@@ -1,5 +1,5 @@
 @import url("fonts.css");
-
+@import url("login.css");
 html {
 	/*Main colors*/
 	--main-color: #2a3647;

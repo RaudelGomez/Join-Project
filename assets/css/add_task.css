@@ -143,8 +143,6 @@ select {
 }
 
 .button-submit-clear-add-task button {
-	background-color: var(--white);
-	border: 0.1px solid var(--gray);
 	border-radius: 8px;
 	height: 56px;
 	cursor: pointer;
@@ -154,9 +152,15 @@ select {
 	gap: 8px;
 }
 
-button.button-add-task {
-	background-color: var(--main-color);
-	color: var(--white);
+.clear-button-add-task {
+	background-color: var(--white);
+	border: 0.1px solid var(--gray);
+}
+
+.clear-button-add-task:hover {
+	background-color: var(--white);
+	color: var(--blue-bikini);
+	border: 1px solid var(--blue-bikini);
 }
 
 /* End Add Task templates*/

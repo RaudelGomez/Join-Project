@@ -3,6 +3,14 @@
 @import url("summary.css");
 @import url("add_task.css");
 
+/* :root {
+  --animate-duration: 0.2s;
+} */
+
+#innerDialog, #dialog, #contactInfo {
+  --animate-duration: 0.2s;
+}
+
 html {
 	/*Main colors*/
 	--main-color: #2a3647;
@@ -48,6 +56,11 @@ body {
 }
 
 /*General class and id*/
+
+.noscroll {
+  overflow: hidden;
+}
+
 #main {
 	flex: 1;
 	margin-left: 232px;

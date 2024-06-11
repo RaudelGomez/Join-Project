@@ -9,6 +9,7 @@
 		<script src="./assets/js/include.js"></script>
 		<script src="./assets/js/script.js"></script>
 		<script src="./assets/js/board.js"></script>
+		<script src="./assets/js/addTask.js"></script>
 		<script src="./assets/js/dragndropboard.js"></script>
 		<link
 			rel="shortcut icon"
@@ -17,8 +18,10 @@
 		/>
 	</head>
 	<body onload="includeHTML()">
-		<div id="dialog" class="d-none animate__animated animate__fadeIn animate__faster" onclick="closeDialog()"></div>
-		<div id="innerDialog" w3-include-html="./assets/templates/add_task_template.html" class="animate__animated animate__slideInRight animate__faster d-none"></div>
+		<div id="dialog" class="d-none animate__animated animate__fadeIn" onclick="closeDialog()">
+			<!-- <img src="./assets/img/close_icon.svg" alt=""> -->
+		</div>
+		<div id="innerDialog" w3-include-html="./assets/templates/add_task_template.html" class="animate__animated animate__slideInRight d-none"></div>
 
 
 		<div class="container">

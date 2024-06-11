@@ -102,6 +102,7 @@ h3 {
 .svgContainerDarkblue {
 	transform: scale(1);
 	transition: all 125ms ease-in-out;
+	cursor: pointer;
 }
 
 .svgContainerDarkblue:hover {
@@ -118,9 +119,17 @@ h3 {
 	fill: var(--main-color);
 }
 
+.svgContainerDarkblue:hover .svgStrokeDarkblue {
+	stroke: var(--main-color);
+}
+
 .svgContainerDarkblue:hover span {
 	color: var(--white);
 }
+
+/* .svgContainerDarkblue:hover .svgDarkblue {
+	background-color: var(--main-color);
+} */
 /* Main Menu */
 
 #menu {

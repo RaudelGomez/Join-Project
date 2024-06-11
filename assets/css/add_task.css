@@ -65,7 +65,7 @@
 	gap: 8px;
 }
 
-.prio-container button {
+.prio-container div {
 	flex: 1;
 	background-color: var(--white);
 	border: 0.1px solid var(--gray);
@@ -76,6 +76,11 @@
 	gap: 8px;
 	height: 56px;
 	cursor: pointer;
+}
+
+.svgContainerButtonPrio:hover {
+	box-shadow: var(--box-shadow-button);
+	transform: scale(1.03);
 }
 
 .d-none {

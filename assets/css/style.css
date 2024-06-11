@@ -50,6 +50,7 @@ html {
 
 	/*shadow*/
 	--box-shadow-element: 0px 1px 2px 0px #00000040;
+	--box-shadow-button: 0px 4px 4px 0px #00000040;
 }
 
 body {
@@ -107,9 +108,10 @@ h3 {
 
 .button:hover {
 	background-color: var(--primary-color);
-	box-shadow: 0px 4px 4px 0px #00000040;
+	box-shadow: var(--box-shadow-button);
 }
 
+/*SVG*/
 .svgContainer:hover .svgLightBlue {
 	fill: var(--primary-color);
 }
@@ -117,7 +119,8 @@ h3 {
 	color: var(--primary-color);
 }
 
-.svgContainerDarkblue {
+.svgContainerDarkblue,
+.svgContainerButtonPrio {
 	transform: scale(1);
 	transition: all 125ms ease-in-out;
 	cursor: pointer;
@@ -125,7 +128,7 @@ h3 {
 
 .svgContainerDarkblue:hover {
 	background-color: var(--main-color);
-	box-shadow: 0px 4px 4px 0px #00000040;
+	box-shadow: var(--box-shadow-button);
 	transform: scale(1.03);
 }
 
@@ -144,6 +147,8 @@ h3 {
 .svgContainerDarkblue:hover span {
 	color: var(--white);
 }
+
+/*End SVG*/
 
 .d-none {
 	display: none !important;

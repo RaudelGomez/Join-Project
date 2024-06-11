@@ -184,7 +184,6 @@
 .horizontal-line {
 	display: none;
 }
-
 /*End Summary*/
 
 @media (max-width: 1010px) {
@@ -263,9 +262,4 @@
 	.summary-container {
 		margin-top: 32px;
 	}
-
-	/* #date-urgent {
-		font-size: 12px;
-		font-weight: 700;
-	} */
 }

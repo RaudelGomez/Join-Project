@@ -111,9 +111,13 @@
 				</div>
 				<div class="form-control">
 					<label for="assigned_task">Category<span>*</span></label>
-					<select name="category_task" id="category_task">
-						<option value="1">Technical Task</option>
-						<option value="2">User Story</option>
+					<select name="category_task" class="category_task" id="category_task">
+						<optgroup>
+							<option value="1">Technical Task</option>
+						</optgroup>
+						<optgroup>
+							<option value="2">User Story</option>
+						</optgroup>
 						<option value="" selected class="d-none">
 							Select task category
 						</option>

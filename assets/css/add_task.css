@@ -227,4 +227,8 @@ select {
 .position-relative {
 	position: relative;
 }
+
+.category_task option {
+	padding: 20px;
+}
 /* End Add Task templates*/

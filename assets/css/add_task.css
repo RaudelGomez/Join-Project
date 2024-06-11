@@ -172,7 +172,7 @@ select {
 	display: block;
 }
 
-.assigned_task {
+.assigned-task {
 	margin-top: 20px;
 	position: absolute;
 	left: 0;
@@ -182,13 +182,13 @@ select {
 	z-index: 100;
 }
 
-.assigned_task_hidden {
+.assigned-task-hidden {
 	display: none !important;
 	max-height: 100px;
 	overflow-y: auto;
 }
 
-.assigned_task_show {
+.assigned-task-show {
 	display: block !important;
 	height: 300px;
 	overflow-y: auto;

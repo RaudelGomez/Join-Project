@@ -20,7 +20,9 @@
 .addContactBtn {
     padding:16px 64px;   
     background-color: white;
-    z-index: 100;
+    position: relative;
+    margin-right: 16px;
+    margin-top: 16px;
 }
 .ContactBtn {
     width:100%;
@@ -28,8 +30,11 @@
 
 .contact-list {
     overflow-y: scroll;
-    height:calc(100% - 86px);
+    /* height:calc(100% - 86px); */
+    height:calc(100% - 151px);
     margin-top: -81px;
+    /* padding:0 64px; */
+    padding:64px 64px 0px 64px;
 
 }
 
@@ -46,3 +51,9 @@ body {overflow-y: hidden;}
 
 .letter {border-bottom:1px solid #ddd;font-size:20px;
 padding:16px;}
+
+.contactBox {display: flex;gap:35px;cursor: pointer;padding:16px;border-radius:10px;}
+.contactBox:hover {background: linear-gradient(180deg, #F9F9F9 0%, #F0F0F0 100%);
+}
+.contactMail {color:#007CEE;}
+.contactName {font-size: 20px;}

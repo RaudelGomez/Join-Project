@@ -21,13 +21,66 @@
 						rows="5"
 					></textarea>
 				</div>
-				<div class="form-control">
+				<div class="form-control position-relative">
 					<label for="assigned_task">Assigned to</label>
-					<select name="assigned_task" id="assigned_task">
-						<option value="Özkan(You)">Özkan</option>
-						<option value="Alain">Alain</option>
-						<option value="Raudel">Raudel</option>
-					</select>
+					<div class="select-option" onclick="showCheckboxes()">
+						<select onclick="showCheckboxes()">
+							<option>Select contacts to assign</option>
+						</select>
+						<div class="overSelect"></div>
+					</div>
+
+					<div
+						name="assigned_task"
+						id="assigned_task"
+						class="assigned_task assigned_task_hidden"
+					>
+						<label class="checkbox-label" for="1"
+							>Özkan <input type="checkbox" id="1"
+						/></label>
+						<label class="checkbox-label" for="2"
+							>Alain <input type="checkbox" id="2"
+						/></label>
+						<label class="checkbox-label" for="3"
+							>Raudel <input type="checkbox" id="3"
+						/></label>
+						<label class="checkbox-label" for="2"
+							>Alain <input type="checkbox" id="2"
+						/></label>
+						<label class="checkbox-label" for="3"
+							>Raudel <input type="checkbox" id="3"
+						/></label>
+						<label class="checkbox-label" for="2"
+							>Alain <input type="checkbox" id="2"
+						/></label>
+						<label class="checkbox-label" for="3"
+							>Raudel <input type="checkbox" id="3"
+						/></label>
+						<label class="checkbox-label" for="2"
+							>Alain <input type="checkbox" id="2"
+						/></label>
+						<label class="checkbox-label" for="3"
+							>Raudel <input type="checkbox" id="3"
+						/></label>
+						<label class="checkbox-label" for="2"
+							>Alain <input type="checkbox" id="2"
+						/></label>
+						<label class="checkbox-label" for="3"
+							>Raudel <input type="checkbox" id="3"
+						/></label>
+						<label class="checkbox-label" for="2"
+							>Alain <input type="checkbox" id="2"
+						/></label>
+						<label class="checkbox-label" for="3"
+							>Raudel <input type="checkbox" id="3"
+						/></label>
+						<label class="checkbox-label" for="2"
+							>Alain <input type="checkbox" id="2"
+						/></label>
+						<label class="checkbox-label" for="3"
+							>Raudel <input type="checkbox" id="3"
+						/></label>
+					</div>
 				</div>
 			</section>
 			<div class="add_task_separator"></div>

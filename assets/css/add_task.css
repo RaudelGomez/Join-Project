@@ -172,4 +172,59 @@ select {
 	display: block;
 }
 
+.assigned_task {
+	margin-top: 20px;
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	top: 40px;
+	z-index: 100;
+}
+
+.assigned_task_hidden {
+	display: none !important;
+	max-height: 100px;
+	overflow-y: auto;
+}
+
+.assigned_task_show {
+	display: block !important;
+	height: 300px;
+	overflow-y: auto;
+}
+
+.checkbox-label {
+	margin: 0 2px;
+	padding: 8px;
+	display: flex;
+	justify-content: space-between;
+	background-color: var(--white);
+	border-radius: 4px;
+}
+
+.checkbox-label:hover {
+	color: var(--white);
+	background-color: var(--main-color);
+}
+
+.select-option {
+	position: relative;
+}
+
+.select-option select {
+	width: 100%;
+}
+
+.overSelect {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+}
+
+.position-relative {
+	position: relative;
+}
 /* End Add Task templates*/

@@ -121,6 +121,69 @@ h3 {
 .svgContainerDarkblue:hover span {
 	color: var(--white);
 }
+
+.d-none {
+  display: none !important;
+}
+
+#dialog {
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 900;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 800;
+}
+
+#innerDialog {
+
+  /* width: 1116px;
+  height: 870px;
+  top: -3975px;
+  left: -1012px;
+  gap: 0px;
+  border-radius: 30px;
+  opacity: 0px; */
+  
+  max-width: 800px;
+  border-radius: 30px;
+  height: fit-content;
+  background-color: white;
+  padding:64px;
+  box-shadow: 0px 0px 4px 0px #0000001A;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 20vh;
+  bottom: 0;
+  z-index: 800;
+  margin: 0 auto;
+
+
+
+  /* height: 80vh; */
+  /* overflow-y: hidden;
+  display: flex;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+ 
+  margin: 0 auto;
+  border: none !important;
+  flex-direction: column; */
+
+  /* top: 10vh; */
+
+}
+
+
 /* Main Menu */
 
 #menu {

@@ -5,8 +5,10 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Join - Board</title>
 		<link rel="stylesheet" href="./assets/css/style.css" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 		<script src="./assets/js/include.js"></script>
 		<script src="./assets/js/script.js"></script>
+		<script src="./assets/js/board.js"></script>
 		<script src="./assets/js/dragndropboard.js"></script>
 		<link
 			rel="shortcut icon"
@@ -15,6 +17,10 @@
 		/>
 	</head>
 	<body onload="includeHTML()">
+		<div id="dialog" class="d-none animate__animated animate__fadeIn animate__faster" onclick="closeDialog()"></div>
+		<div id="innerDialog" w3-include-html="./assets/templates/add_task_template.html" class="animate__animated animate__slideInRight animate__faster d-none"></div>
+
+
 		<div class="container">
 			<div id="menu" w3-include-html="./assets/templates/menu.html"></div>
 			<div id="main">
@@ -33,7 +39,7 @@
 									placeholder="Find Task"
 								/><img src="./assets/img/search_icon.svg" alt="" />
 							</div>
-							<button class="button">
+							<button class="button" onclick="openDialog()">
 								Add task <img src="./assets/img/add.svg" alt="" />
 							</button>
 						</div>

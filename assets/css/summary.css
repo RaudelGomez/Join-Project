@@ -76,7 +76,7 @@
 	padding: 0 8px;
 }
 
-.container-todo-done figure img {
+.container-todo-done figure svg {
 	width: 60%;
 	height: 60%;
 }

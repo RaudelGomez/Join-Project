@@ -114,8 +114,18 @@
 	padding: 24px;
 }
 
-.container-urgent figure {
-	height: 100%;
+.container-urgent-svg {
+	flex: 1;
+	display: flex;
+	justify-content: center;
+	gap: 8px;
+}
+
+.container-urgent-svg figcaption {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 }
 
 .vertical-line-urgent {
@@ -140,26 +150,25 @@
 
 .container-progress-task {
 	display: flex;
-	gap: 8px;
+	gap: 24px;
 	max-height: 168px;
 	width: 100%;
 	justify-content: space-between;
 }
 
-.container-progress-task figure {
+.container-progress-task div {
 	flex: 1;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	background-color: var(--white);
-	height: 100%;
 	margin: 0;
 	padding: 16px;
 	border-radius: 16px;
 }
 
-.container-progress-task figure figcaption {
+.container-progress-task div span {
 	text-align: center;
 }
 

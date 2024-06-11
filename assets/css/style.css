@@ -102,6 +102,7 @@ h3 {
 .svgContainerDarkblue {
 	transform: scale(1);
 	transition: all 125ms ease-in-out;
+	cursor: pointer;
 }
 
 .svgContainerDarkblue:hover {
@@ -116,6 +117,10 @@ h3 {
 
 .svgContainerDarkblue:hover .svgDarkblue {
 	fill: var(--main-color);
+}
+
+.svgContainerDarkblue:hover .svgStrokeDarkblue {
+	stroke: var(--main-color);
 }
 
 .svgContainerDarkblue:hover span {

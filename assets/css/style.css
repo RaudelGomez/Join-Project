@@ -80,10 +80,11 @@ h3 {
   border: unset;
   font-size: 21px;
   cursor: pointer;
-  transition: background-color 100ms ease-in-out;
+  transition: all 100ms ease-in-out;
   display: flex;
   align-items: center;
   gap: 16px;
+  justify-content: center;
 }
 
 .button:hover {
@@ -312,7 +313,7 @@ h1 {
   border-radius: 8px;
   border: 1px dashed #a8a8a8;
   padding: 16px;
-  margin: 8px 0;
+  margin: 16px 0;
   text-align: center;
 }
 

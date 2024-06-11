@@ -1,20 +1,48 @@
-.contactsContainer {display: flex;
+.contactsContainer {
+    display: flex;
 }
 
 .contacts {
-    background-color: aqua;
-    padding:64px;
-    overflow-y: scroll;
+    background-color: white;
+    /* padding:64px; */
+    /* overflow-y: scroll; */
     /* position: relative;
     top: 86px; */
     
-    /* height:100vh;
-    width:456px; */
+    height:100vh;
+    width:456px;
  
     /* top:0;    */
+    box-shadow: 4px 0px 6px 0px #00000014;
+
+}
+
+.addContactBtn {
+    padding:16px 64px;   
+    background-color: white;
+    z-index: 100;
+}
+.ContactBtn {
+    width:100%;
+}
+
+.contact-list {
+    overflow-y: scroll;
+    height:calc(100% - 86px);
+    margin-top: -81px;
+
 }
 
 .sub-container {
-
+/* flex:1; */
     /* margin-left:456px; */
 }
+
+.contactDisplay {
+    flex:1;     
+}
+
+body {overflow-y: hidden;}
+
+.letter {border-bottom:1px solid #ddd;font-size:20px;
+padding:16px;}

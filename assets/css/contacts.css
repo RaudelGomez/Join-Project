@@ -1,59 +1,141 @@
 .contactsContainer {
-    display: flex;
+  display: flex;
 }
 
 .contacts {
-    background-color: white;
-    /* padding:64px; */
-    /* overflow-y: scroll; */
-    /* position: relative;
+  background-color: white;
+  /* padding:64px; */
+  /* overflow-y: scroll; */
+  /* position: relative;
     top: 86px; */
-    
-    height:100vh;
-    width:456px;
- 
-    /* top:0;    */
-    box-shadow: 4px 0px 6px 0px #00000014;
 
+  height: 100vh;
+  width: 456px;
+
+  /* top:0;    */
+  box-shadow: 4px 0px 6px 0px #00000014;
 }
 
 .addContactBtn {
-    padding:16px 64px;   
-    background-color: white;
-    position: relative;
-    margin-right: 16px;
-    margin-top: 16px;
+  padding: 16px 64px;
+  background-color: white;
+  position: relative;
+  margin-right: 16px;
+  margin-top: 16px;
 }
 .ContactBtn {
-    width:100%;
+  width: 100%;
 }
 
 .contact-list {
-    overflow-y: scroll;
-    /* height:calc(100% - 86px); */
-    height:calc(100% - 151px);
-    margin-top: -81px;
-    /* padding:0 64px; */
-    padding:64px 64px 0px 64px;
-
-}
-
-.sub-container {
-/* flex:1; */
-    /* margin-left:456px; */
+  overflow-y: scroll;
+  height: calc(100% - 173px);
+  margin-top: -96px;
+  padding: 85px 64px 0px 64px;
 }
 
 .contactDisplay {
-    flex:1;     
+  flex: 1;
 }
 
-body {overflow-y: hidden;}
-
-.letter {border-bottom:1px solid #ddd;font-size:20px;
-padding:16px;}
-
-.contactBox {display: flex;gap:35px;cursor: pointer;padding:16px;border-radius:10px;}
-.contactBox:hover {background: linear-gradient(180deg, #F9F9F9 0%, #F0F0F0 100%);
+body {
+  overflow-y: hidden;
 }
-.contactMail {color:#007CEE;}
-.contactName {font-size: 20px;}
+
+.letter {
+  border-bottom: 1px solid #ddd;
+  font-size: 20px;
+  padding: 16px;
+  margin-bottom: 8px;
+}
+
+.contactBox {
+  display: flex;
+  gap: 35px;
+  cursor: pointer;
+  padding: 16px;
+  border-radius: 10px;
+}
+.contactBox:hover:not(.activeContact) {
+  background: linear-gradient(180deg, #f9f9f9 0%, #f0f0f0 100%);
+}
+.contactMail {
+  color: #007cee;
+}
+.contactName {
+  font-size: 20px;
+}
+.activeContact {
+  background-color: var(--main-color);
+  color: white;
+}
+.contactHeader {
+  display: flex;
+  gap: 54px;
+  align-items: center;
+  font-size: 47px;
+  font-weight: 500;
+}
+
+.contactDetailsInfo footer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.contactDetailsInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 21px;
+}
+
+.profileIconBig {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  width: 120px;
+  height: 120px;
+  border: 3px solid #ffffff;
+  box-shadow: 0px 0px 4px 0px #0000001a;
+  gap: 10px;
+  border-radius: 50%;
+}
+
+.contactContent {
+  display: flex;
+  flex-direction: column;
+  gap: 16px !important;
+}
+
+.contactContent footer span {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 8px !important;
+  cursor: pointer;
+}
+
+.contactContent footer span:hover {
+  color: var(--primary-color) !important;
+}
+
+.contactContent footer span img:hover {
+    /* color: var(--primary-color) !important; */
+    /* filter: url("filters.svg#fill:red"); */
+  }
+
+.contactContent h3 {
+  font-size: 47px !important;
+  font-weight: 500 !important;
+}
+
+.contactDetailsInfo h3 {
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: left;
+}

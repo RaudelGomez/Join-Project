@@ -1,165 +1,155 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Join - Contacts</title>
-		<link rel="stylesheet" href="./assets/css/style.css" />
-		<link rel="stylesheet" href="./assets/css/contacts.css" />
-		<link
-			rel="stylesheet"
-			href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-		/>
-		<link
-			rel="shortcut icon"
-			href="./assets/img/join_fill_icon.svg"
-			type="image/x-icon"
-		/>
-		<script src="./assets/js/include.js"></script>
-		<script src="./assets/js/script.js"></script>
-	</head>
-	<body onload="includeHTML()">
-		<div class="container">
-			<div id="menu" w3-include-html="./assets/templates/menu.html"></div>
-			<div id="main">
-				<header
-					id="header"
-					w3-include-html="./assets/templates/header.html"
-				></header>
-				<div class="contactsContainer">
-					<section class="contacts">
-						<div class="addContactBtn">
-							<button class="button ContactBtn">
-								Add new contact
-								<img src="./assets/img/person_add_white_icon.svg" alt="" />
-							</button>
-						</div>
-						<div class="contact-list">
-							<div class="letter">
-								<span>A</span>
-							</div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Join - Contacts</title>
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="stylesheet" href="./assets/css/contacts.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="shortcut icon" href="./assets/img/join_fill_icon.svg" type="image/x-icon" />
+    <script src="./assets/js/include.js"></script>
+    <script src="./assets/js/script.js"></script>
+  </head>
+  <body onload="includeHTML()">
+    <div class="container">
+      <div id="menu" w3-include-html="./assets/templates/menu.html"></div>
+      <div id="main">
+        <header id="header" w3-include-html="./assets/templates/header.html"></header>
+        <div class="contactsContainer">
+          <section class="contacts">
+            <div class="addContactBtn">
+              <button class="button ContactBtn">
+                Add new contact
+                <img src="./assets/img/person_add_white_icon.svg" alt="" />
+              </button>
+            </div>
+            <div class="contact-list">
+              <div class="letter">
+                <span>A</span>
+              </div>
 
-							<div onclick="showContact()" class="contactBox activeContact">
-								<span class="profileSmall am">AM</span>
-								<div class="contactDetails">
-									<div class="contactName">Anton Mayer</div>
-									<div class="contactMail">anton@gmail.com</div>
-								</div>
-							</div>
+              <div onclick="showContact()" class="contactBox activeContact">
+                <span class="profileSmall am">AM</span>
+                <div class="contactDetails">
+                  <div class="contactName">Anton Mayer</div>
+                  <div class="contactMail">anton@gmail.com</div>
+                </div>
+              </div>
 
-							<div onclick="showContact()" class="contactBox">
-								<span class="profileSmall em">AM</span>
-								<div class="contactDetails">
-									<div class="contactName">Anton Mayer</div>
-									<div class="contactMail">anton@gmail.com</div>
-								</div>
-							</div>
+              <div onclick="showContact()" class="contactBox">
+                <span class="profileSmall em">AM</span>
+                <div class="contactDetails">
+                  <div class="contactName">Anton Mayer</div>
+                  <div class="contactMail">anton@gmail.com</div>
+                </div>
+              </div>
 
-							<div onclick="showContact()" class="contactBox">
-								<span class="profileSmall mb">AM</span>
-								<div class="contactDetails">
-									<div class="contactName">Anton Mayer</div>
-									<div class="contactMail">anton@gmail.com</div>
-								</div>
-							</div>
+              <div onclick="showContact()" class="contactBox">
+                <span class="profileSmall mb">AM</span>
+                <div class="contactDetails">
+                  <div class="contactName">Anton Mayer</div>
+                  <div class="contactMail">anton@gmail.com</div>
+                </div>
+              </div>
 
-							<div class="letter">
-								<span>B</span>
-							</div>
+              <div class="letter">
+                <span>B</span>
+              </div>
 
-							<div onclick="showContact()" class="contactBox">
-								<span class="profileSmall am">AM</span>
-								<div class="contactDetails">
-									<div class="contactName">Anton Mayer</div>
-									<div class="contactMail">anton@gmail.com</div>
-								</div>
-							</div>
+              <div onclick="showContact()" class="contactBox">
+                <span class="profileSmall am">AM</span>
+                <div class="contactDetails">
+                  <div class="contactName">Anton Mayer</div>
+                  <div class="contactMail">anton@gmail.com</div>
+                </div>
+              </div>
 
-							<div onclick="showContact()" class="contactBox">
-								<span class="profileSmall em">AM</span>
-								<div class="contactDetails">
-									<div class="contactName">Anton Mayer</div>
-									<div class="contactMail">anton@gmail.com</div>
-								</div>
-							</div>
+              <div onclick="showContact()" class="contactBox">
+                <span class="profileSmall em">AM</span>
+                <div class="contactDetails">
+                  <div class="contactName">Anton Mayer</div>
+                  <div class="contactMail">anton@gmail.com</div>
+                </div>
+              </div>
 
-							<div onclick="showContact()" class="contactBox">
-								<span class="profileSmall mb">AM</span>
-								<div class="contactDetails">
-									<div class="contactName">Anton Mayer</div>
-									<div class="contactMail">anton@gmail.com</div>
-								</div>
-							</div>
+              <div onclick="showContact()" class="contactBox">
+                <span class="profileSmall mb">AM</span>
+                <div class="contactDetails">
+                  <div class="contactName">Anton Mayer</div>
+                  <div class="contactMail">anton@gmail.com</div>
+                </div>
+              </div>
 
-							<div class="letter">
-								<span>C</span>
-							</div>
+              <div class="letter">
+                <span>C</span>
+              </div>
 
-							<div onclick="showContact()" class="contactBox">
-								<span class="profileSmall am">AM</span>
-								<div class="contactDetails">
-									<div class="contactName">Anton Mayer</div>
-									<div class="contactMail">anton@gmail.com</div>
-								</div>
-							</div>
+              <div onclick="showContact()" class="contactBox">
+                <span class="profileSmall am">AM</span>
+                <div class="contactDetails">
+                  <div class="contactName">Anton Mayer</div>
+                  <div class="contactMail">anton@gmail.com</div>
+                </div>
+              </div>
 
-							<div onclick="showContact()" class="contactBox">
-								<span class="profileSmall em">AM</span>
-								<div class="contactDetails">
-									<div class="contactName">Anton Mayer</div>
-									<div class="contactMail">anton@gmail.com</div>
-								</div>
-							</div>
+              <div onclick="showContact()" class="contactBox">
+                <span class="profileSmall em">AM</span>
+                <div class="contactDetails">
+                  <div class="contactName">Anton Mayer</div>
+                  <div class="contactMail">anton@gmail.com</div>
+                </div>
+              </div>
 
-							<div onclick="showContact()" class="contactBox">
-								<span class="profileSmall mb">AM</span>
-								<div class="contactDetails">
-									<div class="contactName">Anton Mayer</div>
-									<div class="contactMail">anton@gmail.com</div>
-								</div>
-							</div>
+              <div onclick="showContact()" class="contactBox">
+                <span class="profileSmall mb">AM</span>
+                <div class="contactDetails">
+                  <div class="contactName">Anton Mayer</div>
+                  <div class="contactMail">anton@gmail.com</div>
+                </div>
+              </div>
 
-							<div class="contactBox">
-								<span class="profileSmall am">AM</span>
-								<div class="contactDetails">
-									<div class="contactName">Anton Mayer</div>
-									<div class="contactMail">anton@gmail.com</div>
-								</div>
-							</div>
+              <div class="contactBox">
+                <span class="profileSmall am">AM</span>
+                <div class="contactDetails">
+                  <div class="contactName">Anton Mayer</div>
+                  <div class="contactMail">anton@gmail.com</div>
+                </div>
+              </div>
 
-							<div onclick="showContact()" class="contactBox">
-								<span class="profileSmall am">AM</span>
-								<div class="contactDetails">
-									<div class="contactName">Anton Mayer</div>
-									<div class="contactMail">anton@gmail.com</div>
-								</div>
-							</div>
+              <div onclick="showContact()" class="contactBox">
+                <span class="profileSmall am">AM</span>
+                <div class="contactDetails">
+                  <div class="contactName">Anton Mayer</div>
+                  <div class="contactMail">anton@gmail.com</div>
+                </div>
+              </div>
 
-							<div onclick="showContact()" class="contactBox">
-								<span class="profileSmall em">AM</span>
-								<div class="contactDetails">
-									<div class="contactName">Anton Mayer</div>
-									<div class="contactMail">anton@gmail.com</div>
-								</div>
-							</div>
+              <div onclick="showContact()" class="contactBox">
+                <span class="profileSmall em">AM</span>
+                <div class="contactDetails">
+                  <div class="contactName">Anton Mayer</div>
+                  <div class="contactMail">anton@gmail.com</div>
+                </div>
+              </div>
 
-							<div onclick="showContact()" class="contactBox">
-								<span class="profileSmall mb">AM</span>
-								<div class="contactDetails">
-									<div class="contactName">Anton Mayer</div>
-									<div class="contactMail">anton@gmail.com</div>
-								</div>
-							</div>
-						</div>
-						<!-- End of contact-list -->
-					</section>
-					<section class="contactDisplay">
-						<div class="sub-container">
-							<div class="headline">
-								<h2>Contacts</h2>
-								<div class="vertical-line"></div>
-								<p>Better with a team</p>
-							</div>
+              <div onclick="showContact()" class="contactBox">
+                <span class="profileSmall mb">AM</span>
+                <div class="contactDetails">
+                  <div class="contactName">Anton Mayer</div>
+                  <div class="contactMail">anton@gmail.com</div>
+                </div>
+              </div>
+            </div>
+            <!-- End of contact-list -->
+          </section>
+          <section class="contactDisplay">
+            <div class="sub-container">
+              <div class="headline">
+                <h2>Contacts</h2>
+                <div class="vertical-line"></div>
+                <p>Better with a team</p>
+              </div>
 
               <div id="contactInfo" class="contactDetailsInfo animate__animated animate__slideInRight animate__faster">
                 <div class="contactHeader">
@@ -170,35 +160,37 @@
                     <h3>Anton Mayer</h3>
                     <footer>
                       <span onclick="deleteContact()">
-                        <img src="./assets/img/pencil_icon.svg" alt="" />
-                        <!-- <svg width="24" height="24" viewBox="0 0 24 24" fill="red" xmlns="http://www.w3.org/2000/svg">
+                        <!-- <img src="./assets/img/pencil_icon.svg" alt="" /> -->
+
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                           <mask id="mask0_184897_3882" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
-                          <rect width="24" height="24" fill="#ff0000"/>
+                          <rect width="24" height="24" fill="#D9D9D9"/>
                           </mask>
                           <g mask="url(#mask0_184897_3882)">
-                          <path d="M5 19H6.4L15.025 10.375L13.625 8.975L5 17.6V19ZM19.3 8.925L15.05 4.725L16.45 3.325C16.8333 2.94167 17.3042 2.75 17.8625 2.75C18.4208 2.75 18.8917 2.94167 19.275 3.325L20.675 4.725C21.0583 5.10833 21.2583 5.57083 21.275 6.1125C21.2917 6.65417 21.1083 7.11667 20.725 7.5L19.3 8.925ZM17.85 10.4L7.25 21H3V16.75L13.6 6.15L17.85 10.4Z" fill="#2A3647"/>
+                          <path class="svg" d="M5 19H6.4L15.025 10.375L13.625 8.975L5 17.6V19ZM19.3 8.925L15.05 4.725L16.45 3.325C16.8333 2.94167 17.3042 2.75 17.8625 2.75C18.4208 2.75 18.8917 2.94167 19.275 3.325L20.675 4.725C21.0583 5.10833 21.2583 5.57083 21.275 6.1125C21.2917 6.65417 21.1083 7.11667 20.725 7.5L19.3 8.925ZM17.85 10.4L7.25 21H3V16.75L13.6 6.15L17.85 10.4Z" fill="#2A3647"/>
                           </g>
-                          </svg> -->
-                         Edit</span>
+                          </svg>
+
+                        Edit</span
+                      >
                       <span onclick="deleteContact()"><img src="./assets/img/delete_icon.svg" alt="" /> Delete</span>
                     </footer>
                   </div>
                 </div>
-              
-                 
-								<h3>Contact Information</h3>
-								<div>
-									<h4>Email</h4>
-									<span>anton@gmail.com</span>
 
-									<h4>Phone</h4>
-									<span>+49 1111 111 11 1</span>
-								</div>
-							</div>
-						</div>
-					</section>
-				</div>
-			</div>
-		</div>
-	</body>
+                <h3>Contact Information</h3>
+                <div>
+                  <h4>Email</h4>
+                  <span>anton@gmail.com</span>
+
+                  <h4>Phone</h4>
+                  <span>+49 1111 111 11 1</span>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>

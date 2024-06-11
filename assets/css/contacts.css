@@ -124,10 +124,9 @@ body {
   color: var(--primary-color) !important;
 }
 
-/* .contactContent footer svg:hover {
+.svg:hover {
 fill: var(--primary-color);
-fill: red;
-  } */
+} 
 
 .contactContent h3 {
   font-size: 47px !important;

@@ -148,6 +148,9 @@ h3 {
 	color: var(--white);
 }
 
+.svgContainer:hover .svgStrokeblue {
+	stroke: var(--primary-color);
+}
 /*End SVG*/
 
 .d-none {

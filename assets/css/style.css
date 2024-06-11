@@ -93,6 +93,13 @@ h3 {
 
 }
 
+.svgContainer:hover .svgLightBlue {
+  fill: var(--primary-color);   
+}
+.svgContainer:hover {   
+  color: var(--primary-color);
+}
+
 /* Main Menu */
 
 #menu {

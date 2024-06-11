@@ -4,29 +4,33 @@
 	justify-content: center;
 	align-items: center;
 }
-.signUpTop{
-    height: 49px;
-    padding-top: 67px;
-   padding-right: 8%;
-   gap: 35px;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
+
+.signUpTop {
+	height: 49px;
+	padding-top: 67px;
+	padding-right: 8%;
+	gap: 35px;
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
 }
-.logoIndex img{
-    width: 100.03px;
-    height: 121.97px;
-    padding-left: 77px;
+
+.logoIndex img {
+	width: 100.03px;
+	height: 121.97px;
+	padding-left: 77px;
 }
-.signUpButton{
-    padding: 15px,16px,15px,16px;
-    gap: 10px;
-    border-radius: 8px;
-    background-color: #2a3647;
-    color: white;
-    height: 49px;
-    width: 91px;
+
+.signUpButton {
+	padding: 15px, 16px, 15px, 16px;
+	gap: 10px;
+	border-radius: 8px;
+	background-color: #2a3647;
+	color: white;
+	height: 49px;
+	width: 91px;
 }
+
 .HeadlinerLogin {
 	width: 315px;
 	height: 89px;
@@ -38,6 +42,7 @@
 	line-height: 73.2px;
 	font-weight: 700;
 }
+
 .HeadlinerLine {
 	width: 150px;
 	height: 3px;
@@ -58,6 +63,7 @@
 	gap: 32px;
 	padding: 48px, 115px, 48px, 115px;
 }
+
 .loginInputFields {
 	display: flex;
 	justify-content: center;
@@ -65,6 +71,7 @@
 	flex-wrap: wrap;
 	gap: 32px;
 }
+
 .emailClass {
 	width: 422px;
 	height: 48px;
@@ -74,6 +81,7 @@
 	gap: 10px;
 	font-size: 24px;
 }
+
 .passwordClass {
 	width: 422px;
 	height: 48px;
@@ -83,6 +91,7 @@
 	gap: 10px;
 	font-size: 24px;
 }
+
 .emailClass::placeholder,
 .passwordClass::placeholder {
 	font-size: 24px;
@@ -91,10 +100,10 @@
 }
 
 
-.checkboxContainer{
-    width: 652px; 
-    padding-left: 300px;
-    
+.checkboxContainer {
+	width: 652px;
+	padding-left: 300px;
+
 }
 
 .loginButton {
@@ -111,6 +120,7 @@
 	margin-right: 32px;
 	font-size: 21px;
 }
+
 .guestLogin {
 	width: 177px;
 	height: 48px;
@@ -128,13 +138,12 @@
 
 
 
-.footerIndex{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-top: 100px;
-    gap:35px;
-    height: 35px;
-    
-}   
+.footerIndex {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding-top: 100px;
+	gap: 35px;
+	height: 35px;
 
+}

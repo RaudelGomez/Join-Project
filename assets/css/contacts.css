@@ -89,6 +89,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 21px;
+  margin-top: 64px;
 }
 
 .profileIconBig {
@@ -123,10 +124,10 @@ body {
   color: var(--primary-color) !important;
 }
 
-.contactContent footer span img:hover {
-    /* color: var(--primary-color) !important; */
-    /* filter: url("filters.svg#fill:red"); */
-  }
+/* .contactContent footer svg:hover {
+fill: var(--primary-color);
+fill: red;
+  } */
 
 .contactContent h3 {
   font-size: 47px !important;

@@ -24,7 +24,7 @@
 				<div class="form-control position-relative">
 					<label for="assigned_task">Assigned to</label>
 					<div class="select-option" onclick="showCheckboxes()">
-						<select onclick="showCheckboxes()">
+						<select>
 							<option>Select contacts to assign</option>
 						</select>
 						<div class="overSelect"></div>
@@ -54,7 +54,6 @@
 								<input type="checkbox" id="3"/>
 							</span>
 						</label>
-				
 					</div>
 					<div id="container-people-assigned-task" class="container-people-assigned-task">
 						<span class="first-letter">RA</span>
@@ -100,8 +99,19 @@
 						</button>
 					</div>
 				</div>
-				<div class="form-control">
-					<label for="assigned_task"
+					<div class="form-control position-relative">
+						<label for="category-task">Category<span class="required">*</span></label>
+						<div class="select-option" onclick="showTaskOption()">
+							<select>
+								<option id="option-selected">Select task category</option>
+							</select>
+							<div class="overSelect"></div>
+						</div>
+						<div id="category-task" class="category-task assigned-task-hidden">
+									<button id="technicalTask" onclick="categorySelected('technicalTask')">Technical task</button>
+									<button id="userStory" onclick="categorySelected('userStory')">User story</button>
+						</div>
+					<!-- <label for="categoty-task"
 						>Category<span class="required">*</span></label
 					>
 					<select name="category_task" class="category-task" id="category-task">
@@ -110,7 +120,7 @@
 						<option value="" selected class="d-none">
 							Select task category
 						</option>
-					</select>
+					</select> -->
 				</div>
 				<div class="form-control">
 					<label for="sub_task">Sub task</label>

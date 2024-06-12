@@ -213,6 +213,33 @@ select {
 	z-index: 100;
 }
 
+.category-task {
+	position: absolute;
+	top: 60px;
+	z-index: 100;
+	height: auto !important;
+	left: 0;
+	right: 0;
+	display: flex;
+	flex-direction: column;
+	gap: 2px;
+}
+
+.category-task button {
+	background-color: var(--white);
+	border: none;
+	font-size: 16px;
+	text-align: left;
+	padding: 8px;
+	margin-bottom: 2px;
+	cursor: pointer;
+}
+
+.category-task button:hover {
+	background-color: var(--main-bg-color);
+	border-radius: 8px;
+}
+
 .assigned-task-hidden {
 	display: none !important;
 	max-height: 100px;
@@ -220,9 +247,12 @@ select {
 }
 
 .assigned-task-show {
-	display: block !important;
+	display: flex;
+	flex-direction: column;
 	height: 300px;
 	overflow-y: auto;
+	background-color: white;
+	height: 100%;
 }
 
 .checkbox-label {
@@ -238,6 +268,7 @@ select {
 
 .select-option {
 	position: relative;
+	cursor: pointer;
 }
 
 .select-option select {
@@ -293,15 +324,9 @@ select {
 	margin-top: 8px;
 	flex-wrap: wrap;
 }
-
-.category-task{
+/* .category-task{
 	font-size: 16px;
-}
-
-select option:checked,
-select option:hover {
-    box-shadow: 0 0 10px 100px #000 inset;
-}
+} */
 
 @media (max-width: 1000px){
 	.sub-container-addTask{

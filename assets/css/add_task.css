@@ -65,7 +65,7 @@
 	gap: 8px;
 }
 
-.prio-container div {
+.prio-container button {
 	flex: 1;
 	background-color: var(--white);
 	border: 0.1px solid var(--gray);
@@ -76,7 +76,7 @@
 	gap: 8px;
 	height: 56px;
 	cursor: pointer;
-	font-size: 13px;
+	font-size: 18px;
 }
 
 .svgContainerButtonPrio:hover {
@@ -89,32 +89,33 @@
 	transform: scale(1);
 }
 
-.svgContainerOrange.active {
+.svgContainerButtonPrio.active .show-icon {
+	display: none;
+}
+
+.svgContainerButtonPrio.active .hidde-icon {
+	display: block;
+}
+
+.hidde-icon{
+	display: none;
+}
+
+.svgContainerOrange.active{
+	color: var(--white);
 	background-color: var(--danger-color);
+}
+
+.svgContainerYellow.active{
 	color: var(--white);
-}
-
-.svgContainerOrange.active .svgWhite {
-	fill: var(--white);
-}
-
-.svgContainerYellow.active {
 	background-color: var(--warning-color);
+}
+
+.svgContainerGreen.active{
 	color: var(--white);
-}
-
-.svgContainerYellow.active .svgWhite {
-	fill: var(--white);
-}
-
-.svgContainerGreen.active {
 	background-color: var(--success-color);
-	color: var(--white);
 }
 
-.svgContainerGreen.active .svgWhite {
-	fill: var(--white);
-}
 
 .d-none {
 	display: none;

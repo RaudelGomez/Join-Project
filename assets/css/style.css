@@ -10,26 +10,26 @@
 #innerDialog,
 #dialog,
 #contactInfo {
-  --animate-duration: 0.2s;
+	--animate-duration: 0.2s;
 }
 
 html {
-  /*Main colors*/
-  --main-color: #2a3647;
-  /* --main-bg-color: #f0f0f0; */
-  --main-bg-color: #f6f7f8;
-  --primary-color: #29abe2;
-  --success-color: #7ae229;
-  --danger-color: #ff3d00;
-  --warning-color: #ffa800;
-  --menu-active: #091931;
-  --menu-hover: #2a3d59;
-  --progress-bar: #4589ff;
+	/*Main colors*/
+	--main-color: #2a3647;
+	/* --main-bg-color: #f0f0f0; */
+	--main-bg-color: #f6f7f8;
+	--primary-color: #29abe2;
+	--success-color: #7ae229;
+	--danger-color: #ff3d00;
+	--warning-color: #ffa800;
+	--menu-active: #091931;
+	--menu-hover: #2a3d59;
+	--progress-bar: #4589ff;
 
-  /*Elemental colors*/
-  --black: black;
-  --white: white;
-  --gray: #d1d1d1;
+	/*Elemental colors*/
+	--black: black;
+	--white: white;
+	--gray: #d1d1d1;
 
 	/*Others colors*/
 	--heat-wave: #ff7a00;
@@ -54,11 +54,11 @@ html {
 }
 
 body {
-  font-family: "Inter";
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  background-color: var(--main-bg-color);
+	font-family: "Inter";
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	background-color: var(--main-bg-color);
 }
 
 /*General class and id*/
@@ -68,42 +68,42 @@ body {
 }
 
 #main {
-  flex: 1;
-  margin-left: 232px;
-  /* padding: 64px; */
+	flex: 1;
+	margin-left: 232px;
+	/* padding: 64px; */
 }
 
 h2 {
-  font-family: "Inter";
-  font-weight: 700;
-  font-size: 61px;
-  margin: 0;
+	font-family: "Inter";
+	font-weight: 700;
+	font-size: 61px;
+	margin: 0;
 }
 
 h3 {
-  font-family: "Inter";
-  font-weight: 700;
-  font-size: 27px;
-  margin: 0;
+	font-family: "Inter";
+	font-weight: 700;
+	font-size: 27px;
+	margin: 0;
 }
 
 .container {
-  display: flex;
+	display: flex;
 }
 
 .button {
-  color: var(--white);
-  background-color: var(--main-color);
-  border-radius: 10px;
-  padding: 8px 16px;
-  border: unset;
-  font-size: 21px;
-  cursor: pointer;
-  transition: all 100ms ease-in-out;
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  justify-content: center;
+	color: var(--white);
+	background-color: var(--main-color);
+	border-radius: 10px;
+	padding: 8px 16px;
+	border: unset;
+	font-size: 21px;
+	cursor: pointer;
+	transition: all 100ms ease-in-out;
+	display: flex;
+	align-items: center;
+	gap: 16px;
+	justify-content: center;
 }
 
 .button:hover {
@@ -113,10 +113,10 @@ h3 {
 
 /*SVG*/
 .svgContainer:hover .svgLightBlue {
-  fill: var(--primary-color);
+	fill: var(--primary-color);
 }
 .svgContainer:hover {
-  color: var(--primary-color);
+	color: var(--primary-color);
 }
 
 .svgContainerDarkblue,
@@ -133,26 +133,26 @@ h3 {
 }
 
 .svgContainerDarkblue:hover .svgWhite {
-  fill: var(--white);
+	fill: var(--white);
 }
 
 .svgContainerDarkblue:hover .svgDarkblue {
-  fill: var(--main-color);
+	fill: var(--main-color);
 }
 
 .svgContainerDarkblue:hover .svgStrokeDarkblue {
-  stroke: var(--main-color);
+	stroke: var(--main-color);
 }
 
 .svgContainerDarkblue:hover span {
-  color: var(--white);
+	color: var(--white);
 }
 
 .svgIcon {
-  cursor: pointer;
+	cursor: pointer;
 }
 .svgIcon:hover .svgIconStrokeLightBlue {
-  stroke: var(--primary-color);
+	stroke: var(--primary-color);
 }
 
 .svgContainer:hover .svgStrokeblue {
@@ -179,151 +179,150 @@ h3 {
 }
 
 #innerDialog {
-  max-width: 800px;
-  border-radius: 30px;
-  height: fit-content;
-  background-color: white;
-  padding: 64px;
-  box-shadow: 0px 0px 4px 0px #0000001a;
-  position: fixed;
-  left: 0;
-  right: 0;
-  top: 20vh;
-  bottom: 0;
-  z-index: 800;
-  margin: 0 auto;
+	max-width: 800px;
+	border-radius: 30px;
+	height: fit-content;
+	background-color: white;
+	padding: 64px;
+	box-shadow: 0px 0px 4px 0px #0000001a;
+	position: fixed;
+	left: 0;
+	right: 0;
+	top: 20vh;
+	bottom: 0;
+	z-index: 800;
+	margin: 0 auto;
 }
 
 .closeDialog {
 	position: fixed;
-    top: 24px;
-    right: 24px;
+	top: 24px;
+	right: 24px;
 	cursor: pointer;
-	padding:4px;
+	padding: 4px;
 }
 
 .closeDialog:hover {
-background-color:#eee;
-border-radius: 50%;
-
+	background-color: #eee;
+	border-radius: 50%;
 }
 
 /* Main Menu */
 
 #menu {
-  position: fixed;
-  width: 232px;
-  background-color: var(--main-color);
-  color: var(--main-bg-color);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
-  gap: 24px;
-  height: 100vh;
-  font-family: "Inter";
-  font-size: 16px;
-  /* padding:  64px 0px 64px 0px; */
+	position: fixed;
+	width: 232px;
+	background-color: var(--main-color);
+	color: var(--main-bg-color);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-around;
+	gap: 24px;
+	height: 100vh;
+	font-family: "Inter";
+	font-size: 16px;
+	/* padding:  64px 0px 64px 0px; */
 }
 
 #menu a {
-  color: var(--white);
-  text-decoration: none;
+	color: var(--white);
+	text-decoration: none;
 }
 
 #mainNav {
-  /* flex: 1; */
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  width: 100%;
+	/* flex: 1; */
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+	width: 100%;
 }
 
 #mainNav a {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 48px;
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	padding: 8px 48px;
 }
 
 #mainNav a:hover {
-  background-color: var(--menu-hover);
+	background-color: var(--menu-hover);
 }
 
 #footerNav {
-  flex-direction: column;
-  gap: 16px;
-  display: flex;
-  flex-direction: column;
+	flex-direction: column;
+	gap: 16px;
+	display: flex;
+	flex-direction: column;
 }
 
 #footerNav a:hover {
-  color: var(--primary-color);
+	color: var(--primary-color);
 }
 
 /*End*/
 
 /* Header */
 #header {
-  background-color: var(--white);
-  padding: 16px 64px;
-  -webkit-box-shadow: 0px 1px 6px 0px rgba(0, 0, 0, 0.3);
-  box-shadow: 0px 1px 6px 0px rgba(0, 0, 0, 0.3);
-  position: sticky;
-  top: 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+	background-color: var(--white);
+	padding: 16px 64px;
+	-webkit-box-shadow: 0px 1px 6px 0px rgba(0, 0, 0, 0.3);
+	box-shadow: 0px 1px 6px 0px rgba(0, 0, 0, 0.3);
+	position: sticky;
+	top: 0;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
 }
 
 h1 {
-  font-family: "Inter";
-  font-weight: 400;
-  font-size: 20px;
-  line-height: 24px;
-  color: black;
-  margin: 0;
-  padding: 0;
+	font-family: "Inter";
+	font-weight: 400;
+	font-size: 20px;
+	line-height: 24px;
+	color: black;
+	margin: 0;
+	padding: 0;
 }
 
 .profile {
-  border: 3px solid var(--main-color);
-  border-radius: 100%;
-  /* padding: 10px; */
-  width: 48px;
-  height: 48px;
-  color: var(--primary-color);
-  font-family: "Inter";
-  font-weight: 400;
-  font-size: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+	border: 3px solid var(--main-color);
+	border-radius: 100%;
+	/* padding: 10px; */
+	width: 48px;
+	height: 48px;
+	color: var(--primary-color);
+	font-family: "Inter";
+	font-weight: 400;
+	font-size: 20px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 .headerIcons {
-  display: flex;
-  gap: 16px;
-  align-items: center;
+	display: flex;
+	gap: 16px;
+	align-items: center;
 }
 
 #header a {
-  text-decoration: none;
+	text-decoration: none;
 }
 
 /* End Header */
 
 /* Help Page */
 .help {
-  padding: 64px;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
+	padding: 64px;
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
 }
 
 .help h4 {
-  margin: 0;
-  font-size: 20px;
+	margin: 0;
+	font-size: 20px;
 }
 
 /* End Help Page */
@@ -331,14 +330,14 @@ h1 {
 /* Board Page */
 
 .boardSections h3 {
-  font-size: 20px;
-  color: #42526e;
+	font-size: 20px;
+	color: #42526e;
 }
 
 .boardHeader {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 }
 
 /* .boardHeader button {
@@ -357,166 +356,166 @@ h1 {
 } */
 
 .boardHeader .searchContainer {
-  color: black;
-  background-color: white;
-  border-radius: 10px;
-  padding: 8px 16px;
-  border: 1px solid #ddd;
-  font-size: 21px;
-  display: flex;
+	color: black;
+	background-color: white;
+	border-radius: 10px;
+	padding: 8px 16px;
+	border: 1px solid #ddd;
+	font-size: 21px;
+	display: flex;
 }
 
 .searchContainer img {
-  cursor: pointer;
-  margin-left: 16px;
+	cursor: pointer;
+	margin-left: 16px;
 }
 
 .searchContainer img:hover {
-  background-color: var(--main-bg-color);
-  border-radius: 50%;
+	background-color: var(--main-bg-color);
+	border-radius: 50%;
 }
 
 .boardHeader input {
-  color: black;
-  outline: none;
-  border: unset;
-  border-right: 1px solid #ddd;
-  font-size: 21px;
+	color: black;
+	outline: none;
+	border: unset;
+	border-right: 1px solid #ddd;
+	font-size: 21px;
 }
 
 .searchBox {
-  display: flex;
-  gap: 32px;
+	display: flex;
+	gap: 32px;
 }
 
 .boardSections {
-  display: flex;
-  gap: 26px;
+	display: flex;
+	gap: 26px;
 }
 
 .boardSections section {
-  width: 25%;
-  height: 200px;
+	width: 25%;
+	height: 200px;
 }
 
 .boardSections section header {
-  display: flex;
-  justify-content: space-between;
+	display: flex;
+	justify-content: space-between;
 }
 
 .boardSections section header img {
-  cursor: pointer;
+	cursor: pointer;
 }
 
 .boardHeader {
-  display: flex;
+	display: flex;
 }
 
 .taskCard {
-  background-color: white;
-  border-radius: 24px;
-  -webkit-box-shadow: px 0px 10px 3px #00000014;
-  box-shadow: 0px 0px 10px 3px #00000014;
-  padding: 16px;
-  margin: 16px 0;
-  cursor: pointer;
+	background-color: white;
+	border-radius: 24px;
+	-webkit-box-shadow: px 0px 10px 3px #00000014;
+	box-shadow: 0px 0px 10px 3px #00000014;
+	padding: 16px;
+	margin: 16px 0;
+	cursor: pointer;
 }
 
 .emptyTaskCard {
-  background-color: #e7e7e7;
-  color: #a8a8a8;
-  border-radius: 8px;
-  border: 1px dashed #a8a8a8;
-  padding: 16px;
-  margin: 16px 0;
-  text-align: center;
+	background-color: #e7e7e7;
+	color: #a8a8a8;
+	border-radius: 8px;
+	border: 1px dashed #a8a8a8;
+	padding: 16px;
+	margin: 16px 0;
+	text-align: center;
 }
 
 .drag-area-highlight {
-  background-color: rgba(0, 0, 0, 0.2);
+	background-color: rgba(0, 0, 0, 0.2);
 }
 
 .category {
-  color: white;
-  border-radius: 8px;
-  padding: 4px 16px;
+	color: white;
+	border-radius: 8px;
+	padding: 4px 16px;
 }
 
 .userStory {
-  background-color: var(--c64Blue);
+	background-color: var(--c64Blue);
 }
 
 .technicalTask {
-  background-color: var(--blue-martina);
+	background-color: var(--blue-martina);
 }
 
 .taskTitle {
-  font-weight: 700;
-  font-size: 16px;
-  margin: 16px 0;
+	font-weight: 700;
+	font-size: 16px;
+	margin: 16px 0;
 }
 
 .taskDesription {
-  color: #a8a8a8;
+	color: #a8a8a8;
 }
 
 .taskCard .user {
-  display: flex;
+	display: flex;
 }
 
 .profileSmall {
-  border: 1px solid white;
-  border-radius: 100%;
-  width: 32px;
-  height: 32px;
-  color: white;
-  font-family: "Inter";
-  font-weight: 400;
-  font-size: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-transform: uppercase;
-  margin-right: -8px;
+	border: 1px solid white;
+	border-radius: 100%;
+	width: 32px;
+	height: 32px;
+	color: white;
+	font-family: "Inter";
+	font-weight: 400;
+	font-size: 12px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-transform: uppercase;
+	margin-right: -8px;
 }
 
 .am {
-  background-color: var(--girls-night-out);
+	background-color: var(--girls-night-out);
 }
 
 .em {
-  background-color: var(--venetian-night);
+	background-color: var(--venetian-night);
 }
 
 .mb {
-  background-color: var(--sugar-grape);
+	background-color: var(--sugar-grape);
 }
 
 .taskCard footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 16px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-top: 16px;
 }
 
 .progress {
-  background-color: var(--progress-bar);
-  width: 128px;
-  height: 8px;
-  border-radius: 8px;
+	background-color: var(--progress-bar);
+	width: 128px;
+	height: 8px;
+	border-radius: 8px;
 }
 
 .progressContainer {
-  border-radius: 8px;
-  width: 128px;
-  height: 8px;
-  background-color: var(--main-bg-color);
+	border-radius: 8px;
+	width: 128px;
+	height: 8px;
+	background-color: var(--main-bg-color);
 }
 
 .subtasks {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 12px;
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	font-size: 12px;
 }
 /* End Board Page */

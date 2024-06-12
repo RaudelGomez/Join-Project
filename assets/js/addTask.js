@@ -7,3 +7,10 @@ function showCheckboxes() {
 	assignedTask.classList.toggle("assigned-task-hidden");
 	assignedTask.classList.toggle("assigned-task-show");
 }
+
+function changePriority(idPriorityButton) {
+	document.getElementById('button-high-priority').classList.remove('active')
+	document.getElementById('button-medium-priority').classList.remove('active')
+	document.getElementById('button-low-priority').classList.remove('active')
+	document.getElementById(`${idPriorityButton}`).classList.add('active')
+}

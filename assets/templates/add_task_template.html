@@ -1,6 +1,6 @@
 <h2>Add Task</h2>
 <article>
-	<form id="add_task_form">
+	<form id="add_task_form" onsubmit="return false">
 		<div class="add_task_data">
 			<section>
 				<div class="form-control">
@@ -29,18 +29,19 @@
 						</select>
 						<div class="overSelect"></div>
 					</div>
-
 					<div
 						name="assigned_task"
 						id="assigned-task"
 						class="assigned-task assigned-task-hidden"
 					>
-						<label class="checkbox-label" for="1"
-							><span class="name-assigned"
-								><span class="first-letter">ÖZ</span>Özkan</span
-							>
-							<input type="checkbox" id="1"
-						/></label>
+						<label class="checkbox-label" for="1">
+							<span>
+								<span class="name-assigned">
+									<span class="first-letter">ÖZ</span>Özkan
+								</span>
+								<input type="checkbox" id="1"/>
+							</span>
+						</label>
 						<label class="checkbox-label" for="2"
 							><span class="name-assigned"
 								><span class="first-letter">AL</span>Alain</span
@@ -66,18 +67,21 @@
 				<div class="form-control">
 					<span>Prio</span>
 					<div class="prio-container">
-						<div class="svgContainerButtonPrio svgContainerOrange">
+						<button id="button-high-priority" class="svgContainerButtonPrio svgContainerOrange active" onclick="changePriority('button-high-priority')">
 							<span>Urgent</span>
-							<img src="./assets/img/urgent_high_priority_icon.svg" alt="" />
-						</div>
-						<div class="svgContainerButtonPrio svgContainerYellow">
+							<img class="show-icon" src="./assets/img/urgent_high_priority_icon.svg" alt="priority" />
+							<img class="hidde-icon" src="./assets/img/urgent_high_priority_white.svg" alt="priority" />
+						</button>
+						<button id="button-medium-priority" class="svgContainerButtonPrio svgContainerYellow" onclick="changePriority('button-medium-priority')">
 							<span>Medium</span>
-							<img src="./assets/img/priority_symbols_icon.svg" alt="" />
-						</div>
-						<div class="svgContainerButtonPrio svgContainerGreen">
-							<span>Low</span
-							><img src="./assets/img/urgent_low_priority_icon.svg" alt="" />
-						</div>
+							<img class="show-icon" src="./assets/img/priority_symbols_icon.svg" alt="media priority" />
+							<img class="hidde-icon" src="./assets/img/priority_media_white.svg" alt="media priority" />
+						</button>
+						<button id="button-low-priority" class="svgContainerButtonPrio svgContainerGreen" onclick="changePriority('button-low-priority')">
+							<span>Low</span>
+							<img class="show-icon" src="./assets/img/urgent_low_priority_icon.svg" alt="low priority" />
+							<img class="hidde-icon" src="./assets/img/low_priority_white.svg" alt="low priority" />
+						</button>
 					</div>
 				</div>
 				<div class="form-control">

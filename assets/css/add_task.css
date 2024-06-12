@@ -131,8 +131,14 @@
 	position: absolute;
 	top: 50%;
 	right: 8px;
-	transform: translateY(-50%);
+	transform: translateY(-40%);
 	cursor: pointer;
+	transition: all 75ms ease-in-out;
+}
+
+#add-sub-task:hover {
+	background-color: var(--dark-gray);
+	border-radius: 100%;
 }
 
 #due_date_task,

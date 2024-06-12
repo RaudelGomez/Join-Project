@@ -262,6 +262,7 @@ select {
 	display: flex;
 	justify-content: space-between;
 	background-color: var(--white);
+	margin: 1px;
 }
 
 .checkbox-label:hover .container-name-assigned {

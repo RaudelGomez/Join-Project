@@ -1,232 +1,270 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Join - Board</title>
-		<link rel="stylesheet" href="./assets/css/style.css" />
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-		<script src="./assets/js/include.js"></script>
-		<script src="./assets/js/script.js"></script>
-		<script src="./assets/js/board.js"></script>
-		<script src="./assets/js/addTask.js"></script>
-		<script src="./assets/js/dragndropboard.js"></script>
-		<link
-			rel="shortcut icon"
-			href="./assets/img/join_fill_icon.svg"
-			type="image/x-icon"
-		/>
-	</head>
-	<body onload="includeHTML()">
-		<div id="dialog" class="d-none animate__animated animate__fadeIn" onclick="closeDialog()">
-			<!-- <img src="./assets/img/close_icon.svg" alt=""> -->
-		</div>
-		<div id="innerDialog" w3-include-html="./assets/templates/add_task_template.html" class="animate__animated animate__slideInRight d-none"></div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Join - Board</title>
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <script src="./assets/js/include.js"></script>
+    <script src="./assets/js/script.js"></script>
+    <script src="./assets/js/board.js"></script>
+    <script src="./assets/js/addTask.js"></script>
+    <script src="./assets/js/dragndropboard.js"></script>
+    <link rel="shortcut icon" href="./assets/img/join_fill_icon.svg" type="image/x-icon" />
+  </head>
+  <body onload="includeHTML()">
+    <div id="dialog" class="d-none animate__animated" onclick="closeDialog()">
+      
+    </div>
+    <div id="innerDialog" class="animate__animated d-none">
+		<img  onclick="closeDialog()" class="closeDialog" src="./assets/img/close_icon.svg" alt="">
+	<div w3-include-html="./assets/templates/add_task_template.html"></div>
+	</div>
 
-
-		<div class="container">
-			<div id="menu" w3-include-html="./assets/templates/menu.html"></div>
-			<div id="main">
-				<header
-					id="header"
-					w3-include-html="./assets/templates/header.html"
-				></header>
-				<div class="sub-container">
-					<header class="boardHeader">
-						<h2>Board</h2>
-						<div class="searchBox">
-							<div class="searchContainer">
-								<input
-									id="searchTask"
-									type="search"
-									placeholder="Find Task"
-								/><img src="./assets/img/search_icon.svg" alt="" />
-							</div>
-							<button class="button" onclick="openDialog()">
-								Add task <img src="./assets/img/add.svg" alt="" />
-							</button>
-						</div>
-					</header>
-					<main class="boardSections">
-						<section>
-							<header>
-								<h3>To do</h3>
-								<img src="./assets/img/plus_button_icon.svg" alt="" />
-							</header>
-							<div
-								class="drag-area"
-								id="toDo"
-								ondrop="moveTo('toDo')"
-								ondragleave="removeHighlight('toDo')"
-								ondragover="allowDrop(event); highlight('toDo')"
-							>
-								<article class="emptyTaskCard">No tasks To do</article>
-							</div>
-						</section>
-						<section>
-							<header>
-								<h3>In progress</h3>
-								<img src="./assets/img/plus_button_icon.svg" alt="" />
-							</header>
-							<div
-								class="drag-area"
-								id="inProgress"
-								ondrop="moveTo('inProgress')"
-								ondragleave="removeHighlight('inProgress')"
-								ondragover="allowDrop(event); highlight('inProgress')"
-							>
-								<article
-									class="taskCard"
-									draggable="true"
-									ondragstart="startDragging(1)"
-								>
-									<span class="category userStory">User Story</span>
-									<h3 class="taskTitle">Kochwelt Pag & Recipe Recommender</h3>
-									<p class="taskDesription">
-										Lorem ipsum dolor sit amet consectetur adipisicing elit...
-									</p>
-									<div class="subtasks">
-										<div class="progressContainer">
-											<div class="progress" style="width: 50%"></div>
-										</div>
-										<div><span>1</span>/<span>2</span> Subtasks</div>
-									</div>
-									<footer>
-										<div class="user">
-											<span class="profileSmall am">AM</span>
-											<span class="profileSmall em">EM</span>
-											<span class="profileSmall mb">MB</span>
-										</div>
-										<div class="priority">
-											<img
-												src="./assets/img/priority_symbols_icon.svg"
-												alt=""
-											/>
-										</div>
-									</footer>
-								</article>
-								<article
-									class="taskCard"
-									draggable="true"
-									ondragstart="startDragging(1)"
-								>
-									<span class="category technicalTask">Technical Task</span>
-									<h3 class="taskTitle">Kochwelt Page</h3>
-									<p class="taskDesription">
-										Lorem ipsum dolor sit amet consectetur adipisicing ...
-									</p>
-									<div class="subtasks">
-										<!-- <div class="progressContainer">
+    <div class="container">
+      <div id="menu" w3-include-html="./assets/templates/menu.html"></div>
+      <div id="main">
+        <header id="header" w3-include-html="./assets/templates/header.html"></header>
+        <div class="sub-container">
+          <header class="boardHeader">
+            <h2>Board</h2>
+            <div class="searchBox">
+              <div class="searchContainer">
+                <input id="searchTask" type="search" placeholder="Find Task" /><img
+                  src="./assets/img/search_icon.svg"
+                  alt="" />
+              </div>
+              <button class="button" onclick="openDialog()">Add task <img src="./assets/img/add.svg" alt="" /></button>
+            </div>
+          </header>
+          <main class="boardSections">
+            <section>
+              <header>
+                <h3>To do</h3>
+                <svg
+                  onclick="openDialog()"
+                  class="svgIcon"
+                  width="24"
+                  height="25"
+                  viewBox="0 0 24 25"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <rect
+                    class="svgIconStrokeLightBlue"
+                    x="1"
+                    y="1.5"
+                    width="22"
+                    height="22"
+                    rx="7"
+                    stroke="#2A3647"
+                    stroke-width="2" />
+                  <path
+                    class="svgIconStrokeLightBlue"
+                    d="M12 8.5V16.5"
+                    stroke="#2A3647"
+                    stroke-width="2"
+                    stroke-linecap="round" />
+                  <path
+                    class="svgIconStrokeLightBlue"
+                    d="M16 12.5754L8 12.5754"
+                    stroke="#2A3647"
+                    stroke-width="2"
+                    stroke-linecap="round" />
+                </svg>
+              </header>
+              <div
+                class="drag-area"
+                id="toDo"
+                ondrop="moveTo('toDo')"
+                ondragleave="removeHighlight('toDo')"
+                ondragover="allowDrop(event); highlight('toDo')">
+                <article class="emptyTaskCard">No tasks To do</article>
+              </div>
+            </section>
+            <section>
+              <header>
+                <h3>In progress</h3>
+                <svg
+                  onclick="openDialog()"
+                  class="svgIcon"
+                  width="24"
+                  height="25"
+                  viewBox="0 0 24 25"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <rect
+                    class="svgIconStrokeLightBlue"
+                    x="1"
+                    y="1.5"
+                    width="22"
+                    height="22"
+                    rx="7"
+                    stroke="#2A3647"
+                    stroke-width="2" />
+                  <path
+                    class="svgIconStrokeLightBlue"
+                    d="M12 8.5V16.5"
+                    stroke="#2A3647"
+                    stroke-width="2"
+                    stroke-linecap="round" />
+                  <path
+                    class="svgIconStrokeLightBlue"
+                    d="M16 12.5754L8 12.5754"
+                    stroke="#2A3647"
+                    stroke-width="2"
+                    stroke-linecap="round" />
+                </svg>
+              </header>
+              <div
+                class="drag-area"
+                id="inProgress"
+                ondrop="moveTo('inProgress')"
+                ondragleave="removeHighlight('inProgress')"
+                ondragover="allowDrop(event); highlight('inProgress')">
+                <article class="taskCard" draggable="true" ondragstart="startDragging(1)">
+                  <span class="category userStory">User Story</span>
+                  <h3 class="taskTitle">Kochwelt Pag & Recipe Recommender</h3>
+                  <p class="taskDesription">Lorem ipsum dolor sit amet consectetur adipisicing elit...</p>
+                  <div class="subtasks">
+                    <div class="progressContainer">
+                      <div class="progress" style="width: 50%"></div>
+                    </div>
+                    <div><span>1</span>/<span>2</span> Subtasks</div>
+                  </div>
+                  <footer>
+                    <div class="user">
+                      <span class="profileSmall am">AM</span>
+                      <span class="profileSmall em">EM</span>
+                      <span class="profileSmall mb">MB</span>
+                    </div>
+                    <div class="priority">
+                      <img src="./assets/img/priority_symbols_icon.svg" alt="" />
+                    </div>
+                  </footer>
+                </article>
+                <article class="taskCard" draggable="true" ondragstart="startDragging(1)">
+                  <span class="category technicalTask">Technical Task</span>
+                  <h3 class="taskTitle">Kochwelt Page</h3>
+                  <p class="taskDesription">Lorem ipsum dolor sit amet consectetur adipisicing ...</p>
+                  <div class="subtasks">
+                    <!-- <div class="progressContainer">
                       <div class="progress" style="width: 100%"></div>
                     </div>
                     <div><span>2</span>/<span>2</span> Subtasks</div> -->
-									</div>
-									<footer>
-										<div class="user">
-											<span class="profileSmall am">AM</span>
-											<span class="profileSmall em">EM</span>
-											<span class="profileSmall mb">MB</span>
-										</div>
-										<div class="priority">
-											<img
-												src="./assets/img/urgent_low_priority_icon.svg"
-												alt=""
-											/>
-										</div>
-									</footer>
-								</article>
-							</div>
-						</section>
-						<section>
-							<header>
-								<h3>Await feedback</h3>
-								<img src="./assets/img/plus_button_icon.svg" alt="" />
-							</header>
-							<div
-								class="drag-area"
-								id="awaitFeedback"
-								ondrop="moveTo('awaitFeedback')"
-								ondragleave="removeHighlight('awaitFeedback')"
-								ondragover="allowDrop(event); highlight('awaitFeedback')"
-							>
-								<article
-									class="taskCard"
-									draggable="true"
-									ondragstart="startDragging(1)"
-								>
-									<span class="category technicalTask">Technical Task</span>
-									<h3 class="taskTitle">Kochwelt Page</h3>
-									<p class="taskDesription">
-										Lorem ipsum dolor sit amet consectetur ...
-									</p>
-									<div class="subtasks">
-										<div class="progressContainer">
-											<div class="progress" style="width: 100%"></div>
-										</div>
-										<div><span>2</span>/<span>2</span> Subtasks</div>
-									</div>
-									<footer>
-										<div class="user">
-											<span class="profileSmall am">AM</span>
-											<span class="profileSmall em">EM</span>
-											<span class="profileSmall mb">MB</span>
-										</div>
-										<div class="priority">
-											<img
-												src="./assets/img/urgent_high_priority_icon.svg"
-												alt=""
-											/>
-										</div>
-									</footer>
-								</article>
-							</div>
-						</section>
-						<section>
-							<header>
-								<h3>Done</h3>
-							</header>
-							<div
-								class="drag-area"
-								id="done"
-								ondrop="moveTo('done')"
-								ondragleave="removeHighlight('done')"
-								ondragover="allowDrop(event); highlight('done')"
-							>
-								<article
-									class="taskCard"
-									draggable="true"
-									ondragstart="startDragging(1)"
-								>
-									<span class="category technicalTask">Technical Task</span>
-									<h3 class="taskTitle">Kochwelt Page</h3>
-									<p class="taskDesription">
-										Lorem ipsum dolor sit amet consectetur adipisicing ...
-									</p>
-									<div class="subtasks">
-										<!-- <div class="progressContainer">
+                  </div>
+                  <footer>
+                    <div class="user">
+                      <span class="profileSmall am">AM</span>
+                      <span class="profileSmall em">EM</span>
+                      <span class="profileSmall mb">MB</span>
+                    </div>
+                    <div class="priority">
+                      <img src="./assets/img/urgent_low_priority_icon.svg" alt="" />
+                    </div>
+                  </footer>
+                </article>
+              </div>
+            </section>
+            <section>
+              <header>
+                <h3>Await feedback</h3>
+                <svg
+                  onclick="openDialog()"
+                  class="svgIcon"
+                  width="24"
+                  height="25"
+                  viewBox="0 0 24 25"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <rect
+                    class="svgIconStrokeLightBlue"
+                    x="1"
+                    y="1.5"
+                    width="22"
+                    height="22"
+                    rx="7"
+                    stroke="#2A3647"
+                    stroke-width="2" />
+                  <path
+                    class="svgIconStrokeLightBlue"
+                    d="M12 8.5V16.5"
+                    stroke="#2A3647"
+                    stroke-width="2"
+                    stroke-linecap="round" />
+                  <path
+                    class="svgIconStrokeLightBlue"
+                    d="M16 12.5754L8 12.5754"
+                    stroke="#2A3647"
+                    stroke-width="2"
+                    stroke-linecap="round" />
+                </svg>
+              </header>
+              <div
+                class="drag-area"
+                id="awaitFeedback"
+                ondrop="moveTo('awaitFeedback')"
+                ondragleave="removeHighlight('awaitFeedback')"
+                ondragover="allowDrop(event); highlight('awaitFeedback')">
+                <article class="taskCard" draggable="true" ondragstart="startDragging(1)">
+                  <span class="category technicalTask">Technical Task</span>
+                  <h3 class="taskTitle">Kochwelt Page</h3>
+                  <p class="taskDesription">Lorem ipsum dolor sit amet consectetur ...</p>
+                  <div class="subtasks">
+                    <div class="progressContainer">
+                      <div class="progress" style="width: 100%"></div>
+                    </div>
+                    <div><span>2</span>/<span>2</span> Subtasks</div>
+                  </div>
+                  <footer>
+                    <div class="user">
+                      <span class="profileSmall am">AM</span>
+                      <span class="profileSmall em">EM</span>
+                      <span class="profileSmall mb">MB</span>
+                    </div>
+                    <div class="priority">
+                      <img src="./assets/img/urgent_high_priority_icon.svg" alt="" />
+                    </div>
+                  </footer>
+                </article>
+              </div>
+            </section>
+            <section>
+              <header>
+                <h3>Done</h3>
+              </header>
+              <div
+                class="drag-area"
+                id="done"
+                ondrop="moveTo('done')"
+                ondragleave="removeHighlight('done')"
+                ondragover="allowDrop(event); highlight('done')">
+                <article class="taskCard" draggable="true" ondragstart="startDragging(1)">
+                  <span class="category technicalTask">Technical Task</span>
+                  <h3 class="taskTitle">Kochwelt Page</h3>
+                  <p class="taskDesription">Lorem ipsum dolor sit amet consectetur adipisicing ...</p>
+                  <div class="subtasks">
+                    <!-- <div class="progressContainer">
                       <div class="progress" style="width: 100%"></div>
                     </div>
                     <div><span>2</span>/<span>2</span> Subtasks</div> -->
-									</div>
-									<footer>
-										<div class="user">
-											<span class="profileSmall am">AM</span>
-											<span class="profileSmall em">EM</span>
-											<span class="profileSmall mb">MB</span>
-										</div>
-										<div class="priority">
-											<img
-												src="./assets/img/urgent_low_priority_icon.svg"
-												alt=""
-											/>
-										</div>
-									</footer>
-								</article>
-							</div>
-						</section>
-					</main>
-				</div>
-			</div>
-		</div>
-	</body>
+                  </div>
+                  <footer>
+                    <div class="user">
+                      <span class="profileSmall am">AM</span>
+                      <span class="profileSmall em">EM</span>
+                      <span class="profileSmall mb">MB</span>
+                    </div>
+                    <div class="priority">
+                      <img src="./assets/img/urgent_low_priority_icon.svg" alt="" />
+                    </div>
+                  </footer>
+                </article>
+              </div>
+            </section>
+          </main>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>

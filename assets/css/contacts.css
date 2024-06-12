@@ -120,23 +120,6 @@ body {
   cursor: pointer;
 }
 
-/* .contactContent footer span:hover {
-  color: var(--primary-color) !important;
-
-} */
-
-/* .svg:hover {
-fill: var(--primary-color);
-}  */
-
-
-
-/* .pencil:hover {
-    fill: var(--primary-color);
-} */
-
-
-
 .contactContent h3 {
   font-size: 47px !important;
   font-weight: 500 !important;

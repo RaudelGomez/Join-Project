@@ -65,6 +65,27 @@ body {
 
 /*General class and id*/
 
+.subtasksPopup input[type="checkbox"]  {
+	display: none;
+}
+
+.subtasksPopup input[type="checkbox"] + label{
+	display: block;	
+	width: 150px;
+	height: 40px;
+	cursor: pointer;	
+	background-image: url('../img/hook_unchecked.svg');
+	background-repeat: no-repeat;
+	background-position: 20px -3px;
+	padding-left: 60px;
+	font-size: 16px;
+}
+
+.subtasksPopup input[type="checkbox"]:checked + label {
+	background-image: url('../img/hook_checked-black.svg');
+	background-repeat: no-repeat;
+}
+
 .noscroll {
   overflow: hidden;
 }
@@ -114,6 +135,14 @@ h3 {
 }
 
 /*SVG*/
+
+.svgContainer {
+	display: flex;
+	align-items: center;
+	gap:8px;
+	cursor: pointer;	
+}
+
 .svgContainer:hover .svgLightBlue {
   fill: var(--primary-color);
 }
@@ -478,7 +507,7 @@ h1 {
 .taskPopupFooter {
 	display: flex;
 	align-items: center;
-	justify-content: flex-end;
+	justify-content:flex-end;
 	gap:16px;
 
 }

@@ -62,7 +62,7 @@
 	display: flex;
 	gap: 16px;
 	width: 100%;
-	max-height: 168px;
+	max-height: 148px;
 }
 
 .container-todo-done  figure,
@@ -82,8 +82,8 @@
 }
 
 .container-todo-done figure svg {
-	width: 60%;
-	height: 60%;
+	width: 50%;
+	height: 50%;
 }
 
 .container-todo-done figure figcaption,

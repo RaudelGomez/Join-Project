@@ -1,5 +1,7 @@
   // Open Popup
-  async function openDialog() {
+  async function openDialog(template) {
+    // const htmlTemplate = 
+    // document.getElementById("template").setAttribute('w3-include-html','./assets/templates/'+template);
     document.getElementById("innerDialog").classList.remove("d-none"); 
     document.getElementById("innerDialog").classList.remove("animate__slideOutRight");
     document.getElementById("innerDialog").classList.add("animate__slideInRight");

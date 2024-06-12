@@ -14,13 +14,13 @@
     <link rel="shortcut icon" href="./assets/img/join_fill_icon.svg" type="image/x-icon" />
   </head>
   <body onload="includeHTML()">
-    <div id="dialog" class="d-none animate__animated" onclick="closeDialog()">
-      
-    </div>
+    <div id="dialog" class="d-none animate__animated" onclick="closeDialog()"></div>
     <div id="innerDialog" class="animate__animated d-none">
-		<img  onclick="closeDialog()" class="closeDialog" src="./assets/img/close_icon.svg" alt="">
-	<div w3-include-html="./assets/templates/add_task_template.html"></div>
-	</div>
+      <img onclick="closeDialog()" class="closeDialog" src="./assets/img/close_icon.svg" alt="" />
+      <!-- <div id="template" w3-include-html="./assets/templates/add_task_template.html"></div> -->
+	  <div id="template" w3-include-html="./assets/templates/task_popup_template.html"></div>
+	  <!-- <div id="template"></div> -->
+    </div>
 
     <div class="container">
       <div id="menu" w3-include-html="./assets/templates/menu.html"></div>
@@ -35,7 +35,7 @@
                   src="./assets/img/search_icon.svg"
                   alt="" />
               </div>
-              <button class="button" onclick="openDialog()">Add task <img src="./assets/img/add.svg" alt="" /></button>
+              <button class="button" onclick="openDialog('add_task_template.html')">Add task <img src="./assets/img/add.svg" alt="" /></button>
             </div>
           </header>
           <main class="boardSections">

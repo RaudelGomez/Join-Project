@@ -140,21 +140,36 @@ select {
 	cursor: pointer;
 }
 
+.new-subTask{
+	width: 100%;
+	padding: 2px 4px;
+	transition: all 75ms ease-in-out;
+}
+
+.new-subTask:hover {
+	background-color: var(--dark-gray);
+	border-radius: 8px;
+}
+
 .span-link {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 	cursor: pointer;
-	padding: 2px;
+	padding: 2px 2px 2px 24px;
 }
 
-.span-link:hover {
-	background-color: rgba(0 0 0/10%);
+.text-new-subTask{
+	display: list-item;
 }
 
 #span-link-edit-delete {
 	opacity: 0;
 	pointer-events: none;
+	display: flex;
+  align-items: center;
+  gap: 2px;
+	transition: all 75ms ease-in ;
 }
 
 .span-link:hover #span-link-edit-delete {

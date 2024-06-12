@@ -74,6 +74,7 @@
 	border-radius: 16px;
 	gap: 8px;
 	padding: 0 8px;
+	box-shadow: var(--box-shadow-element);
 }
 
 .container-todo-done figure svg {
@@ -107,6 +108,7 @@
 	width: 100%;
 	max-height: 168px;
 	border-radius: 16px;
+	box-shadow: var(--box-shadow-element);
 }
 
 .container-urgent .date-urgent {
@@ -166,6 +168,7 @@
 	margin: 0;
 	padding: 16px;
 	border-radius: 16px;
+	box-shadow: var(--box-shadow-element);
 }
 
 .container-progress-task div span {

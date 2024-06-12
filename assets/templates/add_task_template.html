@@ -4,7 +4,7 @@
 		<div class="add_task_data">
 			<section>
 				<div class="form-control">
-					<label for="title_task">Title<span>*</span></label>
+					<label for="title_task">Title<span class="required">*</span></label>
 					<input
 						required
 						id="title_task"
@@ -36,49 +36,21 @@
 						class="assigned-task assigned-task-hidden"
 					>
 						<label class="checkbox-label" for="1"
-							>Özkan <input type="checkbox" id="1"
+							><span class="name-assigned"
+								><span class="first-letter">ÖZ</span>Özkan</span
+							>
+							<input type="checkbox" id="1"
 						/></label>
 						<label class="checkbox-label" for="2"
-							>Alain <input type="checkbox" id="2"
+							><span class="name-assigned"
+								><span class="first-letter">AL</span>Alain</span
+							><input type="checkbox" id="2"
 						/></label>
 						<label class="checkbox-label" for="3"
-							>Raudel <input type="checkbox" id="3"
-						/></label>
-						<label class="checkbox-label" for="2"
-							>Alain <input type="checkbox" id="2"
-						/></label>
-						<label class="checkbox-label" for="3"
-							>Raudel <input type="checkbox" id="3"
-						/></label>
-						<label class="checkbox-label" for="2"
-							>Alain <input type="checkbox" id="2"
-						/></label>
-						<label class="checkbox-label" for="3"
-							>Raudel <input type="checkbox" id="3"
-						/></label>
-						<label class="checkbox-label" for="2"
-							>Alain <input type="checkbox" id="2"
-						/></label>
-						<label class="checkbox-label" for="3"
-							>Raudel <input type="checkbox" id="3"
-						/></label>
-						<label class="checkbox-label" for="2"
-							>Alain <input type="checkbox" id="2"
-						/></label>
-						<label class="checkbox-label" for="3"
-							>Raudel <input type="checkbox" id="3"
-						/></label>
-						<label class="checkbox-label" for="2"
-							>Alain <input type="checkbox" id="2"
-						/></label>
-						<label class="checkbox-label" for="3"
-							>Raudel <input type="checkbox" id="3"
-						/></label>
-						<label class="checkbox-label" for="2"
-							>Alain <input type="checkbox" id="2"
-						/></label>
-						<label class="checkbox-label" for="3"
-							>Raudel <input type="checkbox" id="3"
+							><span class="name-assigned"
+								><span class="first-letter">RA</span>Raudel</span
+							>
+							<input type="checkbox" id="3"
 						/></label>
 					</div>
 				</div>
@@ -86,38 +58,35 @@
 			<div class="add_task_separator"></div>
 			<section>
 				<div class="form-control">
-					<label for="due_date_task">Due date<span>*</span></label>
+					<label for="due_date_task"
+						>Due date<span class="required">*</span></label
+					>
 					<input required id="due_date_task" type="date" />
 				</div>
 				<div class="form-control">
 					<span>Prio</span>
 					<div class="prio-container">
-						<button>
-							<span>Urgent</span
-							><img
-								src="./assets/img/urgent_high_priority_icon.svg"
-								alt="Urgent"
-							/>
-						</button>
-						<button>
-							<span>Medium</span
-							><img src="./assets/img/priority_symbols_icon.svg" alt="Medium" />
-						</button>
-						<button>
+						<div class="svgContainerButtonPrio svgContainerOrange">
+							<span>Urgent</span>
+							<img src="./assets/img/urgent_high_priority_icon.svg" alt="" />
+						</div>
+						<div class="svgContainerButtonPrio svgContainerYellow">
+							<span>Medium</span>
+							<img src="./assets/img/priority_symbols_icon.svg" alt="" />
+						</div>
+						<div class="svgContainerButtonPrio svgContainerGreen">
 							<span>Low</span
-							><img src="./assets/img/urgent_low_priority_icon.svg" alt="Low" />
-						</button>
+							><img src="./assets/img/urgent_low_priority_icon.svg" alt="" />
+						</div>
 					</div>
 				</div>
 				<div class="form-control">
-					<label for="assigned_task">Category<span>*</span></label>
+					<label for="assigned_task"
+						>Category<span class="required">*</span></label
+					>
 					<select name="category_task" class="category_task" id="category_task">
-						<optgroup>
-							<option value="1">Technical Task</option>
-						</optgroup>
-						<optgroup>
-							<option value="2">User Story</option>
-						</optgroup>
+						<option value="1">Technical Task</option>
+						<option value="2">User Story</option>
 						<option value="" selected class="d-none">
 							Select task category
 						</option>
@@ -150,18 +119,24 @@
 		<div class="container-button-submit-add-task">
 			<p><span>*</span>This field is required</p>
 			<div class="button-submit-clear-add-task">
-				<button class="clear-button-add-task">
+				<button class="clear-button-add-task svgContainer">
 					<span>Clear</span>
-					<img
-						class="cancel-icon-dark"
-						src="./assets/img/close_icon.svg"
-						alt="close button"
-					/>
-					<img
-						class="d-none cancel-icon-blue"
-						src="./assets/img/cancel_light_blue.svg"
-						alt="close button"
-					/>
+					<svg
+						width="25"
+						height="24"
+						viewBox="0 0 25 24"
+						fill="none"
+						xmlns="http://www.w3.org/2000/svg"
+					>
+						<path
+							d="M12.2496 11.9998L17.4926 17.2428M7.00659 17.2428L12.2496 11.9998L7.00659 17.2428ZM17.4926 6.75684L12.2486 11.9998L17.4926 6.75684ZM12.2486 11.9998L7.00659 6.75684L12.2486 11.9998Z"
+							stroke="#2A3647"
+							stroke-width="2"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							class="svgStrokeblue"
+						/>
+					</svg>
 				</button>
 				<button type="submit" class="button">
 					<span>Create Task</span>

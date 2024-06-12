@@ -8,6 +8,10 @@ function showCheckboxes() {
 	assignedTask.classList.toggle("assigned-task-show");
 }
 
+/**
+ * This Function is used to active the differents buttons of priority; when a Task is created.
+ * Field name is Prio
+ */
 function changePriority(idPriorityButton) {
 	document.getElementById('button-high-priority').classList.remove('active')
 	document.getElementById('button-medium-priority').classList.remove('active')

@@ -227,16 +227,14 @@ select {
 
 .checkbox-label {
 	margin: 0 2px;
-	padding: 8px;
 	display: flex;
 	justify-content: space-between;
 	background-color: var(--white);
-	border-radius: 8px;
 }
 
-.checkbox-label:hover {
-	color: var(--white);
-	background-color: var(--main-color);
+.checkbox-label:hover .container-name-assigned {
+	background-color: var(--main-bg-color);
+	border-radius: 8px;
 }
 
 .select-option {
@@ -262,16 +260,24 @@ select {
 .name-assigned {
 	display: flex;
 	align-items: center;
-	gap: 2px;
+	gap: 8px;
 }
 
 .first-letter {
 	aspect-ratio: 1/1;
 	background-color: var(--blue-bikini);
+	color: var(--white);
 	padding: 4px;
 	border-radius: 100%;
 	font-size: 10px;
 	align-content: center;
+}
+
+.container-name-assigned{
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+	padding: 8px;
 }
 
 /* End Add Task templates*/

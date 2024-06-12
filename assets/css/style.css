@@ -16,6 +16,7 @@
 html {
   /*Main colors*/
   --main-color: #2a3647;
+  --main-color-dark: #091931;
   /* --main-bg-color: #f0f0f0; */
   --main-bg-color: #f6f7f8;
   --primary-color: #29abe2;

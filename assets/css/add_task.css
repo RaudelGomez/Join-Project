@@ -153,11 +153,13 @@ select {
 }
 
 #span-link-edit-delete {
-	display: none;
+	opacity: 0;
+	pointer-events: none;
 }
 
 .span-link:hover #span-link-edit-delete {
-	display: block;
+	opacity: 1;
+	pointer-events: unset;
 }
 
 .container-button-submit-add-task {
@@ -317,6 +319,16 @@ select {
 	padding: 8px;
 }
 
+.container-name-assigned:has(input:checked){
+	background-color: var(--main-color);
+	color: var(--white);
+	border-radius: 8px;
+}
+
+.container-name-assigned:has(input:checked):hover{
+	background-color: var(--main-color-dark);
+}
+
 .container-people-assigned-task{
 	width: 100%;
 	height: auto;
@@ -325,9 +337,31 @@ select {
 	margin-top: 8px;
 	flex-wrap: wrap;
 }
-/* .category-task{
-	font-size: 16px;
-} */
+
+.hook-check{
+	display: none;
+	position: absolute;
+	right: 8px;
+	background-color: var(--main-color);
+}
+
+.hook-no-check{
+	position: absolute;
+	right: 8px;
+	background-color: var(--white);
+}
+
+.container-name-assigned:has(input:checked) .hook-no-check {
+	display: none;
+}
+
+.container-name-assigned:has(input:checked) .hook-check {
+	display: block;
+}
+
+.container-name-assigned:has(input:checked):hover .hook-check{
+	background-color: var(--main-color-dark);
+}
 
 @media (max-width: 1000px){
 	.sub-container-addTask{

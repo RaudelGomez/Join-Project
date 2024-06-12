@@ -76,7 +76,7 @@
 	gap: 8px;
 	height: 56px;
 	cursor: pointer;
-	font-size: 18px;
+	font-size: 16px;
 }
 
 .svgContainerButtonPrio:hover {
@@ -226,7 +226,6 @@ select {
 }
 
 .checkbox-label {
-	margin: 0 2px;
 	display: flex;
 	justify-content: space-between;
 	background-color: var(--white);
@@ -292,8 +291,16 @@ select {
 	align-items: center;
 	gap: 8px;
 	margin-top: 8px;
-	margin-left: 2px;
 	flex-wrap: wrap;
+}
+
+.category-task{
+	font-size: 16px;
+}
+
+select option:checked,
+select option:hover {
+    box-shadow: 0 0 10px 100px #000 inset;
 }
 
 @media (max-width: 1000px){

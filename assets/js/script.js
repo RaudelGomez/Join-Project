@@ -5,10 +5,16 @@
  */
 async function loadData(path = "") {
   let response = await fetch(BASE_URL + path + ".json");
-  responseToJson = await response.json();
+  let responseToJson = await response.json();
   if (path == "contacts") {
+    if(!responseToJson){
+      contacts = [];
+    }else{
       contacts = responseToJson;
-  } if (path == "tasks") {
+    }
+    console.log(contacts);
+  } 
+  if (path == "tasks") {
       tasks = responseToJson;
   }
 }
@@ -27,6 +33,17 @@ async function postData(data = {}, path = "") {
       body: JSON.stringify(data)
   });
   return (responseToJson = await response.json());
+}
+
+async function putData(data, path = "") {
+	let response = await fetch(BASE_URL + path + ".json", {
+		method: "PUT",
+		headers: {
+			"Content-Type": "application/json",
+		},
+		body: JSON.stringify(data),
+	});
+	return (responseToJSON = await response.json());
 }
 
 /**

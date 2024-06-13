@@ -70,6 +70,7 @@ function checkMail(email) {
 async function addNewUserDataBase(contact, nameIdSignUp, emailIdSignUp, passwordIdSignUp, passwordConfirmIdSignUp, confirmSignUp ) {
     if(!checkMail(`${contact.email}`)){
         await postData(contact, "contacts");
+        await loadData("contacts"); 
         nameIdSignUp.value = "";
         emailIdSignUp.value = "";
         passwordIdSignUp.value = "";

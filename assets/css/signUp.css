@@ -160,6 +160,11 @@
 }
 
 .popUp{
+	display: none;
+}
+
+.container-popUp.error .popUp{
+	display: block;
 	width: 400px;
 	height: 200px;
 	border-radius: 16px;

@@ -14,7 +14,6 @@ function checkAllFieldFull() {
     let passwordIdSignUp = document.getElementById("passwordIdSignUp").value;
     let passwordConfirmIdSignUp = document.getElementById("passwordConfirmIdSignUp").value;
     let confirmSignUp = document.getElementById("confirmSignUp").checked;
-    console.log(confirmSignUp);
     if(nameIdSignUp != "" && emailIdSignUp !== "" && passwordIdSignUp !== "" && passwordConfirmIdSignUp != "" && passwordConfirmIdSignUp != "" && confirmSignUp != false){
         document.getElementById("btn-signUp").classList.remove("btn-disabled")
     }else{

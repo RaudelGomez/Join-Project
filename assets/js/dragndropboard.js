@@ -1,24 +1,24 @@
-let tasks = [{
-    'id': 0,
-    'title': 'Putzen',
-    'description':'Beschreibung',
-    'priority': 'urgent',
-    'status':'inProgress',
-    'category': 'User Story',
-    'dueDate': 'date',
-    'assignedTo' : 'user',
-    'subtasks': {
-'subtask': 'unteraufgabe'
-    }
-}, {
-    'id': 1,
-    'title': 'Kochen',
-    'category': 'inProgress'
-}, {
-    'id': 2,
-    'title': 'Einkaufen',
-    'category': 'toDo'
-}];
+// let tasks = [{
+//     'id': 0,
+//     'title': 'Putzen',
+//     'description':'Beschreibung',
+//     'priority': 'urgent',
+//     'status':'inProgress',
+//     'category': 'User Story',
+//     'dueDate': 'date',
+//     'assignedTo' : 'user',
+//     'subtasks': {
+// 'subtask': 'unteraufgabe'
+//     }
+// }, {
+//     'id': 1,
+//     'title': 'Kochen',
+//     'category': 'inProgress'
+// }, {
+//     'id': 2,
+//     'title': 'Einkaufen',
+//     'category': 'toDo'
+// }];
 
 let currentDraggedElement;
 

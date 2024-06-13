@@ -66,25 +66,25 @@ body {
 
 /*General class and id*/
 
-.subtasksPopup input[type="checkbox"]  {
-	display: none;
+.subtasksPopup input[type="checkbox"] {
+  display: none;
 }
 
-.subtasksPopup input[type="checkbox"] + label{
-	display: block;	
-	width: 150px;
-	height: 40px;
-	cursor: pointer;	
-	background-image: url('../img/hook_unchecked.svg');
-	background-repeat: no-repeat;
-	background-position: 20px -3px;
-	padding-left: 60px;
-	font-size: 16px;
+.subtasksPopup input[type="checkbox"] + label {
+  display: block;
+  width: 150px;
+  height: 40px;
+  cursor: pointer;
+  background-image: url("../img/hook_unchecked.svg");
+  background-repeat: no-repeat;
+  background-position: 20px -3px;
+  padding-left: 60px;
+  font-size: 16px;
 }
 
 .subtasksPopup input[type="checkbox"]:checked + label {
-	background-image: url('../img/hook_checked-black.svg');
-	background-repeat: no-repeat;
+  background-image: url("../img/hook_checked-black.svg");
+  background-repeat: no-repeat;
 }
 
 .noscroll {
@@ -138,10 +138,10 @@ h3 {
 /*SVG*/
 
 .svgContainer {
-	display: flex;
-	align-items: center;
-	gap:8px;
-	cursor: pointer;	
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
 }
 
 .svgContainer:hover .svgLightBlue {
@@ -307,6 +307,33 @@ h3 {
   justify-content: space-between;
 }
 
+#header #headerMenu {
+  /* opacity: 0; */
+  position: fixed;
+  right: 16px;
+  top: 86px;
+  bottom: 0;
+  width: fit-content;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--main-color);
+  /* gap: 16px; */
+  padding: 16px;
+  border-radius: 20px 0px 20px 20px;
+}
+
+#header #headerMenu a {
+  text-decoration: none;
+  /* gap: 16px; */
+  padding: 16px;
+  color: #cdcdcd;
+}
+
+#header #headerMenu a:hover {
+  background-color: var(--menu-hover);
+}
+
 h1 {
   font-family: "Inter";
   font-weight: 400;
@@ -336,10 +363,12 @@ h1 {
   display: flex;
   gap: 16px;
   align-items: center;
+  
 }
 
 #header a {
   text-decoration: none;
+  cursor: pointer;
 }
 
 /* End Header */
@@ -499,21 +528,18 @@ h1 {
 }
 
 .taskPopup {
-	display: flex;
-	flex-direction: column;
-	gap: 24px;
-	font-size:20px;
-  }
-
-.taskPopupFooter {
-	display: flex;
-	align-items: center;
-	justify-content:flex-end;
-	gap:16px;
-
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  font-size: 20px;
 }
 
-
+.taskPopupFooter {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 16px;
+}
 
 .taskDesriptionPopup {
   color: black;
@@ -526,7 +552,6 @@ h1 {
   color: #42526e;
   width: 150px;
 }
-
 
 .taskCard .user {
   display: flex;

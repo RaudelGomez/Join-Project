@@ -7,11 +7,13 @@
     <link rel="stylesheet" href="./assets/css/style.css" />
     <link rel="stylesheet" href="./assets/css/board.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-    <script src="./assets/js/include.js"></script>
-    <script src="./assets/js/script.js"></script>
-    <script src="./assets/js/board.js"></script>
-    <script src="./assets/js/addTask.js"></script>
-    <script src="./assets/js/dragndropboard.js"></script>
+    <script defer src="./assets/js/include.js"></script>
+    <script defer src="./assets/js/data.js"></script>
+    <script defer src="./assets/js/login.js"></script>
+    <script defer src="./assets/js/script.js"></script>
+    <script defer src="./assets/js/board.js"></script>
+    <script defer src="./assets/js/addTask.js"></script>
+    <script defer src="./assets/js/dragndropboard.js"></script>
     <link rel="shortcut icon" href="./assets/img/join_fill_icon.svg" type="image/x-icon" />
   </head>
   <body onload="includeHTML()">
@@ -26,8 +28,8 @@
 
     <div class="container">
       <div id="menu" w3-include-html="./assets/templates/menu.html"></div>
-      <div id="main">
-        <header id="header" w3-include-html="./assets/templates/header.html"></header>
+      <div id="main">  
+        <header id="header"></header>
         <div class="sub-container">
           <header class="boardHeader">
             <h2>Board</h2>

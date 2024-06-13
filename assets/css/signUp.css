@@ -145,3 +145,31 @@
 .smallLinks:hover {
 	color: #29abe2;
 }
+
+.container-popUp.error{
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(0 0 0/20%);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+
+.popUp{
+	width: 400px;
+	height: 200px;
+	border-radius: 16px;
+	background-color: var(--white);
+	font-size: 32px;
+	font-weight: 700;
+	padding: 16px;
+	align-content: center;
+	text-align: center;
+}
+
+
+

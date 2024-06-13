@@ -23,15 +23,15 @@ async function registUser() {
         "password": passwordIdSignUp.value,
     }
     if(nameIdSignUp.value == "" || emailIdSignUp.value == "" || passwordIdSignUp =="" || passwordConfirmIdSignUp == "" || confirmSignUp.checked == false){
-        alert("You have to fill all Field!");
+        showError("container-signUp-error", "signUp-error", "You have to fill all Field!");
         return
     }
     if (passwordIdSignUp.value === passwordConfirmIdSignUp.value && passwordIdSignUp.value != "" && passwordConfirmIdSignUp.value !="") {
         await addNewUserDataBase(contact, nameIdSignUp, emailIdSignUp, passwordIdSignUp, passwordConfirmIdSignUp, confirmSignUp); 
         await loadData("contacts");       
     } else {
-        //pop to show
-        alert("Password incorrect!")
+        //Show pop up error
+        showError("container-signUp-error", "signUp-error", "Password incorrect!");
     }
 }
 
@@ -64,8 +64,8 @@ async function addNewUserDataBase(contact, nameIdSignUp, emailIdSignUp, password
         passwordConfirmIdSignUp.value = "";
         confirmSignUp.checked = false;
     }else {
-        //pop to show
-        alert("User already exist!")
+        //Show pop error
+        showError("container-signUp-error", "signUp-error", "This user already exist!");
     }
 }
 

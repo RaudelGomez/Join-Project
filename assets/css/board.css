@@ -1,0 +1,24 @@
+/* .user {
+
+    display: flex;
+    flex-direction: column;
+    gap:16px;
+} */
+
+.userItem {
+
+    display: flex;
+    align-items: center;
+    
+    gap:24px;
+}
+
+.profileSmall {width:42px;height:42px;}
+
+.taskPopupFooter {
+    color: var(--gray);
+}
+
+.taskPopupFooter span {
+    color: var(--main-color);
+}

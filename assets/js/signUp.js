@@ -10,11 +10,12 @@ function registUser() {
         "email": emailIdSignUp.value,
         "phone": "",
         "user": true,
-        "id":"",
+        "id": idCurrentContact,
         "password": passwordIdSignUp.value,
     }
     if (passwordIdSignUp.value === passwordConfirmIdSignUp.value && confirmSignUp.checked == true) {
         contacts.push(contact);
+        idCurrentContact++
         nameIdSignUp.value = "";
         emailIdSignUp.value = "";
         passwordIdSignUp.value = "";

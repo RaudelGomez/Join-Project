@@ -7,7 +7,8 @@
     <title>Sign Up- Login</title>
     <link rel="stylesheet" href="./assets/css/signUp.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-
+    <script defer src="./assets/js/data.js"></script>
+    <script defer src="./assets/js/signUp.js"></script>
     <script src="./assets/js/script.js"></script>
 </head>
 
@@ -21,7 +22,8 @@
     </div>
     <div class="bodyLogin">
 
-        <div class="loginBox">
+        <form onsubmit="registUser(); return false" class="loginBox">
+
             <div>
                 <img src="./assets/img/arrow-left-line.svg" class="goBackButton"></a>
                 <div class="HeadlinerLogin">Sign up</div>
@@ -29,19 +31,22 @@
             </div>
 
             <div class="loginInputFields">
-                <input class="emailClass" placeholder="Name">
-                <input type="email" class="emailClass" placeholder="Email">
-                <input type="password" class="passwordClass" placeholder="Password">
-                <input type="password" class="passwordClass" placeholder=" Confirm Password">
+
+                <input required type="text" class="emailClass" id="nameIdSignUp" placeholder="Name">
+                <input required type="email" id="emailIdSignUp" class="emailClass" placeholder="Email">
+                <input required type="password" class="passwordClass" id="passwordIdSignUp" placeholder="Password">
+                <input required type="password" class="passwordClass" id="passwordConfirmIdSignUp"
+                    placeholder=" Confirm Password">
             </div>
             <div class="checkboxContainer">
-                <input id="confirm" type="checkbox" />
-                <label for="confirm">I accept the <a href="./pripo.html" class="smallLinks">Privacy Policy</a></label>
+                <input required id="confirmSignUp" type="checkbox" /><label for="confirm">I accept the <a
+                        href="./pripo.html" class="smallLinks">Privacy Policy</a></label>
             </div>
             <div class="enterButtons">
-                <button class="loginButton">Sign up</button>
+                <button type="submit" class="loginButton">Sign up</button>
+
             </div>
-        </div>
+        </form>
     </div>
     <div class="footerIndex">
         <a href="./pripo.html" class="smallLinks">Privacy Policy</a>

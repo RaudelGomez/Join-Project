@@ -251,6 +251,10 @@ select {
 	gap: 2px;
 }
 
+.category-task input[type="checkbox"]{
+	display: none;
+}
+
 .category-task button {
 	background-color: var(--white);
 	border: none;

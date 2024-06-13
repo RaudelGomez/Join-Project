@@ -37,14 +37,17 @@ async function registUser() {
         "id": "",
         "password": passwordIdSignUp.value,
     }
-    if (passwordIdSignUp.value === passwordConfirmIdSignUp.value && confirmSignUp.checked == true) {
+    if(nameIdSignUp.value == "" || emailIdSignUp.value == "" || passwordIdSignUp =="" || passwordConfirmIdSignUp == "" || confirmSignUp.checked == false){
+        alert("You have to fill all Field!");
+        return
+    }
+    if (passwordIdSignUp.value === passwordConfirmIdSignUp.value && passwordIdSignUp.value != "" && passwordConfirmIdSignUp.value !="") {
         await addNewUserDataBase(contact, nameIdSignUp, emailIdSignUp, passwordIdSignUp, passwordConfirmIdSignUp, confirmSignUp); 
         await loadData("contacts");       
     } else {
         //pop to show
         alert("Password incorrect!")
     }
-   
 }
 
 /**
@@ -67,6 +70,7 @@ function checkMail(email) {
  * @param {*} passwordConfirmIdSignUp - That is the HTML input=confirmPassword
  * @param {*} confirmSignUp - That is the HTML input=checkbox/confirm term
  */
+
 async function addNewUserDataBase(contact, nameIdSignUp, emailIdSignUp, passwordIdSignUp, passwordConfirmIdSignUp, confirmSignUp ) {
     if(!checkMail(`${contact.email}`)){
         await postData(contact, "contacts");

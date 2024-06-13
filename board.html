@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Join - Board</title>
     <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="stylesheet" href="./assets/css/board.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <script src="./assets/js/include.js"></script>
     <script src="./assets/js/script.js"></script>
@@ -18,9 +19,10 @@
     <div id="innerDialog" class="animate__animated d-none">
       <img onclick="closeDialog()" class="closeDialog" src="./assets/img/close_icon.svg" alt="" />
       <!-- <div id="template" w3-include-html="./assets/templates/add_task_template.html"></div> -->
-	  <div id="template" w3-include-html="./assets/templates/task_popup_template.html"></div>
+	  <div id="template"></div>
 	  <!-- <div id="template"></div> -->
     </div>
+    
 
     <div class="container">
       <div id="menu" w3-include-html="./assets/templates/menu.html"></div>
@@ -43,7 +45,7 @@
               <header>
                 <h3>To do</h3>
                 <svg
-                  onclick="openDialog()"
+                  onclick="openDialog('add_task_template.html')"
                   class="svgIcon"
                   width="24"
                   height="25"
@@ -86,7 +88,7 @@
               <header>
                 <h3>In progress</h3>
                 <svg
-                  onclick="openDialog()"
+                  onclick="openDialog('add_task_template.html')"
                   class="svgIcon"
                   width="24"
                   height="25"
@@ -122,7 +124,7 @@
                 ondrop="moveTo('inProgress')"
                 ondragleave="removeHighlight('inProgress')"
                 ondragover="allowDrop(event); highlight('inProgress')">
-                <article class="taskCard" draggable="true" ondragstart="startDragging(1)">
+                <article onclick="openDialog('task_popup_template.html')" class="taskCard" draggable="true" ondragstart="startDragging(1)">
                   <span class="category userStory">User Story</span>
                   <h3 class="taskTitle">Kochwelt Pag & Recipe Recommender</h3>
                   <p class="taskDesription">Lorem ipsum dolor sit amet consectetur adipisicing elit...</p>
@@ -143,7 +145,7 @@
                     </div>
                   </footer>
                 </article>
-                <article class="taskCard" draggable="true" ondragstart="startDragging(1)">
+                <article onclick="openDialog('task_popup_template.html')" class="taskCard" draggable="true" ondragstart="startDragging(1)">
                   <span class="category technicalTask">Technical Task</span>
                   <h3 class="taskTitle">Kochwelt Page</h3>
                   <p class="taskDesription">Lorem ipsum dolor sit amet consectetur adipisicing ...</p>
@@ -170,7 +172,7 @@
               <header>
                 <h3>Await feedback</h3>
                 <svg
-                  onclick="openDialog()"
+                  onclick="openDialog('add_task_template.html')"
                   class="svgIcon"
                   width="24"
                   height="25"
@@ -206,7 +208,7 @@
                 ondrop="moveTo('awaitFeedback')"
                 ondragleave="removeHighlight('awaitFeedback')"
                 ondragover="allowDrop(event); highlight('awaitFeedback')">
-                <article class="taskCard" draggable="true" ondragstart="startDragging(1)">
+                <article onclick="openDialog('task_popup_template.html')" class="taskCard" draggable="true" ondragstart="startDragging(1)">
                   <span class="category technicalTask">Technical Task</span>
                   <h3 class="taskTitle">Kochwelt Page</h3>
                   <p class="taskDesription">Lorem ipsum dolor sit amet consectetur ...</p>
@@ -239,7 +241,7 @@
                 ondrop="moveTo('done')"
                 ondragleave="removeHighlight('done')"
                 ondragover="allowDrop(event); highlight('done')">
-                <article class="taskCard" draggable="true" ondragstart="startDragging(1)">
+                <article onclick="openDialog('task_popup_template.html')" class="taskCard" draggable="true" ondragstart="startDragging(1)">
                   <span class="category technicalTask">Technical Task</span>
                   <h3 class="taskTitle">Kochwelt Page</h3>
                   <p class="taskDesription">Lorem ipsum dolor sit amet consectetur adipisicing ...</p>

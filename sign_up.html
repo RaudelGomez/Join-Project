@@ -1,57 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up- Login</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="stylesheet" href="./assets/css/signUp.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="shortcut icon" href="./assets/img/join_fill_icon.svg" type="image/x-icon" />
     <script defer src="./assets/js/data.js"></script>
+    <script defer src="./assets/js/script.js"></script>
     <script defer src="./assets/js/signUp.js"></script>
-    <script src="./assets/js/script.js"></script>
 </head>
-
-<body onload="init()">
-    <div class="signUpTop">
-
-    </div>
-    <div class="logoIndex">
-        <img src="./assets/img/join_logo_dark.svg" class="logoIndex animate__animated animate__fadeInBottomRight">
-
-    </div>
-    <div class="bodyLogin">
-
-        <form onsubmit="registUser(); return false" class="loginBox">
-
-            <div>
-                <img src="./assets/img/arrow-left-line.svg" class="goBackButton"></a>
-                <div class="HeadlinerLogin">Sign up</div>
-                <hr class="HeadlinerLine">
-            </div>
-
-            <div class="loginInputFields">
-
-                <input required type="text" class="emailClass" id="nameIdSignUp" placeholder="Name">
-                <input required type="email" id="emailIdSignUp" class="emailClass" placeholder="Email">
-                <input required type="password" class="passwordClass" id="passwordIdSignUp" placeholder="Password">
-                <input required type="password" class="passwordClass" id="passwordConfirmIdSignUp"
-                    placeholder=" Confirm Password">
-            </div>
-            <div class="checkboxContainer">
-                <input required id="confirmSignUp" type="checkbox" /><label for="confirm">I accept the <a
-                        href="./pripo.html" class="smallLinks">Privacy Policy</a></label>
-            </div>
-            <div class="enterButtons">
-                <button type="submit" class="loginButton">Sign up</button>
-
-            </div>
-        </form>
-    </div>
-    <div class="footerIndex">
-        <a href="./pripo.html" class="smallLinks">Privacy Policy</a>
-        <a href="./legal_notice.html" class="smallLinks">Legal notice</a>
-    </div>
-</body>
-
+    <body onload="init()">
+        <div class="signUpTop"></div>
+        <div class="logoIndex">
+            <img src="./assets/img/join_logo_dark.svg" class="logoIndex animate__animated animate__fadeInBottomRight">
+        </div>
+        <div class="bodyLogin">
+            <form onsubmit="registUser(); return false" class="loginBox">
+                <div>
+                    <img src="./assets/img/arrow-left-line.svg" class="goBackButton"></a>
+                    <div class="HeadlinerLogin">Sign up</div>
+                    <hr class="HeadlinerLine">
+                </div>
+                <div class="loginInputFields">
+                    <input required type="text" minlength="3" class="emailClass" id="nameIdSignUp" placeholder="Name" onkeyup="checkAllFieldFull()">
+                    <input required type="email" id="emailIdSignUp" class="emailClass" placeholder="Email" onkeyup="checkAllFieldFull()">
+                    <input required type="password" minlength="3" class="passwordClass" id="passwordIdSignUp" placeholder="Password" onkeyup="checkAllFieldFull()">
+                    <input required type="password" minlength="3" class="passwordClass" id="passwordConfirmIdSignUp"
+                        placeholder=" Confirm Password" onkeyup="checkAllFieldFull()">
+                </div>
+                <div class="checkboxContainer">
+                    <input required id="confirmSignUp" type="checkbox" onclick="checkAllFieldFull()"/><label for="confirm">I accept the <a
+                            href="./pripo.html" class="smallLinks">Privacy Policy</a></label>
+                </div>
+                <div class="enterButtons">
+                    <button id="btn-signUp" type="submit" class="loginButton btn-disabled">Sign up</button>
+                </div>
+            </form>
+        </div>
+        <div id="container-signUp-error" class="container-popUp" onclick="hiddeError('container-signUp-error', 'signUp-error')">
+            <div id="signUp-error" class="popUp"></div>
+        </div>
+        <div class="footerIndex">
+            <a href="./pripo.html" class="smallLinks">Privacy Policy</a>
+            <a href="./legal_notice.html" class="smallLinks">Legal notice</a>
+        </div>
+    </body>
 </html>

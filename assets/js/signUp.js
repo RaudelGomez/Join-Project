@@ -6,17 +6,18 @@ async function init() {
 }
 
 /**
- * This Function load all elements from contacts and tasks
- * @param {string} path - That is the name of the File in the Data Base
- * where the elements saved are.
+ * This function does the button submit available when every field ared fulled
  */
-async function loadData(path = "") {
-    let response = await fetch(BASE_URL + path + ".json");
-    responseToJson = await response.json();
-    if (path == "contacts") {
-        contacts = responseToJson;
-    } if (path == "tasks") {
-        tasks = responseToJson;
+function checkAllFieldFull() {
+    let nameIdSignUp = document.getElementById("nameIdSignUp").value;
+    let emailIdSignUp = document.getElementById("emailIdSignUp").value;
+    let passwordIdSignUp = document.getElementById("passwordIdSignUp").value;
+    let passwordConfirmIdSignUp = document.getElementById("passwordConfirmIdSignUp").value;
+    let confirmSignUp = document.getElementById("confirmSignUp").checked;
+    if(nameIdSignUp != "" && emailIdSignUp !== "" && passwordIdSignUp !== "" && passwordConfirmIdSignUp != "" && passwordConfirmIdSignUp != "" && confirmSignUp != false){
+        document.getElementById("btn-signUp").classList.remove("btn-disabled")
+    }else{
+        document.getElementById("btn-signUp").classList.add("btn-disabled")
     }
 }
 
@@ -37,14 +38,13 @@ async function registUser() {
         "id": "",
         "password": passwordIdSignUp.value,
     }
-    if (passwordIdSignUp.value === passwordConfirmIdSignUp.value && confirmSignUp.checked == true) {
+    if (passwordIdSignUp.value === passwordConfirmIdSignUp.value && passwordIdSignUp.value != "" && passwordConfirmIdSignUp.value !="") {
         await addNewUserDataBase(contact, nameIdSignUp, emailIdSignUp, passwordIdSignUp, passwordConfirmIdSignUp, confirmSignUp); 
         await loadData("contacts");       
     } else {
-        //pop to show
-        alert("Password incorrect!")
+        //Show pop up error
+        showError("container-signUp-error", "signUp-error", "Password incorrect!");
     }
-   
 }
 
 /**
@@ -70,31 +70,18 @@ function checkMail(email) {
 async function addNewUserDataBase(contact, nameIdSignUp, emailIdSignUp, passwordIdSignUp, passwordConfirmIdSignUp, confirmSignUp ) {
     if(!checkMail(`${contact.email}`)){
         await postData(contact, "contacts");
+        await loadData("contacts"); 
         nameIdSignUp.value = "";
         emailIdSignUp.value = "";
         passwordIdSignUp.value = "";
         passwordConfirmIdSignUp.value = "";
         confirmSignUp.checked = false;
     }else {
-        //pop to show
-        alert("User already exist!")
+        //Show pop error
+        showError("container-signUp-error", "signUp-error", "This user already exist!");
     }
 }
 
-/**
- * That function save a person in the data base in contact file
- * @param {object} data - That is the whole element to save
- * @param {string} path - That is the name of the File in the Data Base
- * where that element will be saved.
- * @returns 
- */
-async function postData(data = {}, path = "") {
-    let response = await fetch(BASE_URL + path + ".json", {
-        method: "POST",
-        header: { "Content-Type": "application/json" },
-        body: JSON.stringify(data)
-    });
-    return (responseToJson = await response.json());
-}
+
 
 

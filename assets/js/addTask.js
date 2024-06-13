@@ -41,3 +41,4 @@ function categorySelected(idTask) {
 	console.log(taskValue);
 	optionSelected.textContent = taskValue;
 }
+

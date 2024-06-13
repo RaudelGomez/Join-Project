@@ -171,5 +171,11 @@
 	text-align: center;
 }
 
+.btn-disabled, .btn-disabled:hover{
+	background-color: var(--gray);
+	box-shadow: 0px;
+	border: none;
+	pointer-events: none;
+}
 
 

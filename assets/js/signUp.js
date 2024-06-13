@@ -6,6 +6,23 @@ async function init() {
 }
 
 /**
+ * This function does the button submit available when every field ared fulled
+ */
+function checkAllFieldFull() {
+    let nameIdSignUp = document.getElementById("nameIdSignUp").value;
+    let emailIdSignUp = document.getElementById("emailIdSignUp").value;
+    let passwordIdSignUp = document.getElementById("passwordIdSignUp").value;
+    let passwordConfirmIdSignUp = document.getElementById("passwordConfirmIdSignUp").value;
+    let confirmSignUp = document.getElementById("confirmSignUp").checked;
+    console.log(confirmSignUp);
+    if(nameIdSignUp != "" && emailIdSignUp !== "" && passwordIdSignUp !== "" && passwordConfirmIdSignUp != "" && passwordConfirmIdSignUp != "" && confirmSignUp != false){
+        document.getElementById("btn-signUp").classList.remove("btn-disabled")
+    }else{
+        document.getElementById("btn-signUp").classList.add("btn-disabled")
+    }
+}
+
+/**
  * This function register a User
  */
 async function registUser() {
@@ -21,10 +38,6 @@ async function registUser() {
         "user": true,
         "id": "",
         "password": passwordIdSignUp.value,
-    }
-    if(nameIdSignUp.value == "" || emailIdSignUp.value == "" || passwordIdSignUp =="" || passwordConfirmIdSignUp == "" || confirmSignUp.checked == false){
-        showError("container-signUp-error", "signUp-error", "You have to fill all Field!");
-        return
     }
     if (passwordIdSignUp.value === passwordConfirmIdSignUp.value && passwordIdSignUp.value != "" && passwordConfirmIdSignUp.value !="") {
         await addNewUserDataBase(contact, nameIdSignUp, emailIdSignUp, passwordIdSignUp, passwordConfirmIdSignUp, confirmSignUp); 

@@ -24,18 +24,18 @@
                     <hr class="HeadlinerLine">
                 </div>
                 <div class="loginInputFields">
-                    <input required type="text" class="emailClass" id="nameIdSignUp" placeholder="Name">
-                    <input required type="email" id="emailIdSignUp" class="emailClass" placeholder="Email">
-                    <input required type="password" class="passwordClass" id="passwordIdSignUp" placeholder="Password">
-                    <input required type="password" class="passwordClass" id="passwordConfirmIdSignUp"
-                        placeholder=" Confirm Password">
+                    <input required type="text" minlength="3" class="emailClass" id="nameIdSignUp" placeholder="Name" onkeyup="checkAllFieldFull()">
+                    <input required type="email" id="emailIdSignUp" class="emailClass" placeholder="Email" onkeyup="checkAllFieldFull()">
+                    <input required type="password" minlength="3" class="passwordClass" id="passwordIdSignUp" placeholder="Password" onkeyup="checkAllFieldFull()">
+                    <input required type="password" minlength="3" class="passwordClass" id="passwordConfirmIdSignUp"
+                        placeholder=" Confirm Password" onkeyup="checkAllFieldFull()">
                 </div>
                 <div class="checkboxContainer">
-                    <input required id="confirmSignUp" type="checkbox" /><label for="confirm">I accept the <a
+                    <input required id="confirmSignUp" type="checkbox" onclick="checkAllFieldFull()"/><label for="confirm">I accept the <a
                             href="./pripo.html" class="smallLinks">Privacy Policy</a></label>
                 </div>
                 <div class="enterButtons">
-                    <button type="submit" class="loginButton">Sign up</button>
+                    <button id="btn-signUp" type="submit" class="loginButton btn-disabled">Sign up</button>
                 </div>
             </form>
         </div>

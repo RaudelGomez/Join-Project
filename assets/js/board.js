@@ -10,7 +10,7 @@
       innerHTML = /* HTML*/ `
       <article class="taskPopup">
   <div><span class="categoryPopup userStory">User Story</span></div>
-  <h2 class="">Kochwelt Pag & Recipe Recommender</h2>
+  <h2 class="">Kochwelt Page & Recipe Recommender</h2>
   <div class="taskDesriptionPopup">Lorem ipsum dolor sit amet consectetur adipisicing elit...</div>
   <div><span class="taskPopupLabel">Due date:</span> 10/05/2023</div>
   <div>

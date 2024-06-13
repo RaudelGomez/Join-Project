@@ -40,10 +40,11 @@ function openHeaderMenu() {
 }
 
 function logout() {
-
     sessionStorage.clear();
     localStorage.clear();
     location.href = "./index.html";
+}
+
 /**
  * That function save a person in the data base in contact file
  * @param {object} data - That is the whole element to save

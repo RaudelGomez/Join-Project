@@ -20,7 +20,7 @@
 }
 
 .signUpButton {
-	padding: 15px, 16px, 15px, 16px;
+	/* padding: 15px 16px 15px 16px; */
 	gap: 10px;
 	border-radius: 8px;
 	background-color: #2a3647;
@@ -31,6 +31,7 @@
 	justify-content: center;
 	align-items: center;
 	text-decoration: none;
+	transition: all 200ms ease-in-out;
 }
 
 
@@ -52,6 +53,7 @@
 	height: 3px;
 	background-color: #29abe2;
 	border-radius: 12px;
+	border: none;
 }
 
 .loginBox {
@@ -71,27 +73,30 @@
 .loginInputFields {
 	display: flex;
 	justify-content: center;
-	align-items: center;
+	align-items: flex-start;
 	flex-wrap: wrap;
-	gap: 32px;
+	gap: 7px;
+    flex-direction: column;
 }
+
+.loginInputFields div {color:red;text-align: left;}
 
 .emailClass {
 	width: 422px;
-	height: 48px;
+	height: 30px;
 	border-radius: 10px;
-	border: 2px solid rgba(0, 0, 0, 0.1);
-	padding: 12px, 21px, 12px, 21px;
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	padding: 12px 21px 12px 21px;
 	gap: 10px;
 	font-size: 24px;
 }
 
 .passwordClass {
 	width: 422px;
-	height: 48px;
+	height: 30px;
 	border-radius: 10px;
-	border: 2px solid rgba(0, 0, 0, 0.1);
-	padding: 12px, 21px, 12px, 21px;
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	padding: 12px 21px 12px 21px;
 	gap: 10px;
 	font-size: 24px;
 }

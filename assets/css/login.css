@@ -86,6 +86,11 @@ a {
 	gap: 32px;
 }
 
+
+.inputRedBorder {
+border-color:red !important;
+
+}
 .emailClass {
 	width: 422px;
 	height: 48px;

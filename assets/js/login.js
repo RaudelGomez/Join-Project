@@ -61,6 +61,25 @@ function login() {
     }
     location.href = "./summary.html";
   } else {
+    let results = contact.filter((element) => element.email == email && element.user);
+    if (results.length==0) {
+      document.getElementById('email').classList.add('inputRedBorder');
+      document.getElementById('mailError').innerHTML = "Email Adresse ist nicht als Benutzer registriert!";
+    }
+
+    results = contact.filter((element) => element.email == email && element.password == password && element.user);
+    if (results.length==0) {
+      document.getElementById('password').classList.add('inputRedBorder');
+      document.getElementById('passwordError').innerHTML = "Passwort stimmt nicht!";
+    }
+   
+    
+
+    
+    document.getElementById('password').classList.add('inputRedBorder');
+    
+    
+    
     console.log("Email nicht bekannt oder Passwort falsch");
   }
 }

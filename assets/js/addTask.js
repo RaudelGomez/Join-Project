@@ -1,4 +1,13 @@
+<<<<<<< HEAD
 
+=======
+async function initAddTask() {
+	await loadData();
+	await renderContactsAssignedTask();
+}
+
+initAddTask();
+>>>>>>> 8d7d3fdb9c67f20a56fba5f55c5be9b34a8c78aa
 
 /**
  * This Function is used to show and hidde thechekBoxes in the AddTask html.
@@ -42,5 +51,23 @@ function categorySelected(idTask) {
 	let taskValue = document.getElementById(`${idTask}`).textContent;
 	console.log(taskValue);
 	optionSelected.textContent = taskValue;
+}
+
+async function renderContactsAssignedTask() {
+	console.log(contacts);
+	let asignedTaskContainer = document.getElementById('assigned-task');
+	// let contacts = Object.values(contacts);
+	asignedTaskContainer.innerHTML = ""
+	// for (let i = 0; i < contacts.length; i++) {
+	// 	const contact = contacts[i];
+	// 	asignedTaskContainer.innerHTML += /*html*/`
+	// 		<p>${contact}</p>
+	// 	`
+	// 	}
+}
+
+function addTask() {
+	let titleTask = document.getElementById('title_task');
+	let descriptionTask = document.getElementById('description_task');
 }
 

@@ -41,7 +41,11 @@ async function loadData(path = "") {
     console.log(contacts);
   }
   if (path == "tasks") {
+<<<<<<< HEAD
     tasks = responseToJson;
+=======
+    (!responseToJson) ? tasks = [] : tasks = responseToJson;
+>>>>>>> 8d7d3fdb9c67f20a56fba5f55c5be9b34a8c78aa
   }
 }
 

@@ -309,7 +309,7 @@ h3 {
 
 #header #headerMenu {
   /* opacity: 0; */
-  position: fixed;
+  position: absolute;
   right: 16px;
   top: 86px;
   bottom: 0;

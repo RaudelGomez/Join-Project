@@ -50,31 +50,6 @@ function login() {
   }
 }
 
-function readLoggedInUser() {
-    let initials;
-    let mail;
-    
-    if (localStorage.getItem("Join")) {
-      initials = JSON.parse(localStorage.getItem("Join")).initials;
-      mail = JSON.parse(localStorage.getItem("Join")).mail;
-      loggedIn = true;
-    }
-  
-    if (sessionStorage.getItem("Join")) {
-      initials = JSON.parse(sessionStorage.getItem("Join")).initials;
-      mail = JSON.parse(sessionStorage.getItem("Join")).mail;
-      userName = JSON.parse(sessionStorage.getItem("Join")).userName;
-      loggedIn = true;
-    }
-    if (!loggedIn) {
 
-        location.href = "./index.html";
-    }
-    return {
-      mail: mail,
-      initials: initials,
-      name: userName
-    };
-  }
 
 

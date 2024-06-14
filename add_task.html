@@ -56,13 +56,11 @@
 											<select>
 												<option>Select contacts to assign</option>
 											</select>
-											<div class="overSelect"></div>
+											<div class="overSelect" onclick="showInitialAssign()"></div>
 										</div>
 										<div id="assigned-task" class="category-task assigned-task-hidden">
 										</div>
 										<div id="container-people-assigned-task" class="container-people-assigned-task">
-											<span class="first-letter">RA</span>
-											<span class="first-letter">ÖZ</span>
 										</div>
 									</div>
 								</section>
@@ -77,17 +75,17 @@
 									<div class="form-control">
 										<span>Prio</span>
 										<div class="prio-container">
-											<button id="button-high-priority" class="svgContainerButtonPrio svgContainerOrange active" onclick="changePriority('button-high-priority')">
+											<button id="button-high-priority" data-prio="urgent" class="svgContainerButtonPrio svgContainerOrange active" onclick="changePriority('button-high-priority')">
 												<span>Urgent</span>
 												<img class="show-icon" src="./assets/img/urgent_high_priority_icon.svg" alt="priority" />
 												<img class="hidde-icon" src="./assets/img/urgent_high_priority_white.svg" alt="priority" />
 											</button>
-											<button id="button-medium-priority" class="svgContainerButtonPrio svgContainerYellow" onclick="changePriority('button-medium-priority')">
+											<button id="button-medium-priority" data-prio="medium" class="svgContainerButtonPrio svgContainerYellow" onclick="changePriority('button-medium-priority')">
 												<span>Medium</span>
 												<img class="show-icon" src="./assets/img/priority_symbols_icon.svg" alt="media priority" />
 												<img class="hidde-icon" src="./assets/img/priority_media_white.svg" alt="media priority" />
 											</button>
-											<button id="button-low-priority" class="svgContainerButtonPrio svgContainerGreen" onclick="changePriority('button-low-priority')">
+											<button id="button-low-priority" data-prio="low" class="svgContainerButtonPrio svgContainerGreen" onclick="changePriority('button-low-priority')">
 												<span>Low</span>
 												<img class="show-icon" src="./assets/img/urgent_low_priority_icon.svg" alt="low priority" />
 												<img class="hidde-icon" src="./assets/img/low_priority_white.svg" alt="low priority" />
@@ -110,24 +108,31 @@
 									<div class="form-control">
 										<label for="sub_task">Sub task</label>
 										<div class="container-subTask">
-											<input id="sub-task" placeholder="Add new subtask" type="text" />
-											<img
-												id="add-sub-task"
-												src="./assets/img/plus_icon.svg"
-												alt="add sub task"
-											/>
+											<input id="sub-task" placeholder="Add new subtask" type="text" onkeyup="changeIconSubTask()"/>
+											<div>
+												<img
+													id="add-sub-task"
+													src="./assets/img/plus_icon.svg"
+													alt="add sub task"													
+												/>
+												<div id="container-icon-subTask" class="container-icon-subTask d-none">
+													<img
+													id="delete-sub-task-input"
+													src="./assets/img/close_icon.svg"
+													alt="empty sub task input"
+													onclick="emptyInputSubTask()"
+													/>
+													<div class="separator-subtask"></div>
+													<img
+														id="confirm-sub-task"
+														src="./assets/img/check_subTask.svg"
+														alt="confirm add sub task"
+														onclick="addSubTask()"
+													/>
+												</div>
+											</div>
 										</div>
-										<div id="container-new-subTask">
-											<p class="new-subTask">
-												<span class="span-link">
-													<span id="text-new-subTask" class="text-new-subTask">Contact form </span>
-													<span id="span-link-edit-delete">
-														<img src="./assets/img/pencil_icon.svg" alt="edit" />
-														<img src="./assets/img/delete_icon.svg" alt="delete" />
-													</span>
-												</span>
-											</p>
-										</div>
+										<div id="container-new-subTask"></div>
 									</div>
 								</section>
 							</div>

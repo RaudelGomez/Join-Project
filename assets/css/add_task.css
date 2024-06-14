@@ -127,7 +127,7 @@
 	width: 100%;
 }
 
-#add-sub-task {
+#add-sub-task, .container-icon-subTask {
 	position: absolute;
 	top: 50%;
 	right: 8px;
@@ -147,7 +147,7 @@ select {
 }
 
 .new-subTask{
-	width: 100%;
+	margin: 1px;
 	padding: 2px 4px;
 	transition: all 75ms ease-in-out;
 }
@@ -155,6 +155,12 @@ select {
 .new-subTask:hover {
 	background-color: var(--dark-gray);
 	border-radius: 8px;
+}
+
+.separator-subtask{
+	width: 1px;
+	height: 24px;
+	background-color: var(--black);
 }
 
 .span-link {
@@ -390,6 +396,12 @@ select {
 
 .container-name-assigned:has(input:checked):hover .hook-check{
 	background-color: var(--main-color-dark);
+}
+
+#container-new-subTask{
+	display: flex;
+	flex-direction: column;
+	gap: 0;
 }
 
 @media (max-width: 1000px){

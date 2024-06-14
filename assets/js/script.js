@@ -4,10 +4,13 @@ renderHeader(userData);
 function readLoggedInUser() {
   let initials;
   let mail;
+  let userName;
   let protectedPages = ["board.html", "contacts.html", "summary.html", "add_task.html"];
   if (localStorage.getItem("Join")) {
+    console.log('test');
     initials = JSON.parse(localStorage.getItem("Join")).initials;
     mail = JSON.parse(localStorage.getItem("Join")).mail;
+    userName = JSON.parse(sessionStorage.getItem("Join")).userName;
     loggedIn = true;
   }
   if (sessionStorage.getItem("Join")) {
@@ -45,12 +48,13 @@ async function loadData(path = "") {
 }
 
 function renderHeader(userData) {
-  if (userData.initials == "" || !userData) {
+  if (document.getElementById("header")) {
+  if (userData.initials == undefined) {
     document.getElementById("header").innerHTML = /* HTML */ ` <h1>Kanban Project Management Tool</h1> `;
   } else {
     document.getElementById("header").innerHTML = /* HTML */ `
       <h1>Kanban Project Management Tool</h1>
-      <div class="headerIcons">
+      <div id="headerIcons" class="headerIcons">
         <a href="./help.html"><img src="./assets/img/help_icon.svg" alt="" /></a>
         <a onclick="openHeaderMenu()"><span id="userInitial" class="profile">${userData.initials}</span></a>
       </div>
@@ -61,6 +65,7 @@ function renderHeader(userData) {
       </div>
     `;
   }
+}
 }
 
 function openHeaderMenu() {

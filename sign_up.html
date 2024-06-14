@@ -19,9 +19,11 @@
             <img src="./assets/img/join_logo_dark.svg" class="logoIndex animate__animated animate__fadeInBottomRight">
         </div>
         <div class="bodyLogin">
+            
             <form onsubmit="registUser(); return false" class="loginBox">
-                <div>
-                    <img src="./assets/img/arrow-left-line.svg" class="goBackButton"></a>
+                
+                <div class="signUpHeader">
+                    <a href="./index.html" class="goBackButton"><img src="./assets/img/arrow-left-line.svg"></a> 
                     <div class="HeadlinerLogin">Sign up</div>
                     <hr class="HeadlinerLine">
                 </div>
@@ -30,11 +32,11 @@
                     <input required type="email" id="emailIdSignUp" class="emailClass" placeholder="Email" onkeyup="checkAllFieldFull()">
                     <input required type="password" minlength="3" class="passwordClass" id="passwordIdSignUp" placeholder="Password" onkeyup="checkAllFieldFull()">
                     <input required type="password" minlength="3" class="passwordClass" id="passwordConfirmIdSignUp"
-                        placeholder=" Confirm Password" onkeyup="checkAllFieldFull()">
+                        placeholder="Confirm Password" onkeyup="checkAllFieldFull()">
                 </div>
-                <div class="checkboxContainer">
-                    <input required id="confirmSignUp" type="checkbox" onclick="checkAllFieldFull()"/><label for="confirm">I accept the <a
-                            href="./pripo.html" class="smallLinks">Privacy Policy</a></label>
+                <div class="signUpCheckBox subtasksPopup">
+                    <input required id="confirmSignUp" type="checkbox" onclick="checkAllFieldFull()"/>
+                    <label for="confirmSignUp">I accept the <a href="./pripo.html" class="smallLinks">Privacy Policy</a></label>
                 </div>
                 <div class="enterButtons">
                     <button id="btn-signUp" type="submit" class="loginButton ">Sign up</button>

@@ -64,6 +64,12 @@ body {
   background-color: var(--main-bg-color);
 }
 
+input::placeholder {
+  color: var(--gray);
+  font-weight: 400;
+  
+}
+
 /*General class and id*/
 .error-alert{
   color: var(--danger-color);
@@ -83,7 +89,7 @@ body {
 
 .subtasksPopup input[type="checkbox"] + label {
   display: block;
-  width: 150px;
+  width: 200px;
   height: 40px;
   cursor: pointer;
   background-image: url("../img/hook_unchecked.svg");

@@ -24,7 +24,7 @@ function readLoggedInUser() {
   return {
     mail: mail,
     initials: initials,
-    name: userName,
+    name: userName
   };
 }
 
@@ -37,38 +37,31 @@ async function loadData(path = "") {
   let response = await fetch(BASE_URL + path + ".json");
   let responseToJson = await response.json();
   if (path == "contacts") {
-    (!responseToJson) ? contacts = [] : contacts = responseToJson;
+    !responseToJson ? (contacts = []) : (contacts = responseToJson);
     console.log(contacts);
   }
   if (path == "tasks") {
-    (!responseToJson) ? tasks = [] : tasks = responseToJson;
+    !responseToJson ? (tasks = []) : (tasks = responseToJson);
   }
 }
 
 function renderHeader(userData) {
- if (userData.initials=="") {
-  document.getElementById("header").innerHTML += /* HTML */ `
-  <h1>Kanban Project Management Tool</h1>
-  
-`;
- }
- else {
-  document.getElementById("header").innerHTML += /* HTML */ `
-  <h1>Kanban Project Management Tool</h1>
-  <div class="headerIcons">
-    <a href="./help.html"><img src="./assets/img/help_icon.svg" alt="" /></a>
-    <a onclick="openHeaderMenu()"><span id="userInitial" class="profile">${userData.initials}</span></a>
-  </div>
-  <div id="headerMenu" class="d-none">
-    <a href="./legal_notice.html">Legal Notice</a>
-    <a href="./pripo.html">Privacy Policy</a>
-    <a href="#" onclick="logout()">Log out</a>
-  </div>
-`;
-
- }
-
- 
+  if (userData.initials == "" || !userData) {
+    document.getElementById("header").innerHTML = /* HTML */ ` <h1>Kanban Project Management Tool</h1> `;
+  } else {
+    document.getElementById("header").innerHTML = /* HTML */ `
+      <h1>Kanban Project Management Tool</h1>
+      <div class="headerIcons">
+        <a href="./help.html"><img src="./assets/img/help_icon.svg" alt="" /></a>
+        <a onclick="openHeaderMenu()"><span id="userInitial" class="profile">${userData.initials}</span></a>
+      </div>
+      <div id="headerMenu" class="d-none">
+        <a href="./legal_notice.html">Legal Notice</a>
+        <a href="./pripo.html">Privacy Policy</a>
+        <a href="#" onclick="logout()">Log out</a>
+      </div>
+    `;
+  }
 }
 
 function openHeaderMenu() {
@@ -114,13 +107,13 @@ async function putData(data, path = "") {
  * @param {string} idPopUp - This the id of the pop up.
  * @param {string} messageError - That is the error
  */
-function showAlert(idContainer, idPopUp, typeMessage, classMsg, message){
-  document.getElementById(`${idContainer}`).classList.add('error');
+function showAlert(idContainer, idPopUp, typeMessage, classMsg, message) {
+  document.getElementById(`${idContainer}`).classList.add("error");
   document.getElementById(`${idPopUp}`).innerHTML = /*html*/ `
   <h3 class="${classMsg}">${typeMessage}</h3>
   <p>${message}</p>
   `;
-  setTimeout(()=>{
+  setTimeout(() => {
     hiddeAlert(idContainer, idPopUp);
   }, 3000);
 }
@@ -130,7 +123,7 @@ function showAlert(idContainer, idPopUp, typeMessage, classMsg, message){
  * @param {*} idContainer - This is the id of the container where the pop up is.
  * @param {*} idPopUp - This the id of the pop up.
  */
-function hiddeAlert(idContainer, idPopUp){
-  document.getElementById(`${idContainer}`).classList.remove('error');
+function hiddeAlert(idContainer, idPopUp) {
+  document.getElementById(`${idContainer}`).classList.remove("error");
   document.getElementById(`${idPopUp}`).innerHTML = "";
 }

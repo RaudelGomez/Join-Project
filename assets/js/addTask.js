@@ -1,9 +1,12 @@
-async function initAddTask() {
-	await loadData();
-	await renderContactsAssignedTask();
-}
+// async function initAddTask() {
+// 	await loadData();
+// 	await renderContactsAssignedTask();
+// }
 
-initAddTask();
+console.log(contacts);
+document.getElementById('title_task').value ="test";
+
+// initAddTask();
 
 /**
  * This Function is used to show and hidde thechekBoxes in the AddTask html.

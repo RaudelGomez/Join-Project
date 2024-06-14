@@ -16,3 +16,11 @@ function addContact() {
   }
   contacts.push(contact);
 }
+
+function renderContacts() {
+
+  
+}
+
+
+

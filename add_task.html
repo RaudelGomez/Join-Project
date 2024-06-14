@@ -23,11 +23,171 @@
 				<header id="header"></header>
 
 				<div class="sub-container-addTask height-100">
-					<div
+					<!-- <div
 						id="add_task_template"
 						class="height-100 d-flex"
 						w3-include-html="./assets/templates/add_task_template.html"
-					></div>
+					></div> -->
+					<div
+						id="add_task_template"
+						class="height-100 d-flex"
+					>
+					<h2>Add Task</h2>
+					<article>
+						<form id="add_task_form" onsubmit="addTask(); return false">
+							<div class="add_task_data">
+								<section>
+									<div class="form-control">
+										<label for="title_task">Title<span class="required">*</span></label>
+										<input
+											required
+											id="title_task"
+											type="text"
+											placeholder="Enter a title"
+										/>
+									</div>
+									<div class="form-control">
+										<label for="description_task">Description</label>
+										<textarea
+											name="description_task"
+											id="description_task"
+											placeholder="Enter a Description"
+											rows="5"
+										></textarea>
+									</div>
+									<div class="form-control position-relative">
+										<label for="assigned_task">Assigned to</label>
+										<div class="select-option" onclick="showCheckboxes()">
+											<select>
+												<option>Select contacts to assign</option>
+											</select>
+											<div class="overSelect"></div>
+										</div>
+										<div id="assigned-task" class="category-task assigned-task-hidden">
+											<label class="checkbox-label" for="1">
+												<span class="container-name-assigned">
+													<span class="name-assigned">
+														<span class="first-letter">ÖZ</span>Özkan
+													</span>
+													<input type="checkbox" id="1"/>
+													<img class="hook-check" src="./assets/img/hook_checked_white.svg" alt="checked">
+													<img class="hook-no-check" src="./assets/img/hook_unchecked.svg" alt="unchecked">
+												</span>
+											</label>
+										</div>
+										<div id="container-people-assigned-task" class="container-people-assigned-task">
+											<span class="first-letter">RA</span>
+											<span class="first-letter">ÖZ</span>
+											<span class="first-letter">AL</span>
+											<span class="first-letter">RA</span>
+											<span class="first-letter">ÖZ</span>
+											<span class="first-letter">AL</span>
+											<span class="first-letter">RA</span>
+											<span class="first-letter">ÖZ</span>
+											<span class="first-letter">AL</span>
+											<span class="first-letter">RA</span>
+											<span class="first-letter">ÖZ</span>
+											<span class="first-letter">AL</span>
+										</div>
+									</div>
+								</section>
+								<div class="add_task_separator"></div>
+								<section>
+									<div class="form-control">
+										<label for="due_date_task"
+											>Due date<span class="required">*</span></label
+										>
+										<input required id="due_date_task" type="date" />
+									</div>
+									<div class="form-control">
+										<span>Prio</span>
+										<div class="prio-container">
+											<button id="button-high-priority" class="svgContainerButtonPrio svgContainerOrange active" onclick="changePriority('button-high-priority')">
+												<span>Urgent</span>
+												<img class="show-icon" src="./assets/img/urgent_high_priority_icon.svg" alt="priority" />
+												<img class="hidde-icon" src="./assets/img/urgent_high_priority_white.svg" alt="priority" />
+											</button>
+											<button id="button-medium-priority" class="svgContainerButtonPrio svgContainerYellow" onclick="changePriority('button-medium-priority')">
+												<span>Medium</span>
+												<img class="show-icon" src="./assets/img/priority_symbols_icon.svg" alt="media priority" />
+												<img class="hidde-icon" src="./assets/img/priority_media_white.svg" alt="media priority" />
+											</button>
+											<button id="button-low-priority" class="svgContainerButtonPrio svgContainerGreen" onclick="changePriority('button-low-priority')">
+												<span>Low</span>
+												<img class="show-icon" src="./assets/img/urgent_low_priority_icon.svg" alt="low priority" />
+												<img class="hidde-icon" src="./assets/img/low_priority_white.svg" alt="low priority" />
+											</button>
+										</div>
+									</div>
+										<div class="form-control position-relative">
+											<label for="category-task">Category<span class="required">*</span></label>
+											<div class="select-option" onclick="showTaskOption()">
+												<select>
+													<option id="option-selected">Select task category</option>
+												</select>
+												<div class="overSelect"></div>
+											</div>
+											<div id="category-task" class="category-task assigned-task-hidden">
+														<button id="technicalTask" onclick="categorySelected('technicalTask')">Technical task</button>
+														<button id="userStory" onclick="categorySelected('userStory')">User story</button>
+											</div>
+									</div>
+									<div class="form-control">
+										<label for="sub_task">Sub task</label>
+										<div class="container-subTask">
+											<input id="sub-task" placeholder="Add new subtask" type="text" />
+											<img
+												id="add-sub-task"
+												src="./assets/img/plus_icon.svg"
+												alt="add sub task"
+											/>
+										</div>
+										<div id="container-new-subTask">
+											<p class="new-subTask">
+												<span class="span-link">
+													<span id="text-new-subTask" class="text-new-subTask">Contact form </span>
+													<span id="span-link-edit-delete">
+														<img src="./assets/img/pencil_icon.svg" alt="edit" />
+														<img src="./assets/img/delete_icon.svg" alt="delete" />
+													</span>
+												</span>
+											</p>
+										</div>
+									</div>
+								</section>
+							</div>
+							<div class="container-button-submit-add-task">
+								<p><span>*</span>This field is required</p>
+								<div class="button-submit-clear-add-task">
+									<button class="clear-button-add-task svgContainer">
+										<span>Clear</span>
+										<svg
+											width="25"
+											height="24"
+											viewBox="0 0 25 24"
+											fill="none"
+											xmlns="http://www.w3.org/2000/svg"
+										>
+											<path
+												d="M12.2496 11.9998L17.4926 17.2428M7.00659 17.2428L12.2496 11.9998L7.00659 17.2428ZM17.4926 6.75684L12.2486 11.9998L17.4926 6.75684ZM12.2486 11.9998L7.00659 6.75684L12.2486 11.9998Z"
+												stroke="#2A3647"
+												stroke-width="2"
+												stroke-linecap="round"
+												stroke-linejoin="round"
+												class="svgStrokeblue"
+											/>
+										</svg>
+									</button>
+									<button type="submit" class="button">
+										<span>Create Task</span>
+										<img src="./assets/img/check_white_icon.svg" alt="add button" />
+									</button>
+								</div>
+							</div>
+						</form>
+					</article>
+					
+				</div>
 				</div>
 			</div>
 		</div>

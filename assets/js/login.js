@@ -20,8 +20,6 @@ function getInitials(name) {
   return initial.toUpperCase();
 }
 
-
-
 function login() {
   let email = document.getElementById("email").value;
   let password = String(document.getElementById("password").value);

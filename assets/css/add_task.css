@@ -294,7 +294,7 @@ select {
 }
 
 .checkbox-label:hover .container-name-assigned {
-	background-color: var(--main-bg-color);
+	background-color: var(--dark-gray);
 	border-radius: 8px;
 }
 

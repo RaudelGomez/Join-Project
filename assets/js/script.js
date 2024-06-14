@@ -76,7 +76,7 @@ async function putData(data, path = "") {
 function showAlert(idContainer, idPopUp, typeMessage, classMsg, message){
   document.getElementById(`${idContainer}`).classList.add('error');
   document.getElementById(`${idPopUp}`).innerHTML = /*html*/ `
-  <h3 class="${classMsg}">${typeMessage}<h3>
+  <h3 class="${classMsg}">${typeMessage}</h3>
   <p>${message}</p>
   <img class="closeDialog" src="./assets/img/close_icon.svg" alt="close button"> 
   `;

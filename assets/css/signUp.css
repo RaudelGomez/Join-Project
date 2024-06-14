@@ -119,12 +119,13 @@
 	size: 21px;
 	background-color: #2a3647;
 	color: white;
-	padding: 15px, 24px, 15px, 24px;
+	border: unset;
+	padding: 15px 24px 15px 24px;
 	gap: 10px;
 	margin-right: 32px;
 	font-size: 21px;
 	cursor: pointer;
-
+	transition: all 200ms ease-in-out;
 }
 
 .loginButton:hover {

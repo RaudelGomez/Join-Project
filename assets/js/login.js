@@ -21,8 +21,20 @@ function getInitials(name) {
 }
 
 function loginGuest() {
-
-  
+  let checked = document.getElementById("confirm").checked;
+  let logData = {
+    "mail": "test@test.de",
+    "initials": "G",
+    "userName": ""
+  };
+  if (checked) {
+    localStorage.setItem("Join", JSON.stringify(logData));
+    sessionStorage.clear();
+  } else {
+    sessionStorage.setItem("Join", JSON.stringify(logData));
+    localStorage.clear();
+  }
+  location.href = "./summary.html";
 }
 
 function login() {
@@ -32,7 +44,7 @@ function login() {
   let contact = Object.values(contacts);
   let results = contact.filter((element) => element.email == email && element.password == password && element.user);
   if (results.length > 0) {
-    console.log(results);
+    // console.log(results);
     // console.log("Sie sind angemeldet!");
     let initial = getInitials(results[0].name);
     let logData = {

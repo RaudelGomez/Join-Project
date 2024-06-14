@@ -11,7 +11,7 @@ async function loadData(path = "") {
     console.log(contacts);
   } 
   if (path == "tasks") {
-      tasks = responseToJson;
+    (!responseToJson) ? tasks = [] : tasks = responseToJson;
   }
 }
 

@@ -1,3 +1,10 @@
+async function initAddTask() {
+	await loadData();
+	await renderContactsAssignedTask();
+}
+
+initAddTask();
+
 /**
  * This Function is used to show and hidde thechekBoxes in the AddTask html.
  * The Field name is assigned to
@@ -40,5 +47,23 @@ function categorySelected(idTask) {
 	let taskValue = document.getElementById(`${idTask}`).textContent;
 	console.log(taskValue);
 	optionSelected.textContent = taskValue;
+}
+
+async function renderContactsAssignedTask() {
+	console.log(contacts);
+	let asignedTaskContainer = document.getElementById('assigned-task');
+	// let contacts = Object.values(contacts);
+	asignedTaskContainer.innerHTML = ""
+	// for (let i = 0; i < contacts.length; i++) {
+	// 	const contact = contacts[i];
+	// 	asignedTaskContainer.innerHTML += /*html*/`
+	// 		<p>${contact}</p>
+	// 	`
+	// 	}
+}
+
+function addTask() {
+	let titleTask = document.getElementById('title_task');
+	let descriptionTask = document.getElementById('description_task');
 }
 

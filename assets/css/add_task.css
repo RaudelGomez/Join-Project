@@ -175,6 +175,23 @@ select {
 	display: list-item;
 }
 
+.container-edit-subTask{
+	position: relative;
+}
+
+.input-editing-subTask{
+	width: 100%;
+}
+
+.span-input-editing-subTask{
+	position: absolute;
+	top: 50%;
+  right: 8px;
+  transform: translateY(-40%);
+  cursor: pointer;
+	display: flex;
+}
+
 #span-link-edit-delete {
 	opacity: 0;
 	pointer-events: none;

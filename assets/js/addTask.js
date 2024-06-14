@@ -133,26 +133,51 @@ function showInitialAssign() {
  */
 function addSubTask() {
 	let inputSubTask = document.getElementById('sub-task');
-	let containerNewSubTask = document.getElementById('container-new-subTask');
 	subTasks.push(inputSubTask.value);
+	showSubTask();
+}
+
+/**
+ * This function go throw the array subTask and show every sub task
+ */
+function showSubTask() {
+	let containerNewSubTask = document.getElementById('container-new-subTask');
 	containerNewSubTask.innerHTML = '';
 	for (let i = 0; i < subTasks.length; i++) {
 		const subTask = subTasks[i];
-		containerNewSubTask.innerHTML += /*html*/ `
-			<p class="new-subTask">
-				<span class="span-link">
-					<span id="text-new-subTask" class="text-new-subTask">${subTask}</span>
-					<span id="span-link-edit-delete">
-						<img src="./assets/img/pencil_icon.svg" alt="edit" />
-						<span class="separator-subtask"></span>
-						<img src="./assets/img/delete_icon.svg" alt="delete" />
-					</span>
-				</span>
-			</p>
-		`
+		containerNewSubTask.innerHTML += /*html*/ `${renderHTMLSubTask(subTask, i)}`;
 	}
 	emptyInputSubTask();
 	changeIconSubTask();
+}
+
+/**
+ * this function show the html of sub task
+ * @param {string} subTask - That is the content of the sub task
+ * @param {number} i - That is the index in the array subTask: Like thisit can showm every element in the array
+ * @returns -Show the HTML ofthe subtask
+ */
+function renderHTMLSubTask(subTask, i) {
+	return /*html*/`
+		<p id="span-link-edit-delete${i}" class="new-subTask">
+				<span class="span-link">
+					<span id="text-new-subTask" class="text-new-subTask">${subTask}</span>
+					<span>
+						<img id="editingTask${i}"  src="./assets/img/pencil_icon.svg" alt="edit" onclick="editingSubTask(${i})" />
+						<span id="separatorOne${i}" class="separator-subtask"></span>
+						<img id="deleteOne${i}" src="./assets/img/delete_icon.svg" alt="delete" onclick="deleteSubTask(${i})" />
+					</span>
+				</span>
+		</p>
+		<div id="container-edit-subTask${i}" class="container-edit-subTask d-none">
+				<input id="input-editing-subTask${i}" type="text" class="input-editing-subTask">
+				<span class="span-input-editing-subTask">
+					<img id="deleteTwo${i}" src="./assets/img/delete_icon.svg" alt="delete" onclick="deleteSubTask(${i})" />
+					<span id="separatorTwo${i}" class="separator-subtask"></span>
+					<img id="confirmEdition${i}" src="./assets/img/check_subTask.svg" alt="confirm edit" onclick="confirmEditSubTask(${i})" />
+				</span>
+		</div>
+	`
 }
 
 /**
@@ -176,6 +201,36 @@ function changeIconSubTask() {
 		document.getElementById('add-sub-task').classList.remove('d-none');
 		document.getElementById('container-icon-subTask').classList.add('d-none');
 	}
+}
+
+/**
+ * This function delete a subTask of the array subTask
+ * @param {number} idSubTask -That is the index of the subtask in the aray subTask 
+ */
+function deleteSubTask(idSubTask) {
+	subTasks.splice(idSubTask, 1);
+	showSubTask();
+}
+
+/**
+ * This function allow to edit the subtask
+ * @param {number} i - That is the index of the sub task in the array subTask
+ */
+function editingSubTask(i){
+	document.getElementById(`container-edit-subTask${i}`).classList.remove('d-none');
+	document.getElementById(`span-link-edit-delete${i}`).classList.add('d-none');
+	document.getElementById(`input-editing-subTask${i}`).value = subTasks[i];
+}
+
+/**
+ * This function confirm the edition of the subtask
+ * @param {Number} i - That is the index of the sub task in the array subTask
+ */
+function confirmEditSubTask(i) {
+	subTasks[i] = document.getElementById(`input-editing-subTask${i}`).value;
+	document.getElementById(`container-edit-subTask${i}`).classList.add('d-none');
+	document.getElementById(`span-link-edit-delete${i}`).classList.remove('d-none');
+	showSubTask();
 }
 
 

@@ -71,6 +71,7 @@ async function addNewUserDataBase(contact, nameIdSignUp, emailIdSignUp, password
     if(!checkMail(`${contact.email}`)){
         await postData(contact, "contacts");
         await loadData("contacts"); 
+        showAlert("container-signUp-alert", "signUp-alert", "Success", "succes-alert",  "You have registered successfully!");
         nameIdSignUp.value = "";
         emailIdSignUp.value = "";
         passwordIdSignUp.value = "";

@@ -78,7 +78,6 @@ function showAlert(idContainer, idPopUp, typeMessage, classMsg, message){
   document.getElementById(`${idPopUp}`).innerHTML = /*html*/ `
   <h3 class="${classMsg}">${typeMessage}</h3>
   <p>${message}</p>
-  <img class="closeDialog" src="./assets/img/close_icon.svg" alt="close button"> 
   `;
   setTimeout(()=>{
     hiddeAlert(idContainer, idPopUp);

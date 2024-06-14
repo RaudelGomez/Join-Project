@@ -9,16 +9,16 @@ async function init() {
  * This function does the button submit available when every field ared fulled
  */
 function checkAllFieldFull() {
-    let nameIdSignUp = document.getElementById("nameIdSignUp").value;
-    let emailIdSignUp = document.getElementById("emailIdSignUp").value;
-    let passwordIdSignUp = document.getElementById("passwordIdSignUp").value;
-    let passwordConfirmIdSignUp = document.getElementById("passwordConfirmIdSignUp").value;
-    let confirmSignUp = document.getElementById("confirmSignUp").checked;
-    if(nameIdSignUp != "" && emailIdSignUp !== "" && passwordIdSignUp !== "" && passwordConfirmIdSignUp != "" && passwordConfirmIdSignUp != "" && confirmSignUp != false){
-        document.getElementById("btn-signUp").classList.remove("btn-disabled")
-    }else{
-        document.getElementById("btn-signUp").classList.add("btn-disabled")
-    }
+    // let nameIdSignUp = document.getElementById("nameIdSignUp").value;
+    // let emailIdSignUp = document.getElementById("emailIdSignUp").value;
+    // let passwordIdSignUp = document.getElementById("passwordIdSignUp").value;
+    // let passwordConfirmIdSignUp = document.getElementById("passwordConfirmIdSignUp").value;
+    // let confirmSignUp = document.getElementById("confirmSignUp").checked;
+    // if(nameIdSignUp != "" && emailIdSignUp !== "" && passwordIdSignUp !== "" && passwordConfirmIdSignUp != "" && passwordConfirmIdSignUp != "" && confirmSignUp != false){
+    //     document.getElementById("btn-signUp").classList.remove("btn-disabled")
+    // }else{
+    //     document.getElementById("btn-signUp").classList.add("btn-disabled")
+    // }
 }
 
 /**
@@ -43,7 +43,7 @@ async function registUser() {
         await loadData("contacts");       
     } else {
         //Show pop up error
-        showError("container-signUp-error", "signUp-error", "Password incorrect!");
+        showAlert("container-signUp-alert", "signUp-alert","Error", "error-alert", "Password incorrect!");
     }
 }
 
@@ -71,6 +71,7 @@ async function addNewUserDataBase(contact, nameIdSignUp, emailIdSignUp, password
     if(!checkMail(`${contact.email}`)){
         await postData(contact, "contacts");
         await loadData("contacts"); 
+        showAlert("container-signUp-alert", "signUp-alert", "Success", "succes-alert",  "You have registered successfully!");
         nameIdSignUp.value = "";
         emailIdSignUp.value = "";
         passwordIdSignUp.value = "";
@@ -78,7 +79,7 @@ async function addNewUserDataBase(contact, nameIdSignUp, emailIdSignUp, password
         confirmSignUp.checked = false;
     }else {
         //Show pop error
-        showError("container-signUp-error", "signUp-error", "This user already exist!");
+        showAlert("container-signUp-alert", "signUp-alert", "Error", "error-alert",  "This user already exist!");
     }
 }
 

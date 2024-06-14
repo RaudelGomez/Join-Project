@@ -1,9 +1,11 @@
 async function initAddTask() {
 	await loadData();
-	await renderContactsAssignedTask();
+	console.log(contacts);
+	renderContactsAssignedTask();
+	selectdNameAssignedtask();
 }
 
-initAddTask();
+initAddTask()
 
 /**
  * This Function is used to show and hidde thechekBoxes in the AddTask html.
@@ -49,21 +51,50 @@ function categorySelected(idTask) {
 	optionSelected.textContent = taskValue;
 }
 
-async function renderContactsAssignedTask() {
-	console.log(contacts);
+function renderContactsAssignedTask() {
 	let asignedTaskContainer = document.getElementById('assigned-task');
-	// let contacts = Object.values(contacts);
-	asignedTaskContainer.innerHTML = ""
-	// for (let i = 0; i < contacts.length; i++) {
-	// 	const contact = contacts[i];
-	// 	asignedTaskContainer.innerHTML += /*html*/`
-	// 		<p>${contact}</p>
-	// 	`
-	// 	}
+	asignedTaskContainer.innerHTML = "";
+	let listContacts = Object.values(contacts);
+	for (let i = 0; i < listContacts.length; i++) {
+		const contact = listContacts[i];
+		asignedTaskContainer.innerHTML += /*html*/`
+			<label class="checkbox-label" for="checkBoxAssigned${i}" data-id="${i}" data-email="${contact.email}">
+				<span class="container-name-assigned">
+					<span class="name-assigned">
+						<span class="first-letter">${getInitials(`${contact.name}`)}</span>${contact.name}
+					</span>
+					<input type="checkbox" id="checkBoxAssigned${i}"/>
+					<img class="hook-check" src="./assets/img/hook_checked_white.svg" alt="checked">
+					<img class="hook-no-check" src="./assets/img/hook_unchecked.svg" alt="unchecked">
+				</span>
+			</label>
+		`
+		}
 }
 
 function addTask() {
+	selectdNameAssignedtask();
 	let titleTask = document.getElementById('title_task');
 	let descriptionTask = document.getElementById('description_task');
+	let nameInTask = selectdNameAssignedtask();
+	console.log(titleTask.value);
+	console.log(descriptionTask.value);
+	console.log(nameInTask);
+
 }
+
+function selectdNameAssignedtask() {
+	let checkBoxSelectedContainer = document.getElementById('assigned-task');
+	let checkBoxSelected = checkBoxSelectedContainer.querySelectorAll('label');
+	let arrayPersonInTask = [];
+	for (const checkbox of checkBoxSelected) {
+		let i = checkbox.dataset.id;
+		if(document.getElementById(`checkBoxAssigned${i}`).checked){
+			arrayPersonInTask.push(checkbox.dataset.email);
+		}
+	}
+	return arrayPersonInTask;
+}
+
+
 

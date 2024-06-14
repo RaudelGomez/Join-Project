@@ -38,7 +38,6 @@ async function loadData(path = "") {
   let responseToJson = await response.json();
   if (path == "contacts") {
     (!responseToJson) ? contacts = [] : contacts = responseToJson;
-    console.log(contacts);
   }
   if (path == "tasks") {
     (!responseToJson) ? tasks = [] : tasks = responseToJson;
@@ -133,4 +132,13 @@ function showAlert(idContainer, idPopUp, typeMessage, classMsg, message){
 function hiddeAlert(idContainer, idPopUp){
   document.getElementById(`${idContainer}`).classList.remove('error');
   document.getElementById(`${idPopUp}`).innerHTML = "";
+}
+
+function getInitials(name) {
+  let initials = name.split(" ");
+  let initial = initials[0].charAt(0);  
+  if (initials[1]) {
+    initial+= initials[1].charAt(0);
+  }  
+  return initial.toUpperCase();
 }

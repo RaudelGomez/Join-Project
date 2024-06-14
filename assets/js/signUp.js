@@ -43,7 +43,7 @@ async function registUser() {
         await loadData("contacts");       
     } else {
         //Show pop up error
-        showAlert("container-signUp-alert", "signUp-alert", "Password incorrect!");
+        showAlert("container-signUp-alert", "signUp-alert","Error", "error-alert", "Password incorrect!");
     }
 }
 
@@ -78,7 +78,7 @@ async function addNewUserDataBase(contact, nameIdSignUp, emailIdSignUp, password
         confirmSignUp.checked = false;
     }else {
         //Show pop error
-        showAlert("container-signUp-alert", "signUp-alert", "This user already exist!");
+        showAlert("container-signUp-alert", "signUp-alert", "Error", "error-alert",  "This user already exist!");
     }
 }
 

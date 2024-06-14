@@ -73,10 +73,12 @@ async function putData(data, path = "") {
  * @param {string} idPopUp - This the id of the pop up.
  * @param {string} messageError - That is the error 
  */
-function showAlert(idContainer, idPopUp, message){
+function showAlert(idContainer, idPopUp, typeMessage, classMsg, message){
   document.getElementById(`${idContainer}`).classList.add('error');
   document.getElementById(`${idPopUp}`).innerHTML = /*html*/ `
-  ${message} <img class="closeDialog" src="./assets/img/close_icon.svg" alt="close button"> 
+  <h3 class="${classMsg}">${typeMessage}<h3>
+  <p>${message}</p>
+  <img class="closeDialog" src="./assets/img/close_icon.svg" alt="close button"> 
   `;
   setTimeout(()=>{
     hiddeAlert(idContainer, idPopUp);

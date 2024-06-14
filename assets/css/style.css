@@ -65,6 +65,17 @@ body {
 }
 
 /*General class and id*/
+.error-alert{
+  color: var(--danger-color);
+}
+
+.succes-alert{
+  color: var(--success-color);
+}
+
+.info-alert{
+  color: var(--primary-color);
+}
 
 .subtasksPopup input[type="checkbox"] {
   display: none;

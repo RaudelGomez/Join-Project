@@ -95,8 +95,9 @@ function addTask() {
 	console.log(nameInTask);
 	console.log(timeDeadlineTask.value);
 	console.log(priorityTask);
+	//I have to validate here categorytask and trim();
 	console.log(categoryTask.textContent);
-
+	console.log(subTasks);
 }
 
 /**

@@ -11,7 +11,7 @@ async function initAddTask() {
 /**
  * This timeout was used to avoid the delay when the page is load and the function initAddTask
  */
-setTimeout(initAddTask, 300);
+setTimeout(initAddTask, 500);
 
 /**
  * This Function is used to show and hidde thechekBoxes in the AddTask html.

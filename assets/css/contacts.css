@@ -167,6 +167,29 @@ body {
  
 }
 
+.contactPopupSubHeadline { 
+  font-family: Inter;
+  font-size: 27px;
+  font-weight: 400;
+  line-height: 32.4px;
+  text-align: left;
+  padding-bottom:16px;   
+  /* display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start; */
+}
+
+.bottomLine {
+  background-color: #29ABE2;
+  height:3px;
+  width:90px;
+  margin-left:0;
+  border-radius: 16px;
+  border:unset;  
+
+}
+
 .leftPopup img {
   width: 55.6px;
 }

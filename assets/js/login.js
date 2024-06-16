@@ -1,16 +1,5 @@
 loadData("contacts");
 
-async function loadData(path = "") {
-  let response = await fetch(BASE_URL + path + ".json");
-  responseToJson = await response.json();
-  if (path == "contacts") {
-    contacts = responseToJson;
-  }
-  if (path == "tasks") {
-    tasks = responseToJson;
-  }
-}
-
 function getInitials(name) {
   let initials = name.split(" ");
   let initial = initials[0].charAt(0);  

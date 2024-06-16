@@ -1,3 +1,9 @@
+#innerDialog {
+  /* width: 1212px !important; */
+  max-width: 1212px;
+  height:592px;
+}
+
 .contactsContainer {
   display: flex;
 }
@@ -131,3 +137,69 @@ body {
   line-height: 24px;
   text-align: left;
 }
+
+.contactPopup {
+  display: flex;
+  height:592px
+}
+#template {
+  padding: 0;
+}
+
+.leftPopup {
+  background-color: var(--main-color);
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+  /* padding: 64px; */
+  color: white !important;
+  width: 371px;
+  padding: 66px 48px 66px 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;  
+  gap:12px;
+
+}
+
+.leftPopup h1 {
+  color: white !important;
+ 
+}
+
+.leftPopup img {
+  width: 55.6px;
+}
+
+.rightPopup {
+  /* background-color: red; */
+  display: flex;
+  align-items: center;
+  gap:32px;
+  flex: 1;
+  padding: 64px;
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+}
+
+.contactPopup input {
+  border: 1px solid #d1d1d1;
+  border-radius: 10px;
+max-width: 422px;
+  width: 100%;
+  /* width: Fixed (422px)px;
+height: Hug (50px)px; */
+  padding: 13px 21px 13px 21px;
+  /* gap: 10px;
+border-radius: 10px 0px 0px 0px;
+border: 1px 0px 0px 0px;
+opacity: 0px; */
+  margin-bottom: 32px;
+}
+
+.contactPopupButtonsDiv {
+  display: flex;
+  gap: 24px;
+}
+
+

@@ -20,11 +20,49 @@ a {
   justify-content: flex-end;
 }
 
+.logoIndex  {
+	/* position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width:100vw;
+	height:100vh; */
+	  }
+
+	  /* @keyframes joinstart {
+		from {
+			width: 274px;	
+			transform: translate(50%,50%);	
+		}
+		to {			
+		  width: 100px;
+		  transform: translate(77px 80px);
+		}
+	  } */
+
 .logoIndex img {
+	/* position: absolute;
+	top: 80px;
+	left: 77px;
+	right: 0;
+	bottom: 0;
+	width: 274px; */
   width: 100.03px;
-  height: 121.97px;
+  height: 121.97px; 
   padding-left: 77px;
+  /* animation: joinstart 500ms ease-in-out forwards; */
 }
+
+
+
+
+
+
 
 .signUpButton {
   padding: 15px, 16px, 15px, 16px;

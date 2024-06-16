@@ -43,7 +43,31 @@ function openNewContactPopup() {
   document.getElementById("dialog").classList.add("animate__fadeIn");
   document.getElementById("dialog").classList.remove("animate__fadeOut");
   document.getElementById("dialog").classList.remove("d-none");
-  document.body.classList.add("noscroll");    
+  document.body.classList.add("noscroll");  
+  document.getElementById('contactPopupHeadline').innerHTML = 'Add contact';
+  document.getElementById('contactPopupSubHeadline').classList.remove('d-none');  
+  document.getElementById('contactSaveButton').innerHTML = 'Create contact';
+  document.getElementById('cancelButtonText').innerHTML = 'Cancel';
+  document.getElementById('cancelIcon').classList.remove('d-none');
+  
+
+  
+}
+
+function openEditContactPopup(i) {
+  document.getElementById("innerDialog").classList.remove("d-none"); 
+  document.getElementById("innerDialog").classList.remove("animate__slideOutRight");
+  document.getElementById("innerDialog").classList.add("animate__slideInRight");
+  document.getElementById("dialog").classList.add("animate__fadeIn");
+  document.getElementById("dialog").classList.remove("animate__fadeOut");
+  document.getElementById("dialog").classList.remove("d-none");
+  document.body.classList.add("noscroll");  
+  document.getElementById('contactPopupHeadline').innerHTML = 'Edit contact';
+  document.getElementById('contactPopupSubHeadline').classList.add('d-none');
+  document.getElementById('contactSaveButton').innerHTML = 'Save';
+  document.getElementById('cancelButtonText').innerHTML = 'Delete';
+  document.getElementById('cancelIcon').classList.add('d-none');
+
 }
 
 function closeDialog() {

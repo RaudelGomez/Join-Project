@@ -1,7 +1,7 @@
 #innerDialog {
   /* width: 1212px !important; */
   max-width: 1212px;
-  height:592px;
+  height: 592px;
 }
 
 .contactsContainer {
@@ -140,7 +140,7 @@ body {
 
 .contactPopup {
   display: flex;
-  height:592px
+  height: 592px;
 }
 #template {
   padding: 0;
@@ -157,23 +157,21 @@ body {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  justify-content: center;  
-  gap:12px;
-
+  justify-content: center;
+  gap: 12px;
 }
 
 .leftPopup h1 {
   color: white !important;
- 
 }
 
-.contactPopupSubHeadline { 
+.contactPopupSubHeadline {
   font-family: Inter;
   font-size: 27px;
   font-weight: 400;
   line-height: 32.4px;
   text-align: left;
-  padding-bottom:16px;   
+  padding-bottom: 16px;
   /* display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -181,13 +179,12 @@ body {
 }
 
 .bottomLine {
-  background-color: #29ABE2;
-  height:3px;
-  width:90px;
-  margin-left:0;
+  background-color: #29abe2;
+  height: 3px;
+  width: 90px;
+  margin-left: 0;
   border-radius: 16px;
-  border:unset;  
-
+  border: unset;
 }
 
 .leftPopup img {
@@ -198,7 +195,7 @@ body {
   /* background-color: red; */
   display: flex;
   align-items: center;
-  gap:32px;
+  gap: 64px;
   flex: 1;
   padding: 64px;
   border-top-right-radius: 30px;
@@ -208,8 +205,8 @@ body {
 .contactPopup input {
   border: 1px solid #d1d1d1;
   border-radius: 10px;
-max-width: 422px;
-  width: 100%;
+  max-width: 422px;
+  width: 90%;
   /* width: Fixed (422px)px;
 height: Hug (50px)px; */
   padding: 13px 21px 13px 21px;
@@ -218,11 +215,45 @@ border-radius: 10px 0px 0px 0px;
 border: 1px 0px 0px 0px;
 opacity: 0px; */
   margin-bottom: 32px;
+  padding-right: 40px;
+}
+
+.contactPopup .person {
+  background: url("../img/person_white_icon.svg") no-repeat scroll;
+  background-position: 97% center;
+}
+
+.contactPopup .email {
+  background: url("../img/mail_icon.svg") no-repeat scroll;
+  background-position: 97% center;
+}
+
+.contactPopup .phone {
+  background: url("../img/call_icon.svg") no-repeat scroll;
+  background-position: 97% center;
 }
 
 .contactPopupButtonsDiv {
   display: flex;
   gap: 24px;
+  margin-top:16px;
 }
 
+.clear-button-add-task {
+  /* font-family: 'Inter'; */
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: left;
+  border-radius:10px;
+  padding:16px;
+  background-color: var(--white);
+  border: 1px solid #2a3647;
+}
 
+.clear-button-add-task:hover {
+  background-color: var(--white);
+  color: var(--blue-bikini);
+  border: 1px solid var(--blue-bikini);
+  box-shadow: 0px 4px 4px 0px #00000040;
+}

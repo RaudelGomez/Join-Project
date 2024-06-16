@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Join - Contacts</title>
     <link rel="stylesheet" href="./assets/css/style.css" />
-    <link rel="stylesheet" href="./assets/css/contacts.css" />
+    <link rel="stylesheet" href="./assets/css/contacts.css" />    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link rel="shortcut icon" href="./assets/img/join_fill_icon.svg" type="image/x-icon" />
 
@@ -34,13 +34,40 @@
           <div>
             <img src="./assets/img/person_fill.svg" alt="">
           </div>
-          <form class="contactsForm" onsubmit="return false;">
-            <input required id="name" type="text" placeholder="Name" />
-            <input required id="email" type="email" placeholder="Email" />
-            <input id="phone" type="text" placeholder="Phone" />
+          <form id="addContactForm" class="contactsForm" onsubmit="return false;">
+            <input required class="person" id="name" type="text" placeholder="Name" />
+            <input required class="email" id="email" type="email" placeholder="Email" />
+            <input class="phone" id="phone" type="text" placeholder="Phone" />
             <div class="contactPopupButtonsDiv">
-            <button class="button">Cancel</button>
-            <button class="button" onclick="addContact()">Create contact</button>
+
+              <button onclick="clearForm('addContactForm')" class="clear-button-add-task svgContainer">
+                <span>Cancel</span>
+                <svg
+                  width="25"
+                  height="24"
+                  viewBox="0 0 25 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M12.2496 11.9998L17.4926 17.2428M7.00659 17.2428L12.2496 11.9998L7.00659 17.2428ZM17.4926 6.75684L12.2486 11.9998L17.4926 6.75684ZM12.2486 11.9998L7.00659 6.75684L12.2486 11.9998Z"
+                    stroke="#2A3647"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="svgStrokeblue"
+                  />
+                </svg>
+              </button>
+              <button type="submit" class="button" onclick="addContact()">
+                <span>Create contact</span>
+                <img src="./assets/img/check_white_icon.svg" alt="add button" />
+              </button>
+
+
+
+            <!-- <button class="button">Cancel</button>
+            <button class="button" onclick="addContact()">Create contact <img src="./assets/img/hook_checked_white.svg" alt=""></button> -->
           </div>
           </form>
         </div>

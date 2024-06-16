@@ -18,7 +18,12 @@ async function addContact() {
       "password": "",
   }
   await postData(contact, "contacts");
+  loadData("contacts");
 }
+}
+
+function clearForm(formid) {
+  document.getElementById(formid).reset();
 }
 
 

@@ -78,7 +78,7 @@ function renderContactsAssignedTask() {
 	for (let i = 0; i < listContacts.length; i++) {
 		const contact = listContacts[i];
 		asignedTaskContainer.innerHTML += /*html*/`
-			<label class="checkbox-label" for="checkBoxAssigned${i}" data-id="${i}" data-name="${contact.name}" data-email="${contact.email}">
+			<label class="checkbox-label" for="checkBoxAssigned${i}" data-id="${i}" data-name="${contact.name}" data-email="${contact.email}" data-colorindex="${contact.color}">
 				<span class="container-name-assigned">
 					<span class="name-assigned">
 						<span class="first-letter">${getInitials(`${contact.name}`)}</span>${contact.name}
@@ -149,7 +149,7 @@ function selectdNameAssignedtask() {
 	for (const checkbox of checkBoxSelected) {
 		let i = checkbox.dataset.id;
 		if(document.getElementById(`checkBoxAssigned${i}`).checked){
-			arrayPersonInTask.push({name:checkbox.dataset.name, email: checkbox.dataset.email});
+			arrayPersonInTask.push({name:checkbox.dataset.name, email: checkbox.dataset.email, colorIndex: checkbox.dataset.colorindex});
 		}
 	}
 	return arrayPersonInTask;
@@ -177,6 +177,7 @@ function showInitialAssign() {
 	let fisrtLetterContainer = document.getElementById('container-people-assigned-task');
 	fisrtLetterContainer.innerHTML = "";
 	let objectPerson = selectdNameAssignedtask();
+	console.log(objectPerson);
 	if(objectPerson.length >= 1){
 		for (let i = 0; i < objectPerson.length; i++) {
 			let name = objectPerson[i].name;

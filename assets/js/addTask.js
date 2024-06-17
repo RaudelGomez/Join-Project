@@ -115,10 +115,12 @@ async function addTask() {
 		timeDeadlineTask: timeDeadlineTask.value,
 		priorityTask: priorityTask,
 		categoryTask: categoryTask.textContent.trim(),
-		subTasks: subTasks 
+		subTasks: subTasks,
+		status: 1
 	}
 	await postData(task, "tasks");
 	deleteDataFormTask();
+	showAlert("container-addTask-alert", "addTask-alert", "Success", "succes-alert", "The Task was added successfully!");
 }
 
 /**

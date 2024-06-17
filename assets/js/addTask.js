@@ -2,10 +2,12 @@
  * This function render the Data of addTaskTemplate
  */
 async function initAddTask() {
-	await loadData();
-	console.log(contacts);
+	await loadData('contacts');
+	await loadData('tasks');
 	renderContactsAssignedTask();
 	selectdNameAssignedtask();
+	// await putData( { like: 1000}, '/tasks/-O-_C8hoeXkD9TjC6O4y');
+	// await deleteData("/tasks/-O-_C8hoeXkD9TjC6O4y");
 }
 
 /**

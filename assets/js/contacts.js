@@ -33,8 +33,15 @@ function deleteContact(i) {}
 function clearForm(formid) {
   document.getElementById(formid).reset();
 }
+let contactDetails = [];
 
-function renderContacts() {}
+function renderContacts() {
+console.log('renderContacts aufgerufen');
+let contacts = [];
+loadData("contacts");
+let contactDetails = Object.values(contacts);
+console.log(contactDetails);
+}
 
 function openNewContactPopup() {
   document.getElementById("innerDialog").classList.remove("d-none");
@@ -91,3 +98,5 @@ function getContactDetails(i) {
   document.getElementById("email").value = email;
   document.getElementById("phone").value = phone;
 }
+
+// renderContacts();

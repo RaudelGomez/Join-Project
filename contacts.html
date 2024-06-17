@@ -33,14 +33,14 @@
           <div>
             <img src="./assets/img/person_fill.svg" alt="">
           </div>
-          <!-- <form id="addContactForm" class="contactsForm" onsubmit="addContact(); return false;"> -->
-            <form id="addContactForm" class="contactsForm">
+          <form id="addContactForm" class="contactsForm" onsubmit="addContact(); return false;">
+            <!-- <form id="addContactForm" class="contactsForm"> -->
             <input required class="person" id="name" type="text" placeholder="Name" />
             <input required class="email" id="email" type="email" placeholder="Email" />
             <input class="phone" id="phone" type="text" placeholder="Phone" />
             <div class="contactPopupButtonsDiv">
 
-              <button id="contactFormLeftButton" onclick="clearForm('addContactForm')" class="clear-button-add-task svgContainer">
+              <button type="button" id="contactFormLeftButton" onclick="clearForm('addContactForm')" class="clear-button-add-task svgContainer">
                 <span id="cancelButtonText">Cancel</span>
                 <svg id="cancelIcon"
                   width="25"

@@ -2,6 +2,7 @@
  * This function add a new contact in the contact page
  * Button: id # add new contact
  */
+<<<<<<< Updated upstream
 async function addContact() {
   let nameContact = document.getElementById("name");
   let emailContact = document.getElementById("email");
@@ -91,3 +92,37 @@ function getContactDetails(i) {
   document.getElementById("email").value = email;
   document.getElementById("phone").value = phone;
 }
+=======
+function addContact() {
+  let nameContact = document.getElementById("nameContact");
+  let emailContact = document.getElementById("emailContact");
+  let phoneContact = document.getElementById("phoneContact");
+  let contact = {
+    "name": nameContact.value,
+    "email": emailContact.value,
+    "phone": phoneContact.value,
+    "user": false,
+    "id": "",
+    "password": "",
+  }
+  contacts.push(contact);
+}
+
+
+function renderContacts(i) {
+  let renderContacts = document.getElementById(contactListID);
+  renderContacts.innerHTML = "";
+
+  for (let i = 0; i < contacts.length; i++) {
+    renderContacts.innerHTML =
+      `
+  <div onclick="showContact(${i})" class="contactBox activeContact">
+                <span class="profileSmall am">AM</span>
+                <div class="contactDetails">
+                  <div class="contactName">Anton Mayer</div>
+                  <div class="contactMail">anton@gmail.com</div>
+                </div>
+              </div>
+`;
+  }
+>>>>>>> Stashed changes

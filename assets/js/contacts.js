@@ -117,20 +117,32 @@ async function renderContacts() {
   let renderContacts = document.getElementById("contactListID");
   renderContacts.innerHTML = "";
   await loadData("contacts");
+ 
   let contactDetails = Object.values(contacts);
   let contactKeys = Object.keys(contacts);
   // console.log(contactDetails);
   // console.log(contacts);
+  contactDetails.sort((a,b)=>a.name.localeCompare(b.name));
+  let lastLetter;
   for (let i = 0; i < contactDetails.length; i++) {
     // let id = Object.keys(contacts[i]);
-    const contactName= contactDetails[i]["name"];
+    const contactName= contactDetails[i]["name"]; //At this command we will take the name and other attributes.
+    const letter = Array.from(contactName)[0].toUpperCase();
+    const initials= getInitials(contactName);
+    // to make the Title for every single letter.
+    if(letter != lastLetter){
+    renderContacts.innerHTML+= 
+    ` <h3>${letter}</h3>
+    `;
+    lastLetter=letter;
+  } 
     const contactMail= contactDetails[i]["email"];
     let results = contactKeys[i];
-console.log(results);
+
     renderContacts.innerHTML +=
       `
   <div onclick="showContact(${i})" data-id="${results}" class="contactBox">
-                <span class="profileSmall am">AM</span>
+                <span class="profileSmall am">${initials}</span>
                 <div class="contactDetails">
                   <div class="contactName">${contactName}</div>
                   <div class="contactMail">${contactMail}</div>

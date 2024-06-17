@@ -9,7 +9,6 @@ async function addContact() {
   let color = await setColorUser();
   if (nameContact.value && emailContact.value) {
     if (checkMail(emailContact.value) == undefined) {
-      // console.log(color);
       let contact = {
         "name": nameContact.value,
         "email": emailContact.value,
@@ -26,11 +25,8 @@ async function addContact() {
           closeDialog();
         }, 2000);
       }
-    }
-    else {
-      
+    } else {
       showAlert("container-signUp-alert", "signUp-alert", "Warning", "error-alert", "Email alreay exists!");
-     
     }
   }
 }
@@ -56,15 +52,16 @@ function openNewContactPopup() {
   document.getElementById("contactSaveButton").innerHTML = "Create contact";
   document.getElementById("cancelButtonText").innerHTML = "Cancel";
   document.getElementById("cancelIcon").classList.remove("d-none");
-  document.getElementById("contactFormLeftButton").setAttribute("onclick", "clearForm('addContactForm'); return false;");  
+  document
+    .getElementById("contactFormLeftButton")
+    .setAttribute("onclick", "clearForm('addContactForm'); return false;");
   document.getElementById("addContactForm").setAttribute("onsubmit", "addContact(); return false;");
   clearForm("addContactForm");
 }
 
 async function openEditContactPopup(iconColor, contactName, contactMail, initials, results, phone, id) {
-  document.getElementById('profileIcon').innerHTML = /* HTML */ `
-  <span id="initials" class="profileIconBig" style="background-color: ${iconColor};">${initials}</span>
-  
+  document.getElementById("profileIcon").innerHTML = /* HTML */ `
+    <span id="initials" class="profileIconBig" style="background-color: ${iconColor};">${initials}</span>
   `;
   document.getElementById("innerDialog").classList.remove("d-none");
   document.getElementById("innerDialog").classList.remove("animate__slideOutRight");
@@ -78,18 +75,16 @@ async function openEditContactPopup(iconColor, contactName, contactMail, initial
   document.getElementById("contactSaveButton").innerHTML = "Save";
   document.getElementById("cancelButtonText").innerHTML = "Delete";
   document.getElementById("cancelIcon").classList.add("d-none");
-  // let data = {     
+  // let data = {
   //   "name": contactName,
-  //   "email": contactMail,       
+  //   "email": contactMail,
   //   "phone": phone,
   //   "user": false,
   //   "password": "",
   //   "color":iconColor
   // };
 
-  document
-    .getElementById("addContactForm")
-    .setAttribute("onsubmit", 'updateContact("'+ results +'"); return false;');
+  document.getElementById("addContactForm").setAttribute("onsubmit", 'updateContact("' + results + '"); return false;');
 
   // document
   //   .getElementById("addContactForm")
@@ -101,9 +96,9 @@ async function openEditContactPopup(iconColor, contactName, contactMail, initial
   document.getElementById("name").value = contactName;
   document.getElementById("email").value = contactMail;
   document.getElementById("phone").value = phone;
-  // let data = {     
+  // let data = {
   //   "name": "Roberto test",
-  //   "email": contactMail,       
+  //   "email": contactMail,
   //   "phone": phone,
   //   "user": false,
   //   "password": "",
@@ -113,22 +108,48 @@ async function openEditContactPopup(iconColor, contactName, contactMail, initial
   // getContactDetails(i);
 }
 
- async function updateContact(id) {
- let name = document.getElementById("name").value ;
- let mail =  document.getElementById("email").value ;
-  let phone = document.getElementById("phone").value ;
-  let data = {     
+async function updateContact(id) {
+  let name = document.getElementById("name").value;
+  let mail = document.getElementById("email").value;
+  let phone = document.getElementById("phone").value;
+  // let data = {
+  //   "name": name,
+  //   "email": mail,
+  //   "phone": phone,
+  //   "user": false,
+  //   "password": "",
+  //   "color":2
+  // };
+
+  let data = {
     "name": name,
-    "email": mail,       
+    "email": mail,
     "phone": phone,
     "user": false,
     "password": "",
-    "color":2
+    "color": 2,
   };
-  console.log((id));
-let idString = String(id);
-  await putData( data, `/contacts/${idString}`);
+  // console.log((id));
+  // let idString = String(id);
+
+  let idString = "-O-aPZ5X6hBHdLCtk5-F";
+  await putData(data, `/contacts/${idString}`);
 }
+
+// async function testPutData() {
+//   let data = {
+//     "name": "Neuer Name2",
+//     "email": "neue Mail",
+//     "phone": "neue Telefonnummer",
+//     "user": false,
+//     "password": "",
+//     "color": 3,
+//   };
+//   let idString = "-O-aPZ5X6hBHdLCtk5-F";
+//   await putData(data, `/contacts/${idString}`);
+// }
+
+// testPutData();
 
 function closeDialog() {
   document.getElementById("dialog").classList.remove("animate__fadeIn");
@@ -140,47 +161,6 @@ function closeDialog() {
   }, 500);
   document.body.classList.remove("noscroll");
 }
-
-// function getContactDetails(i) {
-//   const contactDetails = Object.values(contacts);
-//   const name = contactDetails[i]["name"];
-//   const email = contactDetails[i]["email"];
-//   const phone = contactDetails[i]["phone"];
-//   document.getElementById("name").value = name;
-//   document.getElementById("email").value = email;
-//   document.getElementById("phone").value = phone;
-// }
-
-// function addContact() {
-
-//   let nameContact = document.getElementById("name");
-//   let emailContact = document.getElementById("email");
-//   let phoneContact = document.getElementById("phone");
-//    if (checkMail(emailContact) != undefined) {
-
-// alert('Mail exists');
-//    }
-//    else {
-
-// let color = setColorUser();
-
-//   let contact = {
-//     "name": nameContact.value,
-//     "email": emailContact.value,
-//     "phone": phoneContact.value,
-//     "user": false,
-//     "password": "",
-//     "color": color
-//   }
-//   if (nameContact.value !="" && emailContact.value !="") {
-//     postData(contact, "contacts");
-//     renderContacts();
-//     closeDialog();
-
-//   }
-// }
-
-// }
 
 async function renderContacts() {
   let renderContacts = document.getElementById("contactListID");
@@ -211,15 +191,18 @@ async function renderContacts() {
     const contactMail = contactDetails[i]["email"];
     let results = contactKeys[i];
 
-    renderContacts.innerHTML += `
-  <div onclick="showContact(this,'${iconColor}','${contactName}','${contactMail}','${initials}','${results}','${contactPhone}',${i})" data-id="${results}" class="contactBox">
-                <span class="profileSmall" style="background-color: ${iconColor}">${initials}</span>
-                <div class="contactDetails">
-                  <div class="contactName">${contactName}</div>
-                  <div class="contactMail">${contactMail}</div>
-                </div>
-              </div>
-`;
+    renderContacts.innerHTML += /* HTML */ `
+      <div
+        onclick="showContact(this,'${iconColor}','${contactName}','${contactMail}','${initials}','${results}','${contactPhone}',${i})"
+        data-id="${results}"
+        class="contactBox">
+        <span class="profileSmall" style="background-color: ${iconColor}">${initials}</span>
+        <div class="contactDetails">
+          <div class="contactName">${contactName}</div>
+          <div class="contactMail">${contactMail}</div>
+        </div>
+      </div>
+    `;
   }
 }
 // loadData("contacts");
@@ -227,13 +210,12 @@ async function renderContacts() {
 renderContacts();
 
 function showContact(contactElement, iconColor, contactName, contactMail, initials, results, phone, id) {
-  
-  let contactElements = document.getElementsByClassName('contactBox');
+  let contactElements = document.getElementsByClassName("contactBox");
   for (let i = 0; i < contactElements.length; i++) {
-    contactElements[i].classList.remove('activeContact');    
+    contactElements[i].classList.remove("activeContact");
   }
-  contactElement.classList.add('activeContact');
-  document.getElementById("contactInfo").classList.remove('d-none');  
+  contactElement.classList.add("activeContact");
+  document.getElementById("contactInfo").classList.remove("d-none");
   document.getElementById("contactName").innerHTML = contactName;
   document.getElementById("contactMail").innerHTML = contactMail;
   document.getElementById("contactPhone").innerHTML = phone;

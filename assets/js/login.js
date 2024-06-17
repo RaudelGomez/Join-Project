@@ -14,7 +14,7 @@ function loginGuest() {
   let logData = {
     "mail": "test@test.de",
     "initials": "G",
-    "userName": ""
+    "userName": "Guest"
   };
   if (checked) {
     localStorage.setItem("Join", JSON.stringify(logData));

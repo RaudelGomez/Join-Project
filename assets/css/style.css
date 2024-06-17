@@ -313,6 +313,10 @@ h3 {
   color: var(--primary-color);
 }
 
+.first-letter-uppercase::first-letter{
+  text-transform: uppercase;
+}
+
 /*End*/
 
 /* Header */

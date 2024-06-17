@@ -54,6 +54,8 @@ function categorySelected(idTask) {
 	showTaskOption();
 	let optionSelected = document.getElementById('option-selected');
 	let taskValue = document.getElementById(`${idTask}`).textContent;
+	optionSelected.dataset.filled = taskValue.trim();
+	console.log(optionSelected);
 	optionSelected.textContent = taskValue;
 }
 
@@ -82,7 +84,7 @@ function renderContactsAssignedTask() {
 /**
  * Add a Task in Firebase when the form is sent
  */
-function addTask() {
+async function addTask() {
 	selectdNameAssignedtask();
 	let titleTask = document.getElementById('title_task');
 	let descriptionTask = document.getElementById('description_task');
@@ -90,14 +92,29 @@ function addTask() {
 	let timeDeadlineTask = document.getElementById('due_date_task');
 	let categoryTask = document.getElementById('option-selected');
 
-	console.log(titleTask.value);
-	console.log(descriptionTask.value);
-	console.log(nameInTask);
-	console.log(timeDeadlineTask.value);
-	console.log(priorityTask);
-	//I have to validate here categorytask and trim();
-	console.log(categoryTask.textContent);
-	console.log(subTasks);
+	if(categoryTask.dataset.filled == "Select task category"){
+		showAlert("container-addTask-alert", "addTask-alert", "Info", "info-alert", "You have to fil the field select Task!");
+		return
+	}
+	let task = {
+		titleTask: titleTask.value,
+		descriptionTask: descriptionTask.value,
+		nameAssignedTask: nameInTask,
+		timeDeadlineTask: timeDeadlineTask.value,
+		priorityTask: priorityTask,
+		categoryTask: categoryTask.textContent.trim(),
+		subTasks: subTasks 
+	}
+
+	console.log(task);
+	await postData(task, "tasks");
+	// console.log(titleTask.value);
+	// console.log(descriptionTask.value);
+	// console.log(nameInTask);
+	// console.log(timeDeadlineTask.value);
+	// console.log(priorityTask);	
+	// console.log(categoryTask.textContent.trim());
+	// console.log(subTasks);
 }
 
 /**

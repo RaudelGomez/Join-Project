@@ -113,7 +113,7 @@
 					>
 					<div class="select-option" onclick="showTaskOption()">
 						<select>
-							<option id="option-selected">Select task category</option>
+							<option id="option-selected" data-filled="Select task category">Select task category</option>
 						</select>
 						<div class="overSelect"></div>
 					</div>
@@ -197,4 +197,7 @@
 			</div>
 		</div>
 	</form>
+	<div id="container-addTask-alert" class="container-popUp" onclick="hiddeAlert('container-addTask-alert', 'addTask-alert')">
+		<div id="addTask-alert" class="popUp"></div>
+</div>
 </article>

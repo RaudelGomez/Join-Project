@@ -18,7 +18,7 @@ async function addContact() {
     let postSuccess = await postData(contact, "contacts");
     if (postSuccess) {
       showAlert("container-signUp-alert", "signUp-alert", "Success", "succes-alert", "Contact successfully created!");
-      loadData("contacts");
+      await loadData("contacts");
       setTimeout(() => {
         closeDialog();
       }, 2000);
@@ -37,10 +37,10 @@ let contactDetails = [];
 
 function renderContacts() {
 console.log('renderContacts aufgerufen');
-let contacts = [];
-loadData("contacts");
+// let contacts = [];
+// loadData("contacts");
 let contactDetails = Object.values(contacts);
-console.log(contactDetails);
+// console.log(contactDetails);
 }
 
 function openNewContactPopup() {
@@ -110,28 +110,35 @@ function addContact() {
     "id": "",
     "password": "",
   }
-  contacts.push(contact);
+  // contacts.push(contact);
 }
 
-function renderContacts() {
+async function renderContacts() {
   let renderContacts = document.getElementById("contactListID");
   renderContacts.innerHTML = "";
+  await loadData("contacts");
   let contactDetails = Object.values(contacts);
-  console.log(contactDetails);
+  let contactKeys = Object.keys(contacts);
+  // console.log(contactDetails);
+  // console.log(contacts);
   for (let i = 0; i < contactDetails.length; i++) {
+    // let id = Object.keys(contacts[i]);
     const contactName= contactDetails[i]["name"];
-    renderContacts.innerHTML =
+    const contactMail= contactDetails[i]["email"];
+    let results = contactKeys[i];
+console.log(results);
+    renderContacts.innerHTML +=
       `
-  <div onclick="showContact(${i})" class="contactBox activeContact">
+  <div onclick="showContact(${i})" data-id="${results}" class="contactBox">
                 <span class="profileSmall am">AM</span>
                 <div class="contactDetails">
                   <div class="contactName">${contactName}</div>
-                  <div class="contactMail">anton@gmail.com</div>
+                  <div class="contactMail">${contactMail}</div>
                 </div>
               </div>
 `;
   }}
-  loadData("contacts");
+  // loadData("contacts");
 
-  // renderContacts();
-  console.log(contacts);
+  renderContacts();
+  // console.log(contacts);

@@ -2,10 +2,12 @@
  * This function render the Data of addTaskTemplate
  */
 async function initAddTask() {
-	await loadData();
-	console.log(contacts);
+	await loadData('contacts');
+	await loadData('tasks');
 	renderContactsAssignedTask();
 	selectdNameAssignedtask();
+	// await putData( { like: 1000}, '/tasks/-O-_C8hoeXkD9TjC6O4y');
+	// await deleteData("/tasks/-O-_C8hoeXkD9TjC6O4y");
 }
 
 /**
@@ -28,11 +30,22 @@ function showCheckboxes() {
  * Field name is Prio
  */
 function changePriority(idPriorityButton) {
-	document.getElementById('button-high-priority').classList.remove('active')
-	document.getElementById('button-medium-priority').classList.remove('active')
-	document.getElementById('button-low-priority').classList.remove('active')
-	document.getElementById(`${idPriorityButton}`).classList.add('active')
+	document.getElementById('button-high-priority').classList.remove('active');
+	document.getElementById('button-medium-priority').classList.remove('active');
+	document.getElementById('button-low-priority').classList.remove('active');
+	document.getElementById(`${idPriorityButton}`).classList.add('active');
 	priorityTask = document.getElementById(`${idPriorityButton}`).dataset.prio;
+}
+
+/**
+ * This function reset the priorityTask variable in data.js
+ */
+function resetPriority(){
+	document.getElementById('button-high-priority').classList.remove('active');
+	document.getElementById('button-medium-priority').classList.remove('active');
+	document.getElementById('button-low-priority').classList.remove('active');
+	document.getElementById('button-high-priority').classList.add('active');
+	priorityTask = "urgent";
 }
 
 /**
@@ -54,6 +67,7 @@ function categorySelected(idTask) {
 	showTaskOption();
 	let optionSelected = document.getElementById('option-selected');
 	let taskValue = document.getElementById(`${idTask}`).textContent;
+	optionSelected.dataset.filled = taskValue.trim();
 	optionSelected.textContent = taskValue;
 }
 
@@ -82,7 +96,7 @@ function renderContactsAssignedTask() {
 /**
  * Add a Task in Firebase when the form is sent
  */
-function addTask() {
+async function addTask() {
 	selectdNameAssignedtask();
 	let titleTask = document.getElementById('title_task');
 	let descriptionTask = document.getElementById('description_task');
@@ -90,14 +104,36 @@ function addTask() {
 	let timeDeadlineTask = document.getElementById('due_date_task');
 	let categoryTask = document.getElementById('option-selected');
 
-	console.log(titleTask.value);
-	console.log(descriptionTask.value);
-	console.log(nameInTask);
-	console.log(timeDeadlineTask.value);
-	console.log(priorityTask);
-	//I have to validate here categorytask and trim();
-	console.log(categoryTask.textContent);
-	console.log(subTasks);
+	if(categoryTask.dataset.filled == "Select task category"){
+		showAlert("container-addTask-alert", "addTask-alert", "Info", "info-alert", "You have to fil the field select Task!");
+		return
+	}
+	let task = {
+		titleTask: titleTask.value,
+		descriptionTask: descriptionTask.value,
+		nameAssignedTask: nameInTask,
+		timeDeadlineTask: timeDeadlineTask.value,
+		priorityTask: priorityTask,
+		categoryTask: categoryTask.textContent.trim(),
+		subTasks: subTasks 
+	}
+	await postData(task, "tasks");
+	deleteDataFormTask();
+}
+
+/**
+ * This function makes empty all field in the form add task
+ */
+function deleteDataFormTask() {
+	document.getElementById('title_task').value = "";
+	document.getElementById('description_task').value = "";
+	uncheckedNameAssignedTask();
+	showInitialAssign();
+	document.getElementById('due_date_task').value = "";
+	document.getElementById('option-selected').textContent = "Select task category";
+	resetPriority();
+	subTasks = [];
+	showSubTask();
 }
 
 /**
@@ -115,6 +151,21 @@ function selectdNameAssignedtask() {
 		}
 	}
 	return arrayPersonInTask;
+}
+
+/**
+ * This function uncheck all checkbox of people who was assigned to task in add Task form
+ */
+function uncheckedNameAssignedTask() {
+	let checkBoxSelectedContainer = document.getElementById('assigned-task');
+	let checkBoxSelected = checkBoxSelectedContainer.querySelectorAll('label');
+	for (const checkbox of checkBoxSelected) {
+		let i = checkbox.dataset.id;
+		let checkedTrue = document.getElementById(`checkBoxAssigned${i}`);
+		if(checkedTrue.checked){
+			checkedTrue.checked = false;
+		}
+	}
 }
 
 /**

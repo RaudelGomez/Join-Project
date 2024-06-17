@@ -98,5 +98,40 @@ function getContactDetails(i) {
   document.getElementById("email").value = email;
   document.getElementById("phone").value = phone;
 }
+function addContact() {
+  let nameContact = document.getElementById("nameContact");
+  let emailContact = document.getElementById("emailContact");
+  let phoneContact = document.getElementById("phoneContact");
+  let contact = {
+    "name": nameContact.value,
+    "email": emailContact.value,
+    "phone": phoneContact.value,
+    "user": false,
+    "id": "",
+    "password": "",
+  }
+  contacts.push(contact);
+}
 
-// renderContacts();
+function renderContacts() {
+  let renderContacts = document.getElementById("contactListID");
+  renderContacts.innerHTML = "";
+  let contactDetails = Object.values(contacts);
+  console.log(contactDetails);
+  for (let i = 0; i < contactDetails.length; i++) {
+    const contactName= contactDetails[i]["name"];
+    renderContacts.innerHTML =
+      `
+  <div onclick="showContact(${i})" class="contactBox activeContact">
+                <span class="profileSmall am">AM</span>
+                <div class="contactDetails">
+                  <div class="contactName">${contactName}</div>
+                  <div class="contactMail">anton@gmail.com</div>
+                </div>
+              </div>
+`;
+  }}
+  loadData("contacts");
+
+  // renderContacts();
+  console.log(contacts);

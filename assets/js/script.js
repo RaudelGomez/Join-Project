@@ -94,6 +94,12 @@ async function postData(data = {}, path = "") {
   return (responseToJson = await response.json());
 }
 
+/**
+ * This function replace al info in this path with the new info sent.
+ * @param {object} data - That is the object that has all info of the Data to change
+ * @param {string} path - That is the folder in Firebase of the data to change
+ * @returns the object with all data in this path
+ */
 async function putData(data, path = "") {
   let response = await fetch(BASE_URL + path + ".json", {
     method: "PUT",
@@ -103,6 +109,18 @@ async function putData(data, path = "") {
     body: JSON.stringify(data),
   });
   return (responseToJSON = await response.json());
+}
+
+/**
+ * This function delete a task in the data bank Firebase
+ * @param {string} path - That is the folder in Firebase of the data to delete
+ * @returns 
+ */
+async function deleteData(path = "") {
+	let response = await fetch(BASE_URL + path + ".json", {
+		method: "DELETE",
+	});
+	return (responseToJSON = await response.json());
 }
 
 /**

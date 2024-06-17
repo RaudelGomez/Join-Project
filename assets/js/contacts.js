@@ -56,11 +56,16 @@ function openNewContactPopup() {
   document.getElementById("contactSaveButton").innerHTML = "Create contact";
   document.getElementById("cancelButtonText").innerHTML = "Cancel";
   document.getElementById("cancelIcon").classList.remove("d-none");
+  document.getElementById("contactFormLeftButton").setAttribute("onclick", "clearForm('addContactForm'); return false;");  
   document.getElementById("addContactForm").setAttribute("onsubmit", "addContact(); return false;");
   clearForm("addContactForm");
 }
 
-function openEditContactPopup(contactName, contactMail, initials, results, phone, id) {
+async function openEditContactPopup(iconColor, contactName, contactMail, initials, results, phone, id) {
+  document.getElementById('profileIcon').innerHTML = /* HTML */ `
+  <span id="initials" class="profileIconBig" style="background-color: ${iconColor};">${initials}</span>
+  
+  `;
   document.getElementById("innerDialog").classList.remove("d-none");
   document.getElementById("innerDialog").classList.remove("animate__slideOutRight");
   document.getElementById("innerDialog").classList.add("animate__slideInRight");
@@ -73,18 +78,22 @@ function openEditContactPopup(contactName, contactMail, initials, results, phone
   document.getElementById("contactSaveButton").innerHTML = "Save";
   document.getElementById("cancelButtonText").innerHTML = "Delete";
   document.getElementById("cancelIcon").classList.add("d-none");
-  let data = {
-    "email": contactMail,
-    "id": "",
-    "name": contactName,
-    "password": "",
-    "phone": phone,
-    "user": false,
-  };
+  // let data = {     
+  //   "name": contactName,
+  //   "email": contactMail,       
+  //   "phone": phone,
+  //   "user": false,
+  //   "password": "",
+  //   "color":iconColor
+  // };
 
   document
     .getElementById("addContactForm")
-    .setAttribute("onsubmit", `await putData('${data}','/contacts/${results}'); return false;`);
+    .setAttribute("onsubmit", 'updateContact("'+ results +'"); return false;');
+
+  // document
+  //   .getElementById("addContactForm")
+  //   .setAttribute("onsubmit", `alert('Hallo');return false;`);
   document
     .getElementById("contactFormLeftButton")
     .setAttribute("onclick", `deleteContact('${results}'); return false;`);
@@ -92,8 +101,33 @@ function openEditContactPopup(contactName, contactMail, initials, results, phone
   document.getElementById("name").value = contactName;
   document.getElementById("email").value = contactMail;
   document.getElementById("phone").value = phone;
-
+  // let data = {     
+  //   "name": "Roberto test",
+  //   "email": contactMail,       
+  //   "phone": phone,
+  //   "user": false,
+  //   "password": "",
+  //   "color":iconColor
+  // };
+  // await putData( data, '/contacts/-O-aQEr376XwuZdAwxnw');
   // getContactDetails(i);
+}
+
+ async function updateContact(id) {
+ let name = document.getElementById("name").value ;
+ let mail =  document.getElementById("email").value ;
+  let phone = document.getElementById("phone").value ;
+  let data = {     
+    "name": name,
+    "email": mail,       
+    "phone": phone,
+    "user": false,
+    "password": "",
+    "color":2
+  };
+  console.log((id));
+let idString = String(id);
+  await putData( data, `/contacts/${idString}`);
 }
 
 function closeDialog() {
@@ -209,7 +243,7 @@ function showContact(contactElement, iconColor, contactName, contactMail, initia
     .getElementById("editButton")
     .setAttribute(
       "onclick",
-      `openEditContactPopup('${contactName}', '${contactMail}','${initials}','${results}','${phone}',${id})`
+      `openEditContactPopup('${iconColor}','${contactName}', '${contactMail}','${initials}','${results}','${phone}',${id})`
     );
   // this.classList.add("");
 }

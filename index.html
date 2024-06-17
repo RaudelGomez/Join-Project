@@ -24,7 +24,7 @@
       <img src="./assets/img/join_logo_dark.svg" alt="join Logo" />
     </div>
     <div class="bodyLogin">
-      <form class="loginBox" onsubmit="return false;">
+      <form class="loginBox" onsubmit="login();return false;">
         <div>
           <div class="HeadlinerLogin">Log in</div>
           <hr class="HeadlinerLine" />
@@ -39,7 +39,7 @@
           <input id="confirm" type="checkbox" /><label for="confirm">Remember me</label>
         </div>
         <div class="enterButtons">
-          <button type="submit" onclick="login()" class="loginButton">Log in</button> <button onclick="loginGuest()" class="guestLogin">Guest Log in</button>
+          <button type="submit" class="loginButton">Log in</button> <button onclick="loginGuest()" class="guestLogin">Guest Log in</button>
         </div>
       </form>
     </div>

@@ -17,29 +17,24 @@ async function addContact() {
     };
     let postSuccess = await postData(contact, "contacts");
     if (postSuccess) {
-      showAlert("container-signUp-alert", "signUp-alert", "Success", "succes-alert",  "Contact successfully created!");
+      showAlert("container-signUp-alert", "signUp-alert", "Success", "succes-alert", "Contact successfully created!");
       loadData("contacts");
       setTimeout(() => {
         closeDialog();
       }, 2000);
     }
-    
   }
 }
 
-function editContact() {
+function editContact(i) {}
 
-
-}
+function deleteContact(i) {}
 
 function clearForm(formid) {
   document.getElementById(formid).reset();
 }
 
-function renderContacts() {
-
-
-}
+function renderContacts() {}
 
 function openNewContactPopup() {
   document.getElementById("innerDialog").classList.remove("d-none");
@@ -54,8 +49,8 @@ function openNewContactPopup() {
   document.getElementById("contactSaveButton").innerHTML = "Create contact";
   document.getElementById("cancelButtonText").innerHTML = "Cancel";
   document.getElementById("cancelIcon").classList.remove("d-none");
-  document.getElementById('addContactForm').setAttribute('onclick','addContact(); return false;');
-  clearForm('addContactForm');
+  document.getElementById("addContactForm").setAttribute("onclick", "addContact(); return false;");
+  clearForm("addContactForm");
 }
 
 function openEditContactPopup(i) {
@@ -71,7 +66,8 @@ function openEditContactPopup(i) {
   document.getElementById("contactSaveButton").innerHTML = "Save";
   document.getElementById("cancelButtonText").innerHTML = "Delete";
   document.getElementById("cancelIcon").classList.add("d-none");
-  document.getElementById('addContactForm').setAttribute('onclick','editContact(); return false;');
+  document.getElementById("addContactForm").setAttribute("onclick", `editContact(${i}); return false;`);
+  document.getElementById("contactFormLeftButton").setAttribute("onclick", `deleteContact(${i}); return false;`);
   getContactDetails(i);
 }
 
@@ -91,7 +87,7 @@ function getContactDetails(i) {
   const name = contactDetails[i]["name"];
   const email = contactDetails[i]["email"];
   const phone = contactDetails[i]["phone"];
-  document.getElementById('name').value = name;
-  document.getElementById('email').value = email;
-  document.getElementById('phone').value = phone;
+  document.getElementById("name").value = name;
+  document.getElementById("email").value = email;
+  document.getElementById("phone").value = phone;
 }

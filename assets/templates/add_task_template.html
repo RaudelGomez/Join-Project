@@ -53,6 +53,7 @@
 					<div class="prio-container">
 						<button
 							id="button-high-priority"
+							type="button"
 							data-prio="urgent"
 							class="svgContainerButtonPrio svgContainerOrange active"
 							onclick="changePriority('button-high-priority')"
@@ -71,6 +72,7 @@
 						</button>
 						<button
 							id="button-medium-priority"
+							type="button"
 							data-prio="medium"
 							class="svgContainerButtonPrio svgContainerYellow"
 							onclick="changePriority('button-medium-priority')"
@@ -89,6 +91,7 @@
 						</button>
 						<button
 							id="button-low-priority"
+							type="button"
 							data-prio="low"
 							class="svgContainerButtonPrio svgContainerGreen"
 							onclick="changePriority('button-low-priority')"
@@ -120,11 +123,12 @@
 					<div id="category-task" class="category-task assigned-task-hidden">
 						<button
 							id="technicalTask"
+							type="button"
 							onclick="categorySelected('technicalTask')"
 						>
 							Technical task
 						</button>
-						<button id="userStory" onclick="categorySelected('userStory')">
+						<button id="userStory" type="button" onclick="categorySelected('userStory')">
 							User story
 						</button>
 					</div>
@@ -171,7 +175,7 @@
 		<div class="container-button-submit-add-task">
 			<p><span>*</span>This field is required</p>
 			<div class="button-submit-clear-add-task">
-				<button class="clear-button-add-task svgContainer">
+				<button type="button" class="clear-button-add-task svgContainer" onclick="deleteDataFormTask()">
 					<span>Clear</span>
 					<svg
 						width="25"

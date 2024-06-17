@@ -28,11 +28,22 @@ function showCheckboxes() {
  * Field name is Prio
  */
 function changePriority(idPriorityButton) {
-	document.getElementById('button-high-priority').classList.remove('active')
-	document.getElementById('button-medium-priority').classList.remove('active')
-	document.getElementById('button-low-priority').classList.remove('active')
-	document.getElementById(`${idPriorityButton}`).classList.add('active')
+	document.getElementById('button-high-priority').classList.remove('active');
+	document.getElementById('button-medium-priority').classList.remove('active');
+	document.getElementById('button-low-priority').classList.remove('active');
+	document.getElementById(`${idPriorityButton}`).classList.add('active');
 	priorityTask = document.getElementById(`${idPriorityButton}`).dataset.prio;
+}
+
+/**
+ * This function reset the priorityTask variable in data.js
+ */
+function resetPriority(){
+	document.getElementById('button-high-priority').classList.remove('active');
+	document.getElementById('button-medium-priority').classList.remove('active');
+	document.getElementById('button-low-priority').classList.remove('active');
+	document.getElementById('button-high-priority').classList.add('active');
+	priorityTask = "urgent";
 }
 
 /**
@@ -55,7 +66,6 @@ function categorySelected(idTask) {
 	let optionSelected = document.getElementById('option-selected');
 	let taskValue = document.getElementById(`${idTask}`).textContent;
 	optionSelected.dataset.filled = taskValue.trim();
-	console.log(optionSelected);
 	optionSelected.textContent = taskValue;
 }
 
@@ -105,16 +115,23 @@ async function addTask() {
 		categoryTask: categoryTask.textContent.trim(),
 		subTasks: subTasks 
 	}
-
-	console.log(task);
 	await postData(task, "tasks");
-	// console.log(titleTask.value);
-	// console.log(descriptionTask.value);
-	// console.log(nameInTask);
-	// console.log(timeDeadlineTask.value);
-	// console.log(priorityTask);	
-	// console.log(categoryTask.textContent.trim());
-	// console.log(subTasks);
+	deleteDataFormTask();
+}
+
+/**
+ * This function makes empty all field in the form add task
+ */
+function deleteDataFormTask() {
+	document.getElementById('title_task').value = "";
+	document.getElementById('description_task').value = "";
+	uncheckedNameAssignedTask();
+	showInitialAssign();
+	document.getElementById('due_date_task').value = "";
+	document.getElementById('option-selected').textContent = "Select task category";
+	resetPriority();
+	subTasks = [];
+	showSubTask();
 }
 
 /**
@@ -132,6 +149,21 @@ function selectdNameAssignedtask() {
 		}
 	}
 	return arrayPersonInTask;
+}
+
+/**
+ * This function uncheck all checkbox of people who was assigned to task in add Task form
+ */
+function uncheckedNameAssignedTask() {
+	let checkBoxSelectedContainer = document.getElementById('assigned-task');
+	let checkBoxSelected = checkBoxSelectedContainer.querySelectorAll('label');
+	for (const checkbox of checkBoxSelected) {
+		let i = checkbox.dataset.id;
+		let checkedTrue = document.getElementById(`checkBoxAssigned${i}`);
+		if(checkedTrue.checked){
+			checkedTrue.checked = false;
+		}
+	}
 }
 
 /**

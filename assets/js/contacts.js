@@ -27,11 +27,19 @@ async function addContact() {
   }
 }
 
+function editContact() {
+
+
+}
+
 function clearForm(formid) {
   document.getElementById(formid).reset();
 }
 
-function renderContacts() {}
+function renderContacts() {
+
+
+}
 
 function openNewContactPopup() {
   document.getElementById("innerDialog").classList.remove("d-none");
@@ -46,6 +54,7 @@ function openNewContactPopup() {
   document.getElementById("contactSaveButton").innerHTML = "Create contact";
   document.getElementById("cancelButtonText").innerHTML = "Cancel";
   document.getElementById("cancelIcon").classList.remove("d-none");
+  document.getElementById('addContactForm').setAttribute('onclick','addContact(); return false;');
   clearForm('addContactForm');
 }
 
@@ -62,6 +71,7 @@ function openEditContactPopup(i) {
   document.getElementById("contactSaveButton").innerHTML = "Save";
   document.getElementById("cancelButtonText").innerHTML = "Delete";
   document.getElementById("cancelIcon").classList.add("d-none");
+  document.getElementById('addContactForm').setAttribute('onclick','editContact(); return false;');
   getContactDetails(i);
 }
 

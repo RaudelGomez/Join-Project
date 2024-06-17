@@ -55,11 +55,19 @@ function login() {
       document.getElementById('email').classList.add('inputRedBorder');
       document.getElementById('mailError').innerHTML = "Email Adresse ist nicht als Benutzer registriert!";
     }
+    else {
+      document.getElementById('email').classList.remove('inputRedBorder');
+      document.getElementById('mailError').innerHTML = "";
+    }
 
     results = contact.filter((element) => element.email == email && element.password == password && element.user);
     if (results.length==0) {
       document.getElementById('password').classList.add('inputRedBorder');
       document.getElementById('passwordError').innerHTML = "Passwort stimmt nicht!";
+    }
+    else {
+      document.getElementById('password').classList.remove('inputRedBorder');
+      document.getElementById('passwordError').innerHTML = "";
     }
    
     
@@ -69,7 +77,7 @@ function login() {
     
     
     
-    console.log("Email nicht bekannt oder Passwort falsch");
+    // console.log("Email nicht bekannt oder Passwort falsch");
   }
 }
 

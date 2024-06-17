@@ -169,3 +169,19 @@ function getInitials(name) {
   }  
   return initial.toUpperCase();
 }
+
+/**
+ * Thisfunction give a color to the user who was created.
+ * @returns - Return the index of the color that was given in the array colors in data.js
+ */
+async function setColorUser() {
+  let contactLength = Object.values(contacts).length;
+  let indexColor = (contactLength)% colors.length;
+  return indexColor;    
+}
+
+
+
+
+
+

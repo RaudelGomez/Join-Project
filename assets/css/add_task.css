@@ -349,7 +349,7 @@ select {
 }
 
 .first-letter {
-	background-color: var(--blue-bikini);
+	background-color: var(--color-addTask-user);
 	border: 1px solid white;
 	border-radius: 100%;
 	width: 32px;

@@ -35,8 +35,8 @@ async function registUser() {
         "email": emailIdSignUp.value,
         "phone": "",
         "user": true,
-        "id": "",
         "password": passwordIdSignUp.value,
+        "color": await setColorUser()
     }
     if (passwordIdSignUp.value === passwordConfirmIdSignUp.value && passwordIdSignUp.value != "" && passwordConfirmIdSignUp.value !="") {
         await addNewUserDataBase(contact, nameIdSignUp, emailIdSignUp, passwordIdSignUp, passwordConfirmIdSignUp, confirmSignUp); 
@@ -72,6 +72,10 @@ async function addNewUserDataBase(contact, nameIdSignUp, emailIdSignUp, password
         showAlert("container-signUp-alert", "signUp-alert", "Error", "error-alert",  "This user already exist!");
     }
 }
+
+
+
+
 
 
 

@@ -101,7 +101,7 @@ input::placeholder {
 
 .subtasksPopup input[type="checkbox"]:checked + label {
   background-image: url("../img/hook_checked-black.svg");
-  background-repeat: no-repeat;
+  /* background-repeat: no-repeat; */
 }
 
 .noscroll {

@@ -18,7 +18,7 @@ async function addContact() {
     let postSuccess = await postData(contact, "contacts");
     if (postSuccess) {
       showAlert("container-signUp-alert", "signUp-alert", "Success", "succes-alert", "Contact successfully created!");
-      loadData("contacts");
+      await loadData("contacts");
       setTimeout(() => {
         closeDialog();
       }, 2000);
@@ -33,8 +33,15 @@ function deleteContact(i) {}
 function clearForm(formid) {
   document.getElementById(formid).reset();
 }
+let contactDetails = [];
 
-function renderContacts() {}
+function renderContacts() {
+console.log('renderContacts aufgerufen');
+// let contacts = [];
+// loadData("contacts");
+let contactDetails = Object.values(contacts);
+// console.log(contactDetails);
+}
 
 function openNewContactPopup() {
   document.getElementById("innerDialog").classList.remove("d-none");
@@ -103,28 +110,47 @@ function addContact() {
     "id": "",
     "password": "",
   }
-  contacts.push(contact);
+  // contacts.push(contact);
 }
 
-function renderContacts() {
+async function renderContacts() {
   let renderContacts = document.getElementById("contactListID");
   renderContacts.innerHTML = "";
+  await loadData("contacts");
+ 
   let contactDetails = Object.values(contacts);
-  console.log(contactDetails);
+  let contactKeys = Object.keys(contacts);
+  // console.log(contactDetails);
+  // console.log(contacts);
+  contactDetails.sort((a,b)=>a.name.localeCompare(b.name));
+  let lastLetter;
   for (let i = 0; i < contactDetails.length; i++) {
-    const contactName= contactDetails[i]["name"];
-    renderContacts.innerHTML =
+    // let id = Object.keys(contacts[i]);
+    const contactName= contactDetails[i]["name"]; //At this command we will take the name and other attributes.
+    const letter = Array.from(contactName)[0].toUpperCase();
+    const initials= getInitials(contactName);
+    // to make the Title for every single letter.
+    if(letter != lastLetter){
+    renderContacts.innerHTML+= 
+    ` <h3>${letter}</h3>
+    `;
+    lastLetter=letter;
+  } 
+    const contactMail= contactDetails[i]["email"];
+    let results = contactKeys[i];
+
+    renderContacts.innerHTML +=
       `
-  <div onclick="showContact(${i})" class="contactBox activeContact">
-                <span class="profileSmall am">AM</span>
+  <div onclick="showContact(${i})" data-id="${results}" class="contactBox">
+                <span class="profileSmall am">${initials}</span>
                 <div class="contactDetails">
                   <div class="contactName">${contactName}</div>
-                  <div class="contactMail">anton@gmail.com</div>
+                  <div class="contactMail">${contactMail}</div>
                 </div>
               </div>
 `;
   }}
-  loadData("contacts");
+  // loadData("contacts");
 
-  // renderContacts();
-  console.log(contacts);
+  renderContacts();
+  // console.log(contacts);

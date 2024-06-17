@@ -114,7 +114,7 @@ async function putData(data, path = "") {
 /**
  * This function delete a task in the data bank Firebase
  * @param {string} path - That is the folder in Firebase of the data to delete
- * @returns 
+ * @returns returns the deleted item
  */
 async function deleteData(path = "") {
 	let response = await fetch(BASE_URL + path + ".json", {

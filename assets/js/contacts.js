@@ -26,7 +26,7 @@ async function addContact() {
   }
 }
 
-function editContact(i) {}
+
 
 function deleteContact(i) {}
 
@@ -34,14 +34,6 @@ function clearForm(formid) {
   document.getElementById(formid).reset();
 }
 let contactDetails = [];
-
-function renderContacts() {
-console.log('renderContacts aufgerufen');
-// let contacts = [];
-// loadData("contacts");
-let contactDetails = Object.values(contacts);
-// console.log(contactDetails);
-}
 
 function openNewContactPopup() {
   document.getElementById("innerDialog").classList.remove("d-none");
@@ -56,11 +48,11 @@ function openNewContactPopup() {
   document.getElementById("contactSaveButton").innerHTML = "Create contact";
   document.getElementById("cancelButtonText").innerHTML = "Cancel";
   document.getElementById("cancelIcon").classList.remove("d-none");
-  document.getElementById("addContactForm").setAttribute("onclick", "addContact(); return false;");
+  document.getElementById("addContactForm").setAttribute("onsubmit", "addContact(); return false;");
   clearForm("addContactForm");
 }
 
-function openEditContactPopup(i) {
+function openEditContactPopup(contactName, contactMail,initials,results,phone,id) {
   document.getElementById("innerDialog").classList.remove("d-none");
   document.getElementById("innerDialog").classList.remove("animate__slideOutRight");
   document.getElementById("innerDialog").classList.add("animate__slideInRight");
@@ -73,9 +65,24 @@ function openEditContactPopup(i) {
   document.getElementById("contactSaveButton").innerHTML = "Save";
   document.getElementById("cancelButtonText").innerHTML = "Delete";
   document.getElementById("cancelIcon").classList.add("d-none");
-  document.getElementById("addContactForm").setAttribute("onclick", `editContact(${i}); return false;`);
-  document.getElementById("contactFormLeftButton").setAttribute("onclick", `deleteContact(${i}); return false;`);
-  getContactDetails(i);
+  let data = {
+    "email": contactMail,
+    "id":"",
+    "name":contactName,
+    "password":"",
+    "phone":phone,
+    "user":false 
+  };
+
+  document.getElementById("addContactForm").setAttribute("onsubmit", `await putData(${data},'/contacts/${results}'); return false;`);
+  document.getElementById("contactFormLeftButton").setAttribute("onclick", `deleteContact('${results}'); return false;`);
+// await putData( { like: 1000}, '/tasks/-O-_C8hoeXkD9TjC6O4y');
+  document.getElementById('name').value =contactName;
+  document.getElementById('email').value =contactMail;
+  document.getElementById('phone').value =phone;
+
+
+  // getContactDetails(i);
 }
 
 function closeDialog() {
@@ -98,10 +105,17 @@ function getContactDetails(i) {
   document.getElementById("email").value = email;
   document.getElementById("phone").value = phone;
 }
+
 function addContact() {
-  let nameContact = document.getElementById("nameContact");
-  let emailContact = document.getElementById("emailContact");
-  let phoneContact = document.getElementById("phoneContact");
+  // console.log('addContact started...');
+  let nameContact = document.getElementById("name");
+  let emailContact = document.getElementById("email");
+  let phoneContact = document.getElementById("phone");
+   if (checkMail(emailContact) == undefined) {
+
+alert('Mail exists');
+   }
+   else {
   let contact = {
     "name": nameContact.value,
     "email": emailContact.value,
@@ -110,7 +124,15 @@ function addContact() {
     "id": "",
     "password": "",
   }
-  // contacts.push(contact);
+  if (nameContact.value !="" && emailContact.value !="") {
+    postData(contact, "contacts");
+    renderContacts();
+    closeDialog();
+    // showAlert(idContainer, idPopUp, typeMessage, classMsg, 'Contact successfully created');
+  }
+}
+ 
+
 }
 
 async function renderContacts() {
@@ -124,11 +146,13 @@ async function renderContacts() {
   // console.log(contacts);
   contactDetails.sort((a,b)=>a.name.localeCompare(b.name));
   let lastLetter;
+  
   for (let i = 0; i < contactDetails.length; i++) {
     // let id = Object.keys(contacts[i]);
     const contactName= contactDetails[i]["name"]; //At this command we will take the name and other attributes.
+    const contactPhone= contactDetails[i]["phone"]; 
     const letter = Array.from(contactName)[0].toUpperCase();
-    const initials= getInitials(contactName);
+    let initials= getInitials(contactName);
     // to make the Title for every single letter.
     if(letter != lastLetter){
     renderContacts.innerHTML+= 
@@ -141,7 +165,7 @@ async function renderContacts() {
 
     renderContacts.innerHTML +=
       `
-  <div onclick="showContact(${i})" data-id="${results}" class="contactBox">
+  <div onclick="showContact('${contactName}','${contactMail}','${initials}','${results}','${contactPhone}',${i})" data-id="${results}" class="contactBox">
                 <span class="profileSmall am">${initials}</span>
                 <div class="contactDetails">
                   <div class="contactName">${contactName}</div>
@@ -153,4 +177,22 @@ async function renderContacts() {
   // loadData("contacts");
 
   renderContacts();
+
+
+  function showContact(contactName, contactMail,initials,results,phone,id) {
+    document.getElementById('contactName').innerHTML = contactName;
+    document.getElementById('contactMail').innerHTML = contactMail;
+    document.getElementById('contactPhone').innerHTML = phone;
+    document.getElementById('initials').innerHTML = initials;
+    document.getElementById('editButton').setAttribute('onclick',`openEditContactPopup('${contactName}', '${contactMail}','${initials}','${results}','${phone}',${id})`);
+  
+  }
+
+
+  function editInnerContact(contactName, contactMail,initials,results,phone) {
+    document.getElementById('name').innerHTML = contactName;
+    document.getElementById('email').innerHTML = contactMail;
+    document.getElementById('phone').innerHTML = phone;
+    document.getElementById('initials').innerHTML = initials;
+  }
   // console.log(contacts);

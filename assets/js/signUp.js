@@ -47,16 +47,6 @@ async function registUser() {
     }
 }
 
-/**
- * This function check, if there is someone with this email
- * @param {string} email - This is the Email, that it will be validated
- * @returns The Object of the person, who was find or undefined if it was any person with that email.
- */
-function checkMail(email) {
-    let data = Object.values(contacts);
-    let mailFound= data.find(user => user.email == email);
-    return mailFound;
-}
 
 /**
  * That function is a condiction to save a person in the Data base/contact

@@ -81,7 +81,7 @@ function renderContactsAssignedTask() {
 			<label class="checkbox-label" for="checkBoxAssigned${i}" data-id="${i}" data-name="${contact.name}" data-email="${contact.email}" data-colorindex="${contact.color}">
 				<span class="container-name-assigned">
 					<span class="name-assigned">
-						<span class="first-letter">${getInitials(`${contact.name}`)}</span>${contact.name}
+						<span class="first-letter" style="background-color: ${colors[contact.color].color}">${getInitials(`${contact.name}`)}</span>${contact.name}
 					</span>
 					<input type="checkbox" id="checkBoxAssigned${i}"/>
 					<img class="hook-check" src="./assets/img/hook_checked_white.svg" alt="checked">
@@ -177,13 +177,13 @@ function showInitialAssign() {
 	let fisrtLetterContainer = document.getElementById('container-people-assigned-task');
 	fisrtLetterContainer.innerHTML = "";
 	let objectPerson = selectdNameAssignedtask();
-	console.log(objectPerson);
 	if(objectPerson.length >= 1){
 		for (let i = 0; i < objectPerson.length; i++) {
-			let name = objectPerson[i].name;
-			name = getInitials(`${name}`);
+			let person = objectPerson[i].name;
+			let colorIndex = objectPerson[i].colorIndex;
+			let name = getInitials(`${person}`);
 			fisrtLetterContainer.innerHTML += /*html*/`
-				<span class="first-letter">${name}</span>
+				<span class="first-letter" style="background-color: ${colors[colorIndex].color}">${name}</span>
 			`
 		}
 	}

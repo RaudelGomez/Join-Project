@@ -303,10 +303,9 @@ select {
 .assigned-task-show {
 	display: flex;
 	flex-direction: column;
-	height: 300px;
-	overflow-y: auto;
+	overflow-y: auto !important;
 	background-color: white;
-	height: 100%;
+	max-height: 300px !important;
 }
 
 .checkbox-label {
@@ -349,7 +348,6 @@ select {
 }
 
 .first-letter {
-	background-color: var(--color-addTask-user);
 	border: 1px solid white;
 	border-radius: 100%;
 	width: 32px;

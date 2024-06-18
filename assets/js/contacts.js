@@ -1,6 +1,5 @@
 let contactDetails = {};
 
-
 /**
  * This function add a new contact in the contact page
  * Button: id # add new contact

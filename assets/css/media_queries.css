@@ -22,10 +22,17 @@
     width: 100%;
     position: fixed;
     bottom: 0;
+    z-index: 100;
   }
   #contactDisplay {
-    display: none;
-  }
+    /* display: none; */
+    background-color: var(--main-bg-color);
+    /* display: flex; */
+    position: absolute;
+    top: 90px;
+    height: 100vh;
+    width: 100vw;
+}
   #main {
     margin: 0;
   }
@@ -36,17 +43,44 @@
     display: none;
   }
 
-#header {
-    padding:20px 16px;
-    gap:10px;
-}
+  #header {
+    padding: 20px 16px;
+    gap: 10px;
+    z-index: 100;
+  }
 
   #mobileLogo {
     display: block !important;
-    width:32px;
+    width: 32px;
   }
-  #helpLink, #addContactDesktopBtn {
+  #helpLink,
+  #addContactDesktopBtn {
     display: none;
   }
+
+  .contact-list {
+    overflow-y: scroll;
+    height: calc(100% - 236px);
+    margin-top: 0px;
+    /* padding: 85px 64px 0px 64px; */
+    padding: 8px !important;
+    width: unset;
+  }
+
+  .contact-list h3 {
+    border-bottom: 1px solid #eee;
+    padding: 16px;
+}
+
+  .contactBox {
+    gap:24px !important;
+    padding: 16px;
+  }
+
+  body {
+
+    /* overflow-x: hidden; */
+  }
+
 
 }

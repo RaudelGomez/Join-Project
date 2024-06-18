@@ -62,9 +62,10 @@ function renderHeader(userData) {
     document.getElementById("header").innerHTML = /* HTML */ ` <h1>Kanban Project Management Tool</h1> `;
   } else {
     document.getElementById("header").innerHTML = /* HTML */ `
+      <img id="mobileLogo" class="d-none" src="./assets/img/join_logo_dark.svg" alt="">
       <h1>Kanban Project Management Tool</h1>
       <div id="headerIcons" class="headerIcons">
-        <a href="./help.html"><img src="./assets/img/help_icon.svg" alt="" /></a>
+        <a id="helpLink" href="./help.html"><img src="./assets/img/help_icon.svg" alt="" /></a>
         <a onclick="openHeaderMenu()"><span id="userInitial" class="profile">${userData.initials}</span></a>
       </div>
       <div id="headerMenu" class="d-none">

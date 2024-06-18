@@ -27,7 +27,7 @@
   background-color: white;
   position: relative;
   margin-right: 16px;
-  margin-top: 16px;
+  margin-top: 6px;
 }
 .ContactBtn {
   width: 100%;
@@ -35,8 +35,8 @@
 
 .contact-list {
   overflow-y: scroll;
-  height: calc(100% - 173px);
-  margin-top: -80px;
+  height: calc(100% - 227px);
+  margin-top: -11px;
   /* padding: 85px 64px 0px 64px; */
   padding: 32px 24px 32px 24px;
 }

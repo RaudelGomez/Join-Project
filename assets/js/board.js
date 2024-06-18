@@ -90,7 +90,6 @@ function closeDialog() {
         `
       }
 
-      console.log(task.priorityTask);
       function showingPriorityBoard(taskPriority){
         if(taskPriority == 'urgent'){
           return 'urgent_high_priority_icon.svg'

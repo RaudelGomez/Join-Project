@@ -10,6 +10,18 @@ function getInitials(name) {
   return initial.toUpperCase();
 }
 
+
+function closeDialog() {
+  document.getElementById("dialog").classList.remove("animate__fadeIn");
+  document.getElementById("dialog").classList.add("animate__fadeOut");
+  document.getElementById("innerDialog").classList.add("animate__slideOutRight");
+  document.getElementById("innerDialog").classList.remove("animate__slideInRight");
+  setTimeout(() => {
+    document.getElementById("dialog").classList.add("d-none");
+  }, 500);
+  document.body.classList.remove("noscroll");
+}
+
 function readLoggedInUser() {
   let initials;
   let mail;

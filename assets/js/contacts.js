@@ -113,17 +113,6 @@ async function updateContact(id, index) {
   renderContacts();
 }
 
-function closeDialog() {
-  document.getElementById("dialog").classList.remove("animate__fadeIn");
-  document.getElementById("dialog").classList.add("animate__fadeOut");
-  document.getElementById("innerDialog").classList.add("animate__slideOutRight");
-  document.getElementById("innerDialog").classList.remove("animate__slideInRight");
-  setTimeout(() => {
-    document.getElementById("dialog").classList.add("d-none");
-  }, 500);
-  document.body.classList.remove("noscroll");
-}
-
 async function renderContacts() {
   let renderContacts = document.getElementById("contactListID");
   renderContacts.innerHTML = "";
@@ -137,14 +126,13 @@ async function renderContacts() {
   contactDetails.sort((a, b) => a.name.localeCompare(b.name));
   let lastLetter;
   for (let i = 0; i < contactDetails.length; i++) {
-    const contactName = contactDetails[i]["name"]; //At this command we will take the name and other attributes.
+    const contactName = contactDetails[i]["name"]; 
     const contactPhone = contactDetails[i]["phone"];
     const contactKey = contactDetails[i]["key"];
     const contactMail = contactDetails[i]["email"];
     const iconColor = colors[contactDetails[i]["color"]].color;
     const letter = Array.from(contactName)[0].toUpperCase();
-    const initials = getInitials(contactName);
-    // to make the Title for every single letter.
+    const initials = getInitials(contactName);  
     if (letter != lastLetter) {
       renderContacts.innerHTML += ` <h3>${letter}</h3>
     `;

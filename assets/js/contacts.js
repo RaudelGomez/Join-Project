@@ -42,6 +42,9 @@ function clearForm(formid) {
   document.getElementById(formid).reset();
 }
 
+/**
+ * Open popup window for add new contact
+ */
 function openNewContactPopup() {
   document.getElementById("innerDialog").classList.remove("d-none");
   document.getElementById("innerDialog").classList.remove("animate__slideOutRight");
@@ -113,6 +116,9 @@ async function updateContact(id, index) {
   renderContacts();
 }
 
+/**
+ * Render ale contacts with alphabetic order in the list
+ */
 async function renderContacts() {
   let renderContacts = document.getElementById("contactListID");
   renderContacts.innerHTML = "";

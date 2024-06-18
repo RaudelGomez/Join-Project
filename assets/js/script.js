@@ -78,10 +78,14 @@ async function loadData(path = "") {
   }
 }
 
+/**
+ * Render the Header with Main title, profile logo of logged in user and dropdown menu 
+ * @param {Object} userData - Contains mail, initials and username of logged in user
+ */
 function renderHeader(userData) {
   if (document.getElementById("header")) {
     if (userData.initials == undefined) {
-      document.getElementById("header").innerHTML = /* HTML */ ` <h1>Kanban Project Management Tool</h1> `;
+      document.getElementById("header").innerHTML = /* HTML */ `<h1>Kanban Project Management Tool</h1>`;
     } else {
       document.getElementById("header").innerHTML = /* HTML */ `
         <img id="mobileLogo" class="d-none" src="./assets/img/join_logo_dark.svg" alt="" />

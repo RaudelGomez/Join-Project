@@ -3,6 +3,7 @@
 @import url("summary.css");
 @import url("add_task.css");
 @import url("signUp.css");
+@import url("media_queries.css");
 
 /* :root {
   --animate-duration: 0.2s;

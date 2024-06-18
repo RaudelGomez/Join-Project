@@ -16,7 +16,7 @@
   }
 
   #footerNav {
-    display: none;
+    display: none !important;
   }
   #mainLogo {
     display: none;

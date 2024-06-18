@@ -298,3 +298,18 @@ innerHTML = /* HTML */ `
     document.body.classList.remove("noscroll");
   }
 
+	/**
+	 * This function bring all Data from datBase: contacts & tasks
+	 */
+	async function loadDataBoard() {
+		await loadData('contacts');
+		await loadData('tasks');
+	}
+
+	/**
+	 * This timeout was used to avoid the delay when the page is load and the function loadDataBoard
+	 */
+	setTimeout(loadDataBoard, 500);
+
+
+

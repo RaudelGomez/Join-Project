@@ -69,28 +69,32 @@ async function openDialog(template) {
             </footer>
           </article>
       `
-      console.log(task['subTasks']);
       let containerSubtask = document.getElementById(`container-board-subTask${i}`);
       containerSubtask.innerHTML = '';
-      containerSubtask.innerHTML = /*html*/`
+      if(task['subTasks']){
+        containerSubtask.innerHTML = /*html*/`
          <div class="progressContainer">
            <div class="progress" style="width: 50%"></div>
          </div>
-         <!-- <div><span>1</span>/<span>${task['subTasks'].length}</span> Subtasks</div> -->
+         <div><span>1</span>/<span>${task['subTasks'].length}</span> Subtasks</div>
        `
+      }
+      
       
       let userTaskBoard = document.getElementById(`userInTask-board${i}`);
       userTaskBoard.innerHTML = "";
-      for (let j = 0; j < task['nameAssignedTask'].length; j++) {
-        const userTask = task['nameAssignedTask'][j];
-        const userColorIndex = +userTask.colorIndex;
-        const userColor = colors[userColorIndex].color;
-        const initialName = getInitials(userTask.name);
-        userTaskBoard.innerHTML += /*html*/`
-          <span class="profileSmall" style="background-color: ${userColor}">${initialName}</span>
-        `
+      if(task['nameAssignedTask']){
+        for (let j = 0; j < task['nameAssignedTask'].length; j++) {
+          const userTask = task['nameAssignedTask'][j];
+          const userColorIndex = +userTask.colorIndex;
+          const userColor = colors[userColorIndex].color;
+          const initialName = getInitials(userTask.name);
+          userTaskBoard.innerHTML += /*html*/`
+            <span class="profileSmall" style="background-color: ${userColor}">${initialName}</span>
+          `
+        }
       }
-
+      
       function showingPriorityBoard(taskPriority){
         if(taskPriority == 'urgent'){
           return 'urgent_high_priority_icon.svg'

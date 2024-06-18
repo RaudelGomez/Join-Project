@@ -237,14 +237,10 @@ h3 {
   position: fixed;
   left: 0;
   right: 0;
-  top: 20vh;
-  bottom: 0;
+  top: 10vh;
+  /* bottom: 0; */
   z-index: 800;
   margin: 0 auto;
-}
-
-#template {
-  padding: 32px; 
 }
 
 .closeDialog {

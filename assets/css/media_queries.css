@@ -1,0 +1,30 @@
+@media screen and (max-width: 900px) {
+ #mainNav {
+
+    flex-direction: row;
+    gap:15px;
+    justify-content: space-around;
+ }
+
+ #mainNav a{
+
+    flex-direction: column;
+    
+    
+    padding:0;
+ }
+
+ #footerNav {display: none;}
+ #mainLogo {display: none;}
+ #menu {
+    height:80px;
+    width:100%;
+    position: fixed;
+    bottom: 0;
+ }
+ #contactDisplay {display: none;}
+ #main {margin:0;}
+ #contacts {width: 100%;}
+ #header h1 {}
+ 
+  }

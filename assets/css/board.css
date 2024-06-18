@@ -22,3 +22,7 @@
 .taskPopupFooter span {
     color: var(--main-color);
 }
+
+#showTaskPopup, #addTaskPopup {
+    padding: 32px; 
+  }

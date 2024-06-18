@@ -132,7 +132,6 @@ async function addTask(status = 1) {
   showAlert("container-addTask-alert", "addTask-alert", "Success", "succes-alert", "The Task was added successfully!");
   if (document.getElementById("innerDialog")) {
 	setTimeout(closeDialog, 3000);
-    
   }
 }
 

@@ -1,16 +1,23 @@
 let userData = readLoggedInUser();
 renderHeader(userData);
 
+/**
+ * This function returns the Initials of any given name
+ * @param {string} name - The name to get the initials for
+ * @returns - Returns the Initials in uppercase Letters
+ */
 function getInitials(name) {
   let initials = name.split(" ");
-  let initial = initials[0].charAt(0);  
+  let initial = initials[0].charAt(0);
   if (initials[1]) {
-    initial+= initials[1].charAt(0);
-  }  
+    initial += initials[1].charAt(0);
+  }
   return initial.toUpperCase();
 }
 
-
+/**
+ * This function is to close the popup window (animated)
+ */
 function closeDialog() {
   document.getElementById("dialog").classList.remove("animate__fadeIn");
   document.getElementById("dialog").classList.add("animate__fadeOut");
@@ -22,13 +29,17 @@ function closeDialog() {
   document.body.classList.remove("noscroll");
 }
 
+/**
+ * This function is to protect some pages from any access when user is not logged in
+ * @returns - Returns the Name, Initials and username of the logged in user.
+ */
 function readLoggedInUser() {
   let initials;
   let mail;
   let userName;
   let protectedPages = ["board.html", "contacts.html", "summary.html", "add_task.html"];
   if (localStorage.getItem("Join")) {
-    console.log('test');
+    console.log("test");
     initials = JSON.parse(localStorage.getItem("Join")).initials;
     mail = JSON.parse(localStorage.getItem("Join")).mail;
     userName = JSON.parse(sessionStorage.getItem("Join")).userName;
@@ -44,11 +55,10 @@ function readLoggedInUser() {
   if (!loggedIn && protectedPages.includes(page)) {
     location.href = "./index.html";
   }
-
   return {
     mail: mail,
     initials: initials,
-    name: userName
+    name: userName,
   };
 }
 
@@ -61,7 +71,7 @@ async function loadData(path = "") {
   let response = await fetch(BASE_URL + path + ".json");
   let responseToJson = await response.json();
   if (path == "contacts") {
-    (!responseToJson) ? contacts = [] : contacts = responseToJson;
+    !responseToJson ? (contacts = []) : (contacts = responseToJson);
   }
   if (path == "tasks") {
     !responseToJson ? (tasks = []) : (tasks = responseToJson);
@@ -70,30 +80,36 @@ async function loadData(path = "") {
 
 function renderHeader(userData) {
   if (document.getElementById("header")) {
-  if (userData.initials == undefined) {
-    document.getElementById("header").innerHTML = /* HTML */ ` <h1>Kanban Project Management Tool</h1> `;
-  } else {
-    document.getElementById("header").innerHTML = /* HTML */ `
-      <img id="mobileLogo" class="d-none" src="./assets/img/join_logo_dark.svg" alt="">
-      <h1>Kanban Project Management Tool</h1>
-      <div id="headerIcons" class="headerIcons">
-        <a id="helpLink" href="./help.html"><img src="./assets/img/help_icon.svg" alt="" /></a>
-        <a onclick="openHeaderMenu()"><span id="userInitial" class="profile">${userData.initials}</span></a>
-      </div>
-      <div id="headerMenu" class="d-none">
-        <a href="./legal_notice.html">Legal Notice</a>
-        <a href="./pripo.html">Privacy Policy</a>
-        <a href="#" onclick="logout()">Log out</a>
-      </div>
-    `;
+    if (userData.initials == undefined) {
+      document.getElementById("header").innerHTML = /* HTML */ ` <h1>Kanban Project Management Tool</h1> `;
+    } else {
+      document.getElementById("header").innerHTML = /* HTML */ `
+        <img id="mobileLogo" class="d-none" src="./assets/img/join_logo_dark.svg" alt="" />
+        <h1>Kanban Project Management Tool</h1>
+        <div id="headerIcons" class="headerIcons">
+          <a id="helpLink" href="./help.html"><img src="./assets/img/help_icon.svg" alt="" /></a>
+          <a onclick="openHeaderMenu()"><span id="userInitial" class="profile">${userData.initials}</span></a>
+        </div>
+        <div id="headerMenu" class="d-none">
+          <a href="./legal_notice.html">Legal Notice</a>
+          <a href="./pripo.html">Privacy Policy</a>
+          <a href="#" onclick="logout()">Log out</a>
+        </div>
+      `;
+    }
   }
 }
-}
 
+/**
+ * simple tiny function to toggle the profile menu on the upper right side
+ */
 function openHeaderMenu() {
   document.getElementById("headerMenu").classList.toggle("d-none");
 }
 
+/**
+ * Just logout and clear session- and localestorage
+ */
 function logout() {
   sessionStorage.clear();
   localStorage.clear();
@@ -139,10 +155,10 @@ async function putData(data, path = "") {
  * @returns returns the deleted item
  */
 async function deleteData(path = "") {
-	let response = await fetch(BASE_URL + path + ".json", {
-		method: "DELETE",
-	});
-	return (responseToJSON = await response.json());
+  let response = await fetch(BASE_URL + path + ".json", {
+    method: "DELETE",
+  });
+  return (responseToJSON = await response.json());
 }
 
 /**
@@ -179,18 +195,9 @@ function hiddeAlert(idContainer, idPopUp) {
  */
 function checkMail(email) {
   let data = Object.values(contacts);
-  let mailFound= data.find(user => user.email == email);
+  let mailFound = data.find((user) => user.email == email);
   return mailFound;
 }
-
-// function getInitials(name) {
-//   let initials = name.split(" ");
-//   let initial = initials[0].charAt(0);  
-//   if (initials[1]) {
-//     initial+= initials[1].charAt(0);
-//   }  
-//   return initial.toUpperCase();
-// }
 
 /**
  * Thisfunction give a color to the user who was created.
@@ -198,12 +205,6 @@ function checkMail(email) {
  */
 async function setColorUser() {
   let contactLength = Object.values(contacts).length;
-  let indexColor = (contactLength)% colors.length;
-  return indexColor;    
+  let indexColor = contactLength % colors.length;
+  return indexColor;
 }
-
-
-
-
-
-

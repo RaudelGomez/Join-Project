@@ -34,8 +34,8 @@ async function openDialog(template) {
 	async function loadDataBoard() {
 		await loadData('contacts');
 		await loadData('tasks');
-    await renderHTMLBoard();
     console.log(tasks);
+    await renderHTMLBoard();
 	}
 
 	/**
@@ -69,13 +69,14 @@ async function openDialog(template) {
             </footer>
           </article>
       `
+      console.log(task['subTasks']);
       let containerSubtask = document.getElementById(`container-board-subTask${i}`);
       containerSubtask.innerHTML = '';
       containerSubtask.innerHTML = /*html*/`
          <div class="progressContainer">
            <div class="progress" style="width: 50%"></div>
          </div>
-         <div><span>1</span>/<span>${task['subTasks'].length}</span> Subtasks</div>
+         <!-- <div><span>1</span>/<span>${task['subTasks'].length}</span> Subtasks</div> -->
        `
       
       let userTaskBoard = document.getElementById(`userInTask-board${i}`);

@@ -96,7 +96,7 @@ function renderContactsAssignedTask() {
 /**
  * Add a Task in Firebase when the form is sent
  */
-async function addTask() {
+async function addTask(status = 1) {
 	selectdNameAssignedtask();
 	let titleTask = document.getElementById('title_task');
 	let descriptionTask = document.getElementById('description_task');
@@ -116,7 +116,7 @@ async function addTask() {
 		priorityTask: priorityTask,
 		categoryTask: categoryTask.textContent.trim(),
 		subTasks: subTasks,
-		status: 1
+		status: status
 	}
 	await postData(task, "tasks");
 	deleteDataFormTask();

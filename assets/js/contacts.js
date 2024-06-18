@@ -1,3 +1,6 @@
+let contactDetails = {};
+
+
 /**
  * This function add a new contact in the contact page
  * Button: id # add new contact
@@ -37,7 +40,7 @@ function clearForm(formid) {
   document.getElementById(formid).reset();
 }
 
-let contactDetails = [];
+
 
 function openNewContactPopup() {
   document.getElementById("innerDialog").classList.remove("d-none");
@@ -79,81 +82,38 @@ async function openEditContactPopup(iconColor, contactName, contactMail, initial
   document.getElementById("contactSaveButton").innerHTML = "Save";
   document.getElementById("cancelButtonText").innerHTML = "Delete";
   document.getElementById("cancelIcon").classList.add("d-none");
-  // let data = {
-  //   "name": contactName,
-  //   "email": contactMail,
-  //   "phone": phone,
-  //   "user": false,
-  //   "password": "",
-  //   "color":iconColor
-  // };
-
-  document.getElementById("addContactForm").setAttribute("onsubmit", 'updateContact("' + results + '"); return false;');
-
-  // document
-  //   .getElementById("addContactForm")
-  //   .setAttribute("onsubmit", `alert('Hallo');return false;`);
+  document.getElementById("addContactForm").setAttribute("onsubmit", 'updateContact("' + results + '",'+id+'); return false;');
   document
     .getElementById("contactFormLeftButton")
     .setAttribute("onclick", `deleteContact('${results}'); return false;`);
-  // await putData( { like: 1000}, '/tasks/-O-_C8hoeXkD9TjC6O4y');
   document.getElementById("name").value = contactName;
   document.getElementById("email").value = contactMail;
   document.getElementById("phone").value = phone;
-  // let data = {
-  //   "name": "Roberto test",
-  //   "email": contactMail,
-  //   "phone": phone,
-  //   "user": false,
-  //   "password": "",
-  //   "color":iconColor
-  // };
-  // await putData( data, '/contacts/-O-aQEr376XwuZdAwxnw');
-  // getContactDetails(i);
 }
 
-async function updateContact(id) {
+async function updateContact(id,index) {
   let name = document.getElementById("name").value;
   let mail = document.getElementById("email").value;
   let phone = document.getElementById("phone").value;
-  // let data = {
-  //   "name": name,
-  //   "email": mail,
-  //   "phone": phone,
-  //   "user": false,
-  //   "password": "",
-  //   "color":2
-  // };
-
+  let color = contactDetails[index].color;
   let data = {
     "name": name,
     "email": mail,
     "phone": phone,
     "user": false,
     "password": "",
-    "color": 2,
+    "color": color
   };
-  // console.log((id));
-  // let idString = String(id);
+  let idString = `/contacts/${id}`;
+  await putData(data, idString);
+  closeDialog();
+  document.getElementById('contactName').innerHTML = name;
+  document.getElementById('contactPhone').innerHTML = phone;
+  document.getElementById('contactMail').innerHTML = mail;
+  document.getElementById('initials').innerHTML = getInitials(name);
 
-  let idString = "-O-aPZ5X6hBHdLCtk5-F";
-  await putData(data, `/contacts/${idString}`);
+  renderContacts();
 }
-
-// async function testPutData() {
-//   let data = {
-//     "name": "Neuer Name2",
-//     "email": "neue Mail",
-//     "phone": "neue Telefonnummer",
-//     "user": false,
-//     "password": "",
-//     "color": 3,
-//   };
-//   let idString = "-O-aPZ5X6hBHdLCtk5-F";
-//   await putData(data, `/contacts/${idString}`);
-// }
-
-// testPutData();
 
 function closeDialog() {
   document.getElementById("dialog").classList.remove("animate__fadeIn");
@@ -171,29 +131,35 @@ async function renderContacts() {
   renderContacts.innerHTML = "";
   await loadData("contacts");
 
-  let contactDetails = Object.values(contacts);
+  contactDetails = Object.values(contacts);
   let contactKeys = Object.keys(contacts);
-  // console.log(contactDetails);
-  // console.log(contacts);
-  contactDetails.sort((a, b) => a.name.localeCompare(b.name));
+
+for (let i = 0; i < contactDetails.length; i++) {
+  const element = contactDetails[i];
+  element.key = contactKeys[i];
+}
+
+  contactDetails.sort((a, b) => a.name.localeCompare(b.name));  
   let lastLetter;
 
   for (let i = 0; i < contactDetails.length; i++) {
-    // let id = Object.keys(contacts[i]);
     const contactName = contactDetails[i]["name"]; //At this command we will take the name and other attributes.
     const contactPhone = contactDetails[i]["phone"];
+    const contactKey = contactDetails[i]["key"];
+    const contactMail = contactDetails[i]["email"];
     const iconColor = colors[contactDetails[i]["color"]].color;
-    // console.log(iconColor);
     const letter = Array.from(contactName)[0].toUpperCase();
-    let initials = getInitials(contactName);
+    const initials = getInitials(contactName);
     // to make the Title for every single letter.
     if (letter != lastLetter) {
       renderContacts.innerHTML += ` <h3>${letter}</h3>
     `;
       lastLetter = letter;
     }
-    const contactMail = contactDetails[i]["email"];
-    let results = contactKeys[i];
+ 
+    let results = contactKey;
+
+
 
     renderContacts.innerHTML += /* HTML */ `
       <div
@@ -209,7 +175,7 @@ async function renderContacts() {
     `;
   }
 }
-// loadData("contacts");
+
 
 renderContacts();
 

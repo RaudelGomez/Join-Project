@@ -1,13 +1,5 @@
 loadData("contacts");
 
-function getInitials(name) {
-  let initials = name.split(" ");
-  let initial = initials[0].charAt(0);  
-  if (initials[1]) {
-    initial+= initials[1].charAt(0);
-  }  
-  return initial.toUpperCase();
-}
 
 function loginGuest() {
   let checked = document.getElementById("confirm").checked;

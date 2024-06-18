@@ -18,16 +18,16 @@ async function openDialog(template) {
 }
 
 
-function closeDialog() {
-  document.getElementById("dialog").classList.remove("animate__fadeIn");
-  document.getElementById("dialog").classList.add("animate__fadeOut");
-  document.getElementById("innerDialog").classList.add("animate__slideOutRight");
-  document.getElementById("innerDialog").classList.remove("animate__slideInRight");
-  setTimeout(() => {
-    document.getElementById("dialog").classList.add("d-none");
-  }, 500);
-  document.body.classList.remove("noscroll");
-}
+// function closeDialog() {
+//   document.getElementById("dialog").classList.remove("animate__fadeIn");
+//   document.getElementById("dialog").classList.add("animate__fadeOut");
+//   document.getElementById("innerDialog").classList.add("animate__slideOutRight");
+//   document.getElementById("innerDialog").classList.remove("animate__slideInRight");
+//   setTimeout(() => {
+//     document.getElementById("dialog").classList.add("d-none");
+//   }, 500);
+//   document.body.classList.remove("noscroll");
+// }
 	/**
 	 * This function bring all Data from datBase: contacts & tasks
 	 */

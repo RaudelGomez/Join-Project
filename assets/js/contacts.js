@@ -57,11 +57,15 @@ function openNewContactPopup() {
     .setAttribute("onclick", "clearForm('addContactForm'); return false;");
   document.getElementById("addContactForm").setAttribute("onsubmit", "addContact(); return false;");
   clearForm("addContactForm");
+document.getElementById('profileIcon').innerHTML = /* HTML */ `
+<img src="./assets/img/person_fill.svg" alt="">
+`;
+  
 }
 
 async function openEditContactPopup(iconColor, contactName, contactMail, initials, results, phone, id) {
   document.getElementById("profileIcon").innerHTML = /* HTML */ `
-    <span id="initials" class="profileIconBig" style="background-color: ${iconColor};">${initials}</span>
+    <span id="popupInitials" class="profileIconBig" style="background-color: ${iconColor};">${initials}</span>
   `;
   document.getElementById("innerDialog").classList.remove("d-none");
   document.getElementById("innerDialog").classList.remove("animate__slideOutRight");

@@ -598,7 +598,7 @@ h1 {
   margin-right: -8px;
 }
 
-.am {
+/* .am {
   background-color: var(--girls-night-out);
 }
 
@@ -608,7 +608,7 @@ h1 {
 
 .mb {
   background-color: var(--sugar-grape);
-}
+} */
 
 .taskCard footer {
   display: flex;

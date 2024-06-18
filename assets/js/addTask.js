@@ -194,7 +194,7 @@ function showInitialAssign() {
  */
 function addSubTask() {
 	let inputSubTask = document.getElementById('sub-task');
-	subTasks.push(inputSubTask.value);
+	subTasks.push({subTaskName: inputSubTask.value, statusSubTask: false});
 	showSubTask();
 }
 
@@ -206,7 +206,8 @@ function showSubTask() {
 	containerNewSubTask.innerHTML = '';
 	for (let i = 0; i < subTasks.length; i++) {
 		const subTask = subTasks[i];
-		containerNewSubTask.innerHTML += /*html*/ `${renderHTMLSubTask(subTask, i)}`;
+		const subTaskName = subTask.subTaskName;
+		containerNewSubTask.innerHTML += /*html*/ `${renderHTMLSubTask(subTaskName, i)}`;
 	}
 	emptyInputSubTask();
 	changeIconSubTask();
@@ -218,11 +219,11 @@ function showSubTask() {
  * @param {number} i - That is the index in the array subTask: Like thisit can showm every element in the array
  * @returns -Show the HTML ofthe subtask
  */
-function renderHTMLSubTask(subTask, i) {
+function renderHTMLSubTask(subTaskName, i) {
 	return /*html*/`
 		<p id="span-link-edit-delete${i}" class="new-subTask">
 				<span class="span-link">
-					<span id="text-new-subTask" class="text-new-subTask">${subTask}</span>
+					<span id="text-new-subTask" class="text-new-subTask">${subTaskName}</span>
 					<span>
 						<img id="editingTask${i}"  src="./assets/img/pencil_icon.svg" alt="edit" onclick="editingSubTask(${i})" />
 						<span id="separatorOne${i}" class="separator-subtask"></span>
@@ -280,7 +281,7 @@ function deleteSubTask(idSubTask) {
 function editingSubTask(i){
 	document.getElementById(`container-edit-subTask${i}`).classList.remove('d-none');
 	document.getElementById(`span-link-edit-delete${i}`).classList.add('d-none');
-	document.getElementById(`input-editing-subTask${i}`).value = subTasks[i];
+	document.getElementById(`input-editing-subTask${i}`).value = subTasks[i].subTaskName;
 }
 
 /**
@@ -288,7 +289,7 @@ function editingSubTask(i){
  * @param {Number} i - That is the index of the sub task in the array subTask
  */
 function confirmEditSubTask(i) {
-	subTasks[i] = document.getElementById(`input-editing-subTask${i}`).value;
+	subTasks[i].subTaskName = document.getElementById(`input-editing-subTask${i}`).value;
 	document.getElementById(`container-edit-subTask${i}`).classList.add('d-none');
 	document.getElementById(`span-link-edit-delete${i}`).classList.remove('d-none');
 	showSubTask();

@@ -1,15 +1,18 @@
-/* .user {
-
+.user-popoup-container{
     display: flex;
     flex-direction: column;
+    gap: 8px;
+}
+
+.userBoardPopup {
+    display: flex;
     gap:16px;
-} */
+    align-items: center;
+} 
 
 .userItem {
-
     display: flex;
     align-items: center;
-    
     gap:24px;
 }
 

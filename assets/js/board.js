@@ -42,7 +42,6 @@ function dataCurrentTask(taskId){
 
 
 function renderDataHTMLtaskPopupTemplate() {
-  console.log(currentTask);
   let categoryTask = document.getElementById('category-task-show-task');
   categoryTask.textContent = `${currentTask.categoryTask}`;
   categoryTask.classList.remove("userStory", "technicalTask");
@@ -51,6 +50,61 @@ function renderDataHTMLtaskPopupTemplate() {
   document.getElementById('description-task-show-task').textContent = `${currentTask.descriptionTask}`;
   document.getElementById('date-task-show-task').textContent = `${currentTask.timeDeadlineTask}`;
   document.getElementById('prio-task-show-task').setAttribute('src', `./assets/img/${showingPriorityBoard(currentTask.priorityTask)}`);
+  renderUserPopupTask();
+  renderSubtaskHTMLPopupTask();
+}
+
+/**
+ * This function render the user in the pop up task
+ */
+function renderUserPopupTask() {
+  let containerUser = document.getElementById('user-task-show-task');
+  let headlineUser = document.getElementById('headline-user-assigned');
+  containerUser.innerHTML = "";
+  let users = currentTask.nameAssignedTask;
+  if(users){
+    headlineUser.textContent = "Assigned To:";
+    for (let i = 0; i < users.length; i++) {
+      const user = users[i];
+      containerUser.innerHTML += /*html*/`
+        <div class="userBoardPopup">
+          <span class="profileSmall" style="background-color: ${colors[user.colorIndex].color}">${getInitials(user.name)}</span>
+          <span>${user.name}</span>
+        </div> 
+      `
+    }
+  }else{
+    headlineUser.textContent = "";
+  }
+}
+
+/**
+ * Render the subTask in the pop up
+ */
+function renderSubtaskHTMLPopupTask() {
+  let containerSubtask = document.getElementById('subtasks-task-show-task');
+  let headlineSubtask = document.getElementById('headline-subtasks-popup');
+  containerSubtask.innerHTML = "";
+  let subTasks = currentTask.subTasks;
+  if(subTasks){
+    headlineSubtask.textContent = "Subtasks";
+    for (let i = 0; i < subTasks.length; i++) {
+      const subTask = subTasks[i];
+      containerSubtask.innerHTML += /*html*/`
+        <input type="checkbox" name="checkbox-subTask" id="subTask${i}" />
+        <label for="subTask${i}">${subTask.subTaskName}</label>
+      `
+      let inputSubTask = document.getElementById(`subTask${i}`);
+      console.log(inputSubTask);
+      console.log(subTask);
+      console.log(subTask.statusSubTask);
+      if(subTask.statusSubTask){
+        inputSubTask.setAttribute('checked', true);
+      }
+    }
+  }else{
+    headlineSubtask.textContent = "";
+  }
 }
 
 	/**

@@ -1,4 +1,15 @@
 @media screen and (max-width: 900px) {
+
+  .contactDisplay .headline p  {
+
+    font-size: 20px !important;
+    /* font-weight: 400; */
+  }
+
+}
+
+
+@media screen and (max-width: 900px) {
   #main {
     margin-left: unset !important;
     /* width:100%; */
@@ -152,8 +163,8 @@
     justify-content: center;
   }
 
-  #contactFormLeftButton {
-    /* display: none; */
+ .addContact #contactFormLeftButton {
+    display: none;
   }
 
   #contactFormRightButton {
@@ -166,6 +177,19 @@
     /* background-color: var(--white); */
     border: 1px solid #2a3647;
   }
+
+  .contactDisplay .sub-container .headline p  {
+
+    font-size: 20px !important;
+    /* font-weight: 400; */
+  }
+
+  .horizontal-line {
+		display: block;
+		width: 120px;
+		min-height: 3px;
+		background-color: var(--blue-bikini);
+	}
 
   /* .addContactBtn {
     position: fixed;

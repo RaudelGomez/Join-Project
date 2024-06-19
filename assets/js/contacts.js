@@ -46,6 +46,8 @@ function clearForm(formid) {
  * Open popup window for add new contact
  */
 function openNewContactPopup() {
+  document.getElementById('template').classList.add('addContact');
+  document.getElementById('template').classList.remove('editContact');
   document.getElementById("innerDialog").classList.remove("d-none");
   document.getElementById("innerDialog").classList.remove("animate__slideOutRight");
   document.getElementById("innerDialog").classList.add("animate__slideInRight");
@@ -67,6 +69,8 @@ function openNewContactPopup() {
 }
 
 async function openEditContactPopup(iconColor, contactName, contactMail, initials, results, phone, id) {
+  document.getElementById('template').classList.remove('addContact');
+  document.getElementById('template').classList.add('editContact');
   document.getElementById("profileIcon").innerHTML = /* HTML */ `
     <span id="popupInitials" class="profileIconBig" style="background-color: ${iconColor};">${initials}</span>
   `;

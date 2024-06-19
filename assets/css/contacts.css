@@ -271,3 +271,7 @@ padding:0px; */
 .closeShowContact {
   display:none;
 }
+
+ #addContactMobileBtn {
+  display: none; 
+} 

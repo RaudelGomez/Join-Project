@@ -122,7 +122,7 @@ function renderSubtaskHTMLPopupTask() {
 
     let containerToDo = document.getElementById('toDoBoard');
     containerToDo.innerHTML = '';
-    let toDo = listTasks.filter(task => task.status == 1)
+    let toDo = listTasks.filter(task => task.status == 1);
     for (let i = 0; i < toDo.length; i++) {
       const task = toDo[i];
       containerToDo.innerHTML += /*html*/`${renderHTMLTasksBoard(task, i,"container-board-subTask-toDo", "usertoDoTask-board")}`
@@ -220,10 +220,12 @@ function renderSubtaskHTMLPopupTask() {
    * This function render the HTML of subtask
    * @param {object} task - That is the complete task.
    * @param {number} i - The index of the task in tasks array
+   * @param {idContainer} idContainerSubTask - idContainer where the progress will be render
    */
   function renderHTMLSubTask(task, i, idContainerSubTask) {
+    console.log(task);
     let containerSubtask = document.getElementById(`${idContainerSubTask}${i}`);
-    containerSubtask.innerHTML = '';
+    //containerSubtask.innerHTML = '';
     if(task['subTasks']){
       containerSubtask.innerHTML = /*html*/`
        <div class="progressContainer">
@@ -238,6 +240,7 @@ function renderSubtaskHTMLPopupTask() {
    * This function render the HTML of name of pople assigned in a Task
    * @param {object} task - That is the complete task.
    * @param {number} i - The index of the task in tasks array
+   * @param {idContainer} idContainerSubTask - idContainer where the user will be render
    */
   function renderHTMLUserinTask(task, i, idContainerUserTask) {
     let userTaskBoard = document.getElementById(`${idContainerUserTask}${i}`);

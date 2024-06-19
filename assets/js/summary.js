@@ -50,14 +50,19 @@ function updatingSummaryData(){
   let doneCount = countTaskSummary(tasksArray, 4);
   let urgentTaskCount = countTaskUrgent(tasksArray);
   let closerUrgentDate = calculateDatePrio();
-  let dateFormat = changeDateFormat(closerUrgentDate)
+  let dateFormat;
+  if(closerUrgentDate){
+    dateFormat = changeDateFormat(closerUrgentDate);
+  }else{
+    dateFormat = "No urgent task";
+  }
   document.getElementById('quantity-task').textContent = `${toDoCount}`;
   document.getElementById('quantity-done').textContent = `${doneCount}`;
   document.getElementById('progress-in-task').textContent = `${progressCount}`;
   document.getElementById('progress-awaiting-feedback').textContent = `${awaitCount}`;
   document.getElementById('task-in-board').textContent = `${tasksCount}`;
   document.getElementById('quantity-urgent').textContent = `${urgentTaskCount}`;
-  document.getElementById('date-urgent').textContent = `${dateFormat}`;
+  document.getElementById('date-urgent').innerHTML = `${dateFormat}`;
 }
 
 /**
@@ -97,12 +102,14 @@ function countTaskUrgent(tasksArray){
  */
 function calculateDatePrio() {
   let allTask = Object.values(tasks);
-  let datesArray = allTask.map(date => date.timeDeadlineTask);
+  let allTaskPrio = allTask.filter(task=> task.priorityTask == "urgent");
+  let datesArray = allTaskPrio.map(date => date.timeDeadlineTask);
   const today = new Date();
   // Initialize variables for the nearest date and the minimum difference
   let dateCloser = null;
   let minimunDiferenceDate = Infinity;
 
+  if(datesArray.length >= 1){
   datesArray.map(date => {
     const currentDate = new Date(date);
     const difference = diferenciaEnDias(currentDate, today);
@@ -113,6 +120,9 @@ function calculateDatePrio() {
     }
   });
   return dateCloser;
+  }else{
+    return null;
+  }
 }
 
 /**

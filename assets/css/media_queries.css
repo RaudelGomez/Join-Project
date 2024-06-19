@@ -48,7 +48,7 @@
   }
 
   #header {
-    padding: 20px 16px;
+    padding: 20px 16px !important;
     gap: 10px;
     z-index: 100;
   }
@@ -81,10 +81,12 @@
     padding: 16px;
   }
 
-  body {
+  #contactDisplay {
 
-    /* overflow-x: hidden; */
+    display: none;
   }
+
+  
 
 
 }

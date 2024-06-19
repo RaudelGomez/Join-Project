@@ -95,7 +95,8 @@
   #innerDialog {
     max-width: unset;
     height: unset;
-    height: 80vh !important;
+    height: 90vh !important;
+    top: 5vh;
   }
   .contactPopup {
     flex-direction: column;
@@ -107,6 +108,7 @@
     width: unset;
     border-bottom-left-radius: unset;
     border-top-right-radius: 30px;
+    height: 351px;
   }
 
   .contactPopup .leftPopup img {
@@ -115,7 +117,11 @@
 
   .contactPopup .rightPopup {
     flex-direction: column;
-    padding-top: 0;
+    padding: 0 16px 32px 16px !important;
+  }
+
+  .contactPopup input {
+    padding-right: 16px;
   }
   #profileIcon {
     margin-top: -65px;
@@ -142,7 +148,24 @@
     width: 56px;
   }
 
+  .contactPopupButtonsDiv {
+    justify-content: center;
+  }
 
+  #contactFormLeftButton {
+    /* display: none; */
+  }
+
+  #contactFormRightButton {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: left;
+    border-radius: 10px;
+    padding: 16px;
+    /* background-color: var(--white); */
+    border: 1px solid #2a3647;
+  }
 
   /* .addContactBtn {
     position: fixed;

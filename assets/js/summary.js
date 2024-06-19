@@ -112,7 +112,6 @@ function calculateDatePrio() {
       dateCloser = date;
     }
   });
-  console.log(dateCloser);
   return dateCloser;
 }
 

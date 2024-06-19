@@ -161,6 +161,7 @@ async function renderContacts() {
 }
 
 function showContact(contactElement, iconColor, contactName, contactMail, initials, results, phone, id) {
+  document.getElementById('contactDisplay').style.display = "unset";
   let contactElements = document.getElementsByClassName("contactBox");
   for (let i = 0; i < contactElements.length; i++) {
     contactElements[i].classList.remove("activeContact");

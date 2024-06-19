@@ -178,4 +178,12 @@ function showContact(contactElement, iconColor, contactName, contactMail, initia
       "onclick",
       `openEditContactPopup('${iconColor}','${contactName}', '${contactMail}','${initials}','${results}','${phone}',${id})`
     ); 
+    document.getElementById("deleteID").setAttribute( "onclick", `deleteContact('${results}') `);
+}
+
+async function deleteContact(firebaseKey){
+  await deleteData('/contacts/'+firebaseKey);
+   renderContacts();
+
+
 }

@@ -213,3 +213,5 @@ async function setColorUser() {
   let indexColor = contactLength % colors.length;
   return indexColor;
 }
+
+

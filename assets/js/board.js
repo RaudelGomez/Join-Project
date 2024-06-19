@@ -1,6 +1,15 @@
+	/**
+	 * This function bring all Data from datBase: contacts & tasks
+	 */
+	async function loadDataBoard() {
+		await loadData('contacts');
+		await loadData('tasks');
+    await renderHTMLBoard();
+    console.log(tasks);
+	}
+
 // Open Popup
 async function openDialog(template, taskId) {
-  currentTask = taskId;
   document.getElementById("innerDialog").classList.remove("d-none");
   document.getElementById("innerDialog").classList.remove("animate__slideOutRight");
   document.getElementById("innerDialog").classList.add("animate__slideInRight");
@@ -13,31 +22,36 @@ async function openDialog(template, taskId) {
 	document.getElementById("showTaskPopup").classList.add("d-none");
   }
   else {
+  dataCurrentTask(taskId)
 	document.getElementById("showTaskPopup").classList.remove("d-none");
 	document.getElementById("addTaskPopup").classList.add("d-none");
+  renderDataHTMLtaskPopupTemplate();
   }    
 }
 
+/**
+ * This function save in the variable currentTask, the data of the task that is showd in pop
+ * @param {string} taskId 
+ */
+function dataCurrentTask(taskId){
+  let allIdTasks = Object.keys(tasks);
+  let allTasks = Object.values(tasks);
+  let idFound = allIdTasks.findIndex(task => task == taskId);
+  currentTask = allTasks[idFound];
+}
 
-// function closeDialog() {
-//   document.getElementById("dialog").classList.remove("animate__fadeIn");
-//   document.getElementById("dialog").classList.add("animate__fadeOut");
-//   document.getElementById("innerDialog").classList.add("animate__slideOutRight");
-//   document.getElementById("innerDialog").classList.remove("animate__slideInRight");
-//   setTimeout(() => {
-//     document.getElementById("dialog").classList.add("d-none");
-//   }, 500);
-//   document.body.classList.remove("noscroll");
-// }
-	/**
-	 * This function bring all Data from datBase: contacts & tasks
-	 */
-	async function loadDataBoard() {
-		await loadData('contacts');
-		await loadData('tasks');
-    await renderHTMLBoard();
-    console.log(tasks);
-	}
+
+function renderDataHTMLtaskPopupTemplate() {
+  console.log(currentTask);
+  let categoryTask = document.getElementById('category-task-show-task');
+  categoryTask.textContent = `${currentTask.categoryTask}`;
+  categoryTask.classList.remove("userStory", "technicalTask");
+  categoryTask.classList.add(categoryColor(currentTask.categoryTask));
+  document.getElementById('title-task-show-task').textContent = `${currentTask.titleTask}`;
+  document.getElementById('description-task-show-task').textContent = `${currentTask.descriptionTask}`;
+  document.getElementById('date-task-show-task').textContent = `${currentTask.timeDeadlineTask}`;
+  document.getElementById('prio-task-show-task').setAttribute('src', `./assets/img/${showingPriorityBoard(currentTask.priorityTask)}`);
+}
 
 	/**
 	 * This timeout was used to avoid the delay when the page is load and the function loadDataBoard
@@ -51,7 +65,7 @@ async function openDialog(template, taskId) {
       const task = listTasks[k];
       task.id = listTaskId[k];
     }
-    
+
     let containerToDo = document.getElementById('toDoBoard');
     containerToDo.innerHTML = '';
     let toDo = listTasks.filter(task => task.status == 1)

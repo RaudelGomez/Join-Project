@@ -120,4 +120,18 @@
   }
   .closeDialog {display: none;}
   .closeDialogWhite {display: unset;}
+
+  .addContactBtn {
+
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    border-radius: 50%;
+  }
+
+  .ContactBtn img {
+    /* display: none; */
+  
+ 
+  }
 }

@@ -133,6 +133,7 @@ async function addTask(status = 1) {
   if (document.getElementById("innerDialog")) {
 	setTimeout(closeDialog, 3000);
   }
+  await loadData('tasks');
 }
 
 /**

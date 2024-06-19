@@ -1,5 +1,6 @@
 // Open Popup
-async function openDialog(template) {
+async function openDialog(template, taskId) {
+  currentTask = taskId;
   document.getElementById("innerDialog").classList.remove("d-none");
   document.getElementById("innerDialog").classList.remove("animate__slideOutRight");
   document.getElementById("innerDialog").classList.add("animate__slideInRight");
@@ -34,8 +35,8 @@ async function openDialog(template) {
 	async function loadDataBoard() {
 		await loadData('contacts');
 		await loadData('tasks');
-    console.log(tasks);
     await renderHTMLBoard();
+    console.log(tasks);
 	}
 
 	/**
@@ -45,6 +46,11 @@ async function openDialog(template) {
 
   async function renderHTMLBoard() {
     let listTasks = Object.values(tasks);
+    let listTaskId = Object.keys(tasks);
+    for (let k = 0; k < listTasks.length; k++) {
+      const task = listTasks[k];
+      task.id = listTaskId[k];
+    }
     
     let containerToDo = document.getElementById('toDoBoard');
     containerToDo.innerHTML = '';
@@ -96,7 +102,7 @@ async function openDialog(template) {
   function renderHTMLTasksBoard(task, i, idContainerSubTask, idContainerUserTask) {
     return /*html*/`
       <article
-        onclick="openDialog('task_popup_template.html')"
+        onclick="openDialog('task_popup_template.html', '${task.id}')"
         class="taskCard"
         draggable="true"
         ondragstart="startDragging(1)">

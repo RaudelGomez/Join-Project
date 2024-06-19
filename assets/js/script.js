@@ -27,6 +27,7 @@ function closeDialog() {
     document.getElementById("dialog").classList.add("d-none");
   }, 500);
   document.body.classList.remove("noscroll");
+  currentTaskId = "";
   currentTask = "";
 }
 

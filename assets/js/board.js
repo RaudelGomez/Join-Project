@@ -37,6 +37,7 @@ function dataCurrentTask(taskId){
   let allIdTasks = Object.keys(tasks);
   let allTasks = Object.values(tasks);
   let idFound = allIdTasks.findIndex(task => task == taskId);
+  currentTaskId = taskId;
   currentTask = allTasks[idFound];
 }
 
@@ -95,9 +96,6 @@ function renderSubtaskHTMLPopupTask() {
         <label for="subTask${i}">${subTask.subTaskName}</label>
       `
       let inputSubTask = document.getElementById(`subTask${i}`);
-      console.log(inputSubTask);
-      console.log(subTask);
-      console.log(subTask.statusSubTask);
       if(subTask.statusSubTask){
         inputSubTask.setAttribute('checked', true);
       }
@@ -105,6 +103,10 @@ function renderSubtaskHTMLPopupTask() {
   }else{
     headlineSubtask.textContent = "";
   }
+}
+
+function editTask1(id) {
+  console.log(id);
 }
 
 	/**

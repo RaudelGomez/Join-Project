@@ -4,6 +4,7 @@ let loggedIn = false;
 let contacts = [];
 let tasks = [];
 let subTasks = [];
+let currentTaskId = "";
 let currentTask = "";
 let priorityTask = "urgent";
 let statusTask = [

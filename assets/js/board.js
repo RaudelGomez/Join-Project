@@ -255,5 +255,13 @@ function renderSubtaskHTMLPopupTask() {
     }
   }
 
+  /**
+   * This function change the type of task. Type of task are: {1:to do}, {2:in progress}, etc.. 
+   * @param {number} typeTask 
+   */
+  function changeTypeOfTask(typeTask) {
+    typeOfTask = typeTask;
+  }
+
 
 

@@ -134,11 +134,13 @@ async function addTask(status = typeOfTask) {
 	setTimeout(closeDialog, 3000);
   }
   await loadData('tasks');
-  // if(renderHTMLBoard()){
-  //   await renderHTMLBoard();
-  // }
+  //Testing if the function exist
+  if(typeof renderHTMLBoard === 'function') {
+    await renderHTMLBoard();
+  }
   typeOfTask = 1;
 }
+
 
 /**
  * This function makes empty all field in the form add task

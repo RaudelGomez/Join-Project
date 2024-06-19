@@ -41,7 +41,9 @@ function dataCurrentTask(taskId){
   currentTask = allTasks[idFound];
 }
 
-
+/**
+ * Render the task pop html 
+ */
 function renderDataHTMLtaskPopupTemplate() {
   let categoryTask = document.getElementById('category-task-show-task');
   categoryTask.textContent = `${currentTask.categoryTask}`;
@@ -103,10 +105,6 @@ function renderSubtaskHTMLPopupTask() {
   }else{
     headlineSubtask.textContent = "";
   }
-}
-
-function editTask1(id) {
-  console.log(id);
 }
 
 	/**

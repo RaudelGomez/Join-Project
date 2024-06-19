@@ -99,7 +99,7 @@ function renderContactsAssignedTask() {
 /**
  * Add a Task in Firebase when the form is sent
  */
-async function addTask(status = 1) {
+async function addTask(status = typeOfTask) {
   selectdNameAssignedtask();
   let titleTask = document.getElementById("title_task");
   let descriptionTask = document.getElementById("description_task");
@@ -134,6 +134,10 @@ async function addTask(status = 1) {
 	setTimeout(closeDialog, 3000);
   }
   await loadData('tasks');
+  // if(renderHTMLBoard()){
+  //   await renderHTMLBoard();
+  // }
+  typeOfTask = 1;
 }
 
 /**

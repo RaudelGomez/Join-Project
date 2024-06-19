@@ -7,6 +7,7 @@ let subTasks = [];
 let currentTaskId = "";
 let currentTask = "";
 let priorityTask = "urgent";
+let typeOfTask = 1;
 let statusTask = [
 	{ id: 1, name: "To do" },
 	{ id: 2, name: "In progress do" },

@@ -50,13 +50,14 @@ function updatingSummaryData(){
   let doneCount = countTaskSummary(tasksArray, 4);
   let urgentTaskCount = countTaskUrgent(tasksArray);
   let closerUrgentDate = calculateDatePrio();
+  let dateFormat = changeDateFormat(closerUrgentDate)
   document.getElementById('quantity-task').textContent = `${toDoCount}`;
   document.getElementById('quantity-done').textContent = `${doneCount}`;
   document.getElementById('progress-in-task').textContent = `${progressCount}`;
   document.getElementById('progress-awaiting-feedback').textContent = `${awaitCount}`;
   document.getElementById('task-in-board').textContent = `${tasksCount}`;
   document.getElementById('quantity-urgent').textContent = `${urgentTaskCount}`;
-  document.getElementById('date-urgent').textContent = `${closerUrgentDate}`;
+  document.getElementById('date-urgent').textContent = `${dateFormat}`;
 }
 
 /**
@@ -124,5 +125,25 @@ function calculateDatePrio() {
 function diferenciaEnDias(date1, date2) {
   const oneDay = 24 * 60 * 60 * 1000; // Milliseconds in a day
   return Math.abs((date1 - date2) / oneDay);
+}
+
+/**
+ * This function change the Format of the Date
+ * @param {Date} dateToChange - That date that it will be reformate
+ * @returns - That is the date in a new Format
+ */
+function changeDateFormat(dateToChange){
+  const date = new Date(dateToChange);
+  const months = [
+    "January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December"
+  ];
+  // get day, month and year
+  const month = months[date.getMonth()];
+  const day = date.getDate();
+  const year = date.getFullYear();
+  // Formating date
+  const dateFormate = `${month} ${day}, ${year}`;
+  return dateFormate;
 }
 

@@ -267,3 +267,7 @@ padding:0px; */
   border: 1px solid var(--blue-bikini);
   box-shadow: 0px 4px 4px 0px #00000040;
 }
+
+.closeShowContact {
+  display:none;
+}

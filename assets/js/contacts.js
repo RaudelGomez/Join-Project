@@ -148,7 +148,7 @@ async function renderContacts() {
     renderContacts.innerHTML += /* HTML */ `
       <div
         onclick="showContact(this,'${iconColor}','${contactName}','${contactMail}','${initials}','${results}','${contactPhone}',${i})"
-        data-id="${results}"
+        
         class="contactBox">
         <span class="profileSmall" style="background-color: ${iconColor}">${initials}</span>
         <div class="contactDetails">
@@ -182,9 +182,13 @@ function showContact(contactElement, iconColor, contactName, contactMail, initia
     document.getElementById("deleteID").setAttribute( "onclick", `deleteContact('${results}') `);
 }
 
+
+function closeShowContact() {
+  document.getElementById('contactDisplay').style.display = "none";
+
+}
+
 async function deleteContact(firebaseKey){
   await deleteData('/contacts/'+firebaseKey);
    renderContacts();
-
-
 }

@@ -58,12 +58,6 @@ a {
   /* animation: joinstart 500ms ease-in-out forwards; */
 }
 
-
-
-
-
-
-
 .signUpButton {
   padding: 15px, 16px, 15px, 16px;
   gap: 10px;
@@ -109,7 +103,7 @@ a {
   height: 493px;
   width: 652px;
   gap: 32px;
-  padding: 48px, 115px, 48px, 115px;
+  padding: 48px 115px 48px 115px;
 }
 
 .loginInputFields {
@@ -226,4 +220,37 @@ input::placeholder {
 .email {
   background: url("../img/mail_icon.svg") no-repeat scroll;
   background-position: 97% center;
+}
+@media only screen and (max-width:800px) {
+  form.loginBox {
+    width: 396px;
+    height: 515px;
+    padding: 32px 0px 32px 0px;
+    gap: 32px;
+  }
+  div.HeadlinerLogin{
+    width: 139px;
+    height: 72px;
+    gap: 16px;
+    font-size: 47px;
+    font-weight: 700;
+    line-height: 56.4px;
+  }
+  input.emailClass{
+    width: 364px;
+    height: 48px;
+    gap: 8px;
+  }
+  input.passwordClass{
+    width: 364px;
+    height: 48px;
+    gap: 8px;
+  }
+  input::placeholder{
+    font-size: 20px !important;
+    font-weight: 400 !important;
+    line-height: 24px !important;
+    width: 322px !important;
+    height: 24px !important;
+  }
 }

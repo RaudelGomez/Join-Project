@@ -248,7 +248,7 @@ h3 {
   font-size: 48px;
 }
 
-.closeDialog {
+.closeDialog, .closeDialogWhite {
   position: fixed;
   top: 24px;
   right: 24px;
@@ -260,6 +260,15 @@ h3 {
   background-color: #eee;
   border-radius: 50%;
 }
+
+.closeDialogWhite {
+display: none;
+
+}
+
+
+
+
 
 /* Main Menu */
 

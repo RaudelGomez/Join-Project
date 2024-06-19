@@ -1,8 +1,8 @@
 @media screen and (max-width: 900px) {
-    #main {
-        margin-left:unset !important;
-        /* width:100%; */
-    }
+  #main {
+    margin-left: unset !important;
+    /* width:100%; */
+  }
   #mainNav {
     flex-direction: row !important;
     gap: 15px !important;
@@ -36,7 +36,7 @@
     top: 90px;
     height: 100vh;
     width: 100vw;
-}
+  }
   #main {
     margin: 0;
   }
@@ -74,19 +74,50 @@
   .contact-list h3 {
     border-bottom: 1px solid #eee;
     padding: 16px;
-}
+  }
 
   .contactBox {
-    gap:24px !important;
+    gap: 24px !important;
     padding: 16px;
   }
 
   #contactDisplay {
-
     display: none;
   }
+  .closeShowContact {
+    display: block;
+    cursor: pointer;
+  }
 
+  #innerDialog {
+    max-width: unset;
+    height: unset;
+    height: 80vh !important;
+  }
+  .contactPopup {
+    flex-direction: column;
+    height: unset;
+    /* height: 50vh !important; */
   
+  }
 
+  .contactPopup .leftPopup {
+    width: unset;
+    border-bottom-left-radius: unset;
+    border-top-right-radius: 30px;
+  }
 
+  .contactPopup .leftPopup img{
+ display: none;
+  }
+
+  .contactPopup .rightPopup {
+    flex-direction: column;
+    padding-top: 0;
+  }
+  #profileIcon {
+    margin-top: -65px;
+  }
+  .closeDialog {display: none;}
+  .closeDialogWhite {display: unset;}
 }

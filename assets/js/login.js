@@ -42,7 +42,7 @@ function login() {
     let results = contact.filter((element) => element.email == email && element.user);
     if (results.length == 0) {
       document.getElementById("email").classList.add("inputRedBorder");
-      document.getElementById("mailError").innerHTML = "Email Adresse ist nicht als Benutzer registriert!";
+      document.getElementById("mailError").innerHTML = "Email adress is not registered as user!";
     } else {
       document.getElementById("email").classList.remove("inputRedBorder");
       document.getElementById("mailError").innerHTML = "";
@@ -50,7 +50,7 @@ function login() {
     results = contact.filter((element) => element.email == email && element.password == password && element.user);
     if (results.length == 0) {
       document.getElementById("password").classList.add("inputRedBorder");
-      document.getElementById("passwordError").innerHTML = "Passwort stimmt nicht!";
+      document.getElementById("passwordError").innerHTML = "Password incorrect!";
     } else {
       document.getElementById("password").classList.remove("inputRedBorder");
       document.getElementById("passwordError").innerHTML = "";

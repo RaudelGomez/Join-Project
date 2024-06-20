@@ -113,7 +113,7 @@ async function addTask(status = typeOfTask) {
       "addTask-alert",
       "Info",
       "info-alert",
-      "You have to fil the field select Task!"
+      "You have to fill the field select Task!"
     );
     return;
   }
@@ -312,7 +312,21 @@ function editingSubTask(i) {
  * @param {Number} i - That is the index of the sub task in the array subTask
  */
 function confirmEditSubTask(i) {
-  subTasks[i].subTaskName = document.getElementById(`input-editing-subTask${i}`).value;
+  let inputEditing = document.getElementById(`input-editing-subTask${i}`).value;
+  if(inputEditing != ""){
+    subTasks[i].subTaskName = inputEditing;
+    showHideConfirmButton(i);
+  }else{
+    inputEditing = subTasks[i].subTaskName
+    showHideConfirmButton(i);
+  }
+}
+
+/**
+ * This function show and hidde that item confirm in addSubtask and show the task
+ * @param {number} i - Index of the item task to modify
+ */
+function showHideConfirmButton(i) {
   document.getElementById(`container-edit-subTask${i}`).classList.add("d-none");
   document.getElementById(`span-link-edit-delete${i}`).classList.remove("d-none");
   showSubTask();

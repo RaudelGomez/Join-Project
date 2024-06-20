@@ -117,8 +117,36 @@ async function updateContact(id, index) {
   document.getElementById("contactPhone").innerHTML = phone;
   document.getElementById("contactMail").innerHTML = mail;
   document.getElementById("initials").innerHTML = getInitials(name);
+  let initials = getInitials(name);
+  document
+  .getElementById("editButton")
+  .setAttribute(
+    "onclick",
+    `openEditContactPopup('${color}','${name}', '${mail}','${initials}','${id}','${phone}',${index})`
+  ); 
+
+  document
+  .getElementById("editButtonMobile")
+  .setAttribute(
+    "onclick",
+    `openEditContactPopup('${color}','${name}', '${mail}','${initials}','${id}','${phone}',${index})`
+  ); 
+
   renderContacts();
 }
+
+
+
+function openContactButtons() {
+document.getElementById('contactMobileEditButtons').classList.remove('d-none');
+
+// alert('contactbuttons geklickt');
+}
+
+function closeContactMenu() {
+  document.getElementById('contactMobileEditButtons').classList.add('d-none');
+  // document.getElementById('contactMobileEditButtons').style.display = "none";
+  }
 
 /**
  * Render ale contacts with alphabetic order in the list
@@ -165,6 +193,21 @@ async function renderContacts() {
 }
 
 function showContact(contactElement, iconColor, contactName, contactMail, initials, results, phone, id) {
+
+  document
+  .getElementById("editButton")
+  .setAttribute(
+    "onclick",
+    `openEditContactPopup('${iconColor}','${contactName}', '${contactMail}','${initials}','${results}','${phone}',${id})`
+  ); 
+  
+  document
+  .getElementById("editButtonMobile")
+  .setAttribute(
+    "onclick",
+    `openEditContactPopup('${iconColor}','${contactName}', '${contactMail}','${initials}','${results}','${phone}',${id})`
+  ); 
+
   document.getElementById('contactDisplay').style.display = "unset";
   let contactElements = document.getElementsByClassName("contactBox");
   for (let i = 0; i < contactElements.length; i++) {
@@ -184,6 +227,7 @@ function showContact(contactElement, iconColor, contactName, contactMail, initia
       `openEditContactPopup('${iconColor}','${contactName}', '${contactMail}','${initials}','${results}','${phone}',${id})`
     ); 
     document.getElementById("deleteID").setAttribute( "onclick", `deleteContact('${results}') `);
+    document.getElementById("deleteIDMobile").setAttribute( "onclick", `deleteContact('${results}') `);
 }
 
 

@@ -210,6 +210,13 @@ select {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
+	bottom: 24px;
+	left: 296px;
+	right: 64px;
+}
+
+.position-fixed{
+	position: fixed;
 }
 
 .container-button-submit-add-task p {
@@ -425,7 +432,7 @@ select {
 	}
 }
 
-@media (max-width: 850px){
+@media (max-width: 900px){
 	#add_task_form .add_task_data {
     gap: 8px;
     flex-direction: column;
@@ -446,18 +453,44 @@ select {
 	}
 
 	.container-button-submit-add-task {
-		position: sticky;
-		left: 32px;
-		right: 32px;
-		bottom: 0;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+		position: sticky !important;
+		left: 32px !important;
+		right: 32px !important;
+		bottom: 80px !important;
 		background-color: var(--main-bg-color);
+		padding: 32px 0 !important;
+	}
+}
+
+@media (max-width: 530px){
+	body{
+		font-size: 14px !important;
 	}
 
-	.container-button-submit-add-task{
-		padding: 32px 0;
+	button{
+		font-size: 14px !important;
+	}
+
+	.btn-submit-addTask{
+		height: auto !important;
+		gap: 0 !important;
+		padding: 8px !important;
+	}
+
+	#btn-clear-add-Task{
+		display: none;
+	}
+
+	.sub-container-addTask {
+		padding: 0 16px;
+	}
+
+	.container-button-submit-add-task {
+		padding: 16px 0;
+	}
+
+	.container-button-submit-add-task p {
+		font-size: 12px;
 	}
 }
 

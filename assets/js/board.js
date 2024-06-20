@@ -377,15 +377,29 @@ function editTask(firebaseKey) {
   showInitialAssign();
 }
  
-  changePriorityEditTask(`${currentTask.priorityTask}`);
- 
+changePriorityEditTask(`${currentTask.priorityTask}`);
 
-  
+//Category Task edit
 document.getElementById('option-selected').innerHTML = currentTask.categoryTask;
 document.getElementById('option-selected').dataset.filled = currentTask.categoryTask.trim();
-// categorySelected(currentTask.categoryTask);
-document.getElementById('technicalTask').disabled = true;
-document.getElementById('userStory').disabled = true;
+document.getElementById('container-select-option').classList.add('pointer-none');
+
+//Change footer edit Task
+document.getElementById('btn-clear-add-Task').classList.add('d-none');
+let footerButtonAddTask = document.getElementById('footer-button-addtask');
+footerButtonAddTask.firstElementChild.classList.add('d-none');
+footerButtonAddTask.classList.add('justify-end');
+let btnCreatetask = document.getElementById('btn-create-task')
+btnCreatetask.firstElementChild.textContent = 'OK';
+btnCreatetask.classList.add('btn-edit-task');
+
+//loading subtasks in the Form edit Task
+subTasks = currentTask.subTasks;
+if(subTasks){
+  showSubTask();
+}else{
+  subTasks = [];
+}
 
 }
 

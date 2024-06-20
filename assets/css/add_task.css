@@ -420,6 +420,19 @@ select {
 	background-color: var(--main-color-dark);
 }
 
+.pointer-none{
+	pointer-events: none;
+}
+
+.justify-end{
+	justify-content: end;
+}
+
+.btn-edit-task{
+	gap: 8px !important;
+	padding: 18px 10px !important;
+}
+
 #container-new-subTask{
 	display: flex;
 	flex-direction: column;

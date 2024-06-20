@@ -30,6 +30,18 @@ function closeDialog() {
   document.body.classList.remove("noscroll");
   currentTaskId = "";
   currentTask = "";
+
+  deleteDataFormTask();
+  document.getElementById('container-select-option').classList.remove('pointer-none');
+
+  //Setting button Create Task again after close form edit
+  document.getElementById('btn-clear-add-Task').classList.remove('d-none');
+  let footerButtonAddTask = document.getElementById('footer-button-addtask');
+  footerButtonAddTask.firstElementChild.classList.remove('d-none');
+  footerButtonAddTask.classList.remove('justify-end');
+  let btnCreatetask = document.getElementById('btn-create-task')
+  btnCreatetask.firstElementChild.textContent = 'Create Task';
+  btnCreatetask.classList.remove('btn-edit-task');
 }
 
 /**

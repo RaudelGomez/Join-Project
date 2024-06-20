@@ -239,7 +239,7 @@ function showSubTask() {
 /**
  * this function show the html of sub task
  * @param {string} subTask - That is the content of the sub task
- * @param {number} i - That is the index in the array subTask: Like thisit can showm every element in the array
+ * @param {number} i - That is the index in the array subTask: Like this it can show every element in the array
  * @returns -Show the HTML ofthe subtask
  */
 function renderHTMLSubTask(subTaskName, i) {

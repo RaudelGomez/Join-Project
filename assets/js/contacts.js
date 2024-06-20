@@ -233,6 +233,7 @@ function showContact(contactElement, iconColor, contactName, contactMail, initia
 
 function closeShowContact() {
   document.getElementById('contactDisplay').style.display = "none";
+  closeContactMenu();
 
 }
 

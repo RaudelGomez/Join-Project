@@ -129,16 +129,8 @@ function renderSubtaskHTMLPopupTask() {
     let toDo = listTasks.filter(task => task.status == 1);
     for (let i = 0; i < toDo.length; i++) {
       const task = toDo[i];
-      let countSubTasksDone = 0;
-      let porcentTaskDone = 0;
-      if(task.subTasks){
-        let allSubTasks = task.subTasks
-        let subTasksDone = allSubTasks.filter(task=> task.statusSubTask == true);
-        countSubTasksDone = subTasksDone.length;
-        porcentTaskDone = (countSubTasksDone/allSubTasks.length)*100;
-      }
-      containerToDo.innerHTML += /*html*/`${renderHTMLTasksBoard(task, i,"container-board-subTask-toDo", "usertoDoTask-board", countSubTasksDone, porcentTaskDone)}`
-      //renderHTMLSubTask(task, i, "container-board-subTask-toDo");
+      const statusSubTask = showStatusSubTask(task);
+      containerToDo.innerHTML += /*html*/`${renderHTMLTasksBoard(task, i,"container-board-subTask-toDo", "usertoDoTask-board", statusSubTask.countSubTasksDone, statusSubTask.porcentTaskDone)}`;
       renderHTMLUserinTask(task, i, "usertoDoTask-board");
     }
 
@@ -147,8 +139,8 @@ function renderSubtaskHTMLPopupTask() {
     let progress = listTasks.filter(task => task.status == 2)
     for (let i = 0; i < progress.length; i++) {
       const task = progress[i];
-      containerProgress.innerHTML += /*html*/`${renderHTMLTasksBoard(task, i,"container-board-subTask-progress", "userProgressTask-board")}`
-      //renderHTMLSubTask(task, i, "container-board-subTask-progress");
+      const statusSubTask = showStatusSubTask(task);
+      containerProgress.innerHTML += /*html*/`${renderHTMLTasksBoard(task, i,"container-board-subTask-progress", "userProgressTask-board", statusSubTask.countSubTasksDone, statusSubTask.porcentTaskDone)}`;
       renderHTMLUserinTask(task, i, "userProgressTask-board");
     }
 
@@ -157,8 +149,8 @@ function renderSubtaskHTMLPopupTask() {
     let awaitFeeback = listTasks.filter(task => task.status == 3)
     for (let i = 0; i < awaitFeeback.length; i++) {
       const task = awaitFeeback[i];
-      containerAwaitFeedBack.innerHTML += /*html*/`${renderHTMLTasksBoard(task, i,"container-board-subTask-awaitFeeback", "userAwaitFeedbackTask-board")}`
-      //renderHTMLSubTask(task, i, "container-board-subTask-awaitFeeback");
+      const statusSubTask = showStatusSubTask(task);
+      containerAwaitFeedBack.innerHTML += /*html*/`${renderHTMLTasksBoard(task, i,"container-board-subTask-awaitFeeback", "userAwaitFeedbackTask-board", statusSubTask.countSubTasksDone, statusSubTask.porcentTaskDone)}`;
       renderHTMLUserinTask(task, i, "userAwaitFeedbackTask-board");
     }
 
@@ -167,10 +159,27 @@ function renderSubtaskHTMLPopupTask() {
     let done = listTasks.filter(task => task.status == 4)
     for (let i = 0; i < done.length; i++) {
       const task = done[i];
-      containerDone.innerHTML += /*html*/`${renderHTMLTasksBoard(task, i,"container-board-subTask-done", "userDoneTask-board")}`
-      //renderHTMLSubTask(task, i, "container-board-subTask-done");
+      const statusSubTask = showStatusSubTask(task);
+      containerDone.innerHTML += /*html*/`${renderHTMLTasksBoard(task, i,"container-board-subTask-done", "userDoneTask-board", statusSubTask.countSubTasksDone, statusSubTask.porcentTaskDone)}`;
       renderHTMLUserinTask(task, i, "userDoneTask-board");
     }
+  }
+
+  /**
+   * This function return how many task has the task and how many are completed
+   * @param {object} task 
+   * @returns How many subTask has the Task, and the % of subTask completed
+   */
+  function showStatusSubTask(task) {
+    let countSubTasksDone = 0;
+    let porcentTaskDone = 0;
+    if(task.subTasks){
+      let allSubTasks = task.subTasks
+      let subTasksDone = allSubTasks.filter(task=> task.statusSubTask == true);
+      countSubTasksDone = subTasksDone.length;
+      porcentTaskDone = (countSubTasksDone/allSubTasks.length)*100;
+    }
+    return {countSubTasksDone, porcentTaskDone};
   }
 
   /**

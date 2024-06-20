@@ -55,6 +55,7 @@ function renderDataHTMLtaskPopupTemplate() {
   document
     .getElementById("prio-task-show-task")
     .setAttribute("src", `./assets/img/${showingPriorityBoard(currentTask.priorityTask)}`);
+  document.getElementById('name-prio').textContent = currentTask.priorityTask;
   renderUserPopupTask();
   renderSubtaskHTMLPopupTask();
 }
@@ -356,8 +357,6 @@ function editTask(firebaseKey) {
   let arrayContact = [];
   if (currentTask.nameAssignedTask) {
 
-
-  
   for (let i = 0; i < currentTask.nameAssignedTask.length; i++) {
     const assignedContact = currentTask.nameAssignedTask[i];
     arrayContact.push(assignedContact);

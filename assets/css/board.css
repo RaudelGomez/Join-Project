@@ -26,6 +26,14 @@
     color: var(--main-color);
 }
 
+.first-letter-uppercase{
+    display: inline-block;
+}
+
+.first-letter-uppercase::first-letter{
+    text-transform: uppercase !important;
+}
+
 #showTaskPopup, #addTaskPopup {
     padding: 32px; 
   }

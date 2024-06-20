@@ -112,6 +112,9 @@ function renderSubtaskHTMLPopupTask() {
 	 */
 	setTimeout(loadDataBoard, 500);
 
+  /**
+   * This function render the cards of tasks in Board
+   */
   async function renderHTMLBoard() {
     let listTasks = Object.values(tasks);
     let listTaskId = Object.keys(tasks);
@@ -125,8 +128,16 @@ function renderSubtaskHTMLPopupTask() {
     let toDo = listTasks.filter(task => task.status == 1);
     for (let i = 0; i < toDo.length; i++) {
       const task = toDo[i];
-      containerToDo.innerHTML += /*html*/`${renderHTMLTasksBoard(task, i,"container-board-subTask-toDo", "usertoDoTask-board")}`
-      renderHTMLSubTask(task, i, "container-board-subTask-toDo");
+      let countSubTasksDone = 0;
+      let porcentTaskDone = 0;
+      if(task.subTasks){
+        let allSubTasks = task.subTasks
+        let subTasksDone = allSubTasks.filter(task=> task.statusSubTask == true);
+        countSubTasksDone = subTasksDone.length;
+        porcentTaskDone = (countSubTasksDone/allSubTasks.length)*100;
+      }
+      containerToDo.innerHTML += /*html*/`${renderHTMLTasksBoard(task, i,"container-board-subTask-toDo", "usertoDoTask-board", countSubTasksDone, porcentTaskDone)}`
+      //renderHTMLSubTask(task, i, "container-board-subTask-toDo");
       renderHTMLUserinTask(task, i, "usertoDoTask-board");
     }
 
@@ -136,7 +147,7 @@ function renderSubtaskHTMLPopupTask() {
     for (let i = 0; i < progress.length; i++) {
       const task = progress[i];
       containerProgress.innerHTML += /*html*/`${renderHTMLTasksBoard(task, i,"container-board-subTask-progress", "userProgressTask-board")}`
-      renderHTMLSubTask(task, i, "container-board-subTask-progress");
+      //renderHTMLSubTask(task, i, "container-board-subTask-progress");
       renderHTMLUserinTask(task, i, "userProgressTask-board");
     }
 
@@ -146,7 +157,7 @@ function renderSubtaskHTMLPopupTask() {
     for (let i = 0; i < awaitFeeback.length; i++) {
       const task = awaitFeeback[i];
       containerAwaitFeedBack.innerHTML += /*html*/`${renderHTMLTasksBoard(task, i,"container-board-subTask-awaitFeeback", "userAwaitFeedbackTask-board")}`
-      renderHTMLSubTask(task, i, "container-board-subTask-awaitFeeback");
+      //renderHTMLSubTask(task, i, "container-board-subTask-awaitFeeback");
       renderHTMLUserinTask(task, i, "userAwaitFeedbackTask-board");
     }
 
@@ -156,7 +167,7 @@ function renderSubtaskHTMLPopupTask() {
     for (let i = 0; i < done.length; i++) {
       const task = done[i];
       containerDone.innerHTML += /*html*/`${renderHTMLTasksBoard(task, i,"container-board-subTask-done", "userDoneTask-board")}`
-      renderHTMLSubTask(task, i, "container-board-subTask-done");
+      //renderHTMLSubTask(task, i, "container-board-subTask-done");
       renderHTMLUserinTask(task, i, "userDoneTask-board");
     }
   }
@@ -167,7 +178,8 @@ function renderSubtaskHTMLPopupTask() {
    * @param {number} i - The index of the task in tasks array
    * @returns 
    */
-  function renderHTMLTasksBoard(task, i, idContainerSubTask, idContainerUserTask) {
+  function renderHTMLTasksBoard(task, i, idContainerSubTask, idContainerUserTask, countSubTasksDone, porcentTaskDone) {    
+    let subTasks = task['subTasks'];
     return /*html*/`
       <article
         onclick="openDialog('task_popup_template.html', '${task.id}')"
@@ -177,7 +189,16 @@ function renderSubtaskHTMLPopupTask() {
         <span class="category ${categoryColor(task.categoryTask)}">${task.categoryTask}</span>
         <h3 class="taskTitle">${task.titleTask}</h3>
         <p class="taskDesription">${task.descriptionTask}</p>
-        <div id="${idContainerSubTask}${i}" class="subtasks"></div>
+        <div id="${idContainerSubTask}${i}" class="subtasks">
+          ${task['subTasks'] ? 
+            `<div class="progressContainer">
+              <div class="progress" style="width: ${porcentTaskDone}%"></div>
+            </div>` : ''
+          }
+          <div>
+            <span>${subTasks ? countSubTasksDone+'/'+subTasks.length+' Subtasks' : ''}</span>
+          </div>
+        </div>
         <footer>
           <div id="${idContainerUserTask}${i}" class="user"></div>
           <div class="priority">
@@ -216,25 +237,25 @@ function renderSubtaskHTMLPopupTask() {
     }
   }
 
-  /**
-   * This function render the HTML of subtask
-   * @param {object} task - That is the complete task.
-   * @param {number} i - The index of the task in tasks array
-   * @param {idContainer} idContainerSubTask - idContainer where the progress will be render
-   */
-  function renderHTMLSubTask(task, i, idContainerSubTask) {
-    console.log(task);
-    let containerSubtask = document.getElementById(`${idContainerSubTask}${i}`);
-    //containerSubtask.innerHTML = '';
-    if(task['subTasks']){
-      containerSubtask.innerHTML = /*html*/`
-       <div class="progressContainer">
-         <div class="progress" style="width: 50%"></div>
-       </div>
-       <div><span>1</span>/<span>${task['subTasks'].length}</span> Subtasks</div>
-     `
-    }
-  }
+  // /**
+  //  * This function render the HTML of subtask
+  //  * @param {object} task - That is the complete task.
+  //  * @param {number} i - The index of the task in tasks array
+  //  * @param {idContainer} idContainerSubTask - idContainer where the progress will be render
+  //  */
+  // function renderHTMLSubTask(task, i, idContainerSubTask) {
+  //   console.log(task);
+  //   let containerSubtask = document.getElementById(`${idContainerSubTask}${i}`);
+  //   containerSubtask.innerHTML = '';
+  //   if(task.subTasks){
+  //     containerSubtask.innerHTML += /*html*/`
+  //      <div class="progressContainer">
+  //        <div class="progress" style="width: 50%"></div>
+  //      </div>
+  //      <div><span>1</span>/<span>${task['subTasks'].length}</span><span>Subtasks</span></div>
+  //    `
+  //   }
+  // }
 
     /**
    * This function render the HTML of name of pople assigned in a Task

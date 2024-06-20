@@ -327,3 +327,7 @@ async function updateSubTask(firebaseKey, subtaskId) {
    await putData(isChecked, idString);
    loadDataBoard();
 }
+
+function editTask(firebaseKey) {
+console.log(firebaseKey);
+}

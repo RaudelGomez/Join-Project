@@ -210,6 +210,11 @@ select {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
+	position: fixed;
+	bottom: 24px;
+	left: 296px;
+	right: 64px;
+   
 }
 
 .container-button-submit-add-task p {
@@ -446,15 +451,12 @@ select {
 	}
 
 	.container-button-submit-add-task {
-		position: sticky;
-		left: 32px;
-		right: 32px;
-		bottom: 80px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+		position: sticky !important;
+		left: 32px !important;
+		right: 32px !important;
+		bottom: 80px !important;
 		background-color: var(--main-bg-color);
-		padding: 32px 0;
+		padding: 32px 0 !important;
 	}
 }
 

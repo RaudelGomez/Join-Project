@@ -198,19 +198,19 @@ async function renderHTMLBoard() {
 
 /**
  * This function return how many subTask has the Task and what ist the % of subTask completed
- * @param {object} task - That is that object subtask 
+ * @param {object} task - That is that object subtask
  * @returns return how many subTask has the Task and what ist the % of subTask completed
  */
 function showStatusSubTask(task) {
   let countSubTasksDone = 0;
-    let porcentTaskDone = 0;
-    if (task.subTasks) {
-      let allSubTasks = task.subTasks;
-      let subTasksDone = allSubTasks.filter((task) => task.statusSubTask == true);
-      countSubTasksDone = subTasksDone.length;
-      porcentTaskDone = (countSubTasksDone / allSubTasks.length) * 100;
-    }
-    return {countSubTasksDone, porcentTaskDone};
+  let porcentTaskDone = 0;
+  if (task.subTasks) {
+    let allSubTasks = task.subTasks;
+    let subTasksDone = allSubTasks.filter((task) => task.statusSubTask == true);
+    countSubTasksDone = subTasksDone.length;
+    porcentTaskDone = (countSubTasksDone / allSubTasks.length) * 100;
+  }
+  return { countSubTasksDone, porcentTaskDone };
 }
 
 /**
@@ -338,11 +338,61 @@ async function deleteTask(firebaseKey) {
 
 async function updateSubTask(firebaseKey, subtaskId) {
   let isChecked = document.getElementById(`subTask${subtaskId}`).checked;
-   let idString = `/tasks/${firebaseKey}/subTasks/${subtaskId}/statusSubTask`;
-   await putData(isChecked, idString);
-   loadDataBoard();
+  let idString = `/tasks/${firebaseKey}/subTasks/${subtaskId}/statusSubTask`;
+  await putData(isChecked, idString);
+  loadDataBoard();
 }
 
 function editTask(firebaseKey) {
-console.log(firebaseKey);
+  // console.log(firebaseKey);
+  
+  openDialog("add_task_template.html");
+  let firstChild = document.getElementById("addTaskPopup").firstElementChild;
+  firstChild.innerHTML = "";
+  document.getElementById("title_task").value = currentTask.titleTask;
+  document.getElementById("description_task").value = currentTask.descriptionTask;
+  document.getElementById("due_date_task").value = currentTask.timeDeadlineTask;
+
+  let arrayContact = [];
+  if (currentTask.nameAssignedTask) {
+
+
+  
+  for (let i = 0; i < currentTask.nameAssignedTask.length; i++) {
+    const assignedContact = currentTask.nameAssignedTask[i];
+    arrayContact.push(assignedContact);
+    // console.log(assignedContact.email);
+    let allContacts = document.getElementById("assigned-task");
+    let allLabel = allContacts.querySelectorAll("label");
+    for (const label of allLabel) {
+      // console.log(label);
+      let i = label.dataset.id;
+      // console.log(i);
+      if (label.dataset.email == assignedContact.email) {
+        let checkbox = document.getElementById(`checkBoxAssigned${i}`);
+        checkbox.checked = true;
+      }
+    }
+  }
+  showInitialAssign();
+}
+ 
+  changePriorityEditTask(`${currentTask.priorityTask}`);
+ 
+
+  
+document.getElementById('option-selected').innerHTML = currentTask.categoryTask;
+document.getElementById('option-selected').dataset.filled = currentTask.categoryTask.trim();
+// categorySelected(currentTask.categoryTask);
+document.getElementById('technicalTask').disabled = true;
+document.getElementById('userStory').disabled = true;
+
+}
+
+function changePriorityEditTask(idPriorityButton) { 
+  document.getElementById("button-urgent-priority").classList.remove("active");
+  document.getElementById("button-medium-priority").classList.remove("active");
+  document.getElementById("button-low-priority").classList.remove("active");
+  document.getElementById(`button-${idPriorityButton}-priority`).classList.add("active");
+  priorityTask = document.getElementById(`button-${idPriorityButton}-priority`).dataset.prio;
 }

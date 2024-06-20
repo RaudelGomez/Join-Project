@@ -30,7 +30,7 @@ function showCheckboxes() {
  * Field name is Prio
  */
 function changePriority(idPriorityButton) {
-  document.getElementById("button-high-priority").classList.remove("active");
+  document.getElementById("button-urgent-priority").classList.remove("active");
   document.getElementById("button-medium-priority").classList.remove("active");
   document.getElementById("button-low-priority").classList.remove("active");
   document.getElementById(`${idPriorityButton}`).classList.add("active");
@@ -41,11 +41,11 @@ function changePriority(idPriorityButton) {
  * This function reset the priorityTask variable in data.js
  */
 function resetPriority() {
-  document.getElementById("button-high-priority").classList.remove("active");
+  document.getElementById("button-urgent-priority").classList.remove("active");
   document.getElementById("button-medium-priority").classList.remove("active");
   document.getElementById("button-low-priority").classList.remove("active");
-  document.getElementById("button-high-priority").classList.add("active");
-  priorityTask = "urgent";
+  document.getElementById("button-medium-priority").classList.add("active");
+  priorityTask = "medium";
 }
 
 /**

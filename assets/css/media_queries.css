@@ -288,3 +288,9 @@ display: none;
     display: unset; 
   } */
 }
+
+@media (max-width: 500px){
+  h2{
+    font-size: 48px !important;
+  }
+}

@@ -102,7 +102,7 @@ function countTaskUrgent(tasksArray){
  */
 function calculateDatePrio() {
   let allTask = Object.values(tasks);
-  let allTaskPrio = allTask.filter(task=> task.priorityTask == "urgent");
+  let allTaskPrio = allTask.filter(task=> task.priorityTask == "urgent" && task.status != 4);
   let datesArray = allTaskPrio.map(date => date.timeDeadlineTask);
   const today = new Date();
   // Initialize variables for the nearest date and the minimum difference

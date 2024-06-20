@@ -266,5 +266,11 @@ function renderSubtaskHTMLPopupTask() {
     typeOfTask = typeTask;
   }
 
+  async function deleteTask(firebaseKey){
+    await deleteData('/tasks/'+firebaseKey);
+    loadDataBoard();
+  }
 
-
+  async function updateSubTask(firebaseKey){
+   
+  }

@@ -20,6 +20,7 @@ async function openDialog(template, taskId) {
   if (template=="add_task_template.html") {
 	document.getElementById("addTaskPopup").classList.remove("d-none");
 	document.getElementById("showTaskPopup").classList.add("d-none");
+  document.getElementById('footer-button-addtask').classList.remove('position-fixed');
   }
   else {
   dataCurrentTask(taskId)

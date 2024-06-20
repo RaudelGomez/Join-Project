@@ -210,11 +210,13 @@ select {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	position: fixed;
 	bottom: 24px;
 	left: 296px;
 	right: 64px;
-   
+}
+
+.position-fixed{
+	position: fixed;
 }
 
 .container-button-submit-add-task p {

@@ -47,8 +47,9 @@
           <main class="boardSections">
             <section>
               <header>
+                <!-- This area is for the SVG Icons.  -->
                 <h3>To do</h3>
-                <svg
+                <svg 
                   onclick="changeTypeOfTask(1), openDialog('add_task_template.html')"
                   class="svgIcon"
                   width="24"
@@ -79,12 +80,20 @@
                     stroke-linecap="round" />
                 </svg>
               </header>
+              <!-- <div
+                class="drag-area"
+                id="toDoBoard"
+                ondrop="moveTo(1)"
+                ondragleave="removeHighlight('toDo')"
+                ondragover="allowDrop(event); highlight('toDo')">
+                <article id="container-todo" class="emptyTaskCard">No tasks To do</article>
+              </div> -->
               <div
                 class="drag-area"
                 id="toDoBoard"
-                ondrop="moveTo('toDo')"
-                ondragleave="removeHighlight('toDo')"
-                ondragover="allowDrop(event); highlight('toDo')">
+                ondrop="moveTo(1)"
+                ondragover="allowDrop(event)"
+                >
                 <article id="container-todo" class="emptyTaskCard">No tasks To do</article>
               </div>
             </section>
@@ -125,9 +134,9 @@
               <div
                 class="drag-area"
                 id="inProgress"
-                ondrop="moveTo('inProgress')"
-                ondragleave="removeHighlight('inProgress')"
-                ondragover="allowDrop(event); highlight('inProgress')">
+                ondrop="moveTo(2)"
+                ondragover="allowDrop(event)"
+                >
               </div>
             </section>
             <section>
@@ -167,9 +176,9 @@
               <div
                 class="drag-area"
                 id="awaitFeedback"
-                ondrop="moveTo('awaitFeedback')"
-                ondragleave="removeHighlight('awaitFeedback')"
-                ondragover="allowDrop(event); highlight('awaitFeedback')">
+                ondrop="moveTo(3)"
+                ondragover="allowDrop(event)"
+               >
               </div>
             </section>
             <section>
@@ -179,9 +188,9 @@
               <div
                 class="drag-area"
                 id="done"
-                ondrop="moveTo('done')"
-                ondragleave="removeHighlight('done')"
-                ondragover="allowDrop(event); highlight('done')">
+                ondrop="moveTo(4)"
+                ondragover="allowDrop(event)"
+               >
               </div>
             </section>
           </main>

@@ -20,7 +20,7 @@
 //     'category': 'toDo'
 // }];
 
-let currentDraggedElement;
+
 
 // function updateHTML() {
 //     let open = tasks.filter(t => t['status'] == 'open');
@@ -43,7 +43,8 @@ let currentDraggedElement;
 // }
 
 function startDragging(id) {
-    currentDraggedElement = id;
+    currentDragElement = id;
+    console.log(id);
 }
 
 // function generateTodoHTML(element) {
@@ -54,10 +55,17 @@ function allowDrop(ev) {
     ev.preventDefault();
 }
 
-function moveTo(status) {    
-    // console.log(status);
-    tasks[currentDraggedElement]['status'] = status;
-    // updateHTML();
+async function moveTo(status) {
+    console.log(status); 
+      
+    let firebaseURL=
+    `
+    /tasks/${currentDragElement}/status 
+    `;
+    console.log(firebaseURL);
+    await putData(status, firebaseURL);
+    loadDataBoard();
+    
 }
 
 function highlight(id) {

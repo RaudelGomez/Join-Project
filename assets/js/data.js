@@ -29,4 +29,5 @@ let colors = [
 	{ id: "brimstone", color: "#ffbb2b" },
 ];
 
+let currentDragElement;
 

@@ -105,16 +105,19 @@ function calculateDatePrio() {
   let dateCloser = null;
   let minimunDiferenceDate = Infinity;
 
-  if(datesArray.length >= 1){
-  datesArray.map(date => {
-    const currentDate = new Date(date);
-    const difference = diferenciaEnDias(currentDate, today);
-    // Update if we find a date with a smaller difference
-    if (difference < minimunDiferenceDate) {
-      minimunDiferenceDate = difference;
-      dateCloser = date;
-    }
-  });
+  if (datesArray.length >= 1) {
+    datesArray.forEach(date => {
+      const currentDate = new Date(date);
+      // Only consider dates that are today or in the future
+      if (currentDate >= today) {
+        const difference = calculateDays(currentDate, today);
+        // Update if we find a date with a smaller difference
+        if (difference < minimunDiferenceDate) {
+          minimunDiferenceDate = difference;
+          dateCloser = date;
+        }
+      }
+    });
   return dateCloser;
   }else{
     return null;
@@ -127,9 +130,9 @@ function calculateDatePrio() {
  * @param {Date} date2 - First Date to compare
  * @returns 
  */
-function diferenciaEnDias(date1, date2) {
+function calculateDays(date1, date2) {
   const oneDay = 24 * 60 * 60 * 1000; // Milliseconds in a day
-  return Math.abs((date1 - date2) / oneDay);
+  return Math.floor((date1 - date2) / oneDay);
 }
 
 /**

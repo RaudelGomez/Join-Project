@@ -376,8 +376,10 @@ function editTask(firebaseKey) {
       }
     }
   }
-  // showCheckboxes();
+  //First Open checkBox, Second Show Names, Third Close Checkboxes
+  showCheckboxes();
   showInitialAssign();
+  showCheckboxes();
 }
  
 changePriorityEditTask(`${currentTask.priorityTask}`);

@@ -48,14 +48,18 @@ function closeDialog() {
   // btnCreatetask.classList.remove('btn-edit-task');
 }
 
-function closeTaskPop() {
-  closeDialog();
+function closeDropDownAssignUser() {
+  //Close dropdown assigned to user
   let assignedTask = document.getElementById("assigned-task");
-if (assignedTask.classList.contains('assigned-task-show')) {
-  assignedTask.classList.remove("assigned-task-show");
-  assignedTask.classList.add("assigned-task-hidden");
+  if (assignedTask.classList.contains('assigned-task-show')) {
+    assignedTask.classList.remove("assigned-task-show");
+    assignedTask.classList.add("assigned-task-hidden");
+  }
 }
 
+function closeTaskPop() {
+  closeDialog();
+  closeDropDownAssignUser();
 
 // let assignedTask = document.getElementById("assigned-task");
 // assignedTask.classList.toggle("assigned-task-hidden");
@@ -67,7 +71,7 @@ if (assignedTask.classList.contains('assigned-task-show')) {
   }
   currentTaskId = "";
   currentTask = "";
-  
+  deleteDataFormTask();
   document.getElementById('container-select-option').classList.remove('pointer-none');
   //Setting button Create Task again after close form edit
   document.getElementById('btn-clear-add-Task').classList.remove('d-none');
@@ -77,7 +81,11 @@ if (assignedTask.classList.contains('assigned-task-show')) {
   let btnCreatetask = document.getElementById('btn-create-task')
   btnCreatetask.firstElementChild.textContent = 'Create Task';
   btnCreatetask.classList.remove('btn-edit-task');
-  deleteDataFormTask();
+  
+  if(document.getElementById('addTaskPopup')){
+    let firstChild = document.getElementById("addTaskPopup").firstElementChild;
+    firstChild.innerHTML = "Add Task";
+  }
 }
 
 /**

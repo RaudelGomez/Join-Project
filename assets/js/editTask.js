@@ -36,21 +36,15 @@ async function saveEditedTask() {
 
 //   console.log(task);
   await putData(task, `/tasks/${currentTaskId}`);  
-  
-  showAlert("container-addTask-alert", "addTask-alert", "Success", "succes-alert", "The Task was edited successfully!");
- 
-//   if (document.getElementById("innerDialog")) {
-//     setTimeout(closeDialog, 2000);
-//   }
-//   loadDataBoard();
+  // deleteDataFormTask();
+  // closeDropDownAssignUser();
   await loadData('tasks');
   //Testing if the function exist
   if(typeof renderHTMLBoard === 'function') {
     await renderHTMLBoard();
   }
-  deleteDataFormTask();
   openDialog('task_popup_template.html', `${currentTaskId}`)
-  
-
+  //showCheckboxes();
+  closeDropDownAssignUser();
   typeOfTask = 1;
 }

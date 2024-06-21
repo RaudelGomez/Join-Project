@@ -1,3 +1,6 @@
+/**
+ * This Function render the Summary page
+ */
 async function initSummary(){
   await loadData('tasks');
   getTimeOfDay();
@@ -5,6 +8,9 @@ async function initSummary(){
   updatingSummaryData();
 }
 
+/**
+ * Initializing the Summary Page 
+ */
 initSummary();
 
 /**

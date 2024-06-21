@@ -18,6 +18,7 @@ async function openDialog(template, taskId) {
   document.getElementById("dialog").classList.remove("d-none");
   document.body.classList.add("noscroll");
   if (template == "add_task_template.html") {
+    document.getElementById("add_task_form").setAttribute("onsubmit","addTask(); return false;")
     document.getElementById("addTaskPopup").classList.remove("d-none");
     document.getElementById("showTaskPopup").classList.add("d-none");
     document.getElementById("footer-button-addtask").classList.remove("position-fixed");
@@ -351,11 +352,11 @@ function editTask(firebaseKey) {
   openDialog("add_task_template.html");
   let firstChild = document.getElementById("addTaskPopup").firstElementChild;
   firstChild.innerHTML = "";
-  document.getElementById("add_task_form").setAttribute("onsubmit","saveEditedTask()")
+  document.getElementById("add_task_form").setAttribute("onsubmit","saveEditedTask(); return false;")
   document.getElementById("title_task").value = currentTask.titleTask;
   document.getElementById("description_task").value = currentTask.descriptionTask;
   document.getElementById("due_date_task").value = currentTask.timeDeadlineTask;
-
+  // showCheckboxes();
   let arrayContact = [];
   if (currentTask.nameAssignedTask) {
 
@@ -375,6 +376,7 @@ function editTask(firebaseKey) {
       }
     }
   }
+  // showCheckboxes();
   showInitialAssign();
 }
  

@@ -24,20 +24,51 @@ function closeDialog() {
   document.getElementById("dialog").classList.add("d-none");
   document.getElementById("innerDialog").classList.add("animate__slideOutRight");
   document.getElementById("innerDialog").classList.remove("animate__slideInRight");
-  if (document.getElementById('footer-button-addtask')) {
-    document.getElementById('footer-button-addtask').classList.add('position-fixed');
-  }
+  // if (document.getElementById('footer-button-addtask')) {
+  //   document.getElementById('footer-button-addtask').classList.add('position-fixed');
+  // }
   
   setTimeout(() => {
     document.getElementById("dialog").classList.add("d-none");
   }, 500);
   document.body.classList.remove("noscroll");
+  // currentTaskId = "";
+  // currentTask = "";
+
+  // deleteDataFormTask();
+  // document.getElementById('container-select-option').classList.remove('pointer-none');
+
+  // //Setting button Create Task again after close form edit
+  // document.getElementById('btn-clear-add-Task').classList.remove('d-none');
+  // let footerButtonAddTask = document.getElementById('footer-button-addtask');
+  // footerButtonAddTask.firstElementChild.classList.remove('d-none');
+  // footerButtonAddTask.classList.remove('justify-end');
+  // let btnCreatetask = document.getElementById('btn-create-task')
+  // btnCreatetask.firstElementChild.textContent = 'Create Task';
+  // btnCreatetask.classList.remove('btn-edit-task');
+}
+
+function closeTaskPop() {
+  closeDialog();
+  let assignedTask = document.getElementById("assigned-task");
+if (assignedTask.classList.contains('assigned-task-show')) {
+  assignedTask.classList.remove("assigned-task-show");
+  assignedTask.classList.add("assigned-task-hidden");
+}
+
+
+// let assignedTask = document.getElementById("assigned-task");
+// assignedTask.classList.toggle("assigned-task-hidden");
+// assignedTask.classList.toggle("assigned-task-show");
+
+  // showCheckboxes();
+  if (document.getElementById('footer-button-addtask')) {
+    document.getElementById('footer-button-addtask').classList.add('position-fixed');
+  }
   currentTaskId = "";
   currentTask = "";
-
-  deleteDataFormTask();
+  
   document.getElementById('container-select-option').classList.remove('pointer-none');
-
   //Setting button Create Task again after close form edit
   document.getElementById('btn-clear-add-Task').classList.remove('d-none');
   let footerButtonAddTask = document.getElementById('footer-button-addtask');
@@ -46,6 +77,7 @@ function closeDialog() {
   let btnCreatetask = document.getElementById('btn-create-task')
   btnCreatetask.firstElementChild.textContent = 'Create Task';
   btnCreatetask.classList.remove('btn-edit-task');
+  deleteDataFormTask();
 }
 
 /**

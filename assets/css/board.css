@@ -37,3 +37,5 @@
 #showTaskPopup, #addTaskPopup {
     padding: 32px; 
   }
+
+.drag-area {height:100vh}

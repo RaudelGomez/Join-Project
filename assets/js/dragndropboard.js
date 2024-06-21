@@ -55,17 +55,11 @@ function allowDrop(ev) {
     ev.preventDefault();
 }
 
-async function moveTo(status) {
-    console.log(status); 
-      
+async function moveTo(status) {      
     let firebaseURL=
-    `
-    /tasks/${currentDragElement}/status 
-    `;
-    console.log(firebaseURL);
+    `/tasks/${currentDragElement}/status`; 
     await putData(status, firebaseURL);
-    loadDataBoard();
-    
+    loadDataBoard();    
 }
 
 function highlight(id) {

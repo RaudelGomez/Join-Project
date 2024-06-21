@@ -42,9 +42,9 @@
 //     }
 // }
 
-function startDragging(id) {
+function startDragging(id, cardElement) {
     currentDragElement = id;
-    // console.log(id);
+    cardElement.classList.add("rotateCard");
 }
 
 // function generateTodoHTML(element) {

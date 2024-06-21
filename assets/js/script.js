@@ -21,9 +21,13 @@ function getInitials(name) {
 function closeDialog() {
   document.getElementById("dialog").classList.remove("animate__fadeIn");
   document.getElementById("dialog").classList.add("animate__fadeOut");
+  document.getElementById("dialog").classList.add("d-none");
   document.getElementById("innerDialog").classList.add("animate__slideOutRight");
   document.getElementById("innerDialog").classList.remove("animate__slideInRight");
-  document.getElementById('footer-button-addtask').classList.add('position-fixed');
+  if (document.getElementById('footer-button-addtask')) {
+    document.getElementById('footer-button-addtask').classList.add('position-fixed');
+  }
+  
   setTimeout(() => {
     document.getElementById("dialog").classList.add("d-none");
   }, 500);

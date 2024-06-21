@@ -87,13 +87,9 @@ function countTaskSummary(tasksArray, state){
  * @returns - count of tasks with the priotity: urgent
  */
 function countTaskUrgent(tasksArray){
-  let allTasks = tasksArray.filter(tasksUrgent);
+  let allTasks = tasksArray.filter(task => task.priorityTask == "urgent" && task.status != 4);
   let urgentLength = allTasks.length;
   return urgentLength;
-
-  function tasksUrgent(task){
-    return task.priorityTask == "urgent";
-  }
 }
 
 /**

@@ -351,6 +351,7 @@ function editTask(firebaseKey) {
   openDialog("add_task_template.html");
   let firstChild = document.getElementById("addTaskPopup").firstElementChild;
   firstChild.innerHTML = "";
+  document.getElementById("add_task_form").setAttribute("onsubmit","saveEditedTask()")
   document.getElementById("title_task").value = currentTask.titleTask;
   document.getElementById("description_task").value = currentTask.descriptionTask;
   document.getElementById("due_date_task").value = currentTask.timeDeadlineTask;

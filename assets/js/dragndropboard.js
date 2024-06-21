@@ -44,7 +44,7 @@
 
 function startDragging(id) {
     currentDragElement = id;
-    console.log(id);
+    // console.log(id);
 }
 
 // function generateTodoHTML(element) {

@@ -5,7 +5,7 @@ async function loadDataBoard() {
   await loadData("contacts");
   await loadData("tasks");
   await renderHTMLBoard();
-  console.log(tasks);
+  // console.log(tasks);
 }
 
 // Open Popup

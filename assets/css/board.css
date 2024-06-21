@@ -39,3 +39,7 @@
   }
 
 .drag-area {height:100vh}
+
+.rotateCard{
+    transform:rotate(20deg);
+}

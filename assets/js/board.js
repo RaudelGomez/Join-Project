@@ -228,7 +228,7 @@ function renderHTMLTasksBoard(task, i, idContainerSubTask, idContainerUserTask, 
         onclick="openDialog('task_popup_template.html', '${task.id}')"
         class="taskCard"
         draggable="true"
-        ondragstart="startDragging('${task.id}')">
+        ondragstart="startDragging('${task.id}',this)">
         <span class="category ${categoryColor(task.categoryTask)}">${task.categoryTask}</span>
         <h3 class="taskTitle">${task.titleTask}</h3>
         <p class="taskDesription">${task.descriptionTask}</p>

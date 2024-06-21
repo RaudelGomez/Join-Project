@@ -188,8 +188,14 @@ display: none;
   #innerDialog {
     max-width: unset;
     height: unset;
-    height: 90vh !important;
-    top: 5vh;
+    height: 100vh !important;
+    top: 0;
+  }
+
+  .contactPopup input {
+
+    margin-bottom:15px;
+  }
   }
   .contactPopup {
     flex-direction: column;
@@ -201,7 +207,7 @@ display: none;
     width: unset;
     border-bottom-left-radius: unset;
     border-top-right-radius: 30px;
-    height: 351px;
+    max-height: 352px;
   }
 
   .contactPopup .leftPopup img {

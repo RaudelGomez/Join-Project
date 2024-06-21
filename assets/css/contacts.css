@@ -1,7 +1,13 @@
+.horizontal-line {display: none;}
+
+.contactDisplay .sub-container .headline p {
+  font-size:27px !important;
+}
+
 #innerDialog {
   /* width: 1212px !important; */
   max-width: 1212px;
-  height: 592px;
+  /* height: 592px; */
 }
 
 .contactsContainer {
@@ -19,6 +25,23 @@
 /* #contactMobileEditButtons,  */
 #openContactButtons {
   display: none;
+}
+
+.sub-container .vertical-line {
+  min-width: 3px;
+  height: 59px;
+  background-color: var(--blue-bikini);
+  border-radius:16px;
+}
+
+#contactInfo h3 {
+ 
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 56.4px;
+  text-align: left;
+  
+
 }
 
 .closeContactMenu {

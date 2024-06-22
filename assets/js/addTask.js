@@ -20,7 +20,7 @@ setTimeout(initAddTask, 500);
  * The Field name is assigned to
  */
 function showCheckboxes() {
-  console.log("showing");
+  // console.log("showing");
   let assignedTask = document.getElementById("assigned-task");
   assignedTask.classList.toggle("assigned-task-hidden");
   assignedTask.classList.toggle("assigned-task-show");

@@ -1,5 +1,6 @@
 let contactDetails = {};
 renderContacts();
+loadData("tasks");
 
 /**
  * This function add a new contact in the contact page
@@ -46,8 +47,8 @@ function clearForm(formid) {
  * Open popup window for add new contact
  */
 function openNewContactPopup() {
-  document.getElementById('template').classList.add('addContact');
-  document.getElementById('template').classList.remove('editContact');
+  document.getElementById("template").classList.add("addContact");
+  document.getElementById("template").classList.remove("editContact");
   document.getElementById("innerDialog").classList.remove("d-none");
   document.getElementById("innerDialog").classList.remove("animate__slideOutRight");
   document.getElementById("innerDialog").classList.add("animate__slideInRight");
@@ -69,8 +70,8 @@ function openNewContactPopup() {
 }
 
 async function openEditContactPopup(iconColor, contactName, contactMail, initials, results, phone, id) {
-  document.getElementById('template').classList.remove('addContact');
-  document.getElementById('template').classList.add('editContact');
+  document.getElementById("template").classList.remove("addContact");
+  document.getElementById("template").classList.add("editContact");
   document.getElementById("profileIcon").innerHTML = /* HTML */ `
     <span id="popupInitials" class="profileIconBig" style="background-color: ${iconColor};">${initials}</span>
   `;
@@ -91,7 +92,7 @@ async function openEditContactPopup(iconColor, contactName, contactMail, initial
     .setAttribute("onsubmit", 'updateContact("' + results + '",' + id + "); return false;");
   document
     .getElementById("contactFormLeftButton")
-    .setAttribute("onclick", `deleteContact('${results}'); return false;`);
+    .setAttribute("onclick", `deleteContact('${results}','${contactMail}'); return false;`);
   document.getElementById("name").value = contactName;
   document.getElementById("email").value = contactMail;
   document.getElementById("phone").value = phone;
@@ -119,34 +120,32 @@ async function updateContact(id, index) {
   document.getElementById("initials").innerHTML = getInitials(name);
   let initials = getInitials(name);
   document
-  .getElementById("editButton")
-  .setAttribute(
-    "onclick",
-    `openEditContactPopup('${color}','${name}', '${mail}','${initials}','${id}','${phone}',${index})`
-  ); 
+    .getElementById("editButton")
+    .setAttribute(
+      "onclick",
+      `openEditContactPopup('${color}','${name}', '${mail}','${initials}','${id}','${phone}',${index})`
+    );
 
   document
-  .getElementById("editButtonMobile")
-  .setAttribute(
-    "onclick",
-    `openEditContactPopup('${color}','${name}', '${mail}','${initials}','${id}','${phone}',${index})`
-  ); 
+    .getElementById("editButtonMobile")
+    .setAttribute(
+      "onclick",
+      `openEditContactPopup('${color}','${name}', '${mail}','${initials}','${id}','${phone}',${index})`
+    );
 
   renderContacts();
 }
 
-
-
 function openContactButtons() {
-document.getElementById('contactMobileEditButtons').classList.remove('d-none');
+  document.getElementById("contactMobileEditButtons").classList.remove("d-none");
 
-// alert('contactbuttons geklickt');
+  // alert('contactbuttons geklickt');
 }
 
 function closeContactMenu() {
-  document.getElementById('contactMobileEditButtons').classList.add('d-none');
+  document.getElementById("contactMobileEditButtons").classList.add("d-none");
   // document.getElementById('contactMobileEditButtons').style.display = "none";
-  }
+}
 
 /**
  * Render ale contacts with alphabetic order in the list
@@ -164,13 +163,13 @@ async function renderContacts() {
   contactDetails.sort((a, b) => a.name.localeCompare(b.name));
   let lastLetter;
   for (let i = 0; i < contactDetails.length; i++) {
-    const contactName = contactDetails[i]["name"]; 
+    const contactName = contactDetails[i]["name"];
     const contactPhone = contactDetails[i]["phone"];
     const contactKey = contactDetails[i]["key"];
     const contactMail = contactDetails[i]["email"];
     const iconColor = colors[contactDetails[i]["color"]].color;
     const letter = Array.from(contactName)[0].toUpperCase();
-    const initials = getInitials(contactName);  
+    const initials = getInitials(contactName);
     if (letter != lastLetter) {
       renderContacts.innerHTML += ` <h3>${letter}</h3>
     `;
@@ -180,7 +179,6 @@ async function renderContacts() {
     renderContacts.innerHTML += /* HTML */ `
       <div
         onclick="showContact(this,'${iconColor}','${contactName}','${contactMail}','${initials}','${results}','${contactPhone}',${i})"
-        
         class="contactBox">
         <span class="profileSmall" style="background-color: ${iconColor}">${initials}</span>
         <div class="contactDetails">
@@ -193,22 +191,21 @@ async function renderContacts() {
 }
 
 function showContact(contactElement, iconColor, contactName, contactMail, initials, results, phone, id) {
+  document
+    .getElementById("editButton")
+    .setAttribute(
+      "onclick",
+      `openEditContactPopup('${iconColor}','${contactName}', '${contactMail}','${initials}','${results}','${phone}',${id})`
+    );
 
   document
-  .getElementById("editButton")
-  .setAttribute(
-    "onclick",
-    `openEditContactPopup('${iconColor}','${contactName}', '${contactMail}','${initials}','${results}','${phone}',${id})`
-  ); 
-  
-  document
-  .getElementById("editButtonMobile")
-  .setAttribute(
-    "onclick",
-    `openEditContactPopup('${iconColor}','${contactName}', '${contactMail}','${initials}','${results}','${phone}',${id})`
-  ); 
+    .getElementById("editButtonMobile")
+    .setAttribute(
+      "onclick",
+      `openEditContactPopup('${iconColor}','${contactName}', '${contactMail}','${initials}','${results}','${phone}',${id})`
+    );
 
-  document.getElementById('contactDisplay').style.display = "unset";
+  document.getElementById("contactDisplay").style.display = "unset";
   let contactElements = document.getElementsByClassName("contactBox");
   for (let i = 0; i < contactElements.length; i++) {
     contactElements[i].classList.remove("activeContact");
@@ -225,19 +222,46 @@ function showContact(contactElement, iconColor, contactName, contactMail, initia
     .setAttribute(
       "onclick",
       `openEditContactPopup('${iconColor}','${contactName}', '${contactMail}','${initials}','${results}','${phone}',${id})`
-    ); 
-    document.getElementById("deleteID").setAttribute( "onclick", `deleteContact('${results}') `);
-    document.getElementById("deleteIDMobile").setAttribute( "onclick", `deleteContact('${results}') `);
+    );
+  document.getElementById("deleteID").setAttribute("onclick", `deleteContact('${results}','${contactMail}') `);
+  document.getElementById("deleteIDMobile").setAttribute("onclick", `deleteContact('${results}','${contactMail}') `);
 }
-
 
 function closeShowContact() {
-  document.getElementById('contactDisplay').style.display = "none";
+  document.getElementById("contactDisplay").style.display = "none";
   closeContactMenu();
-
 }
 
-async function deleteContact(firebaseKey){
-  await deleteData('/contacts/'+firebaseKey);
-   renderContacts();
+async function deleteContact(firebaseKey, contactMail) {
+  await deleteData("/contacts/" + firebaseKey);
+  const resultUrls = await findTaskUrlsByEmail(tasks, contactMail);
+  deleteUserInTask(resultUrls);
+  renderContacts();
+}
+
+async function findTaskUrlsByEmail(tasks, email) {  
+  const urls = [];
+  for (const key in tasks) {
+    if (tasks.hasOwnProperty(key)) {
+      const task = tasks[key];
+      if (task.nameAssignedTask && Array.isArray(task.nameAssignedTask)) {
+        for (let i = 0; i < task.nameAssignedTask.length; i++) {
+          const assigned = task.nameAssignedTask[i];
+          if (assigned.email === email) {
+            const url = `/tasks/${key}/nameAssignedTask/${i}`;
+            urls.push(url);
+            // return url;
+          }
+        }
+      }
+    }
+  }
+  return urls;
+}
+
+async function deleteUserInTask(urls) {
+  for (let i = 0; i < urls.length; i++) {
+    const url = urls[i];
+    await deleteData(url);
+  }
 }

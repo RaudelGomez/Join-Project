@@ -18,7 +18,7 @@ async function openDialog(template, taskId) {
   document.getElementById("dialog").classList.remove("d-none");
   document.body.classList.add("noscroll");
   if (template == "add_task_template.html") {
-    document.getElementById("add_task_form").setAttribute("onsubmit","addTask(); return false;")
+    document.getElementById("add_task_form").setAttribute("onsubmit", "addTask(); return false;");
     document.getElementById("addTaskPopup").classList.remove("d-none");
     document.getElementById("showTaskPopup").classList.add("d-none");
     document.getElementById("footer-button-addtask").classList.remove("position-fixed");
@@ -56,7 +56,7 @@ function renderDataHTMLtaskPopupTemplate() {
   document
     .getElementById("prio-task-show-task")
     .setAttribute("src", `./assets/img/${showingPriorityBoard(currentTask.priorityTask)}`);
-  document.getElementById('name-prio').textContent = currentTask.priorityTask;
+  document.getElementById("name-prio").textContent = currentTask.priorityTask;
   renderUserPopupTask();
   renderSubtaskHTMLPopupTask();
 }
@@ -144,8 +144,8 @@ async function renderHTMLBoard() {
       statusSubTask.porcentTaskDone
     )}`;
     renderHTMLUserinTask(task, i, "usertoDoTask-board");
-  }  
-  if (toDo.length==0) {  
+  }
+  if (toDo.length == 0) {
     containerToDo.innerHTML += /*html*/ `
     <article id="container-todo" class="emptyTaskCard">No tasks To do</article>
     `;
@@ -167,7 +167,7 @@ async function renderHTMLBoard() {
     )}`;
     renderHTMLUserinTask(task, i, "userProgressTask-board");
   }
-  if (progress.length==0) {  
+  if (progress.length == 0) {
     containerProgress.innerHTML += /*html*/ `
     <article id="container-todo" class="emptyTaskCard">No tasks in Progress</article>
     `;
@@ -189,7 +189,7 @@ async function renderHTMLBoard() {
     )}`;
     renderHTMLUserinTask(task, i, "userAwaitFeedbackTask-board");
   }
-  if (awaitFeeback.length==0) {  
+  if (awaitFeeback.length == 0) {
     containerAwaitFeedBack.innerHTML += /*html*/ `
     <article id="container-todo" class="emptyTaskCard">No tasks await Feedback</article>
     `;
@@ -211,12 +211,11 @@ async function renderHTMLBoard() {
     )}`;
     renderHTMLUserinTask(task, i, "userDoneTask-board");
   }
-  if (done.length==0) {  
+  if (done.length == 0) {
     containerDone.innerHTML += /*html*/ `
     <article id="container-todo" class="emptyTaskCard">No tasks Done</article>
     `;
   }
-  
 }
 
 /**
@@ -244,7 +243,7 @@ function showStatusSubTask(task) {
  */
 function renderHTMLTasksBoard(task, i, idContainerSubTask, idContainerUserTask, countSubTasksDone, porcentTaskDone) {
   let subTasks = task["subTasks"];
- 
+
   return /*html*/ `
       <article
         onclick="openDialog('task_popup_template.html', '${task.id}')"
@@ -369,70 +368,70 @@ async function updateSubTask(firebaseKey, subtaskId) {
 
 function editTask(firebaseKey) {
   // console.log(firebaseKey);
-  
+
   openDialog("add_task_template.html");
   let firstChild = document.getElementById("addTaskPopup").firstElementChild;
   firstChild.innerHTML = "";
-  document.getElementById("add_task_form").setAttribute("onsubmit","saveEditedTask(); return false;")
+  document.getElementById("add_task_form").setAttribute("onsubmit", "saveEditedTask(); return false;");
   document.getElementById("title_task").value = currentTask.titleTask;
   document.getElementById("description_task").value = currentTask.descriptionTask;
   document.getElementById("due_date_task").value = currentTask.timeDeadlineTask;
   // showCheckboxes();
   let arrayContact = [];
   if (currentTask.nameAssignedTask) {
-
-  for (let i = 0; i < currentTask.nameAssignedTask.length; i++) {
-    const assignedContact = currentTask.nameAssignedTask[i];
-    arrayContact.push(assignedContact);
-    // console.log(assignedContact.email);
-    let allContacts = document.getElementById("assigned-task");
-    let allLabel = allContacts.querySelectorAll("label");
-    for (const label of allLabel) {
-      // console.log(label);
-      let i = label.dataset.id;
-      // console.log(i);
-      if (label.dataset.email == assignedContact.email) {
-        let checkbox = document.getElementById(`checkBoxAssigned${i}`);
-        checkbox.checked = true;
+    for (let i = 0; i < currentTask.nameAssignedTask.length; i++) {
+      const assignedContact = currentTask.nameAssignedTask[i];
+      arrayContact.push(assignedContact);
+      // console.log(assignedContact.email);
+      let allContacts = document.getElementById("assigned-task");
+      let allLabel = allContacts.querySelectorAll("label");
+      for (const label of allLabel) {
+        // console.log(label);
+        let i = label.dataset.id;
+        // console.log(i);
+        if (label.dataset.email == assignedContact.email) {
+          let checkbox = document.getElementById(`checkBoxAssigned${i}`);
+          checkbox.checked = true;
+        }
       }
     }
+    //First Open checkBox, Second Show Names, Third Close Checkboxes
+    showCheckboxes();
+    showInitialAssign();
+    showCheckboxes();
   }
-  //First Open checkBox, Second Show Names, Third Close Checkboxes
-  showCheckboxes();
-  showInitialAssign();
-  showCheckboxes();
-}
- 
-changePriorityEditTask(`${currentTask.priorityTask}`);
 
-//Category Task edit
-document.getElementById('option-selected').innerHTML = currentTask.categoryTask;
-document.getElementById('option-selected').dataset.filled = currentTask.categoryTask.trim();
-document.getElementById('container-select-option').classList.add('pointer-none');
+  changePriorityEditTask(`${currentTask.priorityTask}`);
 
-//Change footer edit Task
-document.getElementById('btn-clear-add-Task').classList.add('d-none');
-let footerButtonAddTask = document.getElementById('footer-button-addtask');
-footerButtonAddTask.firstElementChild.classList.add('d-none');
-footerButtonAddTask.classList.add('justify-end');
-let btnCreatetask = document.getElementById('btn-create-task')
-btnCreatetask.firstElementChild.textContent = 'OK';
-btnCreatetask.classList.add('btn-edit-task');
+  //Category Task edit
+  document.getElementById("option-selected").innerHTML = currentTask.categoryTask;
+  document.getElementById("option-selected").dataset.filled = currentTask.categoryTask.trim();
+  document.getElementById("container-select-option").classList.add("pointer-none");
 
-//loading subtasks in the Form edit Task
-subTasks = currentTask.subTasks;
-if(subTasks){
-  showSubTask();
-}else{
-  subTasks = [];
+  //Change footer edit Task
+  document.getElementById("btn-clear-add-Task").classList.add("d-none");
+  let footerButtonAddTask = document.getElementById("footer-button-addtask");
+  footerButtonAddTask.firstElementChild.classList.add("d-none");
+  footerButtonAddTask.classList.add("justify-end");
+  let btnCreatetask = document.getElementById("btn-create-task");
+  btnCreatetask.firstElementChild.textContent = "OK";
+  btnCreatetask.classList.add("btn-edit-task");
+
+  //loading subtasks in the Form edit Task
+  subTasks = currentTask.subTasks;
+  if (subTasks) {
+    showSubTask();
+  } else {
+    subTasks = [];
+  }
 }
 
-}
-
-function changePriorityEditTask(idPriorityButton) { 
+function changePriorityEditTask(idPriorityButton) {
   document.getElementById("button-urgent-priority").classList.remove("active");
   document.getElementById("button-medium-priority").classList.remove("active");
   document.getElementById("button-low-priority").classList.remove("active");
   document.getElementById(`button-${idPriorityButton}-priority`).classList.add("active");
   priorityTask = document.getElementById(`button-${idPriorityButton}-priority`).dataset.prio;
 }
+
+

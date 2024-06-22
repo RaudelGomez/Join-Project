@@ -491,7 +491,7 @@ h1 {
 
 .boardSections section {
   width: 25%;
-  height: 200px;
+  /* height: 200px; */
 }
 
 .boardSections section header {
@@ -523,12 +523,13 @@ h1 {
   border-radius: 8px;
   border: 1px dashed #a8a8a8;
   padding: 16px;
-  margin: 16px 0;
+  margin: 32px 0 16px 0;
   text-align: center;
 }
 
-.drag-area-highlight {
-  background-color: rgba(0, 0, 0, 0.2);
+.drag-area-highlight .emptyTaskCard {
+
+  margin: 16px 0 16px 0;
 }
 
 .category {

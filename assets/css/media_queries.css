@@ -12,6 +12,23 @@
   }
 }
 
+
+
+  @media screen and (max-width: 1111px) {
+    .boardSections {
+      display: flex;
+      flex-direction: column;
+    }
+  .drag-area {
+
+    min-height: 100px !important;
+  }
+  .boardSections section{
+  width:100% !important;
+  }
+  }
+
+
 @media screen and (max-width: 1335px) {
 
   /* .contactDisplay {display: none;}

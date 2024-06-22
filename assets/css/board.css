@@ -1,45 +1,59 @@
-.user-popoup-container{
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
+.user-popoup-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
 .userBoardPopup {
-    display: flex;
-    gap:16px;
-    align-items: center;
-} 
-
-.userItem {
-    display: flex;
-    align-items: center;
-    gap:24px;
+  display: flex;
+  gap: 16px;
+  align-items: center;
 }
 
-.profileSmall {width:42px;height:42px;}
+.userItem {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.profileSmall {
+  width: 42px;
+  height: 42px;
+}
 
 .taskPopupFooter {
-    color: var(--gray);
+  color: var(--gray);
 }
 
 .taskPopupFooter span {
-    color: var(--main-color);
+  color: var(--main-color);
 }
 
-.first-letter-uppercase{
-    display: inline-block;
+.first-letter-uppercase {
+  display: inline-block;
 }
 
-.first-letter-uppercase::first-letter{
-    text-transform: uppercase !important;
+.first-letter-uppercase::first-letter {
+  text-transform: uppercase !important;
 }
 
-#showTaskPopup, #addTaskPopup {
-    padding: 32px; 
-  }
+#showTaskPopup,
+#addTaskPopup {
+  padding: 32px;
+}
 
-.drag-area {height:100vh}
+.drag-area {
+  min-height: 50vh;
+  margin-top: 16px;
+}
 
-.rotateCard{
-    transform:rotate(20deg);
+.rotateCard {
+  transform: rotate(8deg);
+  transition: transform 200ms ease-in-out;
+}
+
+.drag-area-highlight {
+  border: 1px dashed #a8a8a8;
+  border-radius: 24px;
+  background-color: rgba(0, 0, 0, 0.1);
 }

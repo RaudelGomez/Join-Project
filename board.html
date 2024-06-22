@@ -81,19 +81,13 @@
                     stroke-linecap="round" />
                 </svg>
               </header>
-              <!-- <div
-                class="drag-area"
-                id="toDoBoard"
-                ondrop="moveTo(1)"
-                ondragleave="removeHighlight('toDo')"
-                ondragover="allowDrop(event); highlight('toDo')">
-                <article id="container-todo" class="emptyTaskCard">No tasks To do</article>
-              </div> -->
+        
               <div
                 class="drag-area"
                 id="toDoBoard"
                 ondrop="moveTo(1)"
-                ondragover="allowDrop(event)"
+                ondragleave="removeHighlight('toDoBoard')"
+                ondragover="allowDrop(event); highlight('toDoBoard')"
                 >
                 <article id="container-todo" class="emptyTaskCard">No tasks To do</article>
               </div>
@@ -136,7 +130,8 @@
                 class="drag-area"
                 id="inProgress"
                 ondrop="moveTo(2)"
-                ondragover="allowDrop(event)"
+                ondragleave="removeHighlight('inProgress')"
+                ondragover="allowDrop(event); highlight('inProgress')"
                 >
               </div>
             </section>
@@ -178,7 +173,8 @@
                 class="drag-area"
                 id="awaitFeedback"
                 ondrop="moveTo(3)"
-                ondragover="allowDrop(event)"
+                ondragleave="removeHighlight('awaitFeedback')"
+                ondragover="allowDrop(event); highlight('awaitFeedback')"
                >
               </div>
             </section>
@@ -190,7 +186,8 @@
                 class="drag-area"
                 id="done"
                 ondrop="moveTo(4)"
-                ondragover="allowDrop(event)"
+                ondragleave="removeHighlight('done')"
+                ondragover="allowDrop(event); highlight('done')"
                >
               </div>
             </section>

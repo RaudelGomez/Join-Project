@@ -144,6 +144,11 @@ async function renderHTMLBoard() {
       statusSubTask.porcentTaskDone
     )}`;
     renderHTMLUserinTask(task, i, "usertoDoTask-board");
+  }  
+  if (toDo.length==0) {  
+    containerToDo.innerHTML += /*html*/ `
+    <article id="container-todo" class="emptyTaskCard">No tasks To do</article>
+    `;
   }
 
   let containerProgress = document.getElementById("inProgress");
@@ -162,6 +167,11 @@ async function renderHTMLBoard() {
     )}`;
     renderHTMLUserinTask(task, i, "userProgressTask-board");
   }
+  if (progress.length==0) {  
+    containerProgress.innerHTML += /*html*/ `
+    <article id="container-todo" class="emptyTaskCard">No tasks in Progress</article>
+    `;
+  }
 
   let containerAwaitFeedBack = document.getElementById("awaitFeedback");
   containerAwaitFeedBack.innerHTML = "";
@@ -178,6 +188,11 @@ async function renderHTMLBoard() {
       statusSubTask.porcentTaskDone
     )}`;
     renderHTMLUserinTask(task, i, "userAwaitFeedbackTask-board");
+  }
+  if (awaitFeeback.length==0) {  
+    containerAwaitFeedBack.innerHTML += /*html*/ `
+    <article id="container-todo" class="emptyTaskCard">No tasks await Feedback</article>
+    `;
   }
 
   let containerDone = document.getElementById("done");
@@ -196,6 +211,12 @@ async function renderHTMLBoard() {
     )}`;
     renderHTMLUserinTask(task, i, "userDoneTask-board");
   }
+  if (done.length==0) {  
+    containerDone.innerHTML += /*html*/ `
+    <article id="container-todo" class="emptyTaskCard">No tasks Done</article>
+    `;
+  }
+  
 }
 
 /**

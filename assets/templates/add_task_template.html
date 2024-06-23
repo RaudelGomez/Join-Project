@@ -6,11 +6,12 @@
 				<div class="form-control">
 					<label for="title_task">Title<span class="required">*</span></label>
 					<input
-						required
 						id="title_task"
 						type="text"
 						placeholder="Enter a title"
+						onkeydown="closeError(this)"
 					/>
+					<div class="error-addTask"></div>
 				</div>
 				<div class="form-control">
 					<label for="description_task">Description</label>
@@ -46,7 +47,8 @@
 						>Due date
 						<span class="required">*</span>
 					</label>
-					<input required id="due_date_task" type="date" />
+					<input id="due_date_task" type="date" onclick="closeError(this)" />
+					<div class="error-addTask"></div>
 				</div>
 				<div class="form-control">
 					<span>Prio</span>
@@ -114,12 +116,13 @@
 					<label for="category-task"
 						>Category<span class="required">*</span></label
 					>
-					<div id="container-select-option" class="select-option" onclick="showTaskOption()">
+					<div id="container-select-option" class="select-option" onclick="showTaskOption(); closeErroCategory()">
 						<select>
 							<option id="option-selected" data-filled="Select task category">Select task category</option>
 						</select>
 						<div class="overSelect"></div>
 					</div>
+					<div id="error-option-selected" class="error-addTask"></div>
 					<div id="category-task" class="category-task assigned-task-hidden">
 						<button
 							id="technicalTask"

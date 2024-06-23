@@ -58,6 +58,7 @@ function showTaskOption() {
   categoryTask.classList.toggle("assigned-task-hidden");
   categoryTask.classList.toggle("assigned-task-show");
   document.getElementById("option-selected").textContent = "Select task category";
+  document.getElementById("option-selected").dataset.filled = "Select task category";
 }
 
 /**
@@ -108,15 +109,9 @@ async function addTask(status = typeOfTask) {
   let timeDeadlineTask = document.getElementById("due_date_task");
   let categoryTask = document.getElementById("option-selected");
 
-  if (categoryTask.dataset.filled == "Select task category") {
-    showAlert(
-      "container-addTask-alert",
-      "addTask-alert",
-      "Info",
-      "info-alert",
-      "You have to fill the field select Task!"
-    );
-    return;
+  if(titleTask.value == "" || timeDeadlineTask.value == "" || categoryTask.dataset.filled == "Select task category"){
+    validationAddTask();
+    return
   }
   let task = {
     titleTask: titleTask.value,
@@ -153,6 +148,7 @@ function deleteDataFormTask() {
   showInitialAssign();
   document.getElementById("due_date_task").value = "";
   document.getElementById("option-selected").textContent = "Select task category";
+  document.getElementById("option-selected").dataset.filled = "Select task category";
   resetPriority();
   subTasks = [];
   showSubTask();
@@ -331,4 +327,48 @@ function showHideConfirmButton(i) {
   document.getElementById(`container-edit-subTask${i}`).classList.add("d-none");
   document.getElementById(`span-link-edit-delete${i}`).classList.remove("d-none");
   showSubTask();
+}
+
+/**
+ * This function validate that the required field are filled
+ * @returns null
+ */
+function validationAddTask() {
+  let titleTask = document.getElementById('title_task');
+  if(titleTask.value == ""){
+    titleTask.nextElementSibling.textContent = "This field is required";
+    titleTask.classList.add('inputRedBorder');
+    return
+  }
+  let deadLine = document.getElementById('due_date_task');
+  if(deadLine.value == ""){
+    deadLine.nextElementSibling.textContent = "This field is required";
+    deadLine.classList.add('inputRedBorder');
+    return
+  }
+  let categoryTask = document.getElementById('option-selected');
+  let errorCategoryTask = document.getElementById('error-option-selected');
+  if (categoryTask.dataset.filled == "Select task category") {
+    errorCategoryTask.textContent = "This field is required";
+    errorCategoryTask.classList.add('inputRedBorder');
+    return;
+  }
+}
+
+/**
+ * This function remove the error in the element where was showed
+ * @param {elementHTML} elementHTML - That is the element HTML input
+ */
+function closeError(elementHTML) {
+  elementHTML.nextElementSibling.textContent = "";
+  elementHTML.classList.remove('inputRedBorder');
+}
+
+/**
+ * This function remove the error in the element where was showed
+ */
+function closeErroCategory() {
+  let errorCategoryTask = document.getElementById('error-option-selected');
+    errorCategoryTask.textContent = "";
+    errorCategoryTask.classList.remove('inputRedBorder');
 }

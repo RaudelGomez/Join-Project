@@ -7,15 +7,9 @@ async function saveEditedTask() {
   let timeDeadlineTask = document.getElementById("due_date_task");
   let categoryTask = document.getElementById("option-selected");
 
-  if (categoryTask.dataset.filled == "Select task category") {
-    showAlert(
-      "container-addTask-alert",
-      "addTask-alert",
-      "Info",
-      "info-alert",
-      "You have to fill the field select Task!"
-    );
-    return;
+  if(titleTask.value == "" || timeDeadlineTask.value == "" || categoryTask.dataset.filled == "Select task category"){
+    validationAddTask();
+    return
   }
   let task = {
     titleTask: titleTask.value,

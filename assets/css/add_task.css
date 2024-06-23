@@ -433,6 +433,17 @@ select {
 	padding: 18px 10px !important;
 }
 
+.error-addTask{
+	color: var(--danger-color);
+	text-align: left;
+	font-size: 12px;
+	margin: 4px;
+}
+
+.inputRedBorder {
+  border-color: var(--danger-color) !important;
+}
+
 #container-new-subTask{
 	display: flex;
 	flex-direction: column;

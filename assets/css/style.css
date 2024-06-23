@@ -90,14 +90,15 @@ input::placeholder {
 
 .subtasksPopup input[type="checkbox"] + label {
   display: block;
-  width: 200px;
-  height: 40px;
+  /* width: 200px; */
+  min-height: 32px;
   cursor: pointer;
   background-image: url("../img/hook_unchecked.svg");
   background-repeat: no-repeat;
-  background-position: 20px -3px;
-  padding-left: 60px;
+  background-position: 8px -3px;
+  padding-left: 53px;
   font-size: 16px;
+  line-height: 19.2px;
 }
 
 .subtasksPopup input[type="checkbox"]:checked + label {
@@ -574,18 +575,20 @@ h1 {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  gap: 16px;
+  gap: 8px;
 }
 
 .taskDesriptionPopup {
   color: black;
   font-size: 20px;
+  height: 72px;
+  overflow-y: auto;
 }
 
 .taskPopupLabel {
   display: inline-block;
   font-size: 20px;
-  color: #42526e;
+  color: var(--main-color);
   width: 150px;
 }
 

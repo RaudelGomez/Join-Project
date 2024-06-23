@@ -1,3 +1,4 @@
+
 /**
  * This function bring all Data from datBase: contacts & tasks
  */
@@ -22,7 +23,11 @@ async function openDialog(template, taskId) {
     document.getElementById("addTaskPopup").classList.remove("d-none");
     document.getElementById("showTaskPopup").classList.add("d-none");
     document.getElementById("footer-button-addtask").classList.remove("position-fixed");
+    document.getElementById('innerDialog').classList.remove('taskPopup');
+    document.getElementById('innerDialog').classList.add('addTaskPopup');
   } else {
+    document.getElementById('innerDialog').classList.add('taskPopup');
+    document.getElementById('innerDialog').classList.remove('addTaskPopup');
     dataCurrentTask(taskId);
     document.getElementById("showTaskPopup").classList.remove("d-none");
     document.getElementById("addTaskPopup").classList.add("d-none");

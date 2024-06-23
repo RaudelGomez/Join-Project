@@ -236,6 +236,7 @@ async function deleteContact(firebaseKey, contactMail) {
   await deleteData("/contacts/" + firebaseKey);
   const resultUrls = await findTaskUrlsByEmail(tasks, contactMail);
   deleteUserInTask(resultUrls);
+  await loadData("tasks");
   renderContacts();
 }
 

@@ -1,12 +1,12 @@
 .user-popoup-container {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 16px;
 }
 
 .userBoardPopup {
   display: flex;
-  gap: 16px;
+  gap: 24px;
   align-items: center;
 }
 
@@ -29,6 +29,10 @@
   color: var(--main-color);
 }
 
+.taskPopup  {
+max-width: 525px !important;
+
+}
 .first-letter-uppercase {
   display: inline-block;
 }
@@ -56,4 +60,14 @@
   border: 1px dashed #a8a8a8;
   border-radius: 24px;
   background-color: rgba(0, 0, 0, 0.1);
+}
+
+#headline-user-assigned {
+color: var(--main-color);
+font-size:20px;
+}
+
+.subtasksPopup {
+height: 72px;
+overflow-y: auto;
 }

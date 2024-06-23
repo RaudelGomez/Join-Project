@@ -36,6 +36,11 @@
 	color: var(--danger-color);
 }
 
+#add_task_form label {
+	color: var(--main-color);
+	font-size: 20px;
+}
+
 #add_task_form input,
 #add_task_form textarea,
 #add_task_form select {
@@ -44,6 +49,14 @@
 	padding: 8px;
 	margin-top: 4px;
 	font-family: "Inter";
+	font-size: 20px;
+}
+
+#add_task_form input::placeholder,
+#add_task_form textarea::placeholder,
+#add_task_form select::placeholder {
+color: var(--gray);
+	font-size: 20px;
 }
 
 #add_task_form .add_task_data {
@@ -247,6 +260,8 @@ select {
 .clear-button-add-task {
 	background-color: var(--white);
 	border: 0.1px solid var(--gray);
+	font-size: 20px;
+	color: var(--main-color);
 }
 
 .clear-button-add-task:hover {

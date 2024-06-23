@@ -29,9 +29,8 @@
   color: var(--main-color);
 }
 
-.taskPopup  {
-max-width: 525px !important;
-
+.taskPopup {
+  max-width: 525px !important;
 }
 .first-letter-uppercase {
   display: inline-block;
@@ -44,6 +43,13 @@ max-width: 525px !important;
 #showTaskPopup,
 #addTaskPopup {
   padding: 32px;
+}
+
+.addTaskPopup {
+  max-width: 1116px !important;
+  /* min-height: 870px !important;
+  max-height: 870px !important;
+  height:100%; */
 }
 
 .drag-area {
@@ -63,11 +69,11 @@ max-width: 525px !important;
 }
 
 #headline-user-assigned {
-color: var(--main-color);
-font-size:20px;
+  color: var(--main-color);
+  font-size: 20px;
 }
 
 .subtasksPopup {
-height: 72px;
-overflow-y: auto;
+  height: 72px;
+  overflow-y: auto;
 }

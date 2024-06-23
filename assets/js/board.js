@@ -249,6 +249,11 @@ function showStatusSubTask(task) {
 function renderHTMLTasksBoard(task, i, idContainerSubTask, idContainerUserTask, countSubTasksDone, porcentTaskDone) {
   let subTasks = task["subTasks"];
 
+  let taskDesription = task.descriptionTask;
+  if (taskDesription.length > 70) {
+    taskDesription = taskDesription.substring(0,70) + "...";
+}
+
   return /*html*/ `
       <article
         onclick="openDialog('task_popup_template.html', '${task.id}')"
@@ -257,7 +262,7 @@ function renderHTMLTasksBoard(task, i, idContainerSubTask, idContainerUserTask, 
         ondragstart="startDragging('${task.id}',this)">
         <span class="category ${categoryColor(task.categoryTask)}">${task.categoryTask}</span>
         <h3 class="taskTitle">${task.titleTask}</h3>
-        <p class="taskDesription">${task.descriptionTask}</p>
+        <p class="taskDesription">${taskDesription}</p>
         <div id="${idContainerSubTask}${i}" class="subtasks">
           ${
             task["subTasks"]

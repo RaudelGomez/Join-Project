@@ -26,7 +26,12 @@
   .boardSections section{
   width:100% !important;
   }
+
+  .boardHeader {
+  flex-direction: column !important;
+  align-items: flex-start !important;
   }
+}
 
 
 @media screen and (max-width: 1335px) {

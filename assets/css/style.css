@@ -428,7 +428,7 @@ h1 {
 
 .boardSections h3 {
   font-size: 20px;
-  color: #42526e;
+  color: var(--main-color);
 }
 
 .boardHeader {

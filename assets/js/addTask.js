@@ -6,6 +6,7 @@ async function initAddTask() {
   await loadData("tasks");
   renderContactsAssignedTask();
   selectdNameAssignedtask();
+  dateFromTodayOnly();
   // await putData( { like: 1000}, '/tasks/-O-_C8hoeXkD9TjC6O4y');
   // await deleteData("/tasks/-O-_C8hoeXkD9TjC6O4y");
 }
@@ -108,7 +109,8 @@ async function addTask(status = typeOfTask) {
   let nameInTask = selectdNameAssignedtask();
   let timeDeadlineTask = document.getElementById("due_date_task");
   let categoryTask = document.getElementById("option-selected");
-
+  
+  //Validation and showing error to user
   if(titleTask.value == "" || timeDeadlineTask.value == "" || categoryTask.dataset.filled == "Select task category"){
     validationAddTask();
     return
@@ -371,4 +373,16 @@ function closeErroCategory() {
   let errorCategoryTask = document.getElementById('error-option-selected');
     errorCategoryTask.textContent = "";
     errorCategoryTask.classList.remove('inputRedBorder');
+}
+
+/**
+ * This function allow only date from the day when the task will be create
+ */
+function dateFromTodayOnly() {
+  const today = new Date();
+  const yyyy = today.getFullYear();
+  const mm = String(today.getMonth() + 1).padStart(2, '0'); 
+  const dd = String(today.getDate()).padStart(2, '0');
+  const minDate = `${yyyy}-${mm}-${dd}`;
+  document.getElementById('due_date_task').setAttribute('min', minDate);
 }

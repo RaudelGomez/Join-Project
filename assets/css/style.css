@@ -76,6 +76,17 @@ input::placeholder {
 }
 
 /*General class and id*/
+
+.backArrow {
+width:32px;
+height:32px;
+position: absolute;
+top: 152px;
+right: 64px;
+cursor: pointer;
+
+}
+
 .error-alert{
   color: var(--danger-color);
 }

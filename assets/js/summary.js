@@ -92,7 +92,6 @@ function countTaskSummary(tasksArray, state){
   let allTasks = tasksArray.filter(filterTasks);
   let taskLength = allTasks.length;
   return taskLength;
-
   function filterTasks(task){
     return task.status == state;
   }

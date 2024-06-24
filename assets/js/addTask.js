@@ -133,7 +133,6 @@ function alertCreatedTask() {
   }
 }
 
-
 /**
  * This function makes empty all field in the form add task
  */

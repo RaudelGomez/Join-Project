@@ -41,7 +41,7 @@
                   src="./assets/img/search_icon.svg"
                   alt="" onclick="searchTasks()" />
               </div>
-              <button class="button mobileAddTaskButton" onclick="location.href='./add_task.html'">
+              <button class="button mobileAddTaskButton" onclick="location.href='./add_task.html?typeTask=1'">
                 Add task <img src="./assets/img/add.svg" alt="" />
               </button>
               <button class="button desktopAddTaskButton" onclick="openDialog('add_task_template.html')">
@@ -63,7 +63,7 @@
                 <!-- This area is for the SVG Icons.  -->
                 <h3>To do</h3>
                 <svg 
-                  onclick="changeTypeOfTask(1), location.href='./add_task.html'"
+                  onclick="changeTypeOfTask(1), location.href='./add_task.html?typeTask=1'"
                   class="svgIcon mobileAddTaskButton"
                   width="24"
                   height="25"
@@ -140,7 +140,7 @@
               <header>
                 <h3>In progress</h3>
                 <svg
-                  onclick="changeTypeOfTask(2), location.href='./add_task.html'"
+                  onclick="changeTypeOfTask(2), location.href='./add_task.html?typeTask=2'"
                   class="svgIcon mobileAddTaskButton"
                   width="24"
                   height="25"
@@ -213,7 +213,7 @@
               <header>
                 <h3>Await feedback</h3>
                 <svg
-                  onclick="changeTypeOfTask(3), location.href='./add_task.html'"
+                  onclick="changeTypeOfTask(3), location.href='./add_task.html?typeTask=3'"
                   class="svgIcon mobileAddTaskButton"
                   width="24"
                   height="25"

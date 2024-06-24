@@ -87,7 +87,9 @@ function renderContactsAssignedTask() {
 /**
  * Add a Task in Firebase when the form is sent
  */
-async function addTask(status = typeOfTask) {
+async function addTask(status) {
+  let taskId = searchingTypeTaskURL();
+  status = setStatusTask(taskId);
   selectdNameAssignedtask();
   let titleTask = document.getElementById("title_task");
   let descriptionTask = document.getElementById("description_task");
@@ -122,6 +124,31 @@ async function addTask(status = typeOfTask) {
   location.href = './board.html';
 }
 
+/**
+ * That function return a id of the type of task to assign
+ * @param {number} taskId - That is the id of the type of task ex. 1-todo, 2-in progress
+ * @returns That return null if there are any taskid or the number of the id that was send in the URl
+ */
+function setStatusTask(taskId) {
+  let status;
+  if(taskId == null){
+    status = typeOfTask;
+  }else{
+    status = taskId;
+  }
+  return status;
+}
+
+/**
+ * That function searchs in the url for the parameter typeTask
+ * @returns The id of task found in the url in the parameter typeTask
+ */
+function searchingTypeTaskURL() {
+  let url = window.location.href;
+  let urlObj = new URL(url);
+  let typeTask = urlObj.searchParams.get('typeTask');
+  return typeTask;
+}
 
 /**
  * This function render a notification after create a task

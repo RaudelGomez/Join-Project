@@ -57,11 +57,7 @@ function updatingSummaryData(){
   let urgentTaskCount = countTaskUrgent(tasksArray);
   let closerUrgentDate = calculateDatePrio();
   let dateFormat;
-  if(closerUrgentDate){
-    dateFormat = changeDateFormat(closerUrgentDate);
-  }else{
-    dateFormat = "No urgent task";
-  }
+  dateFormat = setDateFormat(closerUrgentDate); 
   document.getElementById('quantity-task').textContent = `${toDoCount}`;
   document.getElementById('quantity-done').textContent = `${doneCount}`;
   document.getElementById('progress-in-task').textContent = `${progressCount}`;
@@ -69,6 +65,21 @@ function updatingSummaryData(){
   document.getElementById('task-in-board').textContent = `${tasksCount}`;
   document.getElementById('quantity-urgent').textContent = `${urgentTaskCount}`;
   document.getElementById('date-urgent').innerHTML = `${dateFormat}`;
+}
+
+/**
+ * This function return a Date of the closer and urgent task.
+ * @param {date} closerUrgentDate - That is the closer Date to the actual Date that is urgent
+ * @returns - Date format
+ */
+function setDateFormat(closerUrgentDate) {
+  let dateFormat;
+  if(closerUrgentDate){
+    dateFormat = changeDateFormat(closerUrgentDate);
+  }else{
+    dateFormat = "No urgent task";
+  }
+  return dateFormat;
 }
 
 /**
@@ -110,7 +121,6 @@ function calculateDatePrio() {
   // Initialize variables for the nearest date and the minimum difference
   let dateCloser = null;
   let minimunDiferenceDate = Infinity;
-
   if (datesArray.length >= 1) {
     datesArray.forEach(date => {
       const currentDate = new Date(date);
@@ -124,7 +134,7 @@ function calculateDatePrio() {
         }
       }
     });
-  return dateCloser;
+    return dateCloser;
   }else{
     return null;
   }

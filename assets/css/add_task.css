@@ -465,9 +465,9 @@ select {
 	gap: 0;
 }
 
-@media (max-width: 1000px){
+@media (max-width: 1200px){
 	.sub-container-addTask{
-		padding: 0 32px;
+		padding: 0 22px;
 	}
 }
 
@@ -530,6 +530,12 @@ select {
 
 	.container-button-submit-add-task p {
 		font-size: 12px;
+	}
+}
+
+@media (max-width: 350px){
+	.sub-container-addTask {
+		padding: 0 6px;
 	}
 }
 

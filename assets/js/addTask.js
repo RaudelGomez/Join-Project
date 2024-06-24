@@ -7,8 +7,6 @@ async function initAddTask() {
   renderContactsAssignedTask();
   selectdNameAssignedtask();
   dateFromTodayOnly();
-  // await putData( { like: 1000}, '/tasks/-O-_C8hoeXkD9TjC6O4y');
-  // await deleteData("/tasks/-O-_C8hoeXkD9TjC6O4y");
 }
 
 /**
@@ -21,7 +19,6 @@ setTimeout(initAddTask, 500);
  * The Field name is assigned to
  */
 function showCheckboxes() {
-  // console.log("showing");
   let assignedTask = document.getElementById("assigned-task");
   assignedTask.classList.toggle("assigned-task-hidden");
   assignedTask.classList.toggle("assigned-task-show");
@@ -74,28 +71,16 @@ function categorySelected(idTask) {
   optionSelected.textContent = taskValue;
 }
 
+/**
+ * This function render all contacts in addTask
+ */
 function renderContactsAssignedTask() {
   let asignedTaskContainer = document.getElementById("assigned-task");
   asignedTaskContainer.innerHTML = "";
   let listContacts = Object.values(contacts);
   for (let i = 0; i < listContacts.length; i++) {
     const contact = listContacts[i];
-    asignedTaskContainer.innerHTML += /*html*/ `
-			<label class="checkbox-label" for="checkBoxAssigned${i}" data-id="${i}" data-name="${contact.name}" data-email="${
-      contact.email
-    }" data-colorindex="${contact.color}">
-				<span class="container-name-assigned">
-					<span class="name-assigned">
-						<span class="first-letter" style="background-color: ${colors[contact.color].color}">${getInitials(
-      `${contact.name}`
-    )}</span>${contact.name}
-					</span>
-					<input type="checkbox" id="checkBoxAssigned${i}"/>
-					<img class="hook-check" src="./assets/img/hook_checked_white.svg" alt="checked">
-					<img class="hook-no-check" src="./assets/img/hook_unchecked.svg" alt="unchecked">
-				</span>
-			</label>
-		`;
+    asignedTaskContainer.innerHTML += /*html*/ `${asignedTaskContainerHTML(i, contact)}`;
   }
 }
 
@@ -109,7 +94,6 @@ async function addTask(status = typeOfTask) {
   let nameInTask = selectdNameAssignedtask();
   let timeDeadlineTask = document.getElementById("due_date_task");
   let categoryTask = document.getElementById("option-selected");
-  
   //Validation and showing error to user
   if(titleTask.value == "" || timeDeadlineTask.value == "" || categoryTask.dataset.filled == "Select task category"){
     validationAddTask();
@@ -127,18 +111,27 @@ async function addTask(status = typeOfTask) {
   };
   await postData(task, "tasks");
   deleteDataFormTask();
-  showAlert("container-addTask-alert", "addTask-alert", "Success", "succes-alert", "The Task was added successfully!");
-  if (document.getElementById("innerDialog")) {
-	setTimeout(closeDialog, 3000);
-  }
+  alertCreatedTask();
   await loadData('tasks');
   //Testing if the function exist
   if(typeof renderHTMLBoard === 'function') {
     await renderHTMLBoard();
   }
+  //Setting Task in the option "to-do" again
   typeOfTask = 1;
 }
 
+
+/**
+ * This function render a notification after create a task
+ */
+function alertCreatedTask() {
+  //Notification of succesfull task created
+  showAlert("container-addTask-alert", "addTask-alert", "Success", "succes-alert", "The Task was added successfully!");
+  if (document.getElementById("innerDialog")) {
+	  setTimeout(closeDialog, 3000);
+  }
+}
 
 /**
  * This function makes empty all field in the form add task
@@ -236,35 +229,6 @@ function showSubTask() {
 }
 
 /**
- * this function show the html of sub task
- * @param {string} subTask - That is the content of the sub task
- * @param {number} i - That is the index in the array subTask: Like this it can show every element in the array
- * @returns -Show the HTML ofthe subtask
- */
-function renderHTMLSubTask(subTaskName, i) {
-  return /*html*/ `
-		<p id="span-link-edit-delete${i}" class="new-subTask">
-				<span class="span-link">
-					<span id="text-new-subTask" class="text-new-subTask">${subTaskName}</span>
-					<span>
-						<img id="editingTask${i}"  src="./assets/img/pencil_icon.svg" alt="edit" onclick="editingSubTask(${i})" />
-						<span id="separatorOne${i}" class="separator-subtask"></span>
-						<img id="deleteOne${i}" src="./assets/img/delete_icon.svg" alt="delete" onclick="deleteSubTask(${i})" />
-					</span>
-				</span>
-		</p>
-		<div id="container-edit-subTask${i}" class="container-edit-subTask d-none">
-				<input id="input-editing-subTask${i}" type="text" class="input-editing-subTask">
-				<span class="span-input-editing-subTask">
-					<img id="deleteTwo${i}" src="./assets/img/delete_icon.svg" alt="delete" onclick="deleteSubTask(${i})" />
-					<span id="separatorTwo${i}" class="separator-subtask"></span>
-					<img id="confirmEdition${i}" src="./assets/img/check_subTask.svg" alt="confirm edit" onclick="confirmEditSubTask(${i})" />
-				</span>
-		</div>
-	`;
-}
-
-/**
  * This function empty the field add a new subtask
  */
 function emptyInputSubTask() {
@@ -333,7 +297,7 @@ function showHideConfirmButton(i) {
 
 /**
  * This function validate that the required field are filled
- * @returns null
+ * @returns null if the condition are not successfull.
  */
 function validationAddTask() {
   let titleTask = document.getElementById('title_task');

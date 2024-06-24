@@ -7,8 +7,6 @@ async function initAddTask() {
   renderContactsAssignedTask();
   selectdNameAssignedtask();
   dateFromTodayOnly();
-  // await putData( { like: 1000}, '/tasks/-O-_C8hoeXkD9TjC6O4y');
-  // await deleteData("/tasks/-O-_C8hoeXkD9TjC6O4y");
 }
 
 /**
@@ -21,7 +19,6 @@ setTimeout(initAddTask, 500);
  * The Field name is assigned to
  */
 function showCheckboxes() {
-  // console.log("showing");
   let assignedTask = document.getElementById("assigned-task");
   assignedTask.classList.toggle("assigned-task-hidden");
   assignedTask.classList.toggle("assigned-task-show");
@@ -120,9 +117,14 @@ async function addTask(status = typeOfTask) {
   if(typeof renderHTMLBoard === 'function') {
     await renderHTMLBoard();
   }
+  //Setting Task in the option "to-do" again
   typeOfTask = 1;
 }
 
+
+/**
+ * This function render a notification after create a task
+ */
 function alertCreatedTask() {
   //Notification of succesfull task created
   showAlert("container-addTask-alert", "addTask-alert", "Success", "succes-alert", "The Task was added successfully!");
@@ -226,8 +228,6 @@ function showSubTask() {
   emptyInputSubTask();
   changeIconSubTask();
 }
-
-
 
 /**
  * This function empty the field add a new subtask

@@ -25,6 +25,7 @@ async function openDialog(template, taskId) {
     document.getElementById("footer-button-addtask").classList.remove("position-fixed");
     document.getElementById('innerDialog').classList.remove('taskPopup');
     document.getElementById('innerDialog').classList.add('addTaskPopup');
+    document.getElementById("innerDialog").classList.add("mobile-version");
   } else {
     document.getElementById('innerDialog').classList.add('taskPopup');
     document.getElementById('innerDialog').classList.remove('addTaskPopup');

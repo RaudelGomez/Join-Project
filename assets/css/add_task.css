@@ -499,6 +499,16 @@ select {
 		background-color: var(--main-bg-color);
 		padding: 32px 0 !important;
 	}
+
+	/* #innerDialog.mobile-version{
+		top: 8px !important;
+		bottom: 16px !important;
+		overflow-y: auto !important;
+	}
+	#innerDialog.mobile-version .container-button-submit-add-task{
+		background-color: var(--white);
+		position: unset !important;		
+	} */
 }
 
 @media (max-width: 530px){

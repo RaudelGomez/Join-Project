@@ -123,12 +123,27 @@ function renderSubtaskHTMLPopupTask() {
  */
 setTimeout(loadDataBoard, 500);
 
+
+function filterTasks() {
+let filterString = document.getElementById('searchTask').value;
+filterString = filterString.toLowerCase();
+// console.log(filterString);
+  renderHTMLBoard(filterString) ;
+}
+
 /**
  * This function render the cards of tasks in Board
  */
-async function renderHTMLBoard() {
+async function renderHTMLBoard(filterString) {
   let listTasks = Object.values(tasks);
   let listTaskId = Object.keys(tasks);
+
+if(filterString) {
+  // console.log('String: '+filterString);
+  listTasks = listTasks.filter((task) => task.titleTask.toLowerCase().includes(filterString) || task.descriptionTask.toLowerCase().includes(filterString));  
+  // listTasks = listTasks.filter((task) => task.titleTask.includes(filterString) || task.descriptionTask.includes(filterString));  
+}
+
   for (let k = 0; k < listTasks.length; k++) {
     const task = listTasks[k];
     task.id = listTaskId[k];

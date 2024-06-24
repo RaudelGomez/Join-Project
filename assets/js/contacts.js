@@ -240,18 +240,20 @@ async function deleteContact(firebaseKey, contactMail) {
   renderContacts();
 }
 
-async function findTaskUrlsByEmail(tasks, email) {  
+async function findTaskUrlsByEmail(tasks, email) {
   const urls = [];
-  for (const key in tasks) {
+  let key;
+  let i;
+  for (key in tasks) {
     if (tasks.hasOwnProperty(key)) {
       const task = tasks[key];
       if (task.nameAssignedTask && Array.isArray(task.nameAssignedTask)) {
-        for (let i = 0; i < task.nameAssignedTask.length; i++) {
+        for (i = 0; i < task.nameAssignedTask.length; i++) {
           const assigned = task.nameAssignedTask[i];
           if (assigned.email === email) {
             const url = `/tasks/${key}/nameAssignedTask/${i}`;
             urls.push(url);
-            // return url;
+            task.nameAssignedTask.splice(i, 1);
           }
         }
       }

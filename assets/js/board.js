@@ -140,9 +140,10 @@ async function renderHTMLBoard(filterTask) {
   // fiter Function here
   if(filterTask){
     listTasks = listTasks.filter(task => task.titleTask.toLowerCase().includes(filterTask) ||task.descriptionTask.toLowerCase().includes(filterTask) );
-  }else{
-    showAlert("container-signUp-alert", "signUp-alert", "Warning", "error-alert", "No results");
   }
+  // else{
+  //   showAlert("container-signUp-alert", "signUp-alert", "Warning", "error-alert", "No results");
+  // }
 
   for (let k = 0; k < listTasks.length; k++) {
     const task = listTasks[k];

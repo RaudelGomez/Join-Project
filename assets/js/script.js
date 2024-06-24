@@ -43,7 +43,7 @@ function closeDropDownAssignUser() {
 function closeTaskPop() {
   closeDialog();
   closeDropDownAssignUser();
-  document.getElementById("addTaskPopup").classList.remove("mobile-version");
+  document.getElementById("addTaskPopup").classList.remove("mobile-version-only");
 // let assignedTask = document.getElementById("assigned-task");
 // assignedTask.classList.toggle("assigned-task-hidden");
 // assignedTask.classList.toggle("assigned-task-show");

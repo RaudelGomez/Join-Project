@@ -119,6 +119,7 @@ async function addTask(status = typeOfTask) {
   }
   //Setting Task in the option "to-do" again
   typeOfTask = 1;
+  location.href = './board.html';
 }
 
 

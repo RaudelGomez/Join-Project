@@ -24,7 +24,7 @@ async function openDialog(template, taskId) {
     document.getElementById("footer-button-addtask").classList.remove("position-fixed");
     document.getElementById("innerDialog").classList.remove("taskPopup");
     document.getElementById("innerDialog").classList.add("addTaskPopup");
-    document.getElementById("innerDialog").classList.add("mobile-version");
+    document.getElementById("addTaskPopup").classList.add("mobile-version-only");
   } else {
     document.getElementById("innerDialog").classList.add("taskPopup");
     document.getElementById("innerDialog").classList.remove("addTaskPopup");
@@ -474,4 +474,14 @@ function searchTasks() {
   let filterTask = document.getElementById("searchTask").value;
   filterTask = filterTask.toLowerCase();
   renderHTMLBoard(filterTask);
+}
+
+/**
+ * This function redirect to addTask page in the mobile Version if you are nder 900px and you have the PopUp add task open
+ */
+function resizeChangeAddTaskMobile() {
+  if(window.innerWidth <= 900 && document.getElementById('addTaskPopup').classList.contains('mobile-version-only')){
+    document.getElementById('addTaskPopup').classList.add('d-none');
+    location.href = './add_task.html';
+  }
 }

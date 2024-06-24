@@ -220,15 +220,6 @@
 		margin: 0;
 	}
 
-	/* .horizontal-line {
-		display: block;
-		width: 120px;
-		height: 2px;
-		background-color: var(--blue-bikini);
-	} */
-
-
-
 	.horizontal-line {
         display: block;
         width: 90px;

@@ -91,6 +91,26 @@ async function addTask(status) {
   let taskId = searchingTypeTaskURL();
   status = setStatusTask(taskId);
   selectdNameAssignedtask();
+  let task = createTaskObject(status);
+  await postData(task, "tasks");
+  deleteDataFormTask();
+  alertCreatedTask();
+  await loadData('tasks');
+  //Testing if the function exist
+  if(typeof renderHTMLBoard === 'function') {
+    await renderHTMLBoard();
+  }
+  //Setting Task in the option "to-do" again
+  typeOfTask = 1;
+  location.href = './board.html';
+}
+
+/**
+ * This function create a task object
+ * @param {number} status - Type of Task to add
+ * @returns return the object task created
+ */
+function createTaskObject(status) {
   let titleTask = document.getElementById("title_task");
   let descriptionTask = document.getElementById("description_task");
   let nameInTask = selectdNameAssignedtask();
@@ -111,17 +131,7 @@ async function addTask(status) {
     subTasks: subTasks,
     status: status,
   };
-  await postData(task, "tasks");
-  deleteDataFormTask();
-  alertCreatedTask();
-  await loadData('tasks');
-  //Testing if the function exist
-  if(typeof renderHTMLBoard === 'function') {
-    await renderHTMLBoard();
-  }
-  //Setting Task in the option "to-do" again
-  typeOfTask = 1;
-  location.href = './board.html';
+  return task;
 }
 
 /**

@@ -86,9 +86,9 @@ input::placeholder {
   color: var(--primary-color);
 }
 
-.container-popUp{
+/* .container-popUp{
   margin:0 auto !important;
-  }
+  } */
 
 .subtasksPopup input[type="checkbox"] {
   display: none;
@@ -660,7 +660,7 @@ h1 {
 /* End Board Page */
 
 /* pop alert*/
-.container-popUp .error{
+.container-popUp.error{
 	position: fixed;
 	top: 0;
 	left: 0;

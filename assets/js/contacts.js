@@ -144,6 +144,11 @@ function openContactButtons() {
 
 function closeContactMenu() {
   document.getElementById("contactMobileEditButtons").classList.add("d-none");
+  if (window.innerWidth > 1100) {
+    document.getElementById('contactDisplay').style.display = "unset";
+  }
+
+
   // document.getElementById('contactMobileEditButtons').style.display = "none";
 }
 

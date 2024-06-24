@@ -220,7 +220,7 @@ function showAlert(idContainer, idPopUp, typeMessage, classMsg, message) {
   `;
   setTimeout(() => {
     hiddeAlert(idContainer, idPopUp);
-  }, 3000);
+  }, 2000);
 }
 
 /**

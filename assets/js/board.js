@@ -139,11 +139,19 @@ async function renderHTMLBoard(filterTask) {
   let listTaskId = Object.keys(tasks);
   // fiter Function here
   if(filterTask){
-    listTasks = listTasks.filter(task => task.titleTask.toLowerCase().includes(filterTask) ||task.descriptionTask.toLowerCase().includes(filterTask) );
+    let filteredTasks;
+    filteredTasks = listTasks.filter(task => task.titleTask.toLowerCase().includes(filterTask) ||task.descriptionTask.toLowerCase().includes(filterTask) );
+    listTasks = filteredTasks;
+    
+    if (filteredTasks.length == 0) {
+      
+      showAlert("container-boardNoResult-alert", "boardNoResult-alert", "Warning", "error-alert", "No results");
+    }
+  
+  
   }
-  // else{
-  //   showAlert("container-signUp-alert", "signUp-alert", "Warning", "error-alert", "No results");
-  // }
+ 
+
 
   for (let k = 0; k < listTasks.length; k++) {
     const task = listTasks[k];

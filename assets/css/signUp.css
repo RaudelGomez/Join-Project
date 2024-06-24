@@ -179,4 +179,106 @@ color: #a8a8a8;
 .smallLinks:hover {
 	color: #29abe2;
 }
+@media only screen and (max-width:950px) {
 
+	div.signUpHeader{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: row;
+	}
+
+	form.loginBox {
+	  width: 396px;
+	  height: 600px;
+	  padding: 32px 0px 32px 0px;
+	  gap: 32px;
+	}
+  
+	div.HeadlinerLogin {
+	  width: 139px;
+	  height: 72px;
+	  gap: 16px;
+	  font-size: 35px;
+	  font-weight: 700;
+	  line-height: 56.4px;
+	 
+
+	}
+  
+	input.passwordClass {
+	  width: 80%;
+	  height: 48px;
+	  gap: 8px;
+	  margin-left: 20px;
+	}
+  
+	.loginInputFields input::placeholder {
+	  font-size: 20px;
+	  font-weight: 400;
+	  line-height: 24px;
+	  width: 322px;
+	  height: 24px;
+	}
+  
+	div.enterButtons {
+	  display: flex;
+	  flex-direction: column;
+	  gap: 21px;
+	}
+  
+	button.loginButton {
+	  width: 180px;
+	  height: 51px;
+	  border-radius: 8px;
+	  padding: 4px 0px 4px 0px;
+	  gap: 10px;
+	}
+  
+	button.guestLogin {
+	  width: 180px;
+	  height: 51px;
+	  border-radius: 8px;
+	  padding: 4px 0px 4px 0px;
+	  gap: 10px;
+	}
+  
+	div.signUpTop{
+	 display: none;
+	}
+  
+   div.footerIndex{
+	width: auto;
+   }
+  
+   div.checkboxContainer{
+	width: 100px;
+	padding-left: 0;
+	padding-right: 200px;
+   }
+  
+  div.signUpBottom{
+	display: inline;
+	height: 49px;
+	padding-top: 67px;
+	padding-right: 8%;
+	gap: 35px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+  }
+  
+  .logoIndex img {
+	/* position: absolute;
+	  top: 80px;
+	  left: 77px;
+	  right: 0;
+	  bottom: 0;
+	  width: 274px; */
+	width: 80px;
+	height: 100.px;
+	padding-left: 77px;
+	/* animation: joinstart 500ms ease-in-out forwards; */
+  }
+  }
+  

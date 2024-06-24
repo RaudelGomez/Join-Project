@@ -210,6 +210,8 @@ function showContact(contactElement, iconColor, contactName, contactMail, initia
       `openEditContactPopup('${iconColor}','${contactName}', '${contactMail}','${initials}','${results}','${phone}',${id})`
     );
 
+    document.getElementById('openContactButtons').classList.remove('d-none');
+
   document.getElementById("contactDisplay").style.display = "unset";
   let contactElements = document.getElementsByClassName("contactBox");
   for (let i = 0; i < contactElements.length; i++) {

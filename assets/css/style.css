@@ -17,6 +17,8 @@ body, # {font-family: 'Inter' !important;}
   --animate-duration: 0.2s;
 }
 
+
+
 html {
   /*Main colors*/
   --main-color: #2a3647;
@@ -298,6 +300,7 @@ display: none;
 #menu a {
   color: var(--white);
   text-decoration: none;
+  padding: 8px 48px;
 }
 
 #mainNav {
@@ -315,6 +318,8 @@ display: none;
   padding: 8px 48px;
 }
 
+.active {background-color:var(--main-color-dark)}
+
 #mainNav a:hover {
   background-color: var(--menu-hover);
 }
@@ -324,6 +329,11 @@ display: none;
   gap: 16px;
   display: flex;
   flex-direction: column;
+  width:100%;
+}
+
+#footerNav a {
+  padding: 8px 48px;
 }
 
 #footerNav a:hover {

@@ -3,13 +3,29 @@
 </div>
 
 <nav id="mainNav">
-  <a href="./summary.html"><img src="./assets/img/summary_icon.svg" alt="" /> Summary</a>
-  <a href="./add_task.html"><img src="./assets/img/addTask_icon.svg" alt="" /> Add Task</a>
-  <a href="./board.html"> <img src="./assets/img/boardTask_icon.svg" alt="" /> Board</a>
-  <a href="./contacts.html"><img src="./assets/img/contact_icon.svg" alt="" /> Contacts</a>
+  <a id="summaryLink" class="mainNavLinks" href="./summary.html"><img src="./assets/img/summary_icon.svg" alt="" /> Summary</a>
+  <a id="addTaskLink" class="mainNavLinks" href="./add_task.html"><img src="./assets/img/addTask_icon.svg" alt="" /> Add Task</a>
+  <a id="boardLink" class="mainNavLinks" href="./board.html"> <img src="./assets/img/boardTask_icon.svg" alt="" /> Board</a>
+  <a id="contactsLink" class="mainNavLinks" href="./contacts.html"><img src="./assets/img/contact_icon.svg" alt="" /> Contacts</a>
 </nav>
 
 <nav id="footerNav">
-  <a href="./pripo.html">Privacy Policy</a>
-  <a href="./legal_notice.html">Legal notice</a>
+  <a id="privacyPolicy" href="./pripo.html">Privacy Policy</a>
+  <a id="legalNotice" href="./legal_notice.html">Legal notice</a>
 </nav>
+<script>
+ let page = window.location.href.substring(window.location.href.lastIndexOf("/") + 1);
+ console.log(page);
+  // if (loggedIn) {
+  //   if (page=="summary.html") {
+  //     document.getElementById('summaryLink').classList.add('active');
+  //   }
+  //   let summaryLink = document.getElementById('summaryLink');
+  //   let addTaskLink = document.getElementById('addTaskLink');
+  //   let boardLink = document.getElementById('boardLink');
+  //   let contactsLink = document.getElementById('contactsLink');
+
+  //   console.log(summaryLink);
+  // }
+
+</script>

@@ -23,8 +23,8 @@ function closeDialog() {
   document.getElementById("dialog").classList.add("animate__fadeOut");
   document.getElementById("dialog").classList.add("d-none");
   document.getElementById("innerDialog").classList.add("animate__slideOutRight");
-  document.getElementById("innerDialog").classList.remove("animate__slideInRight");  
-  document.getElementById("dialog").classList.add("d-none");    
+  document.getElementById("innerDialog").classList.remove("animate__slideInRight");
+  document.getElementById("dialog").classList.add("d-none");
   // setTimeout(() => {
   //   document.getElementById("dialog").classList.add("d-none");
   // }, 500);
@@ -34,7 +34,7 @@ function closeDialog() {
 function closeDropDownAssignUser() {
   //Close dropdown assigned to user
   let assignedTask = document.getElementById("assigned-task");
-  if (assignedTask.classList.contains('assigned-task-show')) {
+  if (assignedTask.classList.contains("assigned-task-show")) {
     assignedTask.classList.remove("assigned-task-show");
     assignedTask.classList.add("assigned-task-hidden");
   }
@@ -44,28 +44,28 @@ function closeTaskPop() {
   closeDialog();
   closeDropDownAssignUser();
   document.getElementById("addTaskPopup").classList.remove("mobile-version-only");
-// let assignedTask = document.getElementById("assigned-task");
-// assignedTask.classList.toggle("assigned-task-hidden");
-// assignedTask.classList.toggle("assigned-task-show");
+  // let assignedTask = document.getElementById("assigned-task");
+  // assignedTask.classList.toggle("assigned-task-hidden");
+  // assignedTask.classList.toggle("assigned-task-show");
 
   // showCheckboxes();
-  if (document.getElementById('footer-button-addtask')) {
-    document.getElementById('footer-button-addtask').classList.add('position-fixed');
+  if (document.getElementById("footer-button-addtask")) {
+    document.getElementById("footer-button-addtask").classList.add("position-fixed");
   }
   currentTaskId = "";
   currentTask = "";
   deleteDataFormTask();
-  document.getElementById('container-select-option').classList.remove('pointer-none');
+  document.getElementById("container-select-option").classList.remove("pointer-none");
   //Setting button Create Task again after close form edit
-  document.getElementById('btn-clear-add-Task').classList.remove('d-none');
-  let footerButtonAddTask = document.getElementById('footer-button-addtask');
-  footerButtonAddTask.firstElementChild.classList.remove('d-none');
-  footerButtonAddTask.classList.remove('justify-end');
-  let btnCreatetask = document.getElementById('btn-create-task')
-  btnCreatetask.firstElementChild.textContent = 'Create Task';
-  btnCreatetask.classList.remove('btn-edit-task');
-  
-  if(document.getElementById('addTaskPopup')){
+  document.getElementById("btn-clear-add-Task").classList.remove("d-none");
+  let footerButtonAddTask = document.getElementById("footer-button-addtask");
+  footerButtonAddTask.firstElementChild.classList.remove("d-none");
+  footerButtonAddTask.classList.remove("justify-end");
+  let btnCreatetask = document.getElementById("btn-create-task");
+  btnCreatetask.firstElementChild.textContent = "Create Task";
+  btnCreatetask.classList.remove("btn-edit-task");
+
+  if (document.getElementById("addTaskPopup")) {
     let firstChild = document.getElementById("addTaskPopup").firstElementChild;
     firstChild.innerHTML = "Add Task";
   }
@@ -79,9 +79,18 @@ function readLoggedInUser() {
   let initials;
   let mail;
   let userName;
-  let protectedPages = ["board.html", "contacts.html", "summary.html", "add_task.html"];
+  let protectedPages = [
+    "board.html",
+    "contacts.html",
+    "summary.html",
+    "add_task.html",
+    "board",
+    "contacts",
+    "summary",
+    "add_task",
+  ];
   if (localStorage.getItem("Join")) {
-    console.log("test");
+    // console.log("test");
     initials = JSON.parse(localStorage.getItem("Join")).initials;
     mail = JSON.parse(localStorage.getItem("Join")).mail;
     userName = JSON.parse(sessionStorage.getItem("Join")).userName;
@@ -94,6 +103,8 @@ function readLoggedInUser() {
     loggedIn = true;
   }
   let page = window.location.href.substring(window.location.href.lastIndexOf("/") + 1);
+  setTimeout(setActiveMenueLinks, 100);
+
   if (!loggedIn && protectedPages.includes(page)) {
     location.href = "./index.html";
   }
@@ -102,6 +113,39 @@ function readLoggedInUser() {
     initials: initials,
     name: userName,
   };
+}
+
+function setActiveMenueLinks() {
+  let page = window.location.href.substring(window.location.href.lastIndexOf("/") + 1);
+  switch (page) {
+    case "summary.html":
+      document.getElementById("summaryLink").classList.add("active");
+      break;
+
+    case "add_task.html":
+      document.getElementById("addTaskLink").classList.add("active");
+      break;
+
+    case "board.html":
+      document.getElementById("boardLink").classList.add("active");
+      break;
+
+    case "contacts.html":
+      document.getElementById("contactsLink").classList.add("active");
+      break;
+
+      case "pripo.html":
+        document.getElementById("privacyPolicy").classList.add("active");
+        break;
+
+        case "legal_notice.html":
+          document.getElementById("legalNotice").classList.add("active");
+          break;
+  }
+
+
+
+  
 }
 
 /**
@@ -121,7 +165,7 @@ async function loadData(path = "") {
 }
 
 /**
- * Render the Header with Main title, profile logo of logged in user and dropdown menu 
+ * Render the Header with Main title, profile logo of logged in user and dropdown menu
  * @param {Object} userData - Contains mail, initials and username of logged in user
  */
 function renderHeader(userData) {
@@ -254,5 +298,3 @@ async function setColorUser() {
   let indexColor = contactLength % colors.length;
   return indexColor;
 }
-
-

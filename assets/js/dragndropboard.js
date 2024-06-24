@@ -1,4 +1,3 @@
-
 function startDragging(id, cardElement) {
     currentDragElement = id;
     cardElement.classList.add("rotateCard");
@@ -9,8 +8,7 @@ function allowDrop(ev) {
 }
 
 async function moveTo(status) {      
-    let firebaseURL=
-    `/tasks/${currentDragElement}/status`; 
+    let firebaseURL= `/tasks/${currentDragElement}/status`; 
     await putData(status, firebaseURL);
     document.getElementById("toDoBoard").classList.remove('drag-area-highlight');
     document.getElementById("inProgress").classList.remove('drag-area-highlight');

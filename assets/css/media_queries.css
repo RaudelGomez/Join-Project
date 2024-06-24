@@ -143,14 +143,15 @@ display: none;
 
   #mainNav {
     flex-direction: row !important;
-    gap: 15px !important;
+    gap: 8px !important;
     justify-content: space-around;
   }
 
   #mainNav a {
     flex-direction: column;
     font-size: 14px;
-    padding: 0 !important;
+    padding: 6px !important;
+    border-radius: 16px;
   }
 
   #footerNav {

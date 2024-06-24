@@ -304,20 +304,18 @@ function validationAddTask() {
   if(titleTask.value == ""){
     titleTask.nextElementSibling.textContent = "This field is required";
     titleTask.classList.add('inputRedBorder');
-    return
   }
   let deadLine = document.getElementById('due_date_task');
   if(deadLine.value == ""){
     deadLine.nextElementSibling.textContent = "This field is required";
     deadLine.classList.add('inputRedBorder');
-    return
   }
   let categoryTask = document.getElementById('option-selected');
+  let selectContainer = document.getElementById('select-option');
   let errorCategoryTask = document.getElementById('error-option-selected');
   if (categoryTask.dataset.filled == "Select task category") {
     errorCategoryTask.textContent = "This field is required";
-    errorCategoryTask.classList.add('inputRedBorder');
-    return;
+    selectContainer.classList.add('inputRedBorder');
   }
 }
 
@@ -335,8 +333,9 @@ function closeError(elementHTML) {
  */
 function closeErroCategory() {
   let errorCategoryTask = document.getElementById('error-option-selected');
+  let selectContainer = document.getElementById('select-option');;
     errorCategoryTask.textContent = "";
-    errorCategoryTask.classList.remove('inputRedBorder');
+    selectContainer.classList.remove('inputRedBorder');
 }
 
 /**

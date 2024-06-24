@@ -39,9 +39,12 @@
               <div class="searchContainer">
                 <input id="searchTask" type="search" placeholder="Find Task" onkeyup="searchTasks()" /><img
                   src="./assets/img/search_icon.svg"
-                  alt="" />
+                  alt="" onclick="searchTasks()" />
               </div>
-              <button class="button" onclick="openDialog('add_task_template.html')">
+              <button class="button mobileAddTaskButton" onclick="location.href='./add_task.html'">
+                Add task <img src="./assets/img/add.svg" alt="" />
+              </button>
+              <button class="button desktopAddTaskButton" onclick="openDialog('add_task_template.html')">
                 Add task <img src="./assets/img/add.svg" alt="" />
               </button>
             </div>
@@ -60,8 +63,8 @@
                 <!-- This area is for the SVG Icons.  -->
                 <h3>To do</h3>
                 <svg 
-                  onclick="changeTypeOfTask(1), openDialog('add_task_template.html')"
-                  class="svgIcon"
+                  onclick="changeTypeOfTask(1), location.href='./add_task.html'"
+                  class="svgIcon mobileAddTaskButton"
                   width="24"
                   height="25"
                   viewBox="0 0 24 25"
@@ -89,6 +92,38 @@
                     stroke-width="2"
                     stroke-linecap="round" />
                 </svg>
+
+
+                <svg 
+                onclick="changeTypeOfTask(1), openDialog('add_task_template.html')"
+                class="svgIcon desktopAddTaskButton"
+                width="24"
+                height="25"
+                viewBox="0 0 24 25"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <rect
+                  class="svgIconStrokeLightBlue"
+                  x="1"
+                  y="1.5"
+                  width="22"
+                  height="22"
+                  rx="7"
+                  stroke="#2A3647"
+                  stroke-width="2" />
+                <path
+                  class="svgIconStrokeLightBlue"
+                  d="M12 8.5V16.5"
+                  stroke="#2A3647"
+                  stroke-width="2"
+                  stroke-linecap="round" />
+                <path
+                  class="svgIconStrokeLightBlue"
+                  d="M16 12.5754L8 12.5754"
+                  stroke="#2A3647"
+                  stroke-width="2"
+                  stroke-linecap="round" />
+              </svg>
               </header>
         
               <div
@@ -105,8 +140,8 @@
               <header>
                 <h3>In progress</h3>
                 <svg
-                  onclick="changeTypeOfTask(2), openDialog('add_task_template.html')"
-                  class="svgIcon"
+                  onclick="changeTypeOfTask(2), location.href='./add_task.html'"
+                  class="svgIcon mobileAddTaskButton"
                   width="24"
                   height="25"
                   viewBox="0 0 24 25"
@@ -134,6 +169,36 @@
                     stroke-width="2"
                     stroke-linecap="round" />
                 </svg>
+                <svg
+                onclick="changeTypeOfTask(2), openDialog('add_task_template.html')"
+                class="svgIcon desktopAddTaskButton"
+                width="24"
+                height="25"
+                viewBox="0 0 24 25"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <rect
+                  class="svgIconStrokeLightBlue"
+                  x="1"
+                  y="1.5"
+                  width="22"
+                  height="22"
+                  rx="7"
+                  stroke="#2A3647"
+                  stroke-width="2" />
+                <path
+                  class="svgIconStrokeLightBlue"
+                  d="M12 8.5V16.5"
+                  stroke="#2A3647"
+                  stroke-width="2"
+                  stroke-linecap="round" />
+                <path
+                  class="svgIconStrokeLightBlue"
+                  d="M16 12.5754L8 12.5754"
+                  stroke="#2A3647"
+                  stroke-width="2"
+                  stroke-linecap="round" />
+              </svg>
               </header>
               <div
                 class="drag-area"
@@ -148,8 +213,8 @@
               <header>
                 <h3>Await feedback</h3>
                 <svg
-                  onclick="changeTypeOfTask(3), openDialog('add_task_template.html')"
-                  class="svgIcon"
+                  onclick="changeTypeOfTask(3), location.href='./add_task.html'"
+                  class="svgIcon mobileAddTaskButton"
                   width="24"
                   height="25"
                   viewBox="0 0 24 25"
@@ -177,6 +242,36 @@
                     stroke-width="2"
                     stroke-linecap="round" />
                 </svg>
+                <svg
+                onclick="changeTypeOfTask(3), openDialog('add_task_template.html')"
+                class="svgIcon desktopAddTaskButton"
+                width="24"
+                height="25"
+                viewBox="0 0 24 25"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <rect
+                  class="svgIconStrokeLightBlue"
+                  x="1"
+                  y="1.5"
+                  width="22"
+                  height="22"
+                  rx="7"
+                  stroke="#2A3647"
+                  stroke-width="2" />
+                <path
+                  class="svgIconStrokeLightBlue"
+                  d="M12 8.5V16.5"
+                  stroke="#2A3647"
+                  stroke-width="2"
+                  stroke-linecap="round" />
+                <path
+                  class="svgIconStrokeLightBlue"
+                  d="M16 12.5754L8 12.5754"
+                  stroke="#2A3647"
+                  stroke-width="2"
+                  stroke-linecap="round" />
+              </svg>
               </header>
               <div
                 class="drag-area"

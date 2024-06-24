@@ -1,4 +1,3 @@
-
 /**
  * This function bring all Data from datBase: contacts & tasks
  */
@@ -23,12 +22,12 @@ async function openDialog(template, taskId) {
     document.getElementById("addTaskPopup").classList.remove("d-none");
     document.getElementById("showTaskPopup").classList.add("d-none");
     document.getElementById("footer-button-addtask").classList.remove("position-fixed");
-    document.getElementById('innerDialog').classList.remove('taskPopup');
-    document.getElementById('innerDialog').classList.add('addTaskPopup');
+    document.getElementById("innerDialog").classList.remove("taskPopup");
+    document.getElementById("innerDialog").classList.add("addTaskPopup");
     document.getElementById("innerDialog").classList.add("mobile-version");
   } else {
-    document.getElementById('innerDialog').classList.add('taskPopup');
-    document.getElementById('innerDialog').classList.remove('addTaskPopup');
+    document.getElementById("innerDialog").classList.add("taskPopup");
+    document.getElementById("innerDialog").classList.remove("addTaskPopup");
     dataCurrentTask(taskId);
     document.getElementById("showTaskPopup").classList.remove("d-none");
     document.getElementById("addTaskPopup").classList.add("d-none");
@@ -124,12 +123,11 @@ function renderSubtaskHTMLPopupTask() {
  */
 setTimeout(loadDataBoard, 500);
 
-
 function filterTasks() {
-let filterString = document.getElementById('searchTask').value;
-filterString = filterString.toLowerCase();
-// console.log(filterString);
-  renderHTMLBoard(filterString) ;
+  let filterString = document.getElementById("searchTask").value;
+  filterString = filterString.toLowerCase();
+  // console.log(filterString);
+  renderHTMLBoard(filterString);
 }
 
 /**
@@ -139,26 +137,24 @@ async function renderHTMLBoard(filterTask) {
   let listTasks = Object.values(tasks);
   let listTaskId = Object.keys(tasks);
   // fiter Function here
-  if(filterTask){
+  if (filterTask) {
     let filteredTasks;
-    filteredTasks = listTasks.filter(task => task.titleTask.toLowerCase().includes(filterTask) ||task.descriptionTask.toLowerCase().includes(filterTask) );
+    filteredTasks = listTasks.filter(
+      (task) =>
+        task.titleTask.toLowerCase().includes(filterTask) || task.descriptionTask.toLowerCase().includes(filterTask)
+    );
     listTasks = filteredTasks;
-    
+
     if (filteredTasks.length == 0) {
-      
       showAlert("container-boardNoResult-alert", "boardNoResult-alert", "Warning", "error-alert", "No results");
     }
-  
-  
   }
- 
-
 
   for (let k = 0; k < listTasks.length; k++) {
     const task = listTasks[k];
     task.id = listTaskId[k];
   }
-  
+
   let containerToDo = document.getElementById("toDoBoard");
   containerToDo.innerHTML = "";
   let toDo = listTasks.filter((task) => task.status == 1);
@@ -276,8 +272,8 @@ function renderHTMLTasksBoard(task, i, idContainerSubTask, idContainerUserTask, 
 
   let taskDesription = task.descriptionTask;
   if (taskDesription.length > 70) {
-    taskDesription = taskDesription.substring(0,70) + "...";
-}
+    taskDesription = taskDesription.substring(0, 70) + "...";
+  }
 
   return /*html*/ `
       <article
@@ -370,7 +366,12 @@ function renderHTMLUserinTask(task, i, idContainerUserTask) {
   if (task["nameAssignedTask"]) {
     for (let j = 0; j < task["nameAssignedTask"].length; j++) {
       const userTask = task["nameAssignedTask"][j];
-      const userColorIndex = +userTask.colorIndex;
+      let userColorIndex;
+      // console.log(userTask);
+      // console.log(j+'. colorindex: '+userTask.colorIndex);
+      if (userTask.colorIndex != null ) {
+        userColorIndex = +userTask.colorIndex;
+      }
       const userColor = colors[userColorIndex].color;
       const initialName = getInitials(userTask.name);
       userTaskBoard.innerHTML += /*html*/ `
@@ -469,9 +470,8 @@ function changePriorityEditTask(idPriorityButton) {
   priorityTask = document.getElementById(`button-${idPriorityButton}-priority`).dataset.prio;
 }
 
-function searchTasks(){
-  let filterTask  = document.getElementById("searchTask").value;
+function searchTasks() {
+  let filterTask = document.getElementById("searchTask").value;
   filterTask = filterTask.toLowerCase();
   renderHTMLBoard(filterTask);
-  }
-
+}

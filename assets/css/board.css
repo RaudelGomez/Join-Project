@@ -81,5 +81,18 @@
   color: var(--danger-color);
 } */
 
+.mobileAddTaskButton {
+  display: none;
+}
+.desktopAddTaskButton {
+  display: inline-block;
+}
 
-
+@media (max-width: 900px) {
+  .mobileAddTaskButton {
+    display: inline-block;
+  }
+  .desktopAddTaskButton {
+    display: none;
+  }
+}

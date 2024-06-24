@@ -126,14 +126,21 @@ setTimeout(loadDataBoard, 500);
 /**
  * This function render the cards of tasks in Board
  */
-async function renderHTMLBoard() {
+async function renderHTMLBoard(filterTask) {
   let listTasks = Object.values(tasks);
   let listTaskId = Object.keys(tasks);
+  // fiter Function here
+  if(filterTask){
+    listTasks = listTasks.filter(task => task.titleTask.toLowerCase().includes(filterTask) ||task.descriptionTask.toLowerCase().includes(filterTask) );
+  }else{
+    showAlert("container-signUp-alert", "signUp-alert", "Warning", "error-alert", "No results");
+  }
+
   for (let k = 0; k < listTasks.length; k++) {
     const task = listTasks[k];
     task.id = listTaskId[k];
   }
-
+  
   let containerToDo = document.getElementById("toDoBoard");
   containerToDo.innerHTML = "";
   let toDo = listTasks.filter((task) => task.status == 1);
@@ -444,4 +451,9 @@ function changePriorityEditTask(idPriorityButton) {
   priorityTask = document.getElementById(`button-${idPriorityButton}-priority`).dataset.prio;
 }
 
+function searchTasks(){
+  let filterTask  = document.getElementById("searchTask").value;
+  filterTask = filterTask.toLowerCase();
+  renderHTMLBoard(filterTask);
+  }
 

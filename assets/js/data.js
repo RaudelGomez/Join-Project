@@ -8,6 +8,7 @@ let currentTaskId = "";
 let currentTask = "";
 let priorityTask = "medium";
 let typeOfTask = 1;
+let currentDragElement;
 let statusTask = [
 	{ id: 1, name: "To do" },
 	{ id: 2, name: "In progress do" },
@@ -29,5 +30,5 @@ let colors = [
 	{ id: "brimstone", color: "#ffbb2b" },
 ];
 
-let currentDragElement;
+
 

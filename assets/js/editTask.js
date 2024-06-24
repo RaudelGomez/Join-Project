@@ -1,4 +1,24 @@
+/**
+ * This function edit a task
+ */
 async function saveEditedTask() {
+  let task = editingObjetTask();
+  await putData(task, `/tasks/${currentTaskId}`);  
+  await loadData('tasks');
+  //Testing if the function exist
+  if(typeof renderHTMLBoard === 'function') {
+    await renderHTMLBoard();
+  }
+  openDialog('task_popup_template.html', `${currentTaskId}`)
+  closeDropDownAssignUser();
+  typeOfTask = 1;
+}
+
+/**
+ * This function edit a current open task
+ * @returns - The edited task
+ */
+function editingObjetTask() {
   let status = currentTask.status;
   selectdNameAssignedtask();
   let titleTask = document.getElementById("title_task");
@@ -6,7 +26,6 @@ async function saveEditedTask() {
   let nameInTask = selectdNameAssignedtask();
   let timeDeadlineTask = document.getElementById("due_date_task");
   let categoryTask = document.getElementById("option-selected");
-
   if(titleTask.value == "" || timeDeadlineTask.value == "" || categoryTask.dataset.filled == "Select task category"){
     validationAddTask();
     return
@@ -21,24 +40,5 @@ async function saveEditedTask() {
     subTasks: subTasks,
     status: status,
   };
-
-
-//   let isChecked = document.getElementById(`subTask${subtaskId}`).checked;
-//   let idString = `/tasks/${firebaseKey}/subTasks/${subtaskId}/statusSubTask`;
-//   await putData(isChecked, idString);
-//   loadDataBoard();
-
-//   console.log(task);
-  await putData(task, `/tasks/${currentTaskId}`);  
-  // deleteDataFormTask();
-  // closeDropDownAssignUser();
-  await loadData('tasks');
-  //Testing if the function exist
-  if(typeof renderHTMLBoard === 'function') {
-    await renderHTMLBoard();
-  }
-  openDialog('task_popup_template.html', `${currentTaskId}`)
-  //showCheckboxes();
-  closeDropDownAssignUser();
-  typeOfTask = 1;
+  return task;
 }

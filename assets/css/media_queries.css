@@ -17,7 +17,7 @@
   @media screen and (max-width: 1100px) {
     .boardSections {
       display: flex;
-      flex-direction: column;
+      /* flex-direction: column; */
     }
   .drag-area {
 

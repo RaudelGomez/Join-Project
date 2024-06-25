@@ -34,7 +34,12 @@
         <header id="header"></header>
         <div class="sub-container">
           <header class="boardHeader">
+            <div class="boardMobileHeader">
             <h2>Board</h2>
+            <button class="button mobileAddTaskButtonSmall" onclick="location.href='./add_task.html?typeTask=1'">
+              <img src="./assets/img/add.svg" alt="" />
+            </button>
+          </div>
             <div class="searchBox">
               <div class="searchContainer">
                 <input id="searchTask" type="search" placeholder="Find Task" onkeyup="searchTasks()" /><img

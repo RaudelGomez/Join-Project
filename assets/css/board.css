@@ -81,18 +81,46 @@
   color: var(--danger-color);
 } */
 
-.mobileAddTaskButton {
+.mobileAddTaskButton, .mobileAddTaskButtonSmall {
   display: none;
 }
 .desktopAddTaskButton {
   display: inline-block;
 }
 
+
+
 @media (max-width: 900px) {
+  .sub-container {
+    padding-bottom: 100px;
+
+  }
   .mobileAddTaskButton {
     display: inline-block;
   }
-  .desktopAddTaskButton {
+  .desktopAddTaskButton, .mobileAddTaskButton {
     display: none;
   }
+
+  .mobileAddTaskButtonSmall {display: flex;}
+
+  .boardMobileHeader {
+
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+
+  .mobileAddTaskButtonSmall {
+    height: 40px;
+    width: 40px;
+
+  }
+  .boardHeader .searchContainer,#searchTask, .searchBox {
+    width:100%;
+  }
+  
+ 
 }

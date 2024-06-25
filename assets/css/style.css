@@ -515,11 +515,13 @@ h1 {
 .boardSections {
   display: flex;
   gap: 26px;
+  flex-wrap: wrap;
 }
 
 .boardSections section {
-  width: 25%;
+  min-width: 252px;
   /* height: 200px; */
+  flex: 1;
 }
 
 .boardSections section header {
@@ -533,6 +535,7 @@ h1 {
 
 .boardHeader {
   display: flex;
+  margin-bottom: 16px;
 }
 
 .taskCard {

@@ -222,13 +222,17 @@ select {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	bottom: 24px;
-	left: 296px;
-	right: 64px;
+	bottom: 64px !important;
+	left: 296px !important;
+	right: 64px !important;
+	position: absolute;
 }
 
-.position-fixed{
-	position: fixed;
+.position-relative{
+	position: relative;
+	bottom: 0 !important;
+	left: 0 !important;
+	right: 0 !important;
 }
 
 .container-button-submit-add-task p {
@@ -467,6 +471,20 @@ select {
 @media (max-width: 1200px){
 	.sub-container-addTask{
 		padding: 0 22px;
+	}
+}
+
+@media (max-width: 1100px){
+	.container-button-submit-add-task {
+		bottom: 120px !important;
+		right: 64px !important;
+		left: 64px !important;
+	}
+
+	.desktop-version-only .container-button-submit-add-task {
+		bottom: 0 !important;
+		right: 0 !important;
+		left: 0 !important;
 	}
 }
 

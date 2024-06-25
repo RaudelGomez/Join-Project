@@ -20,6 +20,7 @@ setTimeout(initAddTask, 500);
  */
 function showCheckboxes() {
   let assignedTask = document.getElementById("assigned-task");
+  assignedTask.classList.toggle('open');
   assignedTask.classList.toggle("assigned-task-hidden");
   assignedTask.classList.toggle("assigned-task-show");
 }
@@ -53,10 +54,23 @@ function resetPriority() {
  */
 function showTaskOption() {
   let categoryTask = document.getElementById("category-task");
+  categoryTask.classList.toggle('open');
   categoryTask.classList.toggle("assigned-task-hidden");
   categoryTask.classList.toggle("assigned-task-show");
   document.getElementById("option-selected").textContent = "Select task category";
   document.getElementById("option-selected").dataset.filled = "Select task category";
+}
+
+/**
+ * That function close the tap category
+ */
+function closeCategoryTap() {
+  let categoryTask = document.getElementById("category-task");
+  if(categoryTask.classList.contains('open')){
+    categoryTask.classList.add("assigned-task-hidden");
+    categoryTask.classList.remove("assigned-task-show");
+    categoryTask.classList.remove('category-open')
+  }
 }
 
 /**
@@ -92,6 +106,9 @@ async function addTask(status) {
   status = setStatusTask(taskId);
   selectdNameAssignedtask();
   let task = createTaskObject(status);
+  if(!task){
+    return
+  }
   await postData(task, "tasks");
   deleteDataFormTask();
   alertCreatedTask();
@@ -387,3 +404,24 @@ function dateFromTodayOnly() {
   const minDate = `${yyyy}-${mm}-${dd}`;
   document.getElementById('due_date_task').setAttribute('min', minDate);
 }
+
+/**
+ * Event that close all Taps with a click
+ */
+document.addEventListener('click', closeAllTaps);
+
+/**
+ * This function all Taps open
+ */
+function closeAllTaps() {
+  closeCategoryTap();
+  let categoryTask = document.getElementById("category-task");
+  if(categoryTask.classList.contains('open')){
+    categoryTask.classList.remove('open');
+  }
+  let nameOpen = document.getElementById("assigned-task");
+  if(nameOpen.classList.contains('open')){
+    showCheckboxes();
+  }
+}
+

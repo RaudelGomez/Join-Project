@@ -21,10 +21,11 @@ async function openDialog(template, taskId) {
     document.getElementById("add_task_form").setAttribute("onsubmit", "addTask(); return false;");
     document.getElementById("addTaskPopup").classList.remove("d-none");
     document.getElementById("showTaskPopup").classList.add("d-none");
-    document.getElementById("footer-button-addtask").classList.remove("position-fixed");
+    document.getElementById("footer-button-addtask").classList.add("position-relative");
     document.getElementById("innerDialog").classList.remove("taskPopup");
     document.getElementById("innerDialog").classList.add("addTaskPopup");
     document.getElementById("addTaskPopup").classList.add("mobile-version-only");
+    document.getElementById("addTaskPopup").classList.add("desktop-version-only");
   } else {
     document.getElementById("innerDialog").classList.add("taskPopup");
     document.getElementById("innerDialog").classList.remove("addTaskPopup");
@@ -369,14 +370,6 @@ function resizeMenuDragMobile() {
       menu.classList.add('d-none');
     }
   }
-}
-
-/**
- * This function stop open the Popup task because, the menu for mobile will be opened
- * @param {event} event 
- */
-function stopPropagation(event) {
-  event.stopPropagation();
 }
 
 /**

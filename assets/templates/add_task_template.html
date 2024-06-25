@@ -24,7 +24,7 @@
 				</div>
 				<div class="form-control position-relative">
 					<label for="assigned_task">Assigned to</label>
-					<div class="select-option" onclick="showCheckboxes()">
+					<div class="select-option" onclick="showCheckboxes(); stopPropagation(event)">
 						<select>
 							<option>Select contacts to assign</option>
 						</select>
@@ -116,7 +116,7 @@
 					<label for="category-task"
 						>Category<span class="required">*</span></label
 					>
-					<div id="container-select-option" class="select-option" onclick="showTaskOption(); closeErroCategory()">
+					<div id="container-select-option" class="select-option" onclick="showTaskOption(); closeErroCategory(); stopPropagation(event)">
 						<select id="select-option">
 							<option id="option-selected" data-filled="Select task category">Select task category</option>
 						</select>
@@ -175,7 +175,7 @@
 				</div>
 			</section>
 		</div>
-		<div id="footer-button-addtask" class="container-button-submit-add-task position-fixed">
+		<div id="footer-button-addtask" class="container-button-submit-add-task">
 			<p><span>*</span>This field is required</p>
 			<div class="button-submit-clear-add-task">
 				<button id="btn-clear-add-Task" type="button" class="clear-button-add-task svgContainer" onclick="deleteDataFormTask()">

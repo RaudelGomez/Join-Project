@@ -111,6 +111,10 @@
   border-bottom-right-radius: 20px;
 }
 
+.menu-mobile-task-container:hover{
+  background-color: var(--menu-hover);
+}
+
 @media (max-width: 900px) {
   .sub-container {
     padding-bottom: 100px;

@@ -103,11 +103,14 @@ function readLoggedInUser() {
     userName = JSON.parse(sessionStorage.getItem("Join")).userName;
     loggedIn = true;
   }
+
   let page = window.location.href.substring(window.location.href.lastIndexOf("/") + 1);
   setTimeout(setActiveMenueLinks, 200);
 
   if (!loggedIn && protectedPages.includes(page)) {
     location.href = "./index.html";
+
+
   }
   return {
     mail: mail,
@@ -122,23 +125,18 @@ function setActiveMenueLinks() {
     case "summary.html":
       document.getElementById("summaryLink").classList.add("active");
       break;
-
     case "add_task.html":
       document.getElementById("addTaskLink").classList.add("active");
       break;
-
     case "board.html":
       document.getElementById("boardLink").classList.add("active");
       break;
-
     case "contacts.html":
       document.getElementById("contactsLink").classList.add("active");
       break;
-
     case "pripo.html":
       document.getElementById("privacyPolicy").classList.add("active");
       break;
-
     case "legal_notice.html":
       document.getElementById("legalNotice").classList.add("active");
       break;
@@ -298,7 +296,7 @@ async function setColorUser() {
 
 /**
  * This function stop open the Popup task because, the menu for mobile will be opened
- * @param {event} event 
+ * @param {event} event
  */
 function stopPropagation(event) {
   event.stopPropagation();

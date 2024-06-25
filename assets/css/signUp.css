@@ -1,4 +1,4 @@
-.bodyLogin {
+.bodySignup {
   /* height: 55vh; */
   display: flex;
   justify-content: center;
@@ -73,7 +73,7 @@
   border: none;
 }
 
-.loginBox {
+/* .loginBox {
   background-color: white;
   box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.1);
   border-radius: 30px;
@@ -81,12 +81,12 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  /* height: 630px; */
+
   max-width: 652px;
   width: 100%;
   gap: 32px;
   padding: 48px, 115px, 48px, 115px;
-}
+} */
 
 .loginInputFields {
   display: flex;
@@ -104,7 +104,7 @@
 
 .emailClass {
   width: 422px;
-  height: 30px;
+  /* height: 30px; */
   border-radius: 10px;
   border: 1px solid rgba(0, 0, 0, 0.1);
   padding: 12px 21px 12px 21px;
@@ -156,12 +156,19 @@
   background-color: #29abe2;
   box-shadow: 0px 4px 4px 0px #00000040;
 }
+.logoSignup {
+position: absolute;
+width:100px;
+height:122px;
+top: 70px;
+left:77px;
+}
 
 .footerIndex {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 100px;
+  padding-top: 24px;
   gap: 35px;
   height: 35px;
 }
@@ -170,6 +177,15 @@
   color: #29abe2;
 }
 @media only screen and (max-width: 950px) {
+
+  .logoSignup {
+    position: absolute;
+    width:64px;
+    height:78px;
+    top: 37px;
+    left:38px;
+    }
+
   .goBackButton {
     left: 0px;
     top: 81px;
@@ -185,7 +201,7 @@
 
   form.loginBox {
     width: 396px;
-    height: 600px;
+    /* height: 600px; */
     padding: 32px 0px 32px 0px;
     gap: 32px;
   }
@@ -194,14 +210,14 @@
     width: 139px;
     height: 72px;
     gap: 16px;
-    font-size: 35px;
+    font-size: 47px;
     font-weight: 700;
     line-height: 56.4px;
   }
 
   input.passwordClass {
     width: 80%;
-    height: 48px;
+    /* height: 48px; */
     gap: 8px;
     margin-left: 20px;
   }

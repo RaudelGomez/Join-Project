@@ -7,6 +7,43 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
+  opacity: 0;
+  animation: 500ms ease-in-out 1000ms fadeInLogin forwards;
+}
+
+@keyframes animateJoinLogo {
+  from {
+    transform: translate(0);
+    height: 100vh;
+  }
+  to {
+    transform: translate(-40%, -40%) scale(0.35);
+    /* height: 10vh; */
+  }
+}
+
+@keyframes fadeInLogin {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.logoIndex {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  background-color: transparent;
+  animation: 500ms ease-in-out 1000ms animateJoinLogo forwards;
 }
 
 .signUpTop {
@@ -17,13 +54,15 @@ a {
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  opacity: 0;
+  animation: 500ms ease-in-out 1000ms fadeInLogin forwards;
 }
 
-.logoIndex img {
+/* .logoIndex img {
   width: 100.03px;
   height: 121.97px;
   padding-left: 77px;
-}
+} */
 
 .signUpButton {
   padding: 15px, 16px, 15px, 16px;
@@ -70,7 +109,8 @@ a {
   height: 493px;
   width: 652px;
   gap: 32px;
-  padding: 48px 115px 48px 115px;
+  margin-top: 70px;
+  /* padding: 48px 115px 48px 115px; */
 }
 
 .signupBox {
@@ -103,7 +143,7 @@ a {
 
 .emailClass {
   width: 422px;
-  height: 48px;
+  /* height: 48px; */
   border-radius: 10px;
   border: 2px solid rgba(0, 0, 0, 0.1);
   padding: 12px, 21px, 12px, 21px;
@@ -182,10 +222,16 @@ input::placeholder {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 100px;
+  padding-top: 24px;
   gap: 35px;
   height: 35px;
+  opacity: 0;
+  animation: 500ms ease-in-out 1000ms fadeInLogin forwards;
 }
+
+/* div.footerIndex {
+  width: auto;
+} */
 
 .smallLinks:hover {
   color: #29abe2;
@@ -209,10 +255,27 @@ input::placeholder {
   display: none;
 }
 @media only screen and (max-width: 950px) {
+  .bodyLogin,
+  .footerIndex {
+    opacity: 1;
+    animation: unset;
+  }
+
+  .logoIndex {
+    animation: unset;
+    position: unset;
+    left: 0;
+    top: 0;
+    display: unset;
+    height: unset;
+    width: unset;
+  }
+
   .signupBox {
     max-width: 396px;
     padding: 32px 0px 32px 0px;
-    margin-top: 24px;
+    /* margin-top: 24px; */
+    margin-top: 160px;
   }
   .signupBox .HeadlinerLogin {
     font-size: 47px;
@@ -237,14 +300,14 @@ input::placeholder {
 
   input.emailClass {
     width: 80%;
-    height: 48px;
+    /* height: 48px; */
     gap: 8px;
     margin-left: 20px;
   }
 
   input.passwordClass {
     width: 80%;
-    height: 48px;
+    /* height: 48px; */
     gap: 8px;
     margin-left: 20px;
   }
@@ -281,10 +344,6 @@ input::placeholder {
 
   div.signUpTop {
     display: none;
-  }
-
-  div.footerIndex {
-    width: auto;
   }
 
   div.checkboxContainer {

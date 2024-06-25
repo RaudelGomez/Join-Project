@@ -109,10 +109,18 @@
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
-.menu-mobile-task-container:hover{
-  background-color: var(--menu-hover);
+.cancel-button-dragDrop{
+  height: 24px !important;
+  width: auto !important;
+  aspect-ratio: 1/1;
+  position: absolute !important;
+  top: 4px !important;
+  right: 4px !important;
 }
 
 @media (max-width: 900px) {
@@ -164,10 +172,21 @@
     position: relative;
   }
 
+  .dragDrop-menu-mobile p{
+    padding: 4px 8px 4px 4px;
+    margin: 0 24px 0 0;
+  }
+
+  .dragDrop-menu-mobile:hover{
+    background-color: var(--menu-hover);
+  }
+
+  .dragDrop-menu-mobile p:hover{
+    background-color: var(--menu-hover);
+  }
+
   .dragDrop-menu-mobile img{
     height: 90%;
     width: 90%;
   }
-
- 
 }

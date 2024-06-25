@@ -289,6 +289,7 @@ function renderHTMLTasksBoard(task, i, idContainerSubTask, idContainerUserTask, 
           <span class="dragDrop-menu-mobile" onclick="showDragMenuMobile('dragMenu${task.id}', '${task.status}'); stopPropagation(event)">
             <img src="./assets/img/more_vert_icon.svg" alt="menu-mobile-dragDrop">
             <div id="dragMenu${task.id}" class="menu-mobile-task-container d-none">
+              <img class="cancel-button-dragDrop" src="./assets/img/cancel_light_blue.svg" alt="close">
               <p onclick="moveToColumn(1, '${task.id}')">To do</p>
               <p onclick="moveToColumn(2, '${task.id}')">In Progress</p>
               <p onclick="moveToColumn(3, '${task.id}')">Await Feedback</p>

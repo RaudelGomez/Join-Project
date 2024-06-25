@@ -222,13 +222,10 @@ select {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	bottom: 24px;
-	left: 296px;
-	right: 64px;
-}
-
-.position-fixed{
-	position: fixed;
+	bottom: 64px !important;
+	left: 296px !important;
+	right: 64px !important;
+	position: absolute;
 }
 
 .container-button-submit-add-task p {
@@ -467,6 +464,14 @@ select {
 @media (max-width: 1200px){
 	.sub-container-addTask{
 		padding: 0 22px;
+	}
+}
+
+@media (max-width: 1100px){
+	.container-button-submit-add-task {
+		bottom: 120px !important;
+		right: 64px !important;
+		left: 64px !important;
 	}
 }
 

@@ -4,7 +4,7 @@ a {
 }
 
 .bodyLogin {
-  height: 55vh;
+  /* height: 55vh; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -104,6 +104,22 @@ a {
   width: 652px;
   gap: 32px;
   padding: 48px 115px 48px 115px;
+}
+
+.signupBox {
+  background-color: white;
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.1);
+  border-radius: 30px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-direction: column;
+  height: 630px;
+  width: 100%;
+  gap: 32px;
+  padding: 48px 88px;
+  box-sizing: border-box;
+  max-width: 598px;
 }
 
 .loginInputFields {
@@ -226,6 +242,18 @@ input::placeholder {
   display: none;
 }
 @media only screen and (max-width:950px) {
+
+.signupBox {
+max-width:396px;
+padding: 32px 0px 32px 0px;
+margin-top: 24px;
+}
+.signupBox .HeadlinerLogin {
+  font-size:47px;
+  width: 100%;
+}
+
+
   form.loginBox {
     width: 396px;
     height: 515px;

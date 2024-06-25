@@ -93,7 +93,7 @@ function readLoggedInUser() {
     // console.log("test");
     initials = JSON.parse(localStorage.getItem("Join")).initials;
     mail = JSON.parse(localStorage.getItem("Join")).mail;
-    userName = JSON.parse(sessionStorage.getItem("Join")).userName;
+    userName = JSON.parse(localStorage.getItem("Join")).userName;
     loggedIn = true;
   }
   if (sessionStorage.getItem("Join")) {

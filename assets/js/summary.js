@@ -36,7 +36,7 @@ function getTimeOfDay() {
 function loadLocalStorage() {
   let userName = "Guest";
   if (localStorage.getItem("Join")) {
-    userName = JSON.parse(sessionStorage.getItem("Join")).userName;
+    userName = JSON.parse(localStorage.getItem("Join")).userName;
   }
   if (sessionStorage.getItem("Join")) {
     userName = JSON.parse(sessionStorage.getItem("Join")).userName;

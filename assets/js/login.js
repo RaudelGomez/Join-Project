@@ -3,7 +3,7 @@ loadData("contacts");
 function loginGuest() {
   let checked = document.getElementById("confirm").checked;
   let logData = {
-    "mail": "test@test.de",
+    "mail": "guest@test.de",
     "initials": "G",
     "userName": "Guest",
   };

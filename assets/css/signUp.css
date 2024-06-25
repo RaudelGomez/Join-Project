@@ -1,5 +1,5 @@
 .bodyLogin {
-	height: 55vh;
+	/* height: 55vh; */
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -24,8 +24,9 @@ color: #a8a8a8;
 	position: relative;
 	width: 100%;
 	height:32px;	
-    left: 40px;
-    top: 40px;
+  
+	left: -51px;
+    top: 88px;
 }
 
 .goBackButton img{
@@ -185,6 +186,12 @@ color: #a8a8a8;
 }
 @media only screen and (max-width:950px) {
 
+	.goBackButton {
+		left: 0px;
+        top: 81px;
+        max-width: 320px;
+	}
+
 	div.signUpHeader{
 		display: flex;
 		justify-content: center;
@@ -279,9 +286,10 @@ color: #a8a8a8;
 	  right: 0;
 	  bottom: 0;
 	  width: 274px; */
-	width: 80px;
-	height: 100.px;
-	padding-left: 77px;
+	width: 64px;
+	height: 78px;
+	padding-left: 38px;
+	padding-top: 37px;
 	/* animation: joinstart 500ms ease-in-out forwards; */
   }
   }

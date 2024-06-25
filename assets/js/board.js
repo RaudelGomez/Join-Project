@@ -283,7 +283,10 @@ function renderHTMLTasksBoard(task, i, idContainerSubTask, idContainerUserTask, 
         class="taskCard"
         draggable="true"
         ondragstart="startDragging('${task.id}',this)">
-        <span class="category ${categoryColor(task.categoryTask)}">${task.categoryTask}</span>
+        <div class="container-header-card">
+          <span class="category ${categoryColor(task.categoryTask)}">${task.categoryTask}</span>
+          <span class="dragDrop-menu-mobile"><img src="./assets/img/more_vert_icon.svg" alt=""></span>
+        </div>
         <h3 class="taskTitle">${task.titleTask}</h3>
         <p class="taskDesription">${taskDesription}</p>
         <div id="${idContainerSubTask}${i}" class="subtasks">

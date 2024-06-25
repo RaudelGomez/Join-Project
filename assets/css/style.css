@@ -543,6 +543,12 @@ h1 {
   padding: 16px;
   margin: 16px 0;
   cursor: pointer;
+  transition: all ease-in-out 125ms;
+}
+
+.taskCard:hover {  
+  box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.2); 
+  transform: translate(0, -5px) scale(1.03) rotate(8deg);
 }
 
 .emptyTaskCard {

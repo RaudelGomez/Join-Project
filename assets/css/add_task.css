@@ -466,6 +466,8 @@ select {
 	display: flex;
 	flex-direction: column;
 	gap: 0;
+	height: 200px;
+    overflow-y: auto;
 }
 
 @media (max-width: 1200px){

@@ -32,6 +32,8 @@ async function openDialog(template, taskId) {
     dataCurrentTask(taskId);
     document.getElementById("showTaskPopup").classList.remove("d-none");
     document.getElementById("addTaskPopup").classList.add("d-none");
+    document.getElementById('title-task-show-task').classList.add('h2-size-edit');
+    document.getElementById("innerDialog").classList.add("edit-innerDialog");
     renderDataHTMLtaskPopupTemplate();
   }
 }
@@ -553,4 +555,10 @@ function resizeChangeAddTaskMobile() {
     document.getElementById("addTaskPopup").classList.add("d-none");
     location.href = "./add_task.html";
   }
+}
+
+function addClassForEdit() {
+  let form = document.getElementById('addTaskPopup');
+  form.classList.add('edit-class');
+  document.getElementById('innerDialog').classList.add('overflowYAuto');
 }

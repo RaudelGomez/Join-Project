@@ -232,7 +232,7 @@ display: none;
   #innerDialog {
     max-width: unset;
     height: unset;
-    height: 100vh !important;
+    height: fit-content !important;
     top: 0;
   }
 

@@ -372,14 +372,6 @@ function resizeMenuDragMobile() {
 }
 
 /**
- * This function stop open the Popup task because, the menu for mobile will be opened
- * @param {event} event 
- */
-function stopPropagation(event) {
-  event.stopPropagation();
-}
-
-/**
  * This function assign a color to the headline in the card category board
  * @param {string} category
  * @returns The color of the category to show in card Board

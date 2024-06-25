@@ -43,6 +43,7 @@ function closeDropDownAssignUser() {
 function closeTaskPop() {
   closeDialog();
   closeDropDownAssignUser();
+  closeCategoryTap();
   document.getElementById("addTaskPopup").classList.remove("mobile-version-only");
   // let assignedTask = document.getElementById("assigned-task");
   // assignedTask.classList.toggle("assigned-task-hidden");
@@ -293,4 +294,12 @@ async function setColorUser() {
   let contactLength = Object.values(contacts).length;
   let indexColor = contactLength % colors.length;
   return indexColor;
+}
+
+/**
+ * This function stop open the Popup task because, the menu for mobile will be opened
+ * @param {event} event 
+ */
+function stopPropagation(event) {
+  event.stopPropagation();
 }

@@ -228,6 +228,13 @@ select {
 	position: absolute;
 }
 
+.position-relative{
+	position: relative;
+	bottom: 0 !important;
+	left: 0 !important;
+	right: 0 !important;
+}
+
 .container-button-submit-add-task p {
 	margin: 0;
 	font-size: 14px;

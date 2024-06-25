@@ -50,7 +50,7 @@ function closeTaskPop() {
 
   // showCheckboxes();
   if (document.getElementById("footer-button-addtask")) {
-    document.getElementById("footer-button-addtask").classList.add("position-fixed");
+    document.getElementById("footer-button-addtask").classList.remove("position-relative");
   }
   currentTaskId = "";
   currentTask = "";

@@ -21,7 +21,7 @@ async function openDialog(template, taskId) {
     document.getElementById("add_task_form").setAttribute("onsubmit", "addTask(); return false;");
     document.getElementById("addTaskPopup").classList.remove("d-none");
     document.getElementById("showTaskPopup").classList.add("d-none");
-    document.getElementById("footer-button-addtask").classList.remove("position-fixed");
+    document.getElementById("footer-button-addtask").classList.add("position-relative");
     document.getElementById("innerDialog").classList.remove("taskPopup");
     document.getElementById("innerDialog").classList.add("addTaskPopup");
     document.getElementById("addTaskPopup").classList.add("mobile-version-only");

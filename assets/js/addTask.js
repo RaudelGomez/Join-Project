@@ -92,6 +92,9 @@ async function addTask(status) {
   status = setStatusTask(taskId);
   selectdNameAssignedtask();
   let task = createTaskObject(status);
+  if(!task){
+    return
+  }
   await postData(task, "tasks");
   deleteDataFormTask();
   alertCreatedTask();
@@ -387,3 +390,4 @@ function dateFromTodayOnly() {
   const minDate = `${yyyy}-${mm}-${dd}`;
   document.getElementById('due_date_task').setAttribute('min', minDate);
 }
+

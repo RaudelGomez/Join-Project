@@ -285,13 +285,13 @@ function renderHTMLTasksBoard(task, i, idContainerSubTask, idContainerUserTask, 
         ondragstart="startDragging('${task.id}',this)">
         <div class="container-header-card">
           <span class="category ${categoryColor(task.categoryTask)}">${task.categoryTask}</span>
-          <span class="dragDrop-menu-mobile" onclick="showDragMenuMobile('dragMenu${task.id}'); stopPropagation(event)">
+          <span class="dragDrop-menu-mobile" onclick="showDragMenuMobile('dragMenu${task.id}', '${task.status}'); stopPropagation(event)">
             <img src="./assets/img/more_vert_icon.svg" alt="menu-mobile-dragDrop">
             <div id="dragMenu${task.id}" class="menu-mobile-task-container d-none">
-              <p>To do</p>
-              <p>In Progress</p>
-              <p>Await Feedback</p>
-              <p>Done</p>
+              <p onclick="moveToColumn(1, '${task.id}')">To do</p>
+              <p onclick="moveToColumn(2, '${task.id}')">In Progress</p>
+              <p onclick="moveToColumn(3, '${task.id}')">Await Feedback</p>
+              <p onclick="moveToColumn(4, '${task.id}')">Done</p>
             </div>
           </span>
         </div>
@@ -320,10 +320,39 @@ function renderHTMLTasksBoard(task, i, idContainerSubTask, idContainerUserTask, 
 }
 
 /**
+ * That function hidde the colummn where the task is
+ * @param {string} idMenu - That is the id of the menu mobile drag drop
+ * @param {*} status - that is type of Task where that Task is
+ */
+function showingColumnButOwn(idMenu, status) {
+  let menu = document.getElementById(`${idMenu}`);
+  let links = menu.querySelectorAll('p');
+  for (let i = 0; i < links.length; i++) {
+    const link = links[i];
+    if(i+1 == status){
+      link.classList.add('d-none');
+    }
+  }
+}
+
+/**
+ * This function move a task to another column of type of task
+ * @param {number} status - id of the colummn to move
+ * @param {number} taskId - Id task to move
+ */
+async function moveToColumn(status, taskId) {
+  let firebaseURL= `/tasks/${taskId}/status`; 
+    await putData(status, firebaseURL);
+    await loadDataBoard(); 
+    resizeMenuDragMobile();
+}
+
+/**
  * This function open and close the menu drag & drop
  * @param {number} idMenu - That ist the id of the menu drag
  */
-function showDragMenuMobile(idMenu) {
+function showDragMenuMobile(idMenu, status) {
+  showingColumnButOwn(idMenu, status);
   document.getElementById(`${idMenu}`).classList.toggle('d-none');
   document.getElementById(`${idMenu}`).classList.toggle('menu-drag-open');
 }

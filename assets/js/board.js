@@ -33,7 +33,8 @@ async function openDialog(template, taskId) {
     document.getElementById("showTaskPopup").classList.remove("d-none");
     document.getElementById("addTaskPopup").classList.add("d-none");
     document.getElementById('title-task-show-task').classList.add('h2-size-edit');
-    document.getElementById("innerDialog").classList.add("edit-innerDialog");
+    //document.getElementById("innerDialog").classList.add("edit-innerDialog");
+    document.getElementById('innerDialog').classList.add('editing');
     renderDataHTMLtaskPopupTemplate();
   }
 }
@@ -503,9 +504,9 @@ function editTask(firebaseKey) {
       }
     }
     //First Open checkBox, Second Show Names, Third Close Checkboxes
-    showCheckboxes();
-    showInitialAssign();
-    showCheckboxes();
+      // showCheckboxes();
+      // showInitialAssign();
+      // showCheckboxes();
   }
 
   changePriorityEditTask(`${currentTask.priorityTask}`);
@@ -561,4 +562,7 @@ function addClassForEdit() {
   let form = document.getElementById('addTaskPopup');
   form.classList.add('edit-class');
   document.getElementById('innerDialog').classList.add('overflowYAuto');
+  document.getElementById("innerDialog").classList.add("edit-innerDialog");
+  //document.getElementById('innerDialog').classList.remove('edit-innerDialog');
+  //document.getElementById('innerDialog').classList.add('editing');
 }

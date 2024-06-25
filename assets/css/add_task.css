@@ -541,6 +541,12 @@ select {
 	#innerDialog.edit-innerDialog{
 		height: auto !important;
 	}
+
+	#innerDialog.editing{
+		/* height: fit-content !important; */
+		left: 16px !important;
+		right: 16px !important;
+	}
 }
 
 @media (max-width: 530px){
@@ -579,9 +585,9 @@ select {
 		right: 18px !important;
 	}
 
-	#innerDialog.edit-innerDialog{
-		margin-left: 16px;
-		margin-right:  16px;
+	#innerDialog.addTaskPopup{
+		left: 16px !important;
+		right:  16px !important;
 	}
 
 	.h2-size-edit{

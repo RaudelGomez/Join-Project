@@ -480,6 +480,12 @@ select {
 		right: 64px !important;
 		left: 64px !important;
 	}
+
+	.desktop-version-only .container-button-submit-add-task {
+		bottom: 0 !important;
+		right: 0 !important;
+		left: 0 !important;
+	}
 }
 
 @media (max-width: 900px){

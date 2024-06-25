@@ -248,7 +248,7 @@ h3 {
 #innerDialog {
   max-width: 800px;
   border-radius: 30px;
-  height: fit-content;
+  height: fit-content !important;
   background-color: white;
   /* padding: 64px; */
   box-shadow: 0px 0px 4px 0px #0000001a;

@@ -467,7 +467,22 @@ select {
 	flex-direction: column;
 	gap: 0;
 	height: 200px;
-    overflow-y: auto;
+  overflow-y: auto;
+}
+
+.edit-class .container-button-submit-add-task {
+	position: sticky !important;
+  bottom: 0 !important;
+	background-color: transparent;
+}
+
+.overflowYAuto{
+	overflow-y: auto !important;
+	height: auto !important;
+	left: 8vh !important;
+  right: 8vh !important;
+  top: 0vh !important;
+  bottom: 0vh !important;
 }
 
 @media (max-width: 1200px){
@@ -518,6 +533,20 @@ select {
 		background-color: var(--main-bg-color);
 		padding: 32px 0 !important;
 	}
+
+	.h2-size-edit{
+		font-size: 40px !important;
+	}
+
+	#innerDialog.edit-innerDialog{
+		height: auto !important;
+	}
+
+	#innerDialog.editing{
+		/* height: fit-content !important; */
+		left: 16px !important;
+		right: 16px !important;
+	}
 }
 
 @media (max-width: 530px){
@@ -549,6 +578,20 @@ select {
 
 	.container-button-submit-add-task p {
 		font-size: 12px;
+	}
+
+	.edit-innerDialog.taskPopup{
+		left:  18px !important;
+		right: 18px !important;
+	}
+
+	#innerDialog.addTaskPopup{
+		left: 16px !important;
+		right:  16px !important;
+	}
+
+	.h2-size-edit{
+		font-size: 24px !important;
 	}
 }
 

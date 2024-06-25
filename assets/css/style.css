@@ -245,7 +245,7 @@ h3 {
   z-index: 800;
 }
 
-#innerDialog {
+.innerDialog {
   max-width: 800px;
   border-radius: 30px;
   height: fit-content !important;
@@ -258,7 +258,7 @@ h3 {
   top: 8vh;
   bottom: 0;
   z-index: 800;
-  margin: 0 auto;
+  margin: 8px auto 0;
 }
 
 #innerDialog h2{

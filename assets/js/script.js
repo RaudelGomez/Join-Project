@@ -45,6 +45,7 @@ function closeTaskPop() {
   closeDropDownAssignUser();
   closeCategoryTap();
   document.getElementById("addTaskPopup").classList.remove("mobile-version-only");
+  document.getElementById("innerDialog").classList.remove("edit-innerDialog");
   // let assignedTask = document.getElementById("assigned-task");
   // assignedTask.classList.toggle("assigned-task-hidden");
   // assignedTask.classList.toggle("assigned-task-show");

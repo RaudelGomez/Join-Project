@@ -20,7 +20,7 @@
   </head>
   <body onload="includeHTML()" onresize="resizeChangeAddTaskMobile(); resizeMenuDragMobile()">
     <div id="dialog" class="d-none animate__animated" onclick="closeTaskPop()"></div>
-    <div id="innerDialog" class="animate__animated d-none">
+    <div id="innerDialog" class="animate__animated d-none innerDialog">
       <img onclick="closeTaskPop()" class="closeDialog" src="./assets/img/close_icon.svg" alt="" />
       <div id="addTaskPopup" class="d-none" w3-include-html="./assets/templates/add_task_template.html"></div>
       <div id="showTaskPopup" class="d-none" w3-include-html="./assets/templates/task_popup_template.html"></div>

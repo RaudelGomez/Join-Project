@@ -6,7 +6,7 @@
  */
 function asignedTaskContainerHTML(i, contact) {
 	return /*html*/ `
-    <label class="checkbox-label" for="checkBoxAssigned${i}" data-id="${i}" data-name="${contact.name}" data-email="${contact.email}" data-colorindex="${contact.color}">
+    <label onclick="stopPropagation(event)" class="checkbox-label" for="checkBoxAssigned${i}" data-id="${i}" data-name="${contact.name}" data-email="${contact.email}" data-colorindex="${contact.color}">
 				<span class="container-name-assigned">
 					<span class="name-assigned">
 						<span class="first-letter" style="background-color: ${

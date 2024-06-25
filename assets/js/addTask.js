@@ -422,6 +422,7 @@ function closeAllTaps() {
   let nameOpen = document.getElementById("assigned-task");
   if(nameOpen.classList.contains('open')){
     showCheckboxes();
+    showInitialAssign();
   }
 }
 

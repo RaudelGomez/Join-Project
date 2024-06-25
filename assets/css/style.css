@@ -5,11 +5,8 @@
 @import url("signUp.css");
 @import url("media_queries.css");
 
-/* :root {
-  --animate-duration: 0.2s;
-} */
 
-body, # {font-family: 'Inter' !important;}
+body, * {font-family: 'Inter' !important;}
 
 #innerDialog,
 #dialog,

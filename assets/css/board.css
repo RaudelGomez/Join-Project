@@ -98,7 +98,11 @@
   .mobileAddTaskButton {
     display: inline-block;
   }
-  .desktopAddTaskButton, .mobileAddTaskButton {
+  .desktopAddTaskButton:not(svg){
+    display: none;
+  }
+
+  .mobileAddTaskButton {
     display: none;
   }
 

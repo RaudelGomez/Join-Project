@@ -125,31 +125,24 @@ async function updateContact(id, index) {
       "onclick",
       `openEditContactPopup('${color}','${name}', '${mail}','${initials}','${id}','${phone}',${index})`
     );
-
   document
     .getElementById("editButtonMobile")
     .setAttribute(
       "onclick",
       `openEditContactPopup('${color}','${name}', '${mail}','${initials}','${id}','${phone}',${index})`
     );
-
   renderContacts();
 }
 
 function openContactButtons() {
   document.getElementById("contactMobileEditButtons").classList.remove("d-none");
-
-  // alert('contactbuttons geklickt');
 }
 
 function closeContactMenu() {
   document.getElementById("contactMobileEditButtons").classList.add("d-none");
   if (window.innerWidth > 1100) {
-    document.getElementById('contactDisplay').style.display = "unset";
+    document.getElementById("contactDisplay").style.display = "unset";
   }
-
-
-  // document.getElementById('contactMobileEditButtons').style.display = "none";
 }
 
 /**
@@ -202,16 +195,13 @@ function showContact(contactElement, iconColor, contactName, contactMail, initia
       "onclick",
       `openEditContactPopup('${iconColor}','${contactName}', '${contactMail}','${initials}','${results}','${phone}',${id})`
     );
-
   document
     .getElementById("editButtonMobile")
     .setAttribute(
       "onclick",
       `openEditContactPopup('${iconColor}','${contactName}', '${contactMail}','${initials}','${results}','${phone}',${id})`
     );
-
-    document.getElementById('openContactButtons').classList.remove('d-none');
-
+  document.getElementById("openContactButtons").classList.remove("d-none");
   document.getElementById("contactDisplay").style.display = "unset";
   let contactElements = document.getElementsByClassName("contactBox");
   for (let i = 0; i < contactElements.length; i++) {

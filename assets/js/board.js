@@ -78,14 +78,16 @@ function renderUserPopupTask() {
     headlineUser.textContent = "Assigned To:";
     for (let i = 0; i < users.length; i++) {
       const user = users[i];
-      containerUser.innerHTML += /*html*/ `
+      if (user != null) {
+        containerUser.innerHTML += /*html*/ `
         <div class="userBoardPopup">
           <span class="profileSmall" style="background-color: ${colors[user.colorIndex].color}">${getInitials(
-        user.name
-      )}</span>
+          user.name
+        )}</span>
           <span>${user.name}</span>
         </div> 
       `;
+      }
     }
   } else {
     headlineUser.textContent = "";
@@ -367,16 +369,16 @@ function renderHTMLUserinTask(task, i, idContainerUserTask) {
     for (let j = 0; j < task["nameAssignedTask"].length; j++) {
       const userTask = task["nameAssignedTask"][j];
       let userColorIndex;
-      // console.log(userTask);
+      // console.log('usertask: '+ userTask);
       // console.log(j+'. colorindex: '+userTask.colorIndex);
-      if (userTask.colorIndex != null ) {
+      if (userTask != null) {
         userColorIndex = +userTask.colorIndex;
-      }
-      const userColor = colors[userColorIndex].color;
-      const initialName = getInitials(userTask.name);
-      userTaskBoard.innerHTML += /*html*/ `
+        const userColor = colors[userColorIndex].color;
+        const initialName = getInitials(userTask.name);
+        userTaskBoard.innerHTML += /*html*/ `
           <span class="profileSmall" style="background-color: ${userColor}">${initialName}</span>
         `;
+      }
     }
   }
 }
@@ -417,17 +419,19 @@ function editTask(firebaseKey) {
   if (currentTask.nameAssignedTask) {
     for (let i = 0; i < currentTask.nameAssignedTask.length; i++) {
       const assignedContact = currentTask.nameAssignedTask[i];
-      arrayContact.push(assignedContact);
-      // console.log(assignedContact.email);
-      let allContacts = document.getElementById("assigned-task");
-      let allLabel = allContacts.querySelectorAll("label");
-      for (const label of allLabel) {
-        // console.log(label);
-        let i = label.dataset.id;
-        // console.log(i);
-        if (label.dataset.email == assignedContact.email) {
-          let checkbox = document.getElementById(`checkBoxAssigned${i}`);
-          checkbox.checked = true;
+      if (assignedContact != null) {
+        arrayContact.push(assignedContact);
+        // console.log(assignedContact.email);
+        let allContacts = document.getElementById("assigned-task");
+        let allLabel = allContacts.querySelectorAll("label");
+        for (const label of allLabel) {
+          // console.log(label);
+          let i = label.dataset.id;
+          // console.log(i);
+          if (label.dataset.email == assignedContact.email) {
+            let checkbox = document.getElementById(`checkBoxAssigned${i}`);
+            checkbox.checked = true;
+          }
         }
       }
     }
@@ -480,8 +484,8 @@ function searchTasks() {
  * This function redirect to addTask page in the mobile Version if you are nder 900px and you have the PopUp add task open
  */
 function resizeChangeAddTaskMobile() {
-  if(window.innerWidth <= 900 && document.getElementById('addTaskPopup').classList.contains('mobile-version-only')){
-    document.getElementById('addTaskPopup').classList.add('d-none');
-    location.href = './add_task.html';
+  if (window.innerWidth <= 900 && document.getElementById("addTaskPopup").classList.contains("mobile-version-only")) {
+    document.getElementById("addTaskPopup").classList.add("d-none");
+    location.href = "./add_task.html";
   }
 }

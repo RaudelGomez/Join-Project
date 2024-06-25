@@ -285,7 +285,15 @@ function renderHTMLTasksBoard(task, i, idContainerSubTask, idContainerUserTask, 
         ondragstart="startDragging('${task.id}',this)">
         <div class="container-header-card">
           <span class="category ${categoryColor(task.categoryTask)}">${task.categoryTask}</span>
-          <span class="dragDrop-menu-mobile"><img src="./assets/img/more_vert_icon.svg" alt=""></span>
+          <span class="dragDrop-menu-mobile" onclick="showDragMenuMobile('dragMenu${task.id}'); stopPropagation(event)">
+            <img src="./assets/img/more_vert_icon.svg" alt="menu-mobile-dragDrop">
+            <div id="dragMenu${task.id}" class="menu-mobile-task-container d-none">
+              <p>To do</p>
+              <p>In Progress</p>
+              <p>Await Feedback</p>
+              <p>Done</p>
+            </div>
+          </span>
         </div>
         <h3 class="taskTitle">${task.titleTask}</h3>
         <p class="taskDesription">${taskDesription}</p>
@@ -309,6 +317,37 @@ function renderHTMLTasksBoard(task, i, idContainerSubTask, idContainerUserTask, 
         </footer>
       </article>
     `;
+}
+
+/**
+ * This function open and close the menu drag & drop
+ * @param {number} idMenu - That ist the id of the menu drag
+ */
+function showDragMenuMobile(idMenu) {
+  document.getElementById(`${idMenu}`).classList.toggle('d-none');
+  document.getElementById(`${idMenu}`).classList.toggle('menu-drag-open');
+}
+
+/**
+ * This function close the menu drag & drop when the page is resized
+ */
+function resizeMenuDragMobile() {
+  let MenuOpenDrag = document.querySelectorAll('div');
+  for (let i = 0; i < MenuOpenDrag.length; i++) {
+    const menu = MenuOpenDrag[i];
+    if(menu.classList.contains('menu-drag-open')){
+      menu.classList.remove('menu-drag-open');
+      menu.classList.add('d-none');
+    }
+  }
+}
+
+/**
+ * This function stop open the Popup task because, the menu for mobile will be opened
+ * @param {event} event 
+ */
+function stopPropagation(event) {
+  event.stopPropagation();
 }
 
 /**

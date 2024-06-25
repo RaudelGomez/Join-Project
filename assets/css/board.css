@@ -98,6 +98,19 @@
   display: none;
 }
 
+.menu-mobile-task-container{
+  position: absolute;
+  background-color: var(--main-color);
+  color: var(--white);
+  padding: 12px;
+  width: 120px;
+  top:0;
+  right: 0;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
 @media (max-width: 900px) {
   .sub-container {
     padding-bottom: 100px;
@@ -144,6 +157,7 @@
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    position: relative;
   }
 
   .dragDrop-menu-mobile img{

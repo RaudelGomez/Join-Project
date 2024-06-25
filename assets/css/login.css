@@ -4,7 +4,6 @@ a {
 }
 
 .bodyLogin {
-  /* height: 55vh; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -20,42 +19,10 @@ a {
   justify-content: flex-end;
 }
 
-.logoIndex {
-  /* position: absolute;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	width:100vw;
-	height:100vh; */
-}
-
-/* @keyframes joinstart {
-		from {
-			width: 274px;	
-			transform: translate(50%,50%);	
-		}
-		to {			
-		  width: 100px;
-		  transform: translate(77px 80px);
-		}
-	  } */
-
 .logoIndex img {
-  /* position: absolute;
-	top: 80px;
-	left: 77px;
-	right: 0;
-	bottom: 0;
-	width: 274px; */
   width: 100.03px;
   height: 121.97px;
   padding-left: 77px;
-  /* animation: joinstart 500ms ease-in-out forwards; */
 }
 
 .signUpButton {
@@ -238,21 +205,19 @@ input::placeholder {
   background: url("../img/mail_icon.svg") no-repeat scroll;
   background-position: 97% center;
 }
-.signUpBottom{
+.signUpBottom {
   display: none;
 }
-@media only screen and (max-width:950px) {
-
-.signupBox {
-max-width:396px;
-padding: 32px 0px 32px 0px;
-margin-top: 24px;
-}
-.signupBox .HeadlinerLogin {
-  font-size:47px;
-  width: 100%;
-}
-
+@media only screen and (max-width: 950px) {
+  .signupBox {
+    max-width: 396px;
+    padding: 32px 0px 32px 0px;
+    margin-top: 24px;
+  }
+  .signupBox .HeadlinerLogin {
+    font-size: 47px;
+    width: 100%;
+  }
 
   form.loginBox {
     width: 396px;
@@ -269,14 +234,12 @@ margin-top: 24px;
     font-weight: 700;
     line-height: 56.4px;
   }
- 
-  
+
   input.emailClass {
     width: 80%;
     height: 48px;
     gap: 8px;
     margin-left: 20px;
-    
   }
 
   input.passwordClass {
@@ -316,41 +279,34 @@ margin-top: 24px;
     gap: 10px;
   }
 
-  div.signUpTop{
-   display: none;
+  div.signUpTop {
+    display: none;
   }
 
- div.footerIndex{
-  width: auto;
- }
+  div.footerIndex {
+    width: auto;
+  }
 
- div.checkboxContainer{
-  width: 100px;
-  padding-left: 0;
-  padding-right: 200px;
- }
+  div.checkboxContainer {
+    width: 100px;
+    padding-left: 0;
+    padding-right: 200px;
+  }
 
-div.signUpBottom{
-  display: inline;
-  height: 49px;
-  padding-top: 67px;
-  padding-right: 8%;
-  gap: 35px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+  div.signUpBottom {
+    display: inline;
+    height: 49px;
+    padding-top: 67px;
+    padding-right: 8%;
+    gap: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
-.logoIndex img {
-  /* position: absolute;
-	top: 80px;
-	left: 77px;
-	right: 0;
-	bottom: 0;
-	width: 274px; */
-  width: 80px;
-  height: 100.px;
-  padding-left: 77px;
-  /* animation: joinstart 500ms ease-in-out forwards; */
-}
+  .logoIndex img {
+    width: 80px;
+    height: 100px;
+    padding-left: 77px;
+  }
 }

@@ -72,8 +72,8 @@ function changeHeadLineAddTaskPopUp() {
  * This function close the checkBoxes dropdown in addTask if they are opened. That function has to called at top of the function mother
  */
 function closeCheckBoxesIfOpen() {
-  let assigned = document.getElementById('assigned-task');
-  if(assigned.classList.contains('open')){
+  let assigned = document.getElementById("assigned-task");
+  if (assigned.classList.contains("open")) {
     showCheckboxes();
   }
 }
@@ -129,11 +129,12 @@ function readLoggedInUser() {
     loggedIn = true;
   }
   let page = window.location.href.substring(window.location.href.lastIndexOf("/") + 1);
-  setTimeout(setActiveMenueLinks, 200);
+  setTimeout(setActiveMenueLinks, 300);
 
   if (!loggedIn && protectedPages.includes(page)) {
     location.href = "./index.html";
   }
+
   return {
     mail: mail,
     initials: initials,

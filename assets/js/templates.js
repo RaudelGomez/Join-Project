@@ -120,3 +120,24 @@ function templateTaskBoard(task, i, idContainerSubTask, idContainerUserTask, cou
       </article>
     `;
 }
+
+/**
+ * This function render the HTML header in every page
+ * @param {object} userData - Object of the user logged
+ * @returns 
+ */
+function renderHTMLHeader(userData) {
+  return /*html*/ `
+     <img id="mobileLogo" class="d-none" src="./assets/img/join_logo_dark.svg" alt="" />
+      <h1>Kanban Project Management Tool</h1>
+      <div id="headerIcons" class="headerIcons">
+        <a id="helpLink" href="./help.html"><img src="./assets/img/help_icon.svg" alt="" /></a>
+        <a onclick="openHeaderMenu()"><span id="userInitial" class="profile">${userData.initials}</span></a>
+      </div>
+      <div id="headerMenu" class="d-none">
+        <a href="./legal_notice.html">Legal Notice</a>
+        <a href="./pripo.html">Privacy Policy</a>
+        <a href="#" onclick="logout()">Log out</a>
+      </div>
+  `
+}

@@ -1,3 +1,6 @@
+/**
+ * Loading userData and render the Header with that info
+ */
 let userData = readLoggedInUser();
 renderHeader(userData);
 
@@ -25,12 +28,12 @@ function closeDialog() {
   document.getElementById("innerDialog").classList.add("animate__slideOutRight");
   document.getElementById("innerDialog").classList.remove("animate__slideInRight");
   document.getElementById("dialog").classList.add("d-none");
-  // setTimeout(() => {
-  //   document.getElementById("dialog").classList.add("d-none");
-  // }, 500);
   document.body.classList.remove("noscroll");
 }
 
+/**
+ * This function close the dropdown assign to in addTask adn Board
+ */
 function closeDropDownAssignUser() {
   //Close dropdown assigned to user
   let assignedTask = document.getElementById("assigned-task");
@@ -40,27 +43,50 @@ function closeDropDownAssignUser() {
   }
 }
 
+/**
+ * This function close the taskPop up
+ */
 function closeTaskPop() {
+  closeCheckBoxesIfOpen();
+  closeDialog();
+  closeDropDownAssignUser();
+  closeCategoryTap();
+  removeClassToPopUp();
+  currentTaskId = "";
+  currentTask = "";
+  deleteDataFormTask();
+  changeHeadLineAddTaskPopUp();
+}
+
+/**
+ * This function change the headline in the addTask popUp in Board depends if the task will be edited or created
+ */
+function changeHeadLineAddTaskPopUp() {
+  if (document.getElementById("addTaskPopup")) {
+    let firstChild = document.getElementById("addTaskPopup").firstElementChild;
+    firstChild.innerHTML = "Add Task";
+  }
+}
+
+/**
+ * This function close the checkBoxes dropdown in addTask if they are opened. That function has to called at top of the function mother
+ */
+function closeCheckBoxesIfOpen() {
   let assigned = document.getElementById('assigned-task');
   if(assigned.classList.contains('open')){
     showCheckboxes();
   }
-  closeDialog();
-  closeDropDownAssignUser();
-  closeCategoryTap();
+}
+
+/**
+ * This function remove class of the pop when it is closed
+ */
+function removeClassToPopUp() {
   document.getElementById("addTaskPopup").classList.remove("mobile-version-only");
   document.getElementById("innerDialog").classList.remove("edit-innerDialog");
-  // let assignedTask = document.getElementById("assigned-task");
-  // assignedTask.classList.toggle("assigned-task-hidden");
-  // assignedTask.classList.toggle("assigned-task-show");
-
-  // showCheckboxes();
   if (document.getElementById("footer-button-addtask")) {
     document.getElementById("footer-button-addtask").classList.remove("position-relative");
   }
-  currentTaskId = "";
-  currentTask = "";
-  deleteDataFormTask();
   document.getElementById("container-select-option").classList.remove("pointer-none");
   //Setting button Create Task again after close form edit
   document.getElementById("btn-clear-add-Task").classList.remove("d-none");
@@ -70,12 +96,6 @@ function closeTaskPop() {
   let btnCreatetask = document.getElementById("btn-create-task");
   btnCreatetask.firstElementChild.textContent = "Create Task";
   btnCreatetask.classList.remove("btn-edit-task");
-
-  if (document.getElementById("addTaskPopup")) {
-    let firstChild = document.getElementById("addTaskPopup").firstElementChild;
-    firstChild.innerHTML = "Add Task";
-  }
-  
 }
 
 /**
@@ -97,7 +117,6 @@ function readLoggedInUser() {
     "add_task",
   ];
   if (localStorage.getItem("Join")) {
-    // console.log("test");
     initials = JSON.parse(localStorage.getItem("Join")).initials;
     mail = JSON.parse(localStorage.getItem("Join")).mail;
     userName = JSON.parse(localStorage.getItem("Join")).userName;
@@ -109,14 +128,11 @@ function readLoggedInUser() {
     userName = JSON.parse(sessionStorage.getItem("Join")).userName;
     loggedIn = true;
   }
-
   let page = window.location.href.substring(window.location.href.lastIndexOf("/") + 1);
   setTimeout(setActiveMenueLinks, 200);
 
   if (!loggedIn && protectedPages.includes(page)) {
     location.href = "./index.html";
-
-
   }
   return {
     mail: mail,
@@ -125,6 +141,9 @@ function readLoggedInUser() {
   };
 }
 
+/**
+ * This function set the active link in menu depend the page
+ */
 function setActiveMenueLinks() {
   let page = window.location.href.substring(window.location.href.lastIndexOf("/") + 1);
   switch (page) {
@@ -174,19 +193,7 @@ function renderHeader(userData) {
     if (userData.initials == undefined) {
       document.getElementById("header").innerHTML = /* HTML */ `<h1>Kanban Project Management Tool</h1>`;
     } else {
-      document.getElementById("header").innerHTML = /* HTML */ `
-        <img id="mobileLogo" class="d-none" src="./assets/img/join_logo_dark.svg" alt="" />
-        <h1>Kanban Project Management Tool</h1>
-        <div id="headerIcons" class="headerIcons">
-          <a id="helpLink" href="./help.html"><img src="./assets/img/help_icon.svg" alt="" /></a>
-          <a onclick="openHeaderMenu()"><span id="userInitial" class="profile">${userData.initials}</span></a>
-        </div>
-        <div id="headerMenu" class="d-none">
-          <a href="./legal_notice.html">Legal Notice</a>
-          <a href="./pripo.html">Privacy Policy</a>
-          <a href="#" onclick="logout()">Log out</a>
-        </div>
-      `;
+      document.getElementById("header").innerHTML = /* HTML */ `${renderHTMLHeader(userData)}`;
     }
   }
 }

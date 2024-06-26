@@ -539,7 +539,9 @@ select {
 	}
 
 	#innerDialog.edit-innerDialog{
-		height: auto !important;
+		/* height: auto !important; */
+		height: 80vh !important;
+    top: 8vh !important;
 	}
 
 	#innerDialog.editing{

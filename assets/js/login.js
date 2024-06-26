@@ -17,7 +17,7 @@ function loginGuest() {
     sessionStorage.setItem("Join", JSON.stringify(logData));
     localStorage.clear();
   }
-  location.href = "./summary.html";
+  location.href = "./summary.html?login=true";
 }
 
 /**

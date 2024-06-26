@@ -588,3 +588,11 @@ function addClassForEdit() {
   document.getElementById('innerDialog').classList.add('overflowYAuto');
   document.getElementById("innerDialog").classList.add("edit-innerDialog");
 }
+
+/**
+ * This function clean the input search task in board and show all tasks again
+ */
+async function cleanSearchInput(){
+  document.getElementById('searchTask').value = "";
+  await renderHTMLBoard();
+}

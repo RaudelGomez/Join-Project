@@ -5,10 +5,13 @@ async function loadDataBoard() {
   await loadData("contacts");
   await loadData("tasks");
   await renderHTMLBoard();
-  // console.log(tasks);
 }
 
-// Open Popup
+/**
+ * This function open Popup add Task or task/ depends
+ * @param {string} template - name of template that will be opened
+ * @param {string} taskId - Id of the task
+ */
 async function openDialog(template, taskId) {
   document.getElementById("innerDialog").classList.remove("d-none");
   document.getElementById("innerDialog").classList.remove("animate__slideOutRight");
@@ -18,7 +21,17 @@ async function openDialog(template, taskId) {
   document.getElementById("dialog").classList.remove("d-none");
   document.body.classList.add("noscroll");
   if (template == "add_task_template.html") {
-    document.getElementById("add_task_form").setAttribute("onsubmit", "addTask(); return false;");
+    ifAddTaskTemplate();
+  } else {
+    ifTaskPopTemplate(taskId);
+  }
+}
+
+/**
+ * This function will be execute if the addTask pop is loading
+ */
+function ifAddTaskTemplate() {
+  document.getElementById("add_task_form").setAttribute("onsubmit", "addTask(); return false;");
     document.getElementById("addTaskPopup").classList.remove("d-none");
     document.getElementById("showTaskPopup").classList.add("d-none");
     document.getElementById("footer-button-addtask").classList.add("position-relative");
@@ -26,17 +39,21 @@ async function openDialog(template, taskId) {
     document.getElementById("innerDialog").classList.add("addTaskPopup");
     document.getElementById("addTaskPopup").classList.add("mobile-version-only");
     document.getElementById("addTaskPopup").classList.add("desktop-version-only");
-  } else {
-    document.getElementById("innerDialog").classList.add("taskPopup");
+}
+
+/**
+ * This function will be execute if taskPop will loaded
+ * @param {string} taskId - That is the id of the Task from firebase
+ */
+function ifTaskPopTemplate(taskId) {
+  document.getElementById("innerDialog").classList.add("taskPopup");
     document.getElementById("innerDialog").classList.remove("addTaskPopup");
     dataCurrentTask(taskId);
     document.getElementById("showTaskPopup").classList.remove("d-none");
     document.getElementById("addTaskPopup").classList.add("d-none");
     document.getElementById('title-task-show-task').classList.add('h2-size-edit');
-    //document.getElementById("innerDialog").classList.add("edit-innerDialog");
     document.getElementById('innerDialog').classList.add('editing');
     renderDataHTMLtaskPopupTemplate();
-  }
 }
 
 /**
@@ -83,14 +100,7 @@ function renderUserPopupTask() {
     for (let i = 0; i < users.length; i++) {
       const user = users[i];
       if (user != null) {
-        containerUser.innerHTML += /*html*/ `
-        <div class="userBoardPopup">
-          <span class="profileSmall" style="background-color: ${colors[user.colorIndex].color}">${getInitials(
-          user.name
-        )}</span>
-          <span>${user.name}</span>
-        </div> 
-      `;
+        containerUser.innerHTML += /*html*/ `${userHTMLBoard(user)}`;
       }
     }
   } else {
@@ -129,10 +139,12 @@ function renderSubtaskHTMLPopupTask() {
  */
 setTimeout(loadDataBoard, 500);
 
+/**
+ * This function filter task
+ */
 function filterTasks() {
   let filterString = document.getElementById("searchTask").value;
   filterString = filterString.toLowerCase();
-  // console.log(filterString);
   renderHTMLBoard(filterString);
 }
 
@@ -142,25 +154,39 @@ function filterTasks() {
 async function renderHTMLBoard(filterTask) {
   let listTasks = Object.values(tasks);
   let listTaskId = Object.keys(tasks);
-  // fiter Function here
   if (filterTask) {
     let filteredTasks;
-    filteredTasks = listTasks.filter(
-      (task) =>
+    filteredTasks = listTasks.filter((task) =>
         task.titleTask.toLowerCase().includes(filterTask) || task.descriptionTask.toLowerCase().includes(filterTask)
     );
     listTasks = filteredTasks;
-
-    if (filteredTasks.length == 0) {
-      showAlert("container-boardNoResult-alert", "boardNoResult-alert", "Warning", "error-alert", "No results");
-    }
+    alertNoTaskFound(filteredTasks);
   }
-
   for (let k = 0; k < listTasks.length; k++) {
     const task = listTasks[k];
     task.id = listTaskId[k];
   }
+  renderToDoTask(listTasks);
+  renderInProgressTask(listTasks);
+  renderAwaitFeedBackTask(listTasks);
+  renderDoneTask(listTasks);
+}
 
+/**
+ * This function send a notifications if any task was found 
+ * @param {array} filteredTasks - array of task found
+ */
+function alertNoTaskFound(filteredTasks) {
+  if (filteredTasks.length == 0) {
+    showAlert("container-boardNoResult-alert", "boardNoResult-alert", "Warning", "error-alert", "No results");
+  }
+}
+
+/**
+ * This function render all to-do tasks
+ * @param {Array} listTasks - Array of Tasks
+ */
+function renderToDoTask(listTasks) {
   let containerToDo = document.getElementById("toDoBoard");
   containerToDo.innerHTML = "";
   let toDo = listTasks.filter((task) => task.status == 1);
@@ -182,7 +208,13 @@ async function renderHTMLBoard(filterTask) {
     <article id="container-todo" class="emptyTaskCard">No tasks To do</article>
     `;
   }
+}
 
+/**
+ * This function render all in progress tasks
+ * @param {object} listTasks array of tasks
+ */
+function renderInProgressTask(listTasks) {
   let containerProgress = document.getElementById("inProgress");
   containerProgress.innerHTML = "";
   let progress = listTasks.filter((task) => task.status == 2);
@@ -204,7 +236,13 @@ async function renderHTMLBoard(filterTask) {
     <article id="container-todo" class="emptyTaskCard">No tasks in Progress</article>
     `;
   }
+}
 
+/**
+ * This function render all await feedback tasks
+ * @param {object} listTasks - array of tasks
+ */
+function renderAwaitFeedBackTask(listTasks) {
   let containerAwaitFeedBack = document.getElementById("awaitFeedback");
   containerAwaitFeedBack.innerHTML = "";
   let awaitFeeback = listTasks.filter((task) => task.status == 3);
@@ -226,7 +264,13 @@ async function renderHTMLBoard(filterTask) {
     <article id="container-todo" class="emptyTaskCard">No tasks await Feedback</article>
     `;
   }
+}
 
+/**
+ * This function render all to-do tasks
+ * @param {Array} listTasks - array of tasks
+ */
+function renderDoneTask(listTasks) {
   let containerDone = document.getElementById("done");
   containerDone.innerHTML = "";
   let done = listTasks.filter((task) => task.status == 4);
@@ -275,59 +319,17 @@ function showStatusSubTask(task) {
  */
 function renderHTMLTasksBoard(task, i, idContainerSubTask, idContainerUserTask, countSubTasksDone, porcentTaskDone) {
   let subTasks = task["subTasks"];
-
   let taskDesription = task.descriptionTask;
   if (taskDesription.length > 70) {
     taskDesription = taskDesription.substring(0, 70) + "...";
   }
-
-  return /*html*/ `
-      <article
-        onclick="openDialog('task_popup_template.html', '${task.id}')"
-        class="taskCard"
-        draggable="true"
-        ondragstart="startDragging('${task.id}',this)">
-        <div class="container-header-card">
-          <span class="category ${categoryColor(task.categoryTask)}">${task.categoryTask}</span>
-          <span class="dragDrop-menu-mobile" onclick="showDragMenuMobile('dragMenu${task.id}', '${task.status}'); stopPropagation(event)">
-            <img src="./assets/img/more_vert_icon.svg" alt="menu-mobile-dragDrop">
-            <div id="dragMenu${task.id}" class="menu-mobile-task-container d-none">
-              <img class="cancel-button-dragDrop" src="./assets/img/cancel_light_blue.svg" alt="close">
-              <p onclick="moveToColumn(1, '${task.id}')">To do</p>
-              <p onclick="moveToColumn(2, '${task.id}')">In Progress</p>
-              <p onclick="moveToColumn(3, '${task.id}')">Await Feedback</p>
-              <p onclick="moveToColumn(4, '${task.id}')">Done</p>
-            </div>
-          </span>
-        </div>
-        <h3 class="taskTitle">${task.titleTask}</h3>
-        <p class="taskDesription">${taskDesription}</p>
-        <div id="${idContainerSubTask}${i}" class="subtasks">
-          ${
-            task["subTasks"]
-              ? `<div class="progressContainer">
-              <div class="progress" style="width: ${porcentTaskDone}%"></div>
-            </div>`
-              : ""
-          }
-          <div>
-            <span>${subTasks ? countSubTasksDone + "/" + subTasks.length + " Subtasks" : ""}</span>
-          </div>
-        </div>
-        <footer>
-          <div id="${idContainerUserTask}${i}" class="user"></div>
-          <div class="priority">
-            <img src="./assets/img/${showingPriorityBoard(task.priorityTask)}" alt="" />
-          </div>
-        </footer>
-      </article>
-    `;
+  return /*html*/ `${templateTaskBoard(task, i, idContainerSubTask, idContainerUserTask, countSubTasksDone, porcentTaskDone, subTasks, taskDesription)}`;
 }
 
 /**
  * That function hidde the colummn where the task is
  * @param {string} idMenu - That is the id of the menu mobile drag drop
- * @param {*} status - that is type of Task where that Task is
+ * @param {number} status - that is type of Task where that Task is
  */
 function showingColumnButOwn(idMenu, status) {
   let menu = document.getElementById(`${idMenu}`);
@@ -404,26 +406,6 @@ function showingPriorityBoard(taskPriority) {
   }
 }
 
-// /**
-//  * This function render the HTML of subtask
-//  * @param {object} task - That is the complete task.
-//  * @param {number} i - The index of the task in tasks array
-//  * @param {idContainer} idContainerSubTask - idContainer where the progress will be render
-//  */
-// function renderHTMLSubTask(task, i, idContainerSubTask) {
-//   console.log(task);
-//   let containerSubtask = document.getElementById(`${idContainerSubTask}${i}`);
-//   containerSubtask.innerHTML = '';
-//   if(task.subTasks){
-//     containerSubtask.innerHTML += /*html*/`
-//      <div class="progressContainer">
-//        <div class="progress" style="width: 50%"></div>
-//      </div>
-//      <div><span>1</span>/<span>${task['subTasks'].length}</span><span>Subtasks</span></div>
-//    `
-//   }
-// }
-
 /**
  * This function render the HTML of name of pople assigned in a Task
  * @param {object} task - That is the complete task.
@@ -437,8 +419,6 @@ function renderHTMLUserinTask(task, i, idContainerUserTask) {
     for (let j = 0; j < task["nameAssignedTask"].length; j++) {
       const userTask = task["nameAssignedTask"][j];
       let userColorIndex;
-      // console.log('usertask: '+ userTask);
-      // console.log(j+'. colorindex: '+userTask.colorIndex);
       if (userTask != null) {
         userColorIndex = +userTask.colorIndex;
         const userColor = colors[userColorIndex].color;
@@ -459,12 +439,21 @@ function changeTypeOfTask(typeTask) {
   typeOfTask = typeTask;
 }
 
+/**
+ * This function delete a task in the data base
+ * @param {string} firebaseKey - id Task to delete
+ */
 async function deleteTask(firebaseKey) {
   await deleteData("/tasks/" + firebaseKey);
   loadDataBoard();
   closeDialog();
 }
 
+/**
+ * This function update a task in data base
+ * @param {string} firebaseKey - id Subatask to update 
+ * @param {number} subtaskId - Index of the subTask in the array in data base
+ */
 async function updateSubTask(firebaseKey, subtaskId) {
   let isChecked = document.getElementById(`subTask${subtaskId}`).checked;
   let idString = `/tasks/${firebaseKey}/subTasks/${subtaskId}/statusSubTask`;
@@ -472,30 +461,33 @@ async function updateSubTask(firebaseKey, subtaskId) {
   loadDataBoard();
 }
 
-function editTask(firebaseKey) {
-  // console.log(firebaseKey);
-
+/**
+ * This function fill all Field in the pop. This field are the data of the task that will be edited
+ */
+function editTask() {
   openDialog("add_task_template.html");
-  let firstChild = document.getElementById("addTaskPopup").firstElementChild;
-  firstChild.innerHTML = "";
-  document.getElementById("add_task_form").setAttribute("onsubmit", "saveEditedTask(); return false;");
-  document.getElementById("title_task").value = currentTask.titleTask;
-  document.getElementById("description_task").value = currentTask.descriptionTask;
-  document.getElementById("due_date_task").value = currentTask.timeDeadlineTask;
-  // showCheckboxes();
-  let arrayContact = [];
+  updatingEditFormvalue();
+  fillingAssignUserEdit();
+  changePriorityEditTask(`${currentTask.priorityTask}`);
+  editCategorySetNotAvailable();
+  changeFooterEditTask();
+  subTasks = loadSubaTaskInForm();
+}
+
+/**
+ * Thi function filled all contacts in task that will be edited
+ */
+function fillingAssignUserEdit() {
+  //let arrayContact = [];
   if (currentTask.nameAssignedTask) {
     for (let i = 0; i < currentTask.nameAssignedTask.length; i++) {
       const assignedContact = currentTask.nameAssignedTask[i];
       if (assignedContact != null) {
-        arrayContact.push(assignedContact);
-        // console.log(assignedContact.email);
+        //arrayContact.push(assignedContact);
         let allContacts = document.getElementById("assigned-task");
         let allLabel = allContacts.querySelectorAll("label");
         for (const label of allLabel) {
-          // console.log(label);
           let i = label.dataset.id;
-          // console.log(i);
           if (label.dataset.email == assignedContact.email) {
             let checkbox = document.getElementById(`checkBoxAssigned${i}`);
             checkbox.checked = true;
@@ -503,20 +495,35 @@ function editTask(firebaseKey) {
         }
       }
     }
-    //First Open checkBox, Second Show Names, Third Close Checkboxes
-      // showCheckboxes();
-      showInitialAssign();
-      // showCheckboxes();
+    showInitialAssign();
   }
+}
 
-  changePriorityEditTask(`${currentTask.priorityTask}`);
+/**
+ * This function fill some field in edit Form and change the submit function addTask for editTask
+ */
+function updatingEditFormvalue() {
+  let firstChild = document.getElementById("addTaskPopup").firstElementChild;
+  firstChild.innerHTML = "";
+  document.getElementById("add_task_form").setAttribute("onsubmit", "saveEditedTask(); return false;");
+  document.getElementById("title_task").value = currentTask.titleTask;
+  document.getElementById("description_task").value = currentTask.descriptionTask;
+  document.getElementById("due_date_task").value = currentTask.timeDeadlineTask;
+}
 
-  //Category Task edit
+/**
+ * This function set the category in edit Task but not allow to edit the category
+ */
+function editCategorySetNotAvailable() {
   document.getElementById("option-selected").innerHTML = currentTask.categoryTask;
   document.getElementById("option-selected").dataset.filled = currentTask.categoryTask.trim();
   document.getElementById("container-select-option").classList.add("pointer-none");
+}
 
-  //Change footer edit Task
+/**
+ * This function change the footer edit/add task depend what will be done
+ */
+function changeFooterEditTask() {
   document.getElementById("btn-clear-add-Task").classList.add("d-none");
   let footerButtonAddTask = document.getElementById("footer-button-addtask");
   footerButtonAddTask.firstElementChild.classList.add("d-none");
@@ -524,16 +531,27 @@ function editTask(firebaseKey) {
   let btnCreatetask = document.getElementById("btn-create-task");
   btnCreatetask.firstElementChild.textContent = "OK";
   btnCreatetask.classList.add("btn-edit-task");
+}
 
-  //loading subtasks in the Form edit Task
+/**
+ * This function load subtasks in the Form edit Task
+ * @param {*} params 
+ * @returns subtask array
+ */
+function loadSubaTaskInForm() {
   subTasks = currentTask.subTasks;
   if (subTasks) {
     showSubTask();
   } else {
     subTasks = [];
   }
+  return subTasks;
 }
 
+/**
+ * This function change the priority of the task
+ * @param {string} idPriorityButton - that is the priority of the task that will be given
+ */
 function changePriorityEditTask(idPriorityButton) {
   document.getElementById("button-urgent-priority").classList.remove("active");
   document.getElementById("button-medium-priority").classList.remove("active");
@@ -542,6 +560,9 @@ function changePriorityEditTask(idPriorityButton) {
   priorityTask = document.getElementById(`button-${idPriorityButton}-priority`).dataset.prio;
 }
 
+/**
+ * This function search a Task
+ */
 function searchTasks() {
   let filterTask = document.getElementById("searchTask").value;
   filterTask = filterTask.toLowerCase();
@@ -558,11 +579,12 @@ function resizeChangeAddTaskMobile() {
   }
 }
 
+/**
+ * This function give a class to the addTask form. Like this could be adapt the form in a responsive way when this one will be used to edit
+ */
 function addClassForEdit() {
   let form = document.getElementById('addTaskPopup');
   form.classList.add('edit-class');
   document.getElementById('innerDialog').classList.add('overflowYAuto');
   document.getElementById("innerDialog").classList.add("edit-innerDialog");
-  //document.getElementById('innerDialog').classList.remove('edit-innerDialog');
-  //document.getElementById('innerDialog').classList.add('editing');
 }

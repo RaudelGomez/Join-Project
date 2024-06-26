@@ -49,3 +49,74 @@ function renderHTMLSubTask(subTaskName, i) {
 		</div>
 	`;
 }
+
+/**
+ * This template show the name of the user and initial in edit task pop up
+ * @param {object} user - That is the object user
+ * @returns html 
+ */
+function userHTMLBoard(user) {
+	return /*html*/`
+		 <div class="userBoardPopup">
+				<span class="profileSmall" style="background-color: ${colors[user.colorIndex].color}">${getInitials(
+				user.name)}</span>
+				<span>${user.name}</span>
+			</div> 
+	`
+}
+
+/**
+ * Tha function render the HTML of every Task
+ * @param {object} task - Object task
+ * @param {number} i - index of the task 
+ * @param {string} idContainerSubTask - Container id where the subtask will render
+ * @param {string} idContainerUserTask - Container id where the user will render
+ * @param {number} countSubTasksDone - Count of subTask already done/finished
+ * @param {number} porcentTaskDone - % of task done
+ * @param {Array} subTasks - array of subtask 
+ * @param {string} taskDesription - Descriptio of the task
+ * @returns HTML to render
+ */
+function templateTaskBoard(task, i, idContainerSubTask, idContainerUserTask, countSubTasksDone, porcentTaskDone, subTasks, taskDesription) {
+	return /*html*/ `
+      <article
+        onclick="openDialog('task_popup_template.html', '${task.id}')"
+        class="taskCard"
+        draggable="true"
+        ondragstart="startDragging('${task.id}',this)">
+        <div class="container-header-card">
+          <span class="category ${categoryColor(task.categoryTask)}">${task.categoryTask}</span>
+          <span class="dragDrop-menu-mobile" onclick="showDragMenuMobile('dragMenu${task.id}', '${task.status}'); stopPropagation(event)">
+            <img src="./assets/img/more_vert_icon.svg" alt="menu-mobile-dragDrop">
+            <div id="dragMenu${task.id}" class="menu-mobile-task-container d-none">
+              <img class="cancel-button-dragDrop" src="./assets/img/cancel_light_blue.svg" alt="close">
+              <p onclick="moveToColumn(1, '${task.id}')">To do</p>
+              <p onclick="moveToColumn(2, '${task.id}')">In Progress</p>
+              <p onclick="moveToColumn(3, '${task.id}')">Await Feedback</p>
+              <p onclick="moveToColumn(4, '${task.id}')">Done</p>
+            </div>
+          </span>
+        </div>
+        <h3 class="taskTitle">${task.titleTask}</h3>
+        <p class="taskDesription">${taskDesription}</p>
+        <div id="${idContainerSubTask}${i}" class="subtasks">
+          ${
+            task["subTasks"]
+              ? `<div class="progressContainer">
+              <div class="progress" style="width: ${porcentTaskDone}%"></div>
+            </div>`
+              : ""
+          }
+          <div>
+            <span>${subTasks ? countSubTasksDone + "/" + subTasks.length + " Subtasks" : ""}</span>
+          </div>
+        </div>
+        <footer>
+          <div id="${idContainerUserTask}${i}" class="user"></div>
+          <div class="priority">
+            <img src="./assets/img/${showingPriorityBoard(task.priorityTask)}" alt="" />
+          </div>
+        </footer>
+      </article>
+    `;
+}

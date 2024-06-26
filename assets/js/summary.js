@@ -6,7 +6,7 @@ async function initSummary(){
   getTimeOfDay();
   loadLocalStorage();
   updatingSummaryData();
-  addClassAnimationMobil();
+  addClassAnimationMobile();
 }
 
 /**
@@ -185,7 +185,7 @@ function userFromLoggin() {
 /**
  * This function add class to the container in summary to greeting if the user comes from log in
  */
-function addClassAnimationMobil(){
+function addClassAnimationMobile(){
   let logginUser = Boolean(userFromLoggin());
   if(logginUser){
     document.getElementById('summary-container').classList.remove('container-desktop-greeting');

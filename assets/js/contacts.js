@@ -295,29 +295,17 @@ async function renderContacts() {
 }
 
 /**
- * HTML Template for contact list
- * @param {string} iconColor - Hexcode for Icon color
- * @param {string} contactName - Name of contact
- * @param {string} contactMail - Mail of contact
- * @param {string} initials - Initials of contact
- * @param {string} results - Firebasekey
- * @param {string} contactPhone - phone of contact
- * @param {integeer} i - Index number of array
- * @returns 
+ * Set the clicked contact in the list as active
+ * @param {element} contactElement - clicked contact element
  */
-function contactsListHtmlTemplate(iconColor,contactName,contactMail,initials,results,contactPhone,i) {
-  return /* HTML */ `
-      <div
-        onclick="showContact(this,'${iconColor}','${contactName}','${contactMail}','${initials}','${results}','${contactPhone}',${i})"
-        class="contactBox">
-        <span class="profileSmall" style="background-color: ${iconColor}">${initials}</span>
-        <div class="contactDetails">
-          <div class="contactName">${contactName}</div>
-          <div class="contactMail">${contactMail}</div>
-        </div>
-      </div>
-    `;
+function setActiveContact(contactElement) {
+  let contactElements = document.getElementsByClassName("contactBox");
+  for (let i = 0; i < contactElements.length; i++) {
+    contactElements[i].classList.remove("activeContact");
+  }
+  contactElement.classList.add("activeContact");
 }
+
 
 /**
  * This function open and render the display of contact details
@@ -344,12 +332,8 @@ function showContact(contactElement, iconColor, contactName, contactMail, initia
       `openEditContactPopup('${iconColor}','${contactName}', '${contactMail}','${initials}','${results}','${phone}',${id})`
     );
   document.getElementById("openContactButtons").classList.remove("d-none");
-  document.getElementById("contactDisplay").style.display = "unset";
-  let contactElements = document.getElementsByClassName("contactBox");
-  for (let i = 0; i < contactElements.length; i++) {
-    contactElements[i].classList.remove("activeContact");
-  }
-  contactElement.classList.add("activeContact");
+  document.getElementById("contactDisplay").style.display = "unset";  
+  setActiveContact(contactElement);
   document.getElementById("contactInfo").classList.remove("d-none");
   document.getElementById("contactName").innerHTML = contactName;
   document.getElementById("contactMail").innerHTML = contactMail;

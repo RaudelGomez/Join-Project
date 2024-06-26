@@ -141,3 +141,28 @@ function renderHTMLHeader(userData) {
       </div>
   `
 }
+
+/**
+ * HTML Template for contact list
+ * @param {string} iconColor - Hexcode for Icon color
+ * @param {string} contactName - Name of contact
+ * @param {string} contactMail - Mail of contact
+ * @param {string} initials - Initials of contact
+ * @param {string} results - Firebasekey
+ * @param {string} contactPhone - phone of contact
+ * @param {integeer} i - Index number of array
+ * @returns 
+ */
+function contactsListHtmlTemplate(iconColor,contactName,contactMail,initials,results,contactPhone,i) {
+  return /* HTML */ `
+      <div
+        onclick="showContact(this,'${iconColor}','${contactName}','${contactMail}','${initials}','${results}','${contactPhone}',${i})"
+        class="contactBox">
+        <span class="profileSmall" style="background-color: ${iconColor}">${initials}</span>
+        <div class="contactDetails">
+          <div class="contactName">${contactName}</div>
+          <div class="contactMail">${contactMail}</div>
+        </div>
+      </div>
+    `;
+}

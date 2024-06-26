@@ -81,6 +81,7 @@ input::placeholder {
   top: 152px;
   right: 64px;
   cursor: pointer;
+  /* z-index: -1; */
 }
 
 .error-alert {

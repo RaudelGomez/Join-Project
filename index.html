@@ -28,9 +28,9 @@
           <hr class="HeadlinerLine" />
         </div>
         <div class="loginInputFields">
-          <input required id="email" type="email" class="emailClass email" placeholder="Email" />
+          <input id="email" type="email" class="emailClass email" placeholder="Email" />
           <div id="mailError"></div>
-          <input required id="password" type="password" class="passwordClass password" placeholder="Password" />
+          <input id="password" type="password" class="passwordClass password" placeholder="Password" />
           <div id="passwordError"></div>
         </div>
         <div class="checkboxContainer subtasksPopup">
@@ -38,7 +38,7 @@
         </div>
         <div class="enterButtons">
           <button type="submit" class="loginButton">Log in</button>
-          <button onclick="loginGuest()" class="guestLogin">Guest Log in</button>
+          <button type="button" onclick="loginGuest()" class="guestLogin">Guest Log in</button>
         </div>
       </form>
     </div>

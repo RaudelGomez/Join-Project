@@ -55,7 +55,7 @@
 #add_task_form input::placeholder,
 #add_task_form textarea::placeholder,
 #add_task_form select::placeholder {
-color: var(--gray);
+	color: var(--gray);
 	font-size: 20px;
 }
 
@@ -110,21 +110,21 @@ color: var(--gray);
 	display: block;
 }
 
-.hidde-icon{
+.hidde-icon {
 	display: none;
 }
 
-.svgContainerOrange.active{
+.svgContainerOrange.active {
 	color: var(--white);
 	background-color: var(--danger-color);
 }
 
-.svgContainerYellow.active{
+.svgContainerYellow.active {
 	color: var(--white);
 	background-color: var(--warning-color);
 }
 
-.svgContainerGreen.active{
+.svgContainerGreen.active {
 	color: var(--white);
 	background-color: var(--success-color);
 }
@@ -139,7 +139,8 @@ color: var(--gray);
 	width: 100%;
 }
 
-#add-sub-task, .container-icon-subTask {
+#add-sub-task,
+.container-icon-subTask {
 	position: absolute;
 	top: 50%;
 	right: 8px;
@@ -158,7 +159,7 @@ select {
 	cursor: pointer;
 }
 
-.new-subTask{
+.new-subTask {
 	margin: 1px;
 	padding: 2px 4px;
 	transition: all 75ms ease-in-out;
@@ -169,7 +170,7 @@ select {
 	border-radius: 8px;
 }
 
-.separator-subtask{
+.separator-subtask {
 	width: 1px;
 	height: 24px;
 	background-color: var(--black);
@@ -183,24 +184,24 @@ select {
 	padding: 2px 2px 2px 24px;
 }
 
-.text-new-subTask{
+.text-new-subTask {
 	display: list-item;
 }
 
-.container-edit-subTask{
+.container-edit-subTask {
 	position: relative;
 }
 
-.input-editing-subTask{
+.input-editing-subTask {
 	width: 100%;
 }
 
-.span-input-editing-subTask{
+.span-input-editing-subTask {
 	position: absolute;
 	top: 50%;
-  right: 8px;
-  transform: translateY(-40%);
-  cursor: pointer;
+	right: 8px;
+	transform: translateY(-40%);
+	cursor: pointer;
 	display: flex;
 }
 
@@ -208,9 +209,9 @@ select {
 	opacity: 0;
 	pointer-events: none;
 	display: flex;
-  align-items: center;
-  gap: 2px;
-	transition: all 75ms ease-in ;
+	align-items: center;
+	gap: 2px;
+	transition: all 75ms ease-in;
 }
 
 .span-link:hover #span-link-edit-delete {
@@ -228,7 +229,7 @@ select {
 	position: absolute;
 }
 
-.position-relative{
+.position-relative {
 	position: relative;
 	bottom: 0 !important;
 	left: 0 !important;
@@ -299,7 +300,7 @@ select {
 	gap: 2px;
 }
 
-.category-task input[type="checkbox"]{
+.category-task input[type="checkbox"] {
 	display: none;
 }
 
@@ -387,24 +388,24 @@ select {
 	text-transform: uppercase;
 }
 
-.container-name-assigned{
+.container-name-assigned {
 	display: flex;
 	justify-content: space-between;
 	width: 100%;
 	padding: 8px;
 }
 
-.container-name-assigned:has(input:checked){
+.container-name-assigned:has(input:checked) {
 	background-color: var(--main-color);
 	color: var(--white);
 	border-radius: 8px;
 }
 
-.container-name-assigned:has(input:checked):hover{
+.container-name-assigned:has(input:checked):hover {
 	background-color: var(--main-color-dark);
 }
 
-.container-people-assigned-task{
+.container-people-assigned-task {
 	width: 100%;
 	height: auto;
 	align-items: center;
@@ -413,14 +414,14 @@ select {
 	flex-wrap: wrap;
 }
 
-.hook-check{
+.hook-check {
 	display: none;
 	position: absolute;
 	right: 8px;
 	background-color: var(--main-color);
 }
 
-.hook-no-check{
+.hook-no-check {
 	position: absolute;
 	right: 8px;
 	background-color: var(--white);
@@ -434,24 +435,24 @@ select {
 	display: block;
 }
 
-.container-name-assigned:has(input:checked):hover .hook-check{
+.container-name-assigned:has(input:checked):hover .hook-check {
 	background-color: var(--main-color-dark);
 }
 
-.pointer-none{
+.pointer-none {
 	pointer-events: none;
 }
 
-.justify-end{
+.justify-end {
 	justify-content: end;
 }
 
-.btn-edit-task{
+.btn-edit-task {
 	gap: 8px !important;
 	padding: 18px 10px !important;
 }
 
-.error-addTask{
+.error-addTask {
 	color: var(--danger-color);
 	text-align: left;
 	font-size: 12px;
@@ -459,39 +460,39 @@ select {
 }
 
 .inputRedBorder {
-  border-color: var(--danger-color) !important;
+	border-color: var(--danger-color) !important;
 }
 
-#container-new-subTask{
+#container-new-subTask {
 	display: flex;
 	flex-direction: column;
 	gap: 0;
 	height: 200px;
-  overflow-y: auto;
+	overflow-y: auto;
 }
 
 .edit-class .container-button-submit-add-task {
 	position: sticky !important;
-  bottom: 0 !important;
+	bottom: 0 !important;
 	background-color: transparent;
 }
 
-.overflowYAuto{
+.overflowYAuto {
 	overflow-y: auto !important;
 	height: auto !important;
 	left: 8vh !important;
-  right: 8vh !important;
-  top: 0vh !important;
-  bottom: 0vh !important;
+	right: 8vh !important;
+	top: 0vh !important;
+	bottom: 0vh !important;
 }
 
-@media (max-width: 1200px){
-	.sub-container-addTask{
+@media (max-width: 1200px) {
+	.sub-container-addTask {
 		padding: 0 22px;
 	}
 }
 
-@media (max-width: 1100px){
+@media (max-width: 1100px) {
 	.container-button-submit-add-task {
 		bottom: 120px !important;
 		right: 64px !important;
@@ -505,10 +506,10 @@ select {
 	}
 }
 
-@media (max-width: 900px){
+@media (max-width: 900px) {
 	#add_task_form .add_task_data {
-    gap: 8px;
-    flex-direction: column;
+		gap: 8px;
+		flex-direction: column;
 	}
 
 	#add_task_form div section {
@@ -521,7 +522,7 @@ select {
 		display: none;
 	}
 
-	.sub-container-addTask{
+	.sub-container-addTask {
 		position: relative;
 	}
 
@@ -534,7 +535,7 @@ select {
 		padding: 32px 0 !important;
 	}
 
-	.h2-size-edit{
+	.h2-size-edit {
 		font-size: 40px !important;
 	}
 
@@ -544,29 +545,28 @@ select {
     top: 8vh !important;
 	}
 
-	#innerDialog.editing{
-		/* height: fit-content !important; */
+	#innerDialog.editing {
 		left: 16px !important;
 		right: 16px !important;
 	}
 }
 
-@media (max-width: 530px){
-	body{
+@media (max-width: 530px) {
+	body {
 		font-size: 14px !important;
 	}
 
-	button{
+	button {
 		font-size: 14px !important;
 	}
 
-	.btn-submit-addTask{
+	.btn-submit-addTask {
 		height: auto !important;
 		gap: 0 !important;
 		padding: 8px !important;
 	}
 
-	#btn-clear-add-Task{
+	#btn-clear-add-Task {
 		display: none;
 	}
 
@@ -582,22 +582,22 @@ select {
 		font-size: 12px;
 	}
 
-	.edit-innerDialog.taskPopup{
-		left:  18px !important;
+	.edit-innerDialog.taskPopup {
+		left: 18px !important;
 		right: 18px !important;
 	}
 
-	#innerDialog.addTaskPopup{
+	#innerDialog.addTaskPopup {
 		left: 16px !important;
-		right:  16px !important;
+		right: 16px !important;
 	}
 
-	.h2-size-edit{
+	.h2-size-edit {
 		font-size: 24px !important;
 	}
 }
 
-@media (max-width: 350px){
+@media (max-width: 350px) {
 	.sub-container-addTask {
 		padding: 0 6px;
 	}

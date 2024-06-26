@@ -41,7 +41,7 @@
   margin-top: 64px;
 }
 
-.summary-container > div {
+.summary-container>div {
   flex: 1;
   display: flex;
   justify-content: center;
@@ -200,12 +200,13 @@
 .horizontal-line {
   display: none;
 }
-/*End Summary*/
 
+/*End Summary*/
 @media (max-width: 1010px) {
   .greeting-container {
     display: none !important;
   }
+
   .sub-container .headline {
     display: flex;
     flex-direction: column;
@@ -248,6 +249,7 @@
     font-weight: 600;
     color: var(--main-color);
   }
+
   .name-task {
     color: var(--main-color);
     font-size: 14px;

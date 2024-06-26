@@ -17,7 +17,7 @@ function loginGuest() {
     sessionStorage.setItem("Join", JSON.stringify(logData));
     localStorage.clear();
   }
-  location.href = "./summary.html";
+  location.href = "./summary.html?login=true";
 }
 
 /**
@@ -43,7 +43,7 @@ function login() {
       sessionStorage.setItem("Join", JSON.stringify(logData));
       localStorage.clear();
     }
-    location.href = "./summary.html";
+    location.href = "./summary.html?login=true";
   } else {
     let results = contact.filter((element) => element.email == email && element.user);
     if (results.length == 0) {

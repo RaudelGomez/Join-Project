@@ -6,6 +6,7 @@ async function initSummary(){
   getTimeOfDay();
   loadLocalStorage();
   updatingSummaryData();
+  addClassAnimationMobil();
 }
 
 /**
@@ -168,5 +169,27 @@ function changeDateFormat(dateToChange){
   // Formating date
   const dateFormate = `${month} ${day}, ${year}`;
   return dateFormate;
+}
+
+/**
+ * This function send in the url a parameters to know if the user comes direct from login page
+ * @returns true if the user comes direct from Login
+ */
+function userFromLoggin() {
+  let url = window.location.href;
+  let urlObj = new URL(url);
+  let logged = urlObj.searchParams.get('login');
+  return logged;
+}
+
+/**
+ * This function add class to the container in summary to greeting if the user comes from log in
+ */
+function addClassAnimationMobil(){
+  let logginUser = Boolean(userFromLoggin());
+  if(logginUser){
+    document.getElementById('summary-container').classList.remove('container-desktop-greeting');
+    document.getElementById('summary-container').classList.add('container-mobile-greeting');
+  }
 }
 

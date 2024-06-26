@@ -203,7 +203,11 @@
 
 /*End Summary*/
 @media (max-width: 1010px) {
-  .summary-info{
+  .container-desktop-greeting .greeting-container{
+    display: none !important;
+  }
+
+  .container-mobile-greeting .summary-info{
   position: absolute;
   z-index: 0;
   opacity: 0;
@@ -214,7 +218,7 @@
   animation: enableSummary 400ms ease-in 1600ms forwards; 
   }
 
-  .greeting-container {
+  .container-mobile-greeting .greeting-container {
     position: relative;
     z-index: 10;
     height: 50vh;

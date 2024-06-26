@@ -50,11 +50,7 @@ function openNewContactPopup() {
   document.getElementById("template").classList.add("addContact");
   document.getElementById("template").classList.remove("editContact");
   openPopup();
-  document.getElementById("contactPopupHeadline").innerHTML = "Add contact";
-  document.getElementById("contactPopupSubHeadline").classList.remove("d-none");
-  document.getElementById("contactSaveButton").innerHTML = "Create contact";
-  document.getElementById("cancelButtonText").innerHTML = "Cancel";
-  document.getElementById("cancelIcon").classList.remove("d-none");
+  changeContactPopup('Add');
   document
     .getElementById("contactFormLeftButton")
     .setAttribute("onclick", "clearForm('addContactForm'); return false;");
@@ -93,11 +89,7 @@ async function openEditContactPopup(iconColor, contactName, contactMail, initial
     <span id="popupInitials" class="profileIconBig" style="background-color: ${iconColor};">${initials}</span>
   `;
   openPopup();
-  document.getElementById("contactPopupHeadline").innerHTML = "Edit contact";
-  document.getElementById("contactPopupSubHeadline").classList.add("d-none");
-  document.getElementById("contactSaveButton").innerHTML = "Save";
-  document.getElementById("cancelButtonText").innerHTML = "Delete";
-  document.getElementById("cancelIcon").classList.add("d-none");
+  changeContactPopup('Edit');
   document
     .getElementById("addContactForm")
     .setAttribute("onsubmit", 'updateContact("' + results + '",' + id + "); return false;");
@@ -107,6 +99,23 @@ async function openEditContactPopup(iconColor, contactName, contactMail, initial
   document.getElementById("name").value = contactName;
   document.getElementById("email").value = contactMail;
   document.getElementById("phone").value = phone;
+}
+
+/**
+ * Changes the Type of contact Popup (Edit or Add)
+ * @param {string} popupType - Type of Popup (Headline "Edit contact" or "Add contact")
+ */
+function changeContactPopup(popupType) {
+  document.getElementById("contactPopupHeadline").innerHTML = popupType + " contact";
+  document.getElementById("contactPopupSubHeadline").classList.remove("d-none");
+  document.getElementById("cancelIcon").classList.add("d-none");    
+  if (popupType == "Add") {
+    document.getElementById("contactSaveButton").innerHTML = "Create contact";
+    document.getElementById("cancelButtonText").innerHTML = "Cancel";
+  } else {
+    document.getElementById("contactSaveButton").innerHTML = "Save";
+    document.getElementById("cancelButtonText").innerHTML = "Delete"; 
+  }
 }
 
 /**
@@ -286,7 +295,7 @@ async function deleteContact(firebaseKey, contactMail) {
  */
 async function findTaskUrlsByEmail(tasks, email) {
   const urls = [];
-  let key, i;  
+  let key, i;
   for (key in tasks) {
     if (tasks.hasOwnProperty(key)) {
       const task = tasks[key];

@@ -539,8 +539,15 @@ select {
 		font-size: 40px !important;
 	}
 
+<<<<<<< HEAD
 	#innerDialog.edit-innerDialog {
 		height: auto !important;
+=======
+	#innerDialog.edit-innerDialog{
+		/* height: auto !important; */
+		height: 80vh !important;
+    top: 8vh !important;
+>>>>>>> 1cbf948b280f319837c51395a4cf83f38c97f4de
 	}
 
 	#innerDialog.editing {

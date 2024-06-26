@@ -505,7 +505,7 @@ function editTask(firebaseKey) {
     }
     //First Open checkBox, Second Show Names, Third Close Checkboxes
       // showCheckboxes();
-      // showInitialAssign();
+      showInitialAssign();
       // showCheckboxes();
   }
 

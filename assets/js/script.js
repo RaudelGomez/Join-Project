@@ -41,6 +41,10 @@ function closeDropDownAssignUser() {
 }
 
 function closeTaskPop() {
+  let assigned = document.getElementById('assigned-task');
+  if(assigned.classList.contains('open')){
+    showCheckboxes();
+  }
   closeDialog();
   closeDropDownAssignUser();
   closeCategoryTap();
@@ -71,6 +75,7 @@ function closeTaskPop() {
     let firstChild = document.getElementById("addTaskPopup").firstElementChild;
     firstChild.innerHTML = "Add Task";
   }
+  
 }
 
 /**

@@ -4,8 +4,8 @@ renderContacts();
 
 /**
  * Validate mail adress and returns true if valid or false if not
- * @param {*} mail 
- * @returns 
+ * @param {*} mail
+ * @returns
  */
 function validateEmail(mail) {
   if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail)) {
@@ -15,8 +15,20 @@ function validateEmail(mail) {
 }
 
 /**
+ * Clear Contact form validation messages and borders
+ */
+function clearContactForm() {
+  let nameContact = document.getElementById("name");
+  let emailContact = document.getElementById("email");
+  nameContact.nextElementSibling.textContent = "";
+  nameContact.classList.remove("inputRedBorder");
+  emailContact.nextElementSibling.textContent = "";
+  emailContact.classList.remove("inputRedBorder");
+}
+
+/**
  * Validate Contact Form Add or Edit
- * @returns 
+ * @returns
  */
 function validateContactForm() {
   let nameContact = document.getElementById("name");
@@ -38,7 +50,6 @@ function validateContactForm() {
   } else {
     emailContact.nextElementSibling.textContent = "";
     emailContact.classList.remove("inputRedBorder");
-
     if (!validateEmail(emailContactValue)) {
       emailContact.nextElementSibling.textContent = "You have entered an invalid email address!";
       emailContact.classList.add("inputRedBorder");
@@ -46,11 +57,7 @@ function validateContactForm() {
       validated++;
     }
   }
-  if (validated == 2) {
-    return true;
-  } else {
-    return false;
-  }
+  return validated == 2 ? true : false;
 }
 
 /**
@@ -106,6 +113,7 @@ function clearForm(formid) {
  * Open popup window for add new contact
  */
 function openNewContactPopup() {
+  clearContactForm();
   document.getElementById("template").classList.add("addContact");
   document.getElementById("template").classList.remove("editContact");
   openPopup();
@@ -115,7 +123,9 @@ function openNewContactPopup() {
     .setAttribute("onclick", "clearForm('addContactForm'); return false;");
   document.getElementById("addContactForm").setAttribute("onsubmit", "addContact(); return false;");
   clearForm("addContactForm");
-  document.getElementById("profileIcon").innerHTML = /* HTML */ ` <img src="./assets/img/person_fill.svg" alt="" /> `;
+  document.getElementById("profileIcon").innerHTML = /* HTML */ `
+  <img src="./assets/img/person_fill.svg" alt="" /> 
+  `;
 }
 
 /**
@@ -142,6 +152,7 @@ function openPopup() {
  * @param {integer} id - the index number of the sorted array
  */
 async function openEditContactPopup(iconColor, contactName, contactMail, initials, results, phone, id) {
+  clearContactForm();
   document.getElementById("template").classList.remove("addContact");
   document.getElementById("template").classList.add("editContact");
   document.getElementById("profileIcon").innerHTML = /* HTML */ `
@@ -199,25 +210,39 @@ async function updateContact(id, index) {
     let idString = `/contacts/${id}`;
     await putData(data, idString);
     closeDialog();
-    document.getElementById("contactName").innerHTML = name;
-    document.getElementById("contactPhone").innerHTML = phone;
-    document.getElementById("contactMail").innerHTML = mail;
-    document.getElementById("initials").innerHTML = getInitials(name);
-    let initials = getInitials(name);
-    document
-      .getElementById("editButton")
-      .setAttribute(
-        "onclick",
-        `openEditContactPopup('${color}','${name}', '${mail}','${initials}','${id}','${phone}',${index})`
-      );
-    document
-      .getElementById("editButtonMobile")
-      .setAttribute(
-        "onclick",
-        `openEditContactPopup('${color}','${name}', '${mail}','${initials}','${id}','${phone}',${index})`
-      );
+    const iconColor = colors[contactDetails[index]["color"]].color;
+    updateContactDisplay(name,phone,mail, iconColor,index, id);
     renderContacts();
   }
+}
+
+/**
+ * This function updates the contact display after edit and save
+ * @param {string} name - name of contact
+ * @param {string} phone - phone of contact
+ * @param {string} mail - mail of contact
+ * @param {string} color - color Hexcode of contact
+ * @param {string} index - firebase key
+ * @param {integer} id - index number of contact array
+ */
+function updateContactDisplay(name,phone,mail, color,index, id) {
+  document.getElementById("contactName").innerHTML = name;
+  document.getElementById("contactPhone").innerHTML = phone;
+  document.getElementById("contactMail").innerHTML = mail;
+  let initials = getInitials(name);
+  document.getElementById("initials").innerHTML = initials;  
+  document
+    .getElementById("editButton")
+    .setAttribute(
+      "onclick",
+      `openEditContactPopup('${color}','${name}', '${mail}','${initials}','${id}','${phone}',${index})`
+    );
+  document
+    .getElementById("editButtonMobile")
+    .setAttribute(
+      "onclick",
+      `openEditContactPopup('${color}','${name}', '${mail}','${initials}','${id}','${phone}',${index})`
+    );
 }
 
 /**
@@ -265,7 +290,23 @@ async function renderContacts() {
       lastLetter = letter;
     }
     let results = contactKey;
-    renderContacts.innerHTML += /* HTML */ `
+    renderContacts.innerHTML += contactsListHtmlTemplate(iconColor,contactName,contactMail,initials,results,contactPhone,i);
+  }
+}
+
+/**
+ * HTML Template for contact list
+ * @param {string} iconColor - Hexcode for Icon color
+ * @param {string} contactName - Name of contact
+ * @param {string} contactMail - Mail of contact
+ * @param {string} initials - Initials of contact
+ * @param {string} results - Firebasekey
+ * @param {string} contactPhone - phone of contact
+ * @param {integeer} i - Index number of array
+ * @returns 
+ */
+function contactsListHtmlTemplate(iconColor,contactName,contactMail,initials,results,contactPhone,i) {
+  return /* HTML */ `
       <div
         onclick="showContact(this,'${iconColor}','${contactName}','${contactMail}','${initials}','${results}','${contactPhone}',${i})"
         class="contactBox">
@@ -276,7 +317,6 @@ async function renderContacts() {
         </div>
       </div>
     `;
-  }
 }
 
 /**

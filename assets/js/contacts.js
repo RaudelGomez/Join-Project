@@ -64,7 +64,7 @@ function openNewContactPopup() {
 }
 
 /**
- * Just open a animated popup
+ * Just open an animated popup
  */
 function openPopup() {
   document.getElementById("innerDialog").classList.remove("d-none");
@@ -191,8 +191,7 @@ async function renderContacts() {
     const letter = Array.from(contactName)[0].toUpperCase();
     const initials = getInitials(contactName);
     if (letter != lastLetter) {
-      renderContacts.innerHTML += ` <h3>${letter}</h3>
-    `;
+      renderContacts.innerHTML += `<h3>${letter}</h3>`;
       lastLetter = letter;
     }
     let results = contactKey;

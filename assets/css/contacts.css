@@ -1,13 +1,13 @@
-.horizontal-line {display: none;}
+.horizontal-line {
+  display: none;
+}
 
 .contactDisplay .sub-container .headline p {
-  font-size:27px !important;
+  font-size: 27px !important;
 }
 
 #innerDialog {
-  /* width: 1212px !important; */
   max-width: 1212px;
-  /* height: 592px; */
 }
 
 .contactsContainer {
@@ -18,7 +18,7 @@
   background-color: white;
   height: 100vh;
   max-width: 456px;
-  width:100%;
+  width: 100%;
   box-shadow: 4px 0px 6px 0px #00000014;
 }
 
@@ -31,17 +31,14 @@
   min-width: 3px;
   height: 59px;
   background-color: var(--blue-bikini);
-  border-radius:16px;
+  border-radius: 16px;
 }
 
 #contactInfo h3 {
- 
   font-size: 20px;
   font-weight: 400;
   line-height: 56.4px;
   text-align: left;
-  
-
 }
 
 .closeContactMenu {
@@ -72,11 +69,9 @@
 }
 
 .contact-list h3 {
-border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #eee;
 
-padding: 17px 36px 17px 36px;
-
-
+  padding: 17px 36px 17px 36px;
 }
 
 .contactDisplay {
@@ -101,21 +96,16 @@ body {
   /* padding: 16px; */
   border-radius: 10px;
   padding: 15px 24px 15px 24px;
-
 }
 
-
 .contactBox .profileSmall {
-width:42px !important;
-height:42px !important;
-text-align: center;
-font-size:12px;
-font-weight: 400;
-/* margin:0;
+  width: 42px !important;
+  height: 42px !important;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 400;
+  /* margin:0;
 padding:0px; */
-
-
-
 }
 
 .contactBox:hover:not(.activeContact) {
@@ -186,7 +176,7 @@ padding:0px; */
 .contactContent h3 {
   font-size: 47px !important;
   font-weight: 500 !important;
-  line-height:56.4px;
+  line-height: 56.4px;
   text-align: left;
 }
 
@@ -217,7 +207,7 @@ padding:0px; */
   color: white !important;
 }
 
-#contactPopupSubHeadline { 
+#contactPopupSubHeadline {
   font-size: 27px;
   font-weight: 400;
   text-align: left;
@@ -277,7 +267,7 @@ padding:0px; */
 .contactPopupButtonsDiv {
   display: flex;
   gap: 24px;
-  margin-top:16px;
+  margin-top: 16px;
 }
 
 .clear-button-add-task {
@@ -286,8 +276,8 @@ padding:0px; */
   font-weight: 400;
   line-height: 24px;
   text-align: left;
-  border-radius:10px;
-  padding:16px;
+  border-radius: 10px;
+  padding: 16px;
   background-color: var(--white);
   border: 1px solid #2a3647;
 }
@@ -300,9 +290,9 @@ padding:0px; */
 }
 
 .closeShowContact {
-  display:none;
+  display: none;
 }
 
- #addContactMobileBtn {
-  display: none; 
-} 
+#addContactMobileBtn {
+  display: none;
+}

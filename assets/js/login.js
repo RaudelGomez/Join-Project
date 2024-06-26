@@ -1,5 +1,8 @@
 loadData("contacts");
 
+/**
+ * Login in as Guest and save session in localStorage or sessionStorage depending on remember me check
+ */
 function loginGuest() {
   let checked = document.getElementById("confirm").checked;
   let logData = {
@@ -17,6 +20,9 @@ function loginGuest() {
   location.href = "./summary.html";
 }
 
+/**
+ * Login in user and save session in localStorage or sessionStorage depending on remember me check
+ */
 function login() {
   let email = document.getElementById("email").value;
   let password = String(document.getElementById("password").value);

@@ -32,6 +32,7 @@
 .taskPopup {
   max-width: 525px !important;
 }
+
 .first-letter-uppercase {
   display: inline-block;
 }
@@ -47,9 +48,6 @@
 
 .addTaskPopup {
   max-width: 1116px !important;
-  /* min-height: 870px !important;
-  max-height: 870px !important;
-  height:100%; */
 }
 
 .drag-area {
@@ -77,15 +75,13 @@
   height: 72px;
   overflow-y: auto;
 }
-/* .error-alert{
-  color: var(--danger-color);
-} */
 
 .mobileAddTaskButton,
 .mobileAddTaskButtonSmall,
 .mobileAddTaskButton {
   display: none;
 }
+
 .desktopAddTaskButton {
   display: inline-block;
 }
@@ -158,6 +154,7 @@
     height: 40px;
     width: 40px;
   }
+
   .boardHeader .searchContainer,
   #searchTask,
   .searchBox {

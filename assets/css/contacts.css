@@ -1,13 +1,13 @@
-.horizontal-line {display: none;}
+.horizontal-line {
+  display: none;
+}
 
 .contactDisplay .sub-container .headline p {
-  font-size:27px !important;
+  font-size: 27px !important;
 }
 
 #innerDialog {
-  /* width: 1212px !important; */
   max-width: 1212px;
-  /* height: 592px; */
 }
 
 .contactsContainer {
@@ -18,11 +18,10 @@
   background-color: white;
   height: 100vh;
   max-width: 456px;
-  width:100%;
+  width: 100%;
   box-shadow: 4px 0px 6px 0px #00000014;
 }
 
-/* #contactMobileEditButtons,  */
 #openContactButtons {
   display: none;
 }
@@ -31,17 +30,15 @@
   min-width: 3px;
   height: 59px;
   background-color: var(--blue-bikini);
-  border-radius:16px;
+  border-radius: 16px;
 }
 
 #contactInfo h3 {
- 
+
   font-size: 20px;
   font-weight: 400;
   line-height: 56.4px;
   text-align: left;
-  
-
 }
 
 .closeContactMenu {
@@ -59,6 +56,7 @@
   margin-right: 16px;
   margin-top: 6px;
 }
+
 .ContactBtn {
   width: 100%;
 }
@@ -72,11 +70,8 @@
 }
 
 .contact-list h3 {
-border-bottom: 1px solid #eee;
-
-padding: 17px 36px 17px 36px;
-
-
+  border-bottom: 1px solid #eee;
+  padding: 17px 36px 17px 36px;
 }
 
 .contactDisplay {
@@ -98,7 +93,6 @@ body {
   display: flex;
   gap: 35px;
   cursor: pointer;
-  /* padding: 16px; */
   border-radius: 10px;
   padding: 15px 24px 15px 24px;
 
@@ -106,31 +100,30 @@ body {
 
 
 .contactBox .profileSmall {
-width:42px !important;
-height:42px !important;
-text-align: center;
-font-size:12px;
-font-weight: 400;
-/* margin:0;
-padding:0px; */
-
-
-
+  width: 42px !important;
+  height: 42px !important;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 400;
 }
 
 .contactBox:hover:not(.activeContact) {
   background: linear-gradient(180deg, #f9f9f9 0%, #f0f0f0 100%);
 }
+
 .contactMail {
   color: #007cee;
 }
+
 .contactName {
   font-size: 20px;
 }
+
 .activeContact {
   background-color: var(--main-color);
   color: white;
 }
+
 .contactHeader {
   display: flex;
   gap: 54px;
@@ -186,7 +179,7 @@ padding:0px; */
 .contactContent h3 {
   font-size: 47px !important;
   font-weight: 500 !important;
-  line-height:56.4px;
+  line-height: 56.4px;
   text-align: left;
 }
 
@@ -194,6 +187,7 @@ padding:0px; */
   display: flex;
   height: 592px;
 }
+
 #template {
   padding: 0;
 }
@@ -202,7 +196,6 @@ padding:0px; */
   background-color: var(--main-color);
   border-top-left-radius: 30px;
   border-bottom-left-radius: 30px;
-  /* padding: 64px; */
   color: white !important;
   width: 371px;
   padding: 66px 48px 66px 48px;
@@ -217,7 +210,7 @@ padding:0px; */
   color: white !important;
 }
 
-#contactPopupSubHeadline { 
+#contactPopupSubHeadline {
   font-size: 27px;
   font-weight: 400;
   text-align: left;
@@ -237,7 +230,6 @@ padding:0px; */
 }
 
 .rightPopup {
-  /* background-color: red; */
   display: flex;
   align-items: center;
   gap: 64px;
@@ -250,7 +242,6 @@ padding:0px; */
 .contactPopup input {
   border: 1px solid #d1d1d1;
   border-radius: 10px;
-  /* max-width: 422px; */
   width: 90%;
   padding: 13px 21px 13px 21px;
   margin-bottom: 32px;
@@ -277,17 +268,16 @@ padding:0px; */
 .contactPopupButtonsDiv {
   display: flex;
   gap: 24px;
-  margin-top:16px;
+  margin-top: 16px;
 }
 
 .clear-button-add-task {
-  /* font-family: 'Inter'; */
   font-size: 20px;
   font-weight: 400;
   line-height: 24px;
   text-align: left;
-  border-radius:10px;
-  padding:16px;
+  border-radius: 10px;
+  padding: 16px;
   background-color: var(--white);
   border: 1px solid #2a3647;
 }
@@ -300,9 +290,9 @@ padding:0px; */
 }
 
 .closeShowContact {
-  display:none;
+  display: none;
 }
 
- #addContactMobileBtn {
-  display: none; 
-} 
+#addContactMobileBtn {
+  display: none;
+}

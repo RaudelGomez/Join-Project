@@ -1,46 +1,44 @@
 @media screen and (max-width: 1100px) {
   .sub-container .headline p {
     font-size: 20px !important;
-    /* font-weight: 400; */
   }
 
   .contactDisplay {
     display: none;
   }
-  .contacts {max-width: unset;
-  
+
+  .contacts {
+    max-width: unset;
+
   }
 }
+@media screen and (max-width: 1100px) {
+  .boardSections {
+    display: flex;
+  }
 
-
-
-  @media screen and (max-width: 1100px) {
-    .boardSections {
-      display: flex;
-      /* flex-direction: column; */
-    }
   .drag-area {
 
     min-height: 100px !important;
   }
-  .boardSections section{
-  width:100% !important;
+
+  .boardSections section {
+    width: 100% !important;
   }
 
   .boardHeader {
-  flex-direction: column !important;
-  align-items: flex-start !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
   }
 }
 
 
 @media screen and (max-width: 1335px) {
 
-  /* .contactDisplay {display: none;}
-  #contacts {width:100%} */
+  .vertical-line {
+    display: none;
+  }
 
-
-  .vertical-line {display: none;}
   .horizontal-line {
     display: block;
     width: 90px;
@@ -59,6 +57,7 @@
     font-size: 36px !important;
     line-height: 43.2px !important;
   }
+
   #contactInfo h3 {
     font-size: 20px;
     font-weight: 400;
@@ -89,28 +88,27 @@
 
 @media screen and (max-width: 1100px) {
 
-
   #contactPopupSubHeadline {
     font-size: 20px;
     font-weight: 400;
     text-align: left;
-}
-
-    #contactEditDeleteButtons  {    
-display: none;
   }
 
-  #openContactButtons {   
+  #contactEditDeleteButtons {
+    display: none;
+  }
+
+  #openContactButtons {
     display: unset;
     position: fixed;
     bottom: 110px;
     right: 24px;
     padding: 0;
     margin: 0;
-    background-color: unset;    
+    background-color: unset;
   }
 
-  #openContactButtons .button{    
+  #openContactButtons .button {
     border-radius: 50%;
     height: 56px;
     width: 56px;
@@ -157,9 +155,11 @@ display: none;
   #footerNav {
     display: none !important;
   }
+
   #mainLogo {
     display: none;
   }
+
   #menu {
     height: 80px !important;
     width: 100% !important;
@@ -167,21 +167,23 @@ display: none;
     bottom: 0;
     z-index: 100;
   }
+
   #contactDisplay {
-    /* display: none; */
     background-color: var(--main-bg-color);
-    /* display: flex; */
     position: absolute;
     top: 90px;
     height: 100vh;
     width: 100vw;
   }
+
   #main {
     margin: 0;
   }
+
   #contacts {
     width: 100%;
   }
+
   #header h1 {
     display: none;
   }
@@ -196,6 +198,7 @@ display: none;
     display: block !important;
     width: 32px;
   }
+
   #helpLink,
   #addContactDesktopBtn {
     display: none;
@@ -205,7 +208,6 @@ display: none;
     overflow-y: scroll;
     height: calc(100% - 236px);
     margin-top: 0px;
-    /* padding: 85px 64px 0px 64px; */
     padding: 8px !important;
     width: unset;
   }
@@ -220,7 +222,6 @@ display: none;
     padding: 8px;
   }
 
- 
   .closeShowContact {
     display: block;
     cursor: pointer;
@@ -238,13 +239,12 @@ display: none;
 
   .contactPopup input {
 
-    margin-bottom:15px;
+    margin-bottom: 15px;
   }
- 
+
   .contactPopup {
     flex-direction: column;
     height: unset;
-    /* height: 50vh !important; */
   }
 
   .contactPopup .leftPopup {
@@ -267,12 +267,15 @@ display: none;
   .contactPopup input {
     padding-right: 16px;
   }
+
   #profileIcon {
     margin-top: -45px;
   }
+
   .closeDialog {
     display: none;
   }
+
   .closeDialogWhite {
     display: unset;
   }
@@ -308,7 +311,6 @@ display: none;
     text-align: left;
     border-radius: 10px;
     padding: 16px;
-    /* background-color: var(--white); */
     border: unset;
   }
 
@@ -316,32 +318,10 @@ display: none;
     font-size: 20px !important;
     /* font-weight: 400; */
   }
-
-  /* .horizontal-line {
-    display: block;
-    width: 120px;
-    min-height: 3px;
-    background-color: var(--blue-bikini);
-  } */
-
-  /* .addContactBtn {
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    border-radius: 50%;
-  } */
-
-  /* #addContactDesktopBtn {
-    display: none;  
-  }
-
-  #addContactMobileBtn {
-    display: unset; 
-  } */
 }
 
-@media (max-width: 500px){
-  h2{
+@media (max-width: 500px) {
+  h2 {
     font-size: 48px !important;
   }
 }

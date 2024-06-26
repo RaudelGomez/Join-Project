@@ -3,34 +3,93 @@ renderContacts();
 // loadData("tasks");
 
 /**
+ * Validate mail adress and returns true if valid or false if not
+ * @param {*} mail 
+ * @returns 
+ */
+function validateEmail(mail) {
+  if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail)) {
+    return true;
+  }
+  return false;
+}
+
+/**
+ * Validate Contact Form Add or Edit
+ * @returns 
+ */
+function validateContactForm() {
+  let nameContact = document.getElementById("name");
+  let emailContact = document.getElementById("email");
+  let nameContactValue = nameContact.value.trim();
+  let emailContactValue = emailContact.value.trim();
+  let validated = 0;
+  if (nameContactValue == "") {
+    nameContact.nextElementSibling.textContent = "This field is required";
+    nameContact.classList.add("inputRedBorder");
+  } else {
+    nameContact.nextElementSibling.textContent = "";
+    nameContact.classList.remove("inputRedBorder");
+    validated++;
+  }
+  if (emailContactValue == "") {
+    emailContact.nextElementSibling.textContent = "This field is required";
+    emailContact.classList.add("inputRedBorder");
+  } else {
+    emailContact.nextElementSibling.textContent = "";
+    emailContact.classList.remove("inputRedBorder");
+
+    if (!validateEmail(emailContactValue)) {
+      emailContact.nextElementSibling.textContent = "You have entered an invalid email address!";
+      emailContact.classList.add("inputRedBorder");
+    } else {
+      validated++;
+    }
+  }
+  if (validated == 2) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+/**
  * This function add a new contact in the contact page
  * Button: id # add new contact
  */
 async function addContact() {
-  let nameContact = document.getElementById("name");
-  let emailContact = document.getElementById("email");
-  let phoneContact = document.getElementById("phone");
-  let color = await setColorUser();
-  if (nameContact.value && emailContact.value) {
-    if (checkMail(emailContact.value) == undefined) {
-      let contact = {
-        "name": nameContact.value,
-        "email": emailContact.value,
-        "phone": phoneContact.value,
-        "user": false,
-        "password": "",
-        "color": color,
-      };
-      let postSuccess = await postData(contact, "contacts");
-      if (postSuccess) {
-        showAlert("container-signUp-alert", "signUp-alert", "Success", "succes-alert", "Contact successfully created!");
-        await renderContacts();
-        setTimeout(() => {
-          closeDialog();
-        }, 2000);
+  if (validateContactForm()) {
+    let nameContact = document.getElementById("name");
+    let emailContact = document.getElementById("email");
+    let phoneContact = document.getElementById("phone");
+    let color = await setColorUser();
+    if (nameContact.value && emailContact.value) {
+      if (checkMail(emailContact.value) == undefined) {
+        let contact = {
+          "name": nameContact.value,
+          "email": emailContact.value,
+          "phone": phoneContact.value,
+          "user": false,
+          "password": "",
+          "color": color,
+        };
+        let postSuccess = await postData(contact, "contacts");
+        if (postSuccess) {
+          showAlert(
+            "container-signUp-alert",
+            "signUp-alert",
+            "Success",
+            "succes-alert",
+            "Contact successfully created!"
+          );
+          await renderContacts();
+          setTimeout(() => {
+            closeDialog();
+          }, 2000);
+        }
+      } else {
+        showAlert("container-signUp-alert", "signUp-alert", "Warning", "error-alert", "Email alreay exists!");
       }
-    } else {
-      showAlert("container-signUp-alert", "signUp-alert", "Warning", "error-alert", "Email alreay exists!");
     }
   }
 }
@@ -50,7 +109,7 @@ function openNewContactPopup() {
   document.getElementById("template").classList.add("addContact");
   document.getElementById("template").classList.remove("editContact");
   openPopup();
-  changeContactPopup('Add');
+  changeContactPopup("Add");
   document
     .getElementById("contactFormLeftButton")
     .setAttribute("onclick", "clearForm('addContactForm'); return false;");
@@ -89,7 +148,7 @@ async function openEditContactPopup(iconColor, contactName, contactMail, initial
     <span id="popupInitials" class="profileIconBig" style="background-color: ${iconColor};">${initials}</span>
   `;
   openPopup();
-  changeContactPopup('Edit');
+  changeContactPopup("Edit");
   document
     .getElementById("addContactForm")
     .setAttribute("onsubmit", 'updateContact("' + results + '",' + id + "); return false;");
@@ -108,13 +167,13 @@ async function openEditContactPopup(iconColor, contactName, contactMail, initial
 function changeContactPopup(popupType) {
   document.getElementById("contactPopupHeadline").innerHTML = popupType + " contact";
   document.getElementById("contactPopupSubHeadline").classList.remove("d-none");
-  document.getElementById("cancelIcon").classList.add("d-none");    
+  document.getElementById("cancelIcon").classList.add("d-none");
   if (popupType == "Add") {
     document.getElementById("contactSaveButton").innerHTML = "Create contact";
     document.getElementById("cancelButtonText").innerHTML = "Cancel";
   } else {
     document.getElementById("contactSaveButton").innerHTML = "Save";
-    document.getElementById("cancelButtonText").innerHTML = "Delete"; 
+    document.getElementById("cancelButtonText").innerHTML = "Delete";
   }
 }
 
@@ -124,39 +183,41 @@ function changeContactPopup(popupType) {
  * @param {integer} index - Index Number of the sorted contacts array (contactDetails)
  */
 async function updateContact(id, index) {
-  let name = document.getElementById("name").value;
-  let mail = document.getElementById("email").value;
-  let phone = document.getElementById("phone").value;
-  let color = contactDetails[index].color;
-  let data = {
-    "name": name,
-    "email": mail,
-    "phone": phone,
-    "user": false,
-    "password": "",
-    "color": color,
-  };
-  let idString = `/contacts/${id}`;
-  await putData(data, idString);
-  closeDialog();
-  document.getElementById("contactName").innerHTML = name;
-  document.getElementById("contactPhone").innerHTML = phone;
-  document.getElementById("contactMail").innerHTML = mail;
-  document.getElementById("initials").innerHTML = getInitials(name);
-  let initials = getInitials(name);
-  document
-    .getElementById("editButton")
-    .setAttribute(
-      "onclick",
-      `openEditContactPopup('${color}','${name}', '${mail}','${initials}','${id}','${phone}',${index})`
-    );
-  document
-    .getElementById("editButtonMobile")
-    .setAttribute(
-      "onclick",
-      `openEditContactPopup('${color}','${name}', '${mail}','${initials}','${id}','${phone}',${index})`
-    );
-  renderContacts();
+  if (validateContactForm()) {
+    let name = document.getElementById("name").value;
+    let mail = document.getElementById("email").value;
+    let phone = document.getElementById("phone").value;
+    let color = contactDetails[index].color;
+    let data = {
+      "name": name,
+      "email": mail,
+      "phone": phone,
+      "user": false,
+      "password": "",
+      "color": color,
+    };
+    let idString = `/contacts/${id}`;
+    await putData(data, idString);
+    closeDialog();
+    document.getElementById("contactName").innerHTML = name;
+    document.getElementById("contactPhone").innerHTML = phone;
+    document.getElementById("contactMail").innerHTML = mail;
+    document.getElementById("initials").innerHTML = getInitials(name);
+    let initials = getInitials(name);
+    document
+      .getElementById("editButton")
+      .setAttribute(
+        "onclick",
+        `openEditContactPopup('${color}','${name}', '${mail}','${initials}','${id}','${phone}',${index})`
+      );
+    document
+      .getElementById("editButtonMobile")
+      .setAttribute(
+        "onclick",
+        `openEditContactPopup('${color}','${name}', '${mail}','${initials}','${id}','${phone}',${index})`
+      );
+    renderContacts();
+  }
 }
 
 /**

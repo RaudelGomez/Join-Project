@@ -36,8 +36,10 @@
             <img src="./assets/img/person_fill.svg" alt="" />
           </div>
           <form id="addContactForm" class="contactsForm" onsubmit="addContact(); return false;">
-            <input required class="person" id="name" type="text" placeholder="Name" />
-            <input required class="email" id="email" type="email" placeholder="Email" />
+            <input class="person required" id="name" type="text" placeholder="Name" />
+            <div class="error-addTask"></div>
+            <input class="email required" id="email" type="text" placeholder="Email" />
+            <div class="error-addTask"></div>
             <input class="phone" id="phone" type="text" placeholder="Phone" />
             <div class="contactPopupButtonsDiv">
               <button

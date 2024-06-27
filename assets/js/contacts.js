@@ -370,9 +370,9 @@ function closeShowContact() {
  * @param {string} contactMail - Contains the Mailadress of the contact
  */
 async function deleteContact(firebaseKey, contactMail) {
-  await deleteData("/contacts/" + firebaseKey);
   const resultUrls = await findTaskUrlsByEmail(contactMail);
   await deleteUserInTask(resultUrls);
+  await deleteData("/contacts/" + firebaseKey);
   await loadData("tasks");
   renderContacts();
   location.href = "./contacts.html";

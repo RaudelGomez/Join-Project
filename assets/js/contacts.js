@@ -1,6 +1,7 @@
 let contactDetails = {};
+// let tasks = [];
 renderContacts();
-// loadData("tasks");
+loadData("tasks");
 
 /**
  * Validate mail adress and returns true if valid or false if not
@@ -123,9 +124,7 @@ function openNewContactPopup() {
     .setAttribute("onclick", "clearForm('addContactForm'); return false;");
   document.getElementById("addContactForm").setAttribute("onsubmit", "addContact(); return false;");
   clearForm("addContactForm");
-  document.getElementById("profileIcon").innerHTML = /* HTML */ `
-  <img src="./assets/img/person_fill.svg" alt="" /> 
-  `;
+  document.getElementById("profileIcon").innerHTML = /* HTML */ ` <img src="./assets/img/person_fill.svg" alt="" /> `;
 }
 
 /**
@@ -211,7 +210,7 @@ async function updateContact(id, index) {
     await putData(data, idString);
     closeDialog();
     const iconColor = colors[contactDetails[index]["color"]].color;
-    updateContactDisplay(name,phone,mail, iconColor,index, id);
+    updateContactDisplay(name, phone, mail, iconColor, index, id);
     renderContacts();
   }
 }
@@ -225,12 +224,12 @@ async function updateContact(id, index) {
  * @param {string} index - firebase key
  * @param {integer} id - index number of contact array
  */
-function updateContactDisplay(name,phone,mail, color,index, id) {
+function updateContactDisplay(name, phone, mail, color, index, id) {
   document.getElementById("contactName").innerHTML = name;
   document.getElementById("contactPhone").innerHTML = phone;
   document.getElementById("contactMail").innerHTML = mail;
   let initials = getInitials(name);
-  document.getElementById("initials").innerHTML = initials;  
+  document.getElementById("initials").innerHTML = initials;
   document
     .getElementById("editButton")
     .setAttribute(
@@ -290,7 +289,15 @@ async function renderContacts() {
       lastLetter = letter;
     }
     let results = contactKey;
-    renderContacts.innerHTML += contactsListHtmlTemplate(iconColor,contactName,contactMail,initials,results,contactPhone,i);
+    renderContacts.innerHTML += contactsListHtmlTemplate(
+      iconColor,
+      contactName,
+      contactMail,
+      initials,
+      results,
+      contactPhone,
+      i
+    );
   }
 }
 
@@ -305,7 +312,6 @@ function setActiveContact(contactElement) {
   }
   contactElement.classList.add("activeContact");
 }
-
 
 /**
  * This function open and render the display of contact details
@@ -332,7 +338,7 @@ function showContact(contactElement, iconColor, contactName, contactMail, initia
       `openEditContactPopup('${iconColor}','${contactName}', '${contactMail}','${initials}','${results}','${phone}',${id})`
     );
   document.getElementById("openContactButtons").classList.remove("d-none");
-  document.getElementById("contactDisplay").style.display = "unset";  
+  document.getElementById("contactDisplay").style.display = "unset";
   setActiveContact(contactElement);
   document.getElementById("contactInfo").classList.remove("d-none");
   document.getElementById("contactName").innerHTML = contactName;
@@ -365,39 +371,15 @@ function closeShowContact() {
  */
 async function deleteContact(firebaseKey, contactMail) {
   await deleteData("/contacts/" + firebaseKey);
-  const resultUrls = await findTaskUrlsByEmail(tasks, contactMail);
-  deleteUserInTask(resultUrls);
+  const resultUrls = await findTaskUrlsByEmail(contactMail);
+  await deleteUserInTask(resultUrls);
   await loadData("tasks");
   renderContacts();
   location.href = "./contacts.html";
 }
 
-/**
- * Find all Tasks where the contact is assigned to and create Array with the urls
- * @param {array} tasks - Contains all tasks
- * @param {string} email - The Email adress of the contact
- * @returns
- */
-async function findTaskUrlsByEmail(tasks, email) {
-  const urls = [];
-  let key, i;
-  for (key in tasks) {
-    if (tasks.hasOwnProperty(key)) {
-      const task = tasks[key];
-      if (task.nameAssignedTask && Array.isArray(task.nameAssignedTask)) {
-        for (i = 0; i < task.nameAssignedTask.length; i++) {
-          const assigned = task.nameAssignedTask[i];
-          if (assigned.email === email) {
-            const url = `/tasks/${key}/nameAssignedTask/${i}`;
-            urls.push(url);
-            task.nameAssignedTask.splice(i, 1);
-          }
-        }
-      }
-    }
-  }
-  return urls;
-}
+
+
 
 /**
  * This function delete the assignment of contact in tasks
@@ -409,3 +391,52 @@ async function deleteUserInTask(urls) {
     await deleteData(url);
   }
 }
+
+/**
+ * Find all Tasks where the contact is assigned to and create Array with the urls
+ * @param {string} email - The Email adress of the contact
+ * @returns
+ */
+async function findTaskUrlsByEmail(email) {
+  let urls = [];
+  let key;
+  for (key in tasks) {
+    const task = tasks[key];
+    const taskAssigned = task.nameAssignedTask;
+    if (taskAssigned) {
+      // urls = createTaskUrl(taskAssigned,email,key,urls);
+      let assignedKey = Object.keys(taskAssigned);
+      let assignedKeyValue = Object.values(taskAssigned);
+      for (let i = 0; i < assignedKeyValue.length; i++) {
+        const assignedContact = assignedKeyValue[i];
+        if (assignedContact != null) {
+          const assignedContactEmail = taskAssigned[i].email;
+          if (assignedContactEmail == email) {
+            const url = `/tasks/${key}/nameAssignedTask/${assignedKey[i]}`;
+            urls.push(url);
+          }
+        }
+      }
+    }
+  }
+  return urls;
+}
+
+function createTaskUrl(taskAssigned,email,key,urls) {
+ 
+  let assignedKey = Object.keys(taskAssigned);
+  let assignedKeyValue = Object.values(taskAssigned);
+  for (let i = 0; i < assignedKeyValue.length; i++) {
+    const assignedContact = assignedKeyValue[i];
+    if (assignedContact != null) {
+      const assignedContactEmail = taskAssigned[i].email;
+      if (assignedContactEmail == email) {
+        const url = `/tasks/${key}/nameAssignedTask/${assignedKey[i]}`;
+        urls.push(url);
+      }
+    }
+  }
+return urls;
+}
+
+

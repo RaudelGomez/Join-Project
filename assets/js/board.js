@@ -179,7 +179,9 @@ async function renderHTMLBoard(filterTask) {
  */
 function alertNoTaskFound(filteredTasks) {
   if (filteredTasks.length == 0) {
-    showAlert("container-boardNoResult-alert", "boardNoResult-alert", "Warning", "error-alert", "No results");
+    document.getElementById('container-boardNoResult-alert').textContent = " No results";
+  }else{
+    document.getElementById('container-boardNoResult-alert').textContent = "";
   }
 }
 

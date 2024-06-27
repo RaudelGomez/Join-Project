@@ -1,3 +1,7 @@
+.bg-more-user-task{
+  background-color: var(--main-color);
+}
+
 .user-popoup-container {
   display: flex;
   flex-direction: column;
@@ -121,6 +125,14 @@
   position: absolute !important;
   top: 4px !important;
   right: 4px !important;
+}
+
+.error-board-no-found{
+  font-size: 40px;
+  text-align: center;
+  color: red;
+  font-weight: 700;
+  margin-bottom: 16px;
 }
 
 @media (max-width: 900px) {

@@ -52,7 +52,7 @@ function renderHTMLUserinTask(task, i, idContainerUserTask) {
     let restContacts = taskArray.length - 4;
     if (restContacts > 0) {
       userTaskBoard.innerHTML += /*html*/ `
-          <span class="profileSmall" style="background-color: #2a3647">+ ${restContacts}</span>
+          <span class="profileSmall bg-more-user-task">+ ${restContacts}</span>
         `;
     }
   }

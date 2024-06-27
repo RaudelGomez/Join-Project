@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: summary.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: summary.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * This Function render the Summary page
+ */
+async function initSummary(){
+  await loadData('tasks');
+  getTimeOfDay();
+  loadLocalStorage();
+  updatingSummaryData();
+  addClassAnimationMobile();
+}
+
+/**
+ * Initializing the Summary Page 
+ */
+initSummary();
+
+/**
+ * This function greets with the moment of the day. Ex: Good Night
+ */
+function getTimeOfDay() {
+  let now = new Date();
+  let hours = now.getHours();
+  let greeting = ""
+  if (hours >= 6 &amp;&amp; hours &lt; 12) {
+    greeting = "Good Morning";
+  } else if (hours >= 12 &amp;&amp; hours &lt; 18) {
+    greeting = "Good Afternoon";
+  } else {
+    greeting = "Good Night";
+  }
+  document.getElementById('welcome-text').textContent = greeting;
+}
+
+/**
+ * This function load the name of the person who is logged
+ */
+function loadLocalStorage() {
+  let userName = "Guest";
+  if (localStorage.getItem("Join")) {
+    userName = JSON.parse(localStorage.getItem("Join")).userName;
+  }
+  if (sessionStorage.getItem("Join")) {
+    userName = JSON.parse(sessionStorage.getItem("Join")).userName;
+  }
+  document.getElementById('person-logged-name').textContent = userName;
+}
+
+/**
+ * This function update the summary task
+ */
+function updatingSummaryData(){
+  let tasksArray = Object.values(tasks);
+  let tasksCount = tasksArray.length;
+  let toDoCount = countTaskSummary(tasksArray, 1);
+  let progressCount = countTaskSummary(tasksArray, 2);
+  let awaitCount = countTaskSummary(tasksArray, 3);
+  let doneCount = countTaskSummary(tasksArray, 4);
+  let urgentTaskCount = countTaskUrgent(tasksArray);
+  let closerUrgentDate = calculateDatePrio();
+  let dateFormat;
+  dateFormat = setDateFormat(closerUrgentDate); 
+  document.getElementById('quantity-task').textContent = `${toDoCount}`;
+  document.getElementById('quantity-done').textContent = `${doneCount}`;
+  document.getElementById('progress-in-task').textContent = `${progressCount}`;
+  document.getElementById('progress-awaiting-feedback').textContent = `${awaitCount}`;
+  document.getElementById('task-in-board').textContent = `${tasksCount}`;
+  document.getElementById('quantity-urgent').textContent = `${urgentTaskCount}`;
+  document.getElementById('date-urgent').innerHTML = `${dateFormat}`;
+}
+
+/**
+ * This function return a Date of the closer and urgent task.
+ * @param {date} closerUrgentDate - That is the closer Date to the actual Date that is urgent
+ * @returns - Date format
+ */
+function setDateFormat(closerUrgentDate) {
+  let dateFormat;
+  if(closerUrgentDate){
+    dateFormat = changeDateFormat(closerUrgentDate);
+  }else{
+    dateFormat = "No urgent task";
+  }
+  return dateFormat;
+}
+
+/**
+ * This function count different value, dependes of the parameters.
+ * @param {Array} tasksArray - The array tasks
+ * @param {number} state This the number of the status of the Task
+ * @returns 
+ */
+function countTaskSummary(tasksArray, state){
+  let allTasks = tasksArray.filter(filterTasks);
+  let taskLength = allTasks.length;
+  return taskLength;
+  function filterTasks(task){
+    return task.status == state;
+  }
+}
+
+/**
+ * This function count how many urgent tasks are
+ * @param {Array} tasksArray - That is the array tasks
+ * @returns - count of tasks with the priotity: urgent
+ */
+function countTaskUrgent(tasksArray){
+  let allTasks = tasksArray.filter(task => task.priorityTask == "urgent" &amp;&amp; task.status != 4);
+  let urgentLength = allTasks.length;
+  return urgentLength;
+}
+
+/**
+ * This function return the closer urgent date of the task
+ * @returns The closer Date
+ */
+function calculateDatePrio() {
+  let allTask = Object.values(tasks);
+  let allTaskPrio = allTask.filter(task=> task.priorityTask == "urgent" &amp;&amp; task.status != 4);
+  let datesArray = allTaskPrio.map(date => date.timeDeadlineTask);
+  const today = new Date();
+  // Initialize variables for the nearest date and the minimum difference
+  let dateCloser = null;
+  let minimunDiferenceDate = Infinity;
+  if (datesArray.length >= 1) {
+    datesArray.forEach(date => {
+      const currentDate = new Date(date);
+      // Only consider dates that are today or in the future
+      if (currentDate >= today) {
+        const difference = calculateDays(currentDate, today);
+        // Update if we find a date with a smaller difference
+        if (difference &lt; minimunDiferenceDate) {
+          minimunDiferenceDate = difference;
+          dateCloser = date;
+        }
+      }
+    });
+    return dateCloser;
+  }else{
+    return null;
+  }
+}
+
+/**
+ * Function to calculate the difference in days between two dates
+ * @param {Date} date1 - First Date to compare
+ * @param {Date} date2 - First Date to compare
+ * @returns 
+ */
+function calculateDays(date1, date2) {
+  const oneDay = 24 * 60 * 60 * 1000; // Milliseconds in a day
+  return Math.floor((date1 - date2) / oneDay);
+}
+
+/**
+ * This function change the Format of the Date
+ * @param {Date} dateToChange - That date that it will be reformate
+ * @returns - That is the date in a new Format
+ */
+function changeDateFormat(dateToChange){
+  const date = new Date(dateToChange);
+  const months = [
+    "January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December"
+  ];
+  // get day, month and year
+  const month = months[date.getMonth()];
+  const day = date.getDate();
+  const year = date.getFullYear();
+  // Formating date
+  const dateFormate = `${month} ${day}, ${year}`;
+  return dateFormate;
+}
+
+/**
+ * This function send in the url a parameters to know if the user comes direct from login page
+ * @returns true if the user comes direct from Login
+ */
+function userFromLoggin() {
+  let url = window.location.href;
+  let urlObj = new URL(url);
+  let logged = urlObj.searchParams.get('login');
+  return logged;
+}
+
+/**
+ * This function add class to the container in summary to greeting if the user comes from log in
+ */
+function addClassAnimationMobile(){
+  let logginUser = Boolean(userFromLoggin());
+  if(logginUser){
+    document.getElementById('summary-container').classList.remove('container-desktop-greeting');
+    document.getElementById('summary-container').classList.add('container-mobile-greeting');
+  }
+}
+
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#BASE_URL">BASE_URL</a></li><li><a href="global.html#addClassAnimationMobile">addClassAnimationMobile</a></li><li><a href="global.html#addClassForEdit">addClassForEdit</a></li><li><a href="global.html#addContact">addContact</a></li><li><a href="global.html#addNewUserDataBase">addNewUserDataBase</a></li><li><a href="global.html#addSubTask">addSubTask</a></li><li><a href="global.html#addTask">addTask</a></li><li><a href="global.html#alertCreatedTask">alertCreatedTask</a></li><li><a href="global.html#alertNoTaskFound">alertNoTaskFound</a></li><li><a href="global.html#allowDrop">allowDrop</a></li><li><a href="global.html#asignedTaskContainerHTML">asignedTaskContainerHTML</a></li><li><a href="global.html#calculateDatePrio">calculateDatePrio</a></li><li><a href="global.html#calculateDays">calculateDays</a></li><li><a href="global.html#categoryColor">categoryColor</a></li><li><a href="global.html#categorySelected">categorySelected</a></li><li><a href="global.html#changeContactPopup">changeContactPopup</a></li><li><a href="global.html#changeDateFormat">changeDateFormat</a></li><li><a href="global.html#changeFooterEditTask">changeFooterEditTask</a></li><li><a href="global.html#changeHeadLineAddTaskPopUp">changeHeadLineAddTaskPopUp</a></li><li><a href="global.html#changeIconSubTask">changeIconSubTask</a></li><li><a href="global.html#changePriority">changePriority</a></li><li><a href="global.html#changePriorityEditTask">changePriorityEditTask</a></li><li><a href="global.html#changeTypeOfTask">changeTypeOfTask</a></li><li><a href="global.html#checkAllFieldFull">checkAllFieldFull</a></li><li><a href="global.html#checkMail">checkMail</a></li><li><a href="global.html#cleanSearchInput">cleanSearchInput</a></li><li><a href="global.html#clearContactForm">clearContactForm</a></li><li><a href="global.html#clearForm">clearForm</a></li><li><a href="global.html#closeAllTaps">closeAllTaps</a></li><li><a href="global.html#closeCategoryTap">closeCategoryTap</a></li><li><a href="global.html#closeCheckBoxesIfOpen">closeCheckBoxesIfOpen</a></li><li><a href="global.html#closeContactMenu">closeContactMenu</a></li><li><a href="global.html#closeDialog">closeDialog</a></li><li><a href="global.html#closeDropDownAssignUser">closeDropDownAssignUser</a></li><li><a href="global.html#closeErroCategory">closeErroCategory</a></li><li><a href="global.html#closeError">closeError</a></li><li><a href="global.html#closeShowContact">closeShowContact</a></li><li><a href="global.html#closeTaskPop">closeTaskPop</a></li><li><a href="global.html#colors">colors</a></li><li><a href="global.html#confirmEditSubTask">confirmEditSubTask</a></li><li><a href="global.html#contacts">contacts</a></li><li><a href="global.html#contactsListHtmlTemplate">contactsListHtmlTemplate</a></li><li><a href="global.html#countTaskSummary">countTaskSummary</a></li><li><a href="global.html#countTaskUrgent">countTaskUrgent</a></li><li><a href="global.html#createTaskObject">createTaskObject</a></li><li><a href="global.html#createTaskUrl">createTaskUrl</a></li><li><a href="global.html#currentDragElement">currentDragElement</a></li><li><a href="global.html#currentTask">currentTask</a></li><li><a href="global.html#currentTaskId">currentTaskId</a></li><li><a href="global.html#dataCurrentTask">dataCurrentTask</a></li><li><a href="global.html#dateFromTodayOnly">dateFromTodayOnly</a></li><li><a href="global.html#deleteContact">deleteContact</a></li><li><a href="global.html#deleteData">deleteData</a></li><li><a href="global.html#deleteDataFormTask">deleteDataFormTask</a></li><li><a href="global.html#deleteSubTask">deleteSubTask</a></li><li><a href="global.html#deleteTask">deleteTask</a></li><li><a href="global.html#deleteUserInTask">deleteUserInTask</a></li><li><a href="global.html#editCategorySetNotAvailable">editCategorySetNotAvailable</a></li><li><a href="global.html#editTask">editTask</a></li><li><a href="global.html#editingObjetTask">editingObjetTask</a></li><li><a href="global.html#editingSubTask">editingSubTask</a></li><li><a href="global.html#emptyInputSubTask">emptyInputSubTask</a></li><li><a href="global.html#fillingAssignUserEdit">fillingAssignUserEdit</a></li><li><a href="global.html#filterTasks">filterTasks</a></li><li><a href="global.html#findTaskUrlsByEmail">findTaskUrlsByEmail</a></li><li><a href="global.html#getInitials">getInitials</a></li><li><a href="global.html#getTimeOfDay">getTimeOfDay</a></li><li><a href="global.html#hiddeAlert">hiddeAlert</a></li><li><a href="global.html#highlight">highlight</a></li><li><a href="global.html#ifAddTaskTemplate">ifAddTaskTemplate</a></li><li><a href="global.html#ifTaskPopTemplate">ifTaskPopTemplate</a></li><li><a href="global.html#init">init</a></li><li><a href="global.html#initAddTask">initAddTask</a></li><li><a href="global.html#initSummary">initSummary</a></li><li><a href="global.html#loadData">loadData</a></li><li><a href="global.html#loadDataBoard">loadDataBoard</a></li><li><a href="global.html#loadLocalStorage">loadLocalStorage</a></li><li><a href="global.html#loadSubaTaskInForm">loadSubaTaskInForm</a></li><li><a href="global.html#loggedIn">loggedIn</a></li><li><a href="global.html#login">login</a></li><li><a href="global.html#loginGuest">loginGuest</a></li><li><a href="global.html#logout">logout</a></li><li><a href="global.html#moveTo">moveTo</a></li><li><a href="global.html#moveToColumn">moveToColumn</a></li><li><a href="global.html#openContactButtons">openContactButtons</a></li><li><a href="global.html#openDialog">openDialog</a></li><li><a href="global.html#openEditContactPopup">openEditContactPopup</a></li><li><a href="global.html#openHeaderMenu">openHeaderMenu</a></li><li><a href="global.html#openNewContactPopup">openNewContactPopup</a></li><li><a href="global.html#openPopup">openPopup</a></li><li><a href="global.html#postData">postData</a></li><li><a href="global.html#priorityTask">priorityTask</a></li><li><a href="global.html#putData">putData</a></li><li><a href="global.html#readLoggedInUser">readLoggedInUser</a></li><li><a href="global.html#registUser">registUser</a></li><li><a href="global.html#removeClassToPopUp">removeClassToPopUp</a></li><li><a href="global.html#removeHighlight">removeHighlight</a></li><li><a href="global.html#renderAwaitFeedBackTask">renderAwaitFeedBackTask</a></li><li><a href="global.html#renderContacts">renderContacts</a></li><li><a href="global.html#renderContactsAssignedTask">renderContactsAssignedTask</a></li><li><a href="global.html#renderDataHTMLtaskPopupTemplate">renderDataHTMLtaskPopupTemplate</a></li><li><a href="global.html#renderDoneTask">renderDoneTask</a></li><li><a href="global.html#renderHTMLBoard">renderHTMLBoard</a></li><li><a href="global.html#renderHTMLHeader">renderHTMLHeader</a></li><li><a href="global.html#renderHTMLSubTask">renderHTMLSubTask</a></li><li><a href="global.html#renderHTMLTasksBoard">renderHTMLTasksBoard</a></li><li><a href="global.html#renderHTMLUserinTask">renderHTMLUserinTask</a></li><li><a href="global.html#renderHeader">renderHeader</a></li><li><a href="global.html#renderInProgressTask">renderInProgressTask</a></li><li><a href="global.html#renderSubtaskHTMLPopupTask">renderSubtaskHTMLPopupTask</a></li><li><a href="global.html#renderToDoTask">renderToDoTask</a></li><li><a href="global.html#renderUserPopupTask">renderUserPopupTask</a></li><li><a href="global.html#resetPriority">resetPriority</a></li><li><a href="global.html#resizeChangeAddTaskMobile">resizeChangeAddTaskMobile</a></li><li><a href="global.html#resizeMenuDragMobile">resizeMenuDragMobile</a></li><li><a href="global.html#saveEditedTask">saveEditedTask</a></li><li><a href="global.html#searchTasks">searchTasks</a></li><li><a href="global.html#searchingTypeTaskURL">searchingTypeTaskURL</a></li><li><a href="global.html#selectdNameAssignedtask">selectdNameAssignedtask</a></li><li><a href="global.html#setActiveContact">setActiveContact</a></li><li><a href="global.html#setActiveMenueLinks">setActiveMenueLinks</a></li><li><a href="global.html#setColorUser">setColorUser</a></li><li><a href="global.html#setDateFormat">setDateFormat</a></li><li><a href="global.html#setStatusTask">setStatusTask</a></li><li><a href="global.html#showAlert">showAlert</a></li><li><a href="global.html#showCheckboxes">showCheckboxes</a></li><li><a href="global.html#showContact">showContact</a></li><li><a href="global.html#showDragMenuMobile">showDragMenuMobile</a></li><li><a href="global.html#showHideConfirmButton">showHideConfirmButton</a></li><li><a href="global.html#showInitialAssign">showInitialAssign</a></li><li><a href="global.html#showStatusSubTask">showStatusSubTask</a></li><li><a href="global.html#showSubTask">showSubTask</a></li><li><a href="global.html#showTaskOption">showTaskOption</a></li><li><a href="global.html#showingColumnButOwn">showingColumnButOwn</a></li><li><a href="global.html#showingPriorityBoard">showingPriorityBoard</a></li><li><a href="global.html#startDragging">startDragging</a></li><li><a href="global.html#statusTask">statusTask</a></li><li><a href="global.html#stopPropagation">stopPropagation</a></li><li><a href="global.html#subTasks">subTasks</a></li><li><a href="global.html#tasks">tasks</a></li><li><a href="global.html#templateTaskBoard">templateTaskBoard</a></li><li><a href="global.html#typeOfTask">typeOfTask</a></li><li><a href="global.html#uncheckedNameAssignedTask">uncheckedNameAssignedTask</a></li><li><a href="global.html#updateContact">updateContact</a></li><li><a href="global.html#updateContactDisplay">updateContactDisplay</a></li><li><a href="global.html#updateSubTask">updateSubTask</a></li><li><a href="global.html#updatingEditFormvalue">updatingEditFormvalue</a></li><li><a href="global.html#updatingSummaryData">updatingSummaryData</a></li><li><a href="global.html#userData">userData</a></li><li><a href="global.html#userFromLoggin">userFromLoggin</a></li><li><a href="global.html#userHTMLBoard">userHTMLBoard</a></li><li><a href="global.html#validateContactForm">validateContactForm</a></li><li><a href="global.html#validateEmail">validateEmail</a></li><li><a href="global.html#validationAddTask">validationAddTask</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.3</a> on Thu Jun 27 2024 12:52:39 GMT+0200 (Mitteleuropäische Sommerzeit)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

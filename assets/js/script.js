@@ -203,10 +203,18 @@ function renderHeader(userData) {
  * simple tiny function to toggle the profile menu on the upper right side
  */
 function openHeaderMenu() {
-  document.getElementById("headerMenu").classList.toggle("d-none");
-  let backArrow = document.getElementById('backArrow');
-  if (backArrow) {
-    backArrow.setAttribute('z-index','-1');
+  let closed = document.getElementById("headerMenu").classList.contains("d-none");
+  let backArrow = document.getElementById("backArrow");
+  if (closed) {
+    document.getElementById("headerMenu").classList.remove("d-none");
+    if (backArrow) {
+      backArrow.style.zIndex = "-1";
+    }
+  } else {
+    document.getElementById("headerMenu").classList.add("d-none");
+    if (backArrow) {
+      backArrow.style.zIndex = "unset";
+    }
   }
 }
 

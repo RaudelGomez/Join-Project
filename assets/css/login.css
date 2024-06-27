@@ -9,6 +9,7 @@ a {
   align-items: center;
   opacity: 0;
   animation: 500ms ease-in-out 1000ms fadeInLogin forwards;
+  margin-top: 100px;
 }
 
 @keyframes animateJoinLogo {
@@ -16,7 +17,6 @@ a {
     transform: translate(0);
     height: 100vh;
   }
-
   to {
     transform: translate(-40%, -40%) scale(0.35);
   }
@@ -26,7 +26,6 @@ a {
   from {
     opacity: 0;
   }
-
   to {
     opacity: 1;
   }
@@ -241,7 +240,92 @@ input::placeholder {
   display: none;
 }
 
+.mobileLogoContainer,
+.mobileLogo {
+  display: none;
+}
+
 @media only screen and (max-width: 950px) {
+  .logoIndex {
+    display: none !important;
+  }
+
+  body {
+    /* background-color: #2a3647 !important;
+  animation: 500ms ease-in-out 1000ms fadeColorReverse forwards; */
+  }
+
+  .mobileLogoContainer {
+    background-color: #2a3647;
+    text-align: center;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: 500ms ease-in-out 1000ms fadeColorReverse forwards;
+    /* animation: 500ms ease-in-out 1000ms animateJoinLogo forwards; */
+  }
+
+  path.fillPath {
+    animation: 500ms ease-in-out 1000ms fadeColor forwards;
+  }
+
+  .mobileLogoContainer svg {
+    /* animation: 500ms ease-in-out 1000ms animateJoinLogo forwards; */
+  }
+
+  .mobileLogo {
+    display: block;
+    position: absolute;
+    left: 42%;
+    top: 45%;
+    width: 100px;
+    height: 121px;
+    animation: 500ms ease-in-out 1000ms animateJoinLogo forwards;
+  }
+
+  @keyframes animateJoinLogo {
+    from {
+      left: 42%;
+      top: 45%;
+      width: 100px;
+      height: 121px;
+    }
+    to {
+      left: 38px;
+      top: 37px;
+      width: 64px;
+      height: 78px;
+    }
+  }
+
+  @keyframes fadeColor {
+    from {
+      fill: white;
+    }
+    to {
+      fill: #2a3647;
+    }
+  }
+
+  @keyframes fadeColorReverse {
+    from {
+      /* background-color: #2a3647; */
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+      display: none;
+
+      /* background-color: #f6f7f8; */
+    }
+  }
 
   .bodyLogin,
   .footerIndex {

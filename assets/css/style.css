@@ -586,7 +586,7 @@ h1 {
 .taskDesriptionPopup {
   color: black;
   font-size: 20px;
-  height: 72px;
+  max-height: 120px;
   overflow-y: auto;
 }
 

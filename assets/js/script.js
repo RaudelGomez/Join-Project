@@ -204,6 +204,10 @@ function renderHeader(userData) {
  */
 function openHeaderMenu() {
   document.getElementById("headerMenu").classList.toggle("d-none");
+  let backArrow = document.getElementById('backArrow');
+  if (backArrow) {
+    backArrow.setAttribute('z-index','-1');
+  }
 }
 
 /**

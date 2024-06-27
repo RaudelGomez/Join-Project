@@ -2,6 +2,8 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
+  max-height: 200px;
+  overflow-y: auto;
 }
 
 .userBoardPopup {
@@ -72,7 +74,7 @@
 }
 
 .subtasksPopup {
-  height: 72px;
+  max-height: 120px;
   overflow-y: auto;
 }
 

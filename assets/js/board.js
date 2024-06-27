@@ -32,13 +32,13 @@ async function openDialog(template, taskId) {
  */
 function ifAddTaskTemplate() {
   document.getElementById("add_task_form").setAttribute("onsubmit", "addTask(); return false;");
-    document.getElementById("addTaskPopup").classList.remove("d-none");
-    document.getElementById("showTaskPopup").classList.add("d-none");
-    document.getElementById("footer-button-addtask").classList.add("position-relative");
-    document.getElementById("innerDialog").classList.remove("taskPopup");
-    document.getElementById("innerDialog").classList.add("addTaskPopup");
-    document.getElementById("addTaskPopup").classList.add("mobile-version-only");
-    document.getElementById("addTaskPopup").classList.add("desktop-version-only");
+  document.getElementById("addTaskPopup").classList.remove("d-none");
+  document.getElementById("showTaskPopup").classList.add("d-none");
+  document.getElementById("footer-button-addtask").classList.add("position-relative");
+  document.getElementById("innerDialog").classList.remove("taskPopup");
+  document.getElementById("innerDialog").classList.add("addTaskPopup");
+  document.getElementById("addTaskPopup").classList.add("mobile-version-only");
+  document.getElementById("addTaskPopup").classList.add("desktop-version-only");
 }
 
 /**
@@ -47,13 +47,13 @@ function ifAddTaskTemplate() {
  */
 function ifTaskPopTemplate(taskId) {
   document.getElementById("innerDialog").classList.add("taskPopup");
-    document.getElementById("innerDialog").classList.remove("addTaskPopup");
-    dataCurrentTask(taskId);
-    document.getElementById("showTaskPopup").classList.remove("d-none");
-    document.getElementById("addTaskPopup").classList.add("d-none");
-    document.getElementById('title-task-show-task').classList.add('h2-size-edit');
-    document.getElementById('innerDialog').classList.add('editing');
-    renderDataHTMLtaskPopupTemplate();
+  document.getElementById("innerDialog").classList.remove("addTaskPopup");
+  dataCurrentTask(taskId);
+  document.getElementById("showTaskPopup").classList.remove("d-none");
+  document.getElementById("addTaskPopup").classList.add("d-none");
+  document.getElementById("title-task-show-task").classList.add("h2-size-edit");
+  document.getElementById("innerDialog").classList.add("editing");
+  renderDataHTMLtaskPopupTemplate();
 }
 
 /**
@@ -156,7 +156,8 @@ async function renderHTMLBoard(filterTask) {
   let listTaskId = Object.keys(tasks);
   if (filterTask) {
     let filteredTasks;
-    filteredTasks = listTasks.filter((task) =>
+    filteredTasks = listTasks.filter(
+      (task) =>
         task.titleTask.toLowerCase().includes(filterTask) || task.descriptionTask.toLowerCase().includes(filterTask)
     );
     listTasks = filteredTasks;
@@ -173,7 +174,7 @@ async function renderHTMLBoard(filterTask) {
 }
 
 /**
- * This function send a notifications if any task was found 
+ * This function send a notifications if any task was found
  * @param {array} filteredTasks - array of task found
  */
 function alertNoTaskFound(filteredTasks) {
@@ -323,7 +324,16 @@ function renderHTMLTasksBoard(task, i, idContainerSubTask, idContainerUserTask, 
   if (taskDesription.length > 70) {
     taskDesription = taskDesription.substring(0, 70) + "...";
   }
-  return /*html*/ `${templateTaskBoard(task, i, idContainerSubTask, idContainerUserTask, countSubTasksDone, porcentTaskDone, subTasks, taskDesription)}`;
+  return /*html*/ `${templateTaskBoard(
+    task,
+    i,
+    idContainerSubTask,
+    idContainerUserTask,
+    countSubTasksDone,
+    porcentTaskDone,
+    subTasks,
+    taskDesription
+  )}`;
 }
 
 /**
@@ -333,11 +343,11 @@ function renderHTMLTasksBoard(task, i, idContainerSubTask, idContainerUserTask, 
  */
 function showingColumnButOwn(idMenu, status) {
   let menu = document.getElementById(`${idMenu}`);
-  let links = menu.querySelectorAll('p');
+  let links = menu.querySelectorAll("p");
   for (let i = 0; i < links.length; i++) {
     const link = links[i];
-    if(i+1 == status){
-      link.classList.add('d-none');
+    if (i + 1 == status) {
+      link.classList.add("d-none");
     }
   }
 }
@@ -348,10 +358,10 @@ function showingColumnButOwn(idMenu, status) {
  * @param {number} taskId - Id task to move
  */
 async function moveToColumn(status, taskId) {
-  let firebaseURL= `/tasks/${taskId}/status`; 
-    await putData(status, firebaseURL);
-    await loadDataBoard(); 
-    resizeMenuDragMobile();
+  let firebaseURL = `/tasks/${taskId}/status`;
+  await putData(status, firebaseURL);
+  await loadDataBoard();
+  resizeMenuDragMobile();
 }
 
 /**
@@ -360,20 +370,20 @@ async function moveToColumn(status, taskId) {
  */
 function showDragMenuMobile(idMenu, status) {
   showingColumnButOwn(idMenu, status);
-  document.getElementById(`${idMenu}`).classList.toggle('d-none');
-  document.getElementById(`${idMenu}`).classList.toggle('menu-drag-open');
+  document.getElementById(`${idMenu}`).classList.toggle("d-none");
+  document.getElementById(`${idMenu}`).classList.toggle("menu-drag-open");
 }
 
 /**
  * This function close the menu drag & drop when the page is resized
  */
 function resizeMenuDragMobile() {
-  let MenuOpenDrag = document.querySelectorAll('div');
+  let MenuOpenDrag = document.querySelectorAll("div");
   for (let i = 0; i < MenuOpenDrag.length; i++) {
     const menu = MenuOpenDrag[i];
-    if(menu.classList.contains('menu-drag-open')){
-      menu.classList.remove('menu-drag-open');
-      menu.classList.add('d-none');
+    if (menu.classList.contains("menu-drag-open")) {
+      menu.classList.remove("menu-drag-open");
+      menu.classList.add("d-none");
     }
   }
 }
@@ -417,7 +427,7 @@ function renderHTMLUserinTask(task, i, idContainerUserTask) {
   userTaskBoard.innerHTML = "";
   if (task["nameAssignedTask"]) {
     let taskArray = Object.values(task["nameAssignedTask"]);
-    for (let j = 0; j < taskArray.length; j++) {
+    for (let j = 0; j < 4; j++) {
       const userTask = taskArray[j];
       let userColorIndex;
       if (userTask != null) {
@@ -428,6 +438,12 @@ function renderHTMLUserinTask(task, i, idContainerUserTask) {
           <span class="profileSmall" style="background-color: ${userColor}">${initialName}</span>
         `;
       }
+    }
+    let restContacts = taskArray.length - 4;
+    if (restContacts > 0) {
+      userTaskBoard.innerHTML += /*html*/ `
+          <span class="profileSmall" style="background-color: #2a3647">+ ${restContacts}</span>
+        `;
     }
   }
 }
@@ -452,7 +468,7 @@ async function deleteTask(firebaseKey) {
 
 /**
  * This function update a task in data base
- * @param {string} firebaseKey - id Subatask to update 
+ * @param {string} firebaseKey - id Subatask to update
  * @param {number} subtaskId - Index of the subTask in the array in data base
  */
 async function updateSubTask(firebaseKey, subtaskId) {
@@ -536,7 +552,7 @@ function changeFooterEditTask() {
 
 /**
  * This function load subtasks in the Form edit Task
- * @param {*} params 
+ * @param {*} params
  * @returns subtask array
  */
 function loadSubaTaskInForm() {
@@ -584,16 +600,16 @@ function resizeChangeAddTaskMobile() {
  * This function give a class to the addTask form. Like this could be adapt the form in a responsive way when this one will be used to edit
  */
 function addClassForEdit() {
-  let form = document.getElementById('addTaskPopup');
-  form.classList.add('edit-class');
-  document.getElementById('innerDialog').classList.add('overflowYAuto');
+  let form = document.getElementById("addTaskPopup");
+  form.classList.add("edit-class");
+  document.getElementById("innerDialog").classList.add("overflowYAuto");
   document.getElementById("innerDialog").classList.add("edit-innerDialog");
 }
 
 /**
  * This function clean the input search task in board and show all tasks again
  */
-async function cleanSearchInput(){
-  document.getElementById('searchTask').value = "";
+async function cleanSearchInput() {
+  document.getElementById("searchTask").value = "";
   await renderHTMLBoard();
 }

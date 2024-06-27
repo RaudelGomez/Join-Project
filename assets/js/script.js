@@ -129,7 +129,7 @@ function readLoggedInUser() {
     loggedIn = true;
   }
   let page = window.location.href.substring(window.location.href.lastIndexOf("/") + 1);
-  setTimeout(setActiveMenueLinks, 200);
+  setTimeout(setActiveMenueLinks, 400);
 
   if (!loggedIn && protectedPages.includes(page)) {
     location.href = "./index.html";

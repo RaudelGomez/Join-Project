@@ -4,18 +4,6 @@ renderContacts();
 loadData("tasks");
 
 /**
- * Validate mail adress and returns true if valid or false if not
- * @param {*} mail
- * @returns
- */
-function validateEmail(mail) {
-  if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail)) {
-    return true;
-  }
-  return false;
-}
-
-/**
  * Clear Contact form validation messages and borders
  */
 function clearContactForm() {

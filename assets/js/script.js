@@ -319,3 +319,15 @@ async function setColorUser() {
 function stopPropagation(event) {
   event.stopPropagation();
 }
+
+/**
+ * Validate mail adress and returns true if valid or false if not
+ * @param {string} mail
+ * @returns
+ */
+function validateEmail(mail) {
+  if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail)) {
+    return true;
+  }
+  return false;
+}

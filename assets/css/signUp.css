@@ -157,6 +157,13 @@
   height: 35px;
 }
 
+.error-sign-up {
+	color: var(--danger-color);
+	text-align: left;
+	font-size: 12px;
+	margin: 4px;
+}
+
 .smallLinks:hover {
   color: #29abe2;
 }

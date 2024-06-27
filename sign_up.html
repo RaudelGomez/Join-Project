@@ -29,11 +29,15 @@
                     <hr class="HeadlinerLine">
                 </div>
                 <div class="loginInputFields">
-                    <input required type="text" minlength="3" class="emailClass person" id="nameIdSignUp" placeholder="Name" onkeyup="checkAllFieldFull()">
-                    <input required type="email" id="emailIdSignUp" class="emailClass email" placeholder="Email" onkeyup="checkAllFieldFull()">
-                    <input required type="password" minlength="3" class="passwordClass password" id="passwordIdSignUp" placeholder="Password" onkeyup="checkAllFieldFull()">
-                    <input required type="password" minlength="3" class="passwordClass password" id="passwordConfirmIdSignUp"
+                    <input type="text" class="emailClass person" id="nameIdSignUp" placeholder="Name" onkeyup="checkAllFieldFull()">
+                    <div class="error-sign-up"></div>
+                    <input type="text" id="emailIdSignUp" class="emailClass email" placeholder="Email" onkeyup="checkAllFieldFull()">
+                    <div class="error-sign-up"></div>
+                    <input type="password" class="passwordClass password" id="passwordIdSignUp" placeholder="Password" onkeyup="checkAllFieldFull()">
+                    <div class="error-sign-up"></div>
+                    <input type="password" class="passwordClass password" id="passwordConfirmIdSignUp"
                         placeholder="Confirm Password" onkeyup="checkAllFieldFull()">
+                    <div class="error-sign-up"></div>
                 </div>
                 <div class="signUpCheckBox subtasksPopup">
                     <input id="confirmSignUp" type="checkbox" onclick="checkAllFieldFull()" />

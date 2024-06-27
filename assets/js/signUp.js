@@ -23,9 +23,8 @@ function checkAllFieldFull() {
     confirmSignUp != false
   ) {
     document.getElementById("btn-signUp").classList.remove("btn-disabled");
-    
   } else {
-    document.getElementById("btn-signUp").classList.add("btn-disabled");  
+    document.getElementById("btn-signUp").classList.add("btn-disabled");
   }
 }
 
@@ -46,23 +45,28 @@ async function registUser() {
     "password": passwordIdSignUp.value,
     "color": await setColorUser(),
   };
-  if (
-    passwordIdSignUp.value === passwordConfirmIdSignUp.value &&
-    passwordIdSignUp.value != "" &&
-    passwordConfirmIdSignUp.value != ""
-  ) {
-    await addNewUserDataBase(
-      contact,
-      nameIdSignUp,
-      emailIdSignUp,
-      passwordIdSignUp,
-      passwordConfirmIdSignUp,
-      confirmSignUp
-    );
-    await loadData("contacts");
+
+  if (confirmSignUp.checked) {
+    if (
+      passwordIdSignUp.value === passwordConfirmIdSignUp.value &&
+      passwordIdSignUp.value != "" &&
+      passwordConfirmIdSignUp.value != ""
+    ) {
+      await addNewUserDataBase(
+        contact,
+        nameIdSignUp,
+        emailIdSignUp,
+        passwordIdSignUp,
+        passwordConfirmIdSignUp,
+        confirmSignUp
+      );
+      await loadData("contacts");
+    } else {
+      //Show pop up error
+      showAlert("container-signUp-alert", "signUp-alert", "Error", "error-alert", "Password incorrect!");
+    }
   } else {
-    //Show pop up error
-    showAlert("container-signUp-alert", "signUp-alert", "Error", "error-alert", "Password incorrect!");
+    showAlert("container-signUp-alert", "signUp-alert", "Error", "error-alert", "Please accept the Privacy Policy!");
   }
 }
 

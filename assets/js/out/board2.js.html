@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: signUp.js</title>
+    <title>JSDoc: Source: board2.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: signUp.js</h1>
+    <h1 class="page-title">Source: board2.js</h1>
 
     
 
@@ -27,161 +27,230 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>/**
- * That function init the Variables from FireBase
+ * This function assign a color to the headline in the card category board
+ * @param {string} category
+ * @returns The color of the category to show in card Board
  */
-async function init() {
-  await loadData("contacts");
-}
-
-/**
- * This function does the button submit available when every field ared fulled
- */
-function checkAllFieldFull() {
-  let nameIdSignUp = document.getElementById("nameIdSignUp").value;
-  let emailIdSignUp = document.getElementById("emailIdSignUp").value;
-  let passwordIdSignUp = document.getElementById("passwordIdSignUp").value;
-  let passwordConfirmIdSignUp = document.getElementById("passwordConfirmIdSignUp").value;
-  let confirmSignUp = document.getElementById("confirmSignUp").checked;
-  if (
-    nameIdSignUp != "" &amp;&amp;
-    emailIdSignUp !== "" &amp;&amp;
-    passwordIdSignUp !== "" &amp;&amp;
-    passwordConfirmIdSignUp != "" &amp;&amp;
-    passwordConfirmIdSignUp != "" &amp;&amp;
-    confirmSignUp != false
-  ) {
-    document.getElementById("btn-signUp").classList.remove("btn-disabled");
+function categoryColor(category) {
+  if (category == "User story") {
+    return "userStory";
   } else {
-    document.getElementById("btn-signUp").classList.add("btn-disabled");
+    return "technicalTask";
   }
 }
 
 /**
- * This function register a User
+ * This function select the icon of priority.
+ * @param {string} taskPriority
+ * @returns The name of the icon that should be render in the tag &lt;img>
  */
-async function registUser() {
-  let nameIdSignUp = document.getElementById("nameIdSignUp");
-  let emailIdSignUp = document.getElementById("emailIdSignUp");
-  let isEmail = validateEmail(emailIdSignUp.value);
-  let passwordIdSignUp = document.getElementById("passwordIdSignUp");
-  let passwordConfirmIdSignUp = document.getElementById("passwordConfirmIdSignUp");
-  let confirmSignUp = document.getElementById("confirmSignUp");
-  let contact = {
-    "name": nameIdSignUp.value,
-    "email": emailIdSignUp.value,
-    "phone": "",
-    "user": true,
-    "password": passwordIdSignUp.value,
-    "color": await setColorUser(),
-  };
-  removeAllError('nameIdSignUp', 'emailIdSignUp', 'passwordIdSignUp', 'passwordConfirmIdSignUp');
-  if (confirmSignUp.checked) {
-    if (nameIdSignUp.value != "" &amp;&amp; emailIdSignUp.value != "" &amp;&amp; validateEmail(emailIdSignUp.value) &amp;&amp; passwordIdSignUp.value != "" &amp;&amp; passwordConfirmIdSignUp.value != "" &amp;&amp; passwordIdSignUp.value === passwordConfirmIdSignUp.value) {
-      await addNewUserDataBase(contact, nameIdSignUp, emailIdSignUp, passwordIdSignUp, passwordConfirmIdSignUp, confirmSignUp);
-      await loadData("contacts");
-      showAlert("container-signUp-alert", "signUp-alert", "Success", "succes-alert", "The user was added successfully!");
-    } else {
-      areAllFieldFilled('nameIdSignUp', 'emailIdSignUp', 'passwordIdSignUp', 'passwordConfirmIdSignUp', isEmail);
-      if(!checkPassword(passwordIdSignUp.value, passwordConfirmIdSignUp.value)){
-        validationFieldSignUp('passwordConfirmIdSignUp', "Ups! Your password do not match")
+function showingPriorityBoard(taskPriority) {
+  if (taskPriority == "urgent") {
+    return "urgent_high_priority_icon.svg";
+  } else if (taskPriority == "medium") {
+    return "priority_symbols_icon.svg";
+  } else if (taskPriority == "low") {
+    return "urgent_low_priority_icon.svg";
+  }
+}
+
+/**
+ * This function render the HTML of name of pople assigned in a Task
+ * @param {object} task - That is the complete task.
+ * @param {number} i - The index of the task in tasks array
+ * @param {idContainer} idContainerSubTask - idContainer where the user will be render
+ */
+function renderHTMLUserinTask(task, i, idContainerUserTask) {
+  let userTaskBoard = document.getElementById(`${idContainerUserTask}${i}`);
+  userTaskBoard.innerHTML = "";
+  if (task["nameAssignedTask"]) {
+    let taskArray = Object.values(task["nameAssignedTask"]);
+    for (let j = 0; j &lt; 4; j++) {
+      const userTask = taskArray[j];
+      let userColorIndex;
+      if (userTask != null) {
+        userColorIndex = +userTask.colorIndex;
+        const userColor = colors[userColorIndex].color;
+        const initialName = getInitials(userTask.name);
+        userTaskBoard.innerHTML += /*html*/ `
+          &lt;span class="profileSmall" style="background-color: ${userColor}">${initialName}&lt;/span>
+        `;
       }
+    }
+    let restContacts = taskArray.length - 4;
+    if (restContacts > 0) {
+      userTaskBoard.innerHTML += /*html*/ `
+          &lt;span class="profileSmall bg-more-user-task">+ ${restContacts}&lt;/span>
+        `;
     }
   }
 }
 
 /**
- * That function is a condiction to save a person in the Data base/contact
- * @param {object} contact The Person Data
- * @param {*} nameIdSignUp - That is the HTML input=name
- * @param {*} emailIdSignUp - That is the HTML input=email
- * @param {*} passwordIdSignUp - That is the HTML input=password
- * @param {*} passwordConfirmIdSignUp - That is the HTML input=confirmPassword
- * @param {*} confirmSignUp - That is the HTML input=checkbox/confirm term
+ * This function change the type of task. Type of task are: {1:to do}, {2:in progress}, etc..
+ * @param {number} typeTask
  */
-async function addNewUserDataBase(contact, nameIdSignUp, emailIdSignUp, passwordIdSignUp, passwordConfirmIdSignUp, confirmSignUp) {
-    await postData(contact, "contacts");
-    nameIdSignUp.value = "";
-    emailIdSignUp.value = "";
-    passwordIdSignUp.value = "";
-    passwordConfirmIdSignUp.value = "";
-    confirmSignUp.checked = false;
-    setTimeout(() => (location.href = "./index.html"), 2000);
+function changeTypeOfTask(typeTask) {
+  typeOfTask = typeTask;
 }
 
 /**
- * This function add all error message of the page if there is a field that was not filled correctly
- * @param {string} nameIdSignUp - id of the container
- * @param {string} emailIdSignUp - id of the container
- * @param {string} passwordIdSignUp - id of the container
- * @param {string} passwordConfirmIdSignUp - id of the container
- * @param {boolean} isEmail - check if the field email is an email
+ * This function delete a task in the data base
+ * @param {string} firebaseKey - id Task to delete
  */
-function areAllFieldFilled(nameIdSignUp, emailIdSignUp, passwordIdSignUp, passwordConfirmIdSignUp, isEmail) {
-  if(document.getElementById(nameIdSignUp).value == ""){
-    validationFieldSignUp(nameIdSignUp, "This field is required");
-  }
-  if(document.getElementById(emailIdSignUp).value == "" || !isEmail){
-    validationFieldSignUp(emailIdSignUp, "This field is not a email");
-  }
-  if(document.getElementById(passwordIdSignUp).value == ""){
-    validationFieldSignUp(passwordIdSignUp, "This field is required");
-  }
-  if(document.getElementById(passwordConfirmIdSignUp).value == ""){
-    validationFieldSignUp(passwordConfirmIdSignUp, "This field is required");
+async function deleteTask(firebaseKey) {
+  await deleteData("/tasks/" + firebaseKey);
+  loadDataBoard();
+  closeDialog();
+}
+
+/**
+ * This function update a task in data base
+ * @param {string} firebaseKey - id Subatask to update
+ * @param {number} subtaskId - Index of the subTask in the array in data base
+ */
+async function updateSubTask(firebaseKey, subtaskId) {
+  let isChecked = document.getElementById(`subTask${subtaskId}`).checked;
+  let idString = `/tasks/${firebaseKey}/subTasks/${subtaskId}/statusSubTask`;
+  await putData(isChecked, idString);
+  loadDataBoard();
+}
+
+/**
+ * This function fill all Field in the pop. This field are the data of the task that will be edited
+ */
+function editTask() {
+  openDialog("add_task_template.html");
+  updatingEditFormvalue();
+  fillingAssignUserEdit();
+  changePriorityEditTask(`${currentTask.priorityTask}`);
+  editCategorySetNotAvailable();
+  changeFooterEditTask();
+  subTasks = loadSubaTaskInForm();
+}
+
+/**
+ * Thi function filled all contacts in task that will be edited
+ */
+function fillingAssignUserEdit() {
+  //let arrayContact = [];
+  if (currentTask.nameAssignedTask) {
+    for (let i = 0; i &lt; currentTask.nameAssignedTask.length; i++) {
+      const assignedContact = currentTask.nameAssignedTask[i];
+      if (assignedContact != null) {
+        //arrayContact.push(assignedContact);
+        let allContacts = document.getElementById("assigned-task");
+        let allLabel = allContacts.querySelectorAll("label");
+        for (const label of allLabel) {
+          let i = label.dataset.id;
+          if (label.dataset.email == assignedContact.email) {
+            let checkbox = document.getElementById(`checkBoxAssigned${i}`);
+            checkbox.checked = true;
+          }
+        }
+      }
+    }
+    showInitialAssign();
   }
 }
 
 /**
- * This function remove all error message of the page
- * @param {string} nameIdSignUp - id of the container
- * @param {string} emailIdSignUp - id of the container
- * @param {string} passwordIdSignUp - id of the container
- * @param {string} passwordConfirmIdSignUp - id of the container
+ * This function fill some field in edit Form and change the submit function addTask for editTask
  */
-function removeAllError(nameIdSignUp, emailIdSignUp, passwordIdSignUp, passwordConfirmIdSignUp) {
-    removeErrorFieldSignUp(nameIdSignUp)
-    removeErrorFieldSignUp(emailIdSignUp)
-    removeErrorFieldSignUp(passwordIdSignUp)
-    removeErrorFieldSignUp(passwordConfirmIdSignUp)
+function updatingEditFormvalue() {
+  let firstChild = document.getElementById("addTaskPopup").firstElementChild;
+  firstChild.innerHTML = "";
+  document.getElementById("add_task_form").setAttribute("onsubmit", "saveEditedTask(); return false;");
+  document.getElementById("title_task").value = currentTask.titleTask;
+  document.getElementById("description_task").value = currentTask.descriptionTask;
+  document.getElementById("due_date_task").value = currentTask.timeDeadlineTask;
 }
 
 /**
- * This function add one error message of the page
- * @param {string} idCheck - id of the container
- * @param {string} message -  message error to show
+ * This function set the category in edit Task but not allow to edit the category
  */
-function validationFieldSignUp(idCheck, message) {
-  let id = document.getElementById(`${idCheck}`);
-  id.nextElementSibling.textContent = message;
-  id.classList.add('inputRedBorder');
+function editCategorySetNotAvailable() {
+  document.getElementById("option-selected").innerHTML = currentTask.categoryTask;
+  document.getElementById("option-selected").dataset.filled = currentTask.categoryTask.trim();
+  document.getElementById("container-select-option").classList.add("pointer-none");
 }
 
 /**
- * This function remove one error message of the page
- * @param {string} idCheck - id of the container 
+ * This function change the footer edit/add task depend what will be done
  */
-function removeErrorFieldSignUp(idCheck) {
-  let id = document.getElementById(`${idCheck}`);
-  id.nextElementSibling.textContent = "";
-  id.classList.remove('inputRedBorder');
+function changeFooterEditTask() {
+  document.getElementById("btn-clear-add-Task").classList.add("d-none");
+  let footerButtonAddTask = document.getElementById("footer-button-addtask");
+  footerButtonAddTask.firstElementChild.classList.add("d-none");
+  footerButtonAddTask.classList.add("justify-end");
+  let btnCreatetask = document.getElementById("btn-create-task");
+  btnCreatetask.firstElementChild.textContent = "OK";
+  btnCreatetask.classList.add("btn-edit-task");
 }
 
 /**
- * This function check if the 2 password are the same
- * @param {string} password - password
- * @param {string} checkPassword - confirm the first password
- * @returns 
+ * This function load subtasks in the Form edit Task
+ * @param {*} params
+ * @returns subtask array
  */
-function checkPassword(password, checkPassword) {
-  if(password !== checkPassword){
-    return false;
-  }else{
-    return true;
+function loadSubaTaskInForm() {
+  subTasks = currentTask.subTasks;
+  if (subTasks) {
+    showSubTask();
+  } else {
+    subTasks = [];
+  }
+  return subTasks;
+}
+
+/**
+ * This function change the priority of the task
+ * @param {string} idPriorityButton - that is the priority of the task that will be given
+ */
+function changePriorityEditTask(idPriorityButton) {
+  document.getElementById("button-urgent-priority").classList.remove("active");
+  document.getElementById("button-medium-priority").classList.remove("active");
+  document.getElementById("button-low-priority").classList.remove("active");
+  document.getElementById(`button-${idPriorityButton}-priority`).classList.add("active");
+  priorityTask = document.getElementById(`button-${idPriorityButton}-priority`).dataset.prio;
+}
+
+/**
+ * This function search a Task
+ */
+function searchTasks() {
+  let filterTask = document.getElementById("searchTask").value;
+  filterTask = filterTask.toLowerCase();
+  renderHTMLBoard(filterTask);
+}
+
+/**
+ * This function redirect to addTask page in the mobile Version if you are nder 900px and you have the PopUp add task open
+ */
+function resizeChangeAddTaskMobile() {
+  if (window.innerWidth &lt;= 900 &amp;&amp; document.getElementById("addTaskPopup").classList.contains("mobile-version-only")) {
+    document.getElementById("addTaskPopup").classList.add("d-none");
+    location.href = "./add_task.html";
   }
 }
 
+/**
+ * This function give a class to the addTask form. Like this could be adapt the form in a responsive way when this one will be used to edit
+ */
+function addClassForEdit() {
+  let form = document.getElementById("addTaskPopup");
+  form.classList.add("edit-class");
+  document.getElementById("innerDialog").classList.add("overflowYAuto");
+  document.getElementById("innerDialog").classList.add("edit-innerDialog");
+}
 
-
+/**
+ * This function clean the input search task in board and show all tasks again
+ */
+async function cleanSearchInput() {
+  document.getElementById("searchTask").value = "";
+  await renderHTMLBoard();
+}
 </code></pre>
         </article>
     </section>

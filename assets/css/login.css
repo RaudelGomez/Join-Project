@@ -250,14 +250,8 @@ input::placeholder {
     display: none !important;
   }
 
-  body {
-    /* background-color: #2a3647 !important;
-  animation: 500ms ease-in-out 1000ms fadeColorReverse forwards; */
-  }
-
   .mobileLogoContainer {
     background-color: #2a3647;
-    text-align: center;
     position: absolute;
     width: 100vw;
     height: 100vh;
@@ -265,19 +259,12 @@ input::placeholder {
     right: 0;
     top: 0;
     bottom: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: block;  
     animation: 500ms ease-in-out 1000ms fadeColorReverse forwards;
-    /* animation: 500ms ease-in-out 1000ms animateJoinLogo forwards; */
   }
 
-  path.fillPath {
+  .fillPath {
     animation: 500ms ease-in-out 1000ms fadeColor forwards;
-  }
-
-  .mobileLogoContainer svg {
-    /* animation: 500ms ease-in-out 1000ms animateJoinLogo forwards; */
   }
 
   .mobileLogo {
@@ -316,14 +303,11 @@ input::placeholder {
 
   @keyframes fadeColorReverse {
     from {
-      /* background-color: #2a3647; */
       opacity: 1;
     }
     to {
       opacity: 0;
       display: none;
-
-      /* background-color: #f6f7f8; */
     }
   }
 

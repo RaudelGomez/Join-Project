@@ -221,5 +221,6 @@ function addClassForEdit() {
  */
 async function cleanSearchInput() {
   document.getElementById("searchTask").value = "";
+  document.getElementById('container-boardNoResult-alert').textContent = ""
   await renderHTMLBoard();
 }

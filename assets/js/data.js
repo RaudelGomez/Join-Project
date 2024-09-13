@@ -1,7 +1,7 @@
 /**
  * Base URL of project
  */
-const BASE_URL = "https://join-2-75316-default-rtdb.europe-west1.firebasedatabase.app/";
+const BASE_URL = "https://join-9fc1f-default-rtdb.europe-west1.firebasedatabase.app/";
 /**
  * This variable is used to lnow if the user is logged
  */
